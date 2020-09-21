@@ -1,2 +1,6 @@
 /node_modules
 /build
+
+/Backend/node_modules
+
+/Backend/.env
