@@ -1,0 +1,165 @@
+
+$PageColor: rgb(51, 162, 203);
+
+@mixin alignCenter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.HomePage{
+    
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 55%;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "LeftBox RightBox";
+
+    .LeftBox{
+        grid-area: LeftBox;
+        position: relative;
+        // background: lightcoral;
+        @include alignCenter();
+        flex-direction: column;
+        justify-content: flex-end;
+
+        h1{
+            font-family: 'Dancing Script', cursive;
+            // font-family: 'Julius Sans One', sans-serif;
+            // font-family: 'Monoton', cursive;
+            // font-family: 'Press Start 2P', cursive;
+            // font-family: 'Righteous', cursive;
+            padding: 5%;
+            font-size: calc(1em + 8vw);
+            text-shadow: 0px 10px 15px $PageColor;
+        }
+
+        p{
+            text-align: center;
+            padding: 0px 50px;
+            // font-family: 'Dancing Script', cursive;
+            // font-family: 'Julius Sans One', sans-serif;
+            // font-family: 'Monoton', cursive;
+            font-family: 'Press Start 2P', cursive;
+            // font-family: 'Righteous', cursive;
+            font-size: calc(1em + 1vw);
+        }
+
+        .price{
+            position: relative;
+            @include alignCenter();
+
+            .p{
+                position: relative;
+                font-size: calc(1em + 2.5vw);
+            }
+
+            .line{
+                position: absolute;
+                height: 4px;
+                background-color: $PageColor;
+                width: 80%;
+                bottom: -5px;
+            }
+        }
+
+        .BrainBox{
+            
+            height: auto;
+            width: 70%;
+            margin-bottom: 50px;
+
+            #eye{
+                position: absolute;
+                transform: translateX(20px);
+            }
+
+            img, svg{
+                // background-color: lightgrey;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }   
+    .RightBox{
+        grid-area: RightBox;
+        position: relative;
+        // background: lightgreen;
+        font-size: 15px;
+
+        @include alignCenter();
+        flex-direction: column;
+
+        .LettersBox{
+            position: relative;
+            width: 100%;
+            height: 400px;
+            // background: black;
+
+            @include alignCenter();
+            flex-direction: column;
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+
+            div{
+                position: relative;
+                @include alignCenter();
+                // background-color: lightgreen;
+                width: 90%;
+                height: 25%;
+                overflow: hidden;
+
+                h1{
+                    font-size: calc(.5em + 2vw);
+                }
+            }
+
+        }
+        .CreateButton{
+            // width: 100px;
+            // height: 50px;
+            padding: 30px 50px;
+            background: $PageColor;
+            border: 0px solid transparent;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px $PageColor;
+            margin-bottom: 90px;
+            font-size: calc(1em + .2vw);
+            font-family: 'Press Start 2P', cursive;
+            cursor: pointer;
+        }
+    }
+
+}
+
+
+@media (max-width: 1100px){
+
+    .HomePage{
+
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "LeftBox"
+        "RightBox";
+
+        .LeftBox{
+            h1{
+                font-size: 70px;
+            }
+        }
+
+        .RightBox{
+            margin-bottom: 50px;
+
+            .CreateButton{
+                padding: 20px 10px
+            }
+        }
+    }
+
+}

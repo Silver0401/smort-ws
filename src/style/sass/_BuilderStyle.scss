@@ -1,0 +1,258 @@
+
+$PageColor: rgb(51, 162, 203);
+$BackgroundColor: rgb(31, 28, 28);
+
+@mixin alignCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateBall{
+    0%{
+        transform: rotate(40deg);
+    }
+    100%{
+        transform: rotate(400deg);
+    }
+}
+
+.BuilderPage{
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    
+    .Stage1{
+        z-index: 0;
+        position: absolute;
+        justify-content: center;
+        @include alignCenter();
+        width: 100%;
+        height: 100%;
+        
+        h1{
+            position: relative;
+            // padding: 20px 40px;
+            // padding-bottom: 100px;
+            font-size: calc(1.2em + 3vw);
+            letter-spacing: 3px;
+            // font-family: 'Dancing Script', cursive;
+            // font-family: 'Julius Sans One', sans-serif;
+            // font-family: 'Monoton', cursive;
+            // font-family: 'Press Start 2P', cursive;
+            font-family: 'Righteous', cursive;    
+        }
+    
+        .Options{
+            position: relative;
+            width: 95%;
+            height: 75%;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 50px;
+            border: 5px solid white;
+            overflow: scroll;
+            background: linear-gradient(to bottom, rgba(31, 28, 28, 0.44), rgba(51, 162, 203, 0.500) );
+
+            .opt{
+                // font-family: 'Dancing Script', cursive;
+                // font-family: 'Julius Sans One', sans-serif;
+                // font-family: 'Monoton', cursive;
+                // font-family: 'Press Start 2P', cursive;
+                // font-family: 'Righteous', cursive;
+                
+                // @include alignCenter();
+                position: relative;
+
+                flex-basis: calc(calc(1200px - 100%) * 999);
+                flex-shrink: 1;
+                flex-grow: 1;
+                min-height: 300px;
+                // height: 300px;
+                border: 1px solid white;
+                // height: 500px;
+                text-align: center;
+                overflow: hidden;
+                transition: transform 1s;
+                // background-color: lightcyan;
+
+                .CardFront{
+        
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    @include alignCenter();
+                    justify-content: center;
+                    transition: opacity 1s;
+    
+                    .numberBox{
+                        position: absolute;
+                        width: 25px;
+                        height: 25px;
+                        border-bottom: 1px solid white;
+                        top: 20px;
+                        left: 30px;
+                        font-family: 'Press Start 2P', cursive;
+    
+                        p{
+                            color: white;
+                        }
+                    }
+    
+                    .imgContainer{
+    
+                        width: 100px;
+                        height: 100px;
+                        margin-top: 25px;
+    
+                        position: relative;
+                        @include alignCenter();
+                        border-radius: 50%;
+                        border: 1px solid grey;
+                        
+                        img{
+                            width: 65%;
+                            height: 65%;
+                        }
+    
+                        .ball{
+                            position: absolute;
+                            left: 50%;
+                            width: 50%;
+                            height: 5px;
+                            background-color: transparent;
+                            transform-origin: left;
+    
+                            animation: rotateBall 5s linear infinite;
+                        }
+    
+                        .ball::before{
+                            content: "";
+                            position: absolute;
+                            width: 10px;
+                            height: 10px;
+                            background-color: white;
+                            border-radius: 50%;
+                            box-shadow: 0px 0px 10px white;
+                            top: -2px;
+                            right: -5px;
+                        }
+    
+                    }
+    
+                    .imgContainer::before{
+                        content: "";
+                        position: absolute;
+                        top: 0%;
+                        // left: 0%;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        background-color: transparent;
+                        border-top: 1px solid white;
+                        border-right: 1px solid white;
+                        border-left: 1px solid transparent;
+                        border-bottom: 1px solid transparent;
+                        animation: rotate 5s linear infinite;
+                        // box-shadow-bo: 0px 0px 10px white;
+                    }
+    
+                    .TitleBox{
+                        position: relative;
+                        margin-bottom: 25px;
+                        width: 90%;
+    
+                        h2{
+                            font-size: calc(.5rem + 1.2vw);
+                            padding-top: 20px;
+                            border-bottom: 0px solid $BackgroundColor;
+                            transition: border-bottom 500ms;
+                        }
+    
+                        h4{
+                            padding: 0px 20%;
+                            text-align: center;
+                            font-family: 'Righteous', cursive;
+                        }
+                    }
+                }
+
+                .CardBack{
+
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    @include alignCenter();
+                    transition: opacity 500ms;
+                    transform: rotateY(180deg);
+                    
+                    p{
+
+                        position: relative;
+                        font-family: 'Righteous', cursive;
+                        font-size: calc(.8em + .7vw);
+                        padding: 20px 20px;
+                        text-align: center;
+                        
+                    }
+
+                    button{
+                        padding: 20px;
+                        border-radius: 50px;
+                        box-shadow: 0px 0px 20px black;
+                        transition: background-color 500ms, color 500ms;
+                        font-family: 'Press Start 2P', cursive;
+                        cursor: pointer;
+
+
+                        &:hover{
+                            background-color: black;
+                            color: white;
+                            transition: background-color 500ms, color 500ms;
+                        }
+                    }
+                }
+            }
+
+
+            .optFlipped{
+                @extend .opt;
+                transform: rotateY(180deg);
+            }   
+        }
+    }
+
+    .Stage2{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        opacity: 1;
+        color: white;
+        z-index: 1;
+        visibility: hidden;
+        @include alignCenter();
+        justify-content: start;
+
+        .Stage2Box{
+
+            margin-top: 40px;
+            position: absolute;
+            height: 0px;
+            width: 95%;
+            border-radius: 50px;
+            border: 5px solid white;
+        }
+    }
+}
