@@ -1,16 +1,13 @@
 import React from "react";
 import anime from "animejs";
 
-// Components
-import MainSection from "./../SubComponents/ChooseMain";
-
-
 const BuilderStage2 = (props) => {
 
     let stateChecker = false
 
     if (props.chosenSite !== "none"){
       stateChecker = true
+      
 
       anime({
         targets:".Stage2Box",
@@ -19,6 +16,11 @@ const BuilderStage2 = (props) => {
         delay: 0,
         duration: 1000
       })
+
+      // setTimeout(() => {
+      //   window.location = "/PageBuilder/Root"
+      // }, 1200)
+
     }
 
     return (
@@ -26,16 +28,7 @@ const BuilderStage2 = (props) => {
         style={stateChecker ? { visibility: "visible" } : { visibility: "hidden" }}
         className="Stage2"
       >
-        <div className="Stage2Box">
-        
-          <span className="Header"></span>
-          
-          <MainSection/>
-
-
-          <span className="Footer"></span>
-
-        </div>
+        <div className="Stage2Box"></div>
 
       </div>
     );

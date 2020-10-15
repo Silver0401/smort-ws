@@ -221,7 +221,7 @@ const HomePage = () => {
               <h1 className="text3">!Consigue el tuyo ahora!</h1>
             </div>
           </div>
-          <button onClick={() => window.location = "/PageBuilder"} className="CreateButton">Conseguir mi sitio</button>
+          <button onClick={() => window.location = "/PageBuilder/Init"} className="CreateButton">Conseguir mi sitio</button>
         </div>
       </div>
     );

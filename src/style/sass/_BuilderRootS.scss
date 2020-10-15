@@ -1,0 +1,936 @@
+:root{
+    --ChosenColor1: #000000;
+    --ChosenColor2: #ffffff;
+}
+
+// SubComponents
+// @import "./SubCStyles/ChooseMain";
+// @import "./SubCStyles/ChooseButtons";
+// @import "./SubCStyles/ChooseFont";
+// @import "./SubCStyles/ChooseNav";
+// @import "./SubCStyles/ChooseStyle";
+
+$PageColor: rgb(51, 162, 203);
+$BackgroundColor: rgb(31, 28, 28);
+
+
+@mixin alignCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@keyframes PageFadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes LiquidAnim {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+
+    }
+}
+
+@keyframes BorderAnimLeftRight {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+@keyframes BorderAnimTopBottom {
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(100%);
+    }
+}
+@keyframes BorderAnimRightLeft {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+@keyframes BorderAnimBottomTop {
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes GradientAnim{
+    0%{
+        background-position-x: 0%;
+    }
+    100%{
+        background-position-x: 400%;
+    }
+}
+
+.RootPage{
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: white;
+    z-index: 1;
+    @include alignCenter();
+    justify-content: flex-start;
+    
+    .RootBox{
+        
+        @include alignCenter();
+        margin-top: 40px;
+        position: absolute;
+        height: 90%;
+        width: 95%;
+        border-radius: 50px;
+        border: 5px solid white;
+        overflow: hidden;
+        
+        .BuilderBox{
+            background: linear-gradient(to top, rgba(31, 28, 28, 0.44), rgba(51, 162, 203, 0.500) );
+            overflow: hidden;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            animation: PageFadeIn 1s linear both;
+
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 150px 1fr 120px;
+            grid-template-areas: 
+            "Header"
+            "Display"
+            "Footer";
+
+
+            .Header{
+                grid-area: Header;
+                // background-color: lightcoral;
+                @include alignCenter();
+                flex-direction: row;
+
+                .ColorsBox{
+
+                    width: 220px;
+                    height: 50%;
+                    @include alignCenter();
+                    flex-direction: row;
+                    justify-content: space-around;
+
+                    .Colors{
+                        position: relative;
+                        width: 150px;
+                        height: 100%;
+                        border-radius: 20px;
+                        border: 3px solid white;
+                        @include alignCenter();
+                        flex-direction: row;
+
+                        input{
+                            width: 35px;
+                            height: 35px;
+                            border: 0px solid white;
+                        }
+                    }
+
+                    p{
+                        position: relative;
+                        width: 45px;
+                        text-align: center;
+                        font-family: 'Righteous', cursive;
+                    }
+                }
+
+
+                h1{
+                    // font-family: 'Righteous', cursive;
+                    // font-family: 'Courgette', cursive;
+                    font-family: 'MuseoModerno', cursive;
+                    // letter-spacing: 3px;
+                    font-size: calc(1.5rem + 1.5vw);
+                    text-align: center;
+                    color: white;
+                    text-shadow: 2px 2px 2px black;
+                }
+            }
+
+            .Display{
+                grid-area: Display;
+                overflow: auto;
+                border-radius: 20px;
+                // background-color: lightskyblue;
+
+                .Section{
+                    margin: 0px auto;
+                    width: 85%;
+                    height: 100%;
+                    overflow: auto;
+
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    // display: grid;
+                    // background-color: lightseagreen;
+                    // grid-template-columns: repeat(auto-fit, 250px);
+
+                    .Box{
+                        position: relative;
+                        // float: left;
+                        // margin: 10px;
+                        // width: 260px;
+                        border-radius: 20px;
+                        background-color: $BackgroundColor;
+                        border: 2px solid black;
+                        min-height: 200px;
+                        min-width: 300px;
+                        overflow: hidden;
+                        // margin: 10px;
+                        @include alignCenter();
+
+                        // flex-basis: calc(calc(1200px - 100%) * 999);
+                        flex-shrink: 1;
+                        flex-grow: 1;
+
+                        .Item{
+                            position: relative;
+                            border-radius: 20px;
+                            // background-color: white;
+                            border: 4px solid black;
+                            width: 90%;
+                            height: 70%;
+                            overflow: hidden;
+                            @include alignCenter();
+
+                            a{
+                                position: relative;
+                                padding: 1rem 1.5rem;
+                                background-color: lightslategray;
+                                color: white;
+                                font-size: 1.5rem;
+                                border-radius: 10px;
+                                font-family: 'MuseoModerno', cursive;
+                                cursor: pointer;
+                                text-decoration: none;
+
+                                p{
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+
+                            .DLine-Button{
+                                background-color: transparent;
+                                color: var(--ChosenColor1);
+
+                                &:hover{
+                                    p::before{
+                                        width: 100%;
+                                        transition: width 500ms;
+                                    }   
+                                }
+                                
+                                p::before{
+                                    content: "";
+                                    position: absolute;
+                                    bottom: 0%;
+                                    left: 0%;
+                                    background-color: var(--ChosenColor2);
+                                    width: 0%;;
+                                    height: 3px;
+                                    transition: width 500ms;
+                                }
+                            }
+
+                            .Inverted-Button{
+                                background-color: var(--ChosenColor1);
+                                color: var(--ChosenColor2);
+                                transition: background-color 500ms, color 500ms;
+                                
+                                &:hover{
+                                    background-color: var(--ChosenColor2);
+                                    color: var(--ChosenColor1);
+                                    transition: background-color 500ms, color 500ms;
+                                }
+                            }
+
+                            .Glow-Button{
+                                background-color: var(--ChosenColor1);
+                                color: var(--ChosenColor2);
+                                transition: box-shadow 500ms;
+
+                                &:hover{
+                                    transition: box-shadow 500ms;
+                                    box-shadow: 0px 0px 20px var(--ChosenColor1);
+                                }
+                            }
+
+                            .FlipX-Button{
+                                background-color: transparent;
+                                color: transparent;
+                                
+                                p::after{
+                                    content: "Click Me";
+                                    color: var(--ChosenColor2);
+                                    top: 0%;
+                                    left: 0%;
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 10px;
+                                    background-color: var(--ChosenColor1);
+                                    @include alignCenter();
+                                    
+                                    transform: rotateX(0deg);
+                                    transition: transform 1s;
+                                }
+                                
+                                &:hover{
+
+                                    p::after{
+                                        transform: rotateX(180deg);
+                                        transition: transform 1s;
+                                    }
+                                }
+
+                            }
+
+                            .FlipY-Button{
+
+                                background-color: transparent;
+                                color: transparent;
+                                
+                                p::after{
+                                    content: "Click Me";
+                                    color: var(--ChosenColor2);
+                                    top: 0%;
+                                    left: 0%;
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 10px;
+                                    background-color: var(--ChosenColor1);
+                                    @include alignCenter();
+                                    
+                                    transform: rotateY(0deg);
+                                    transition: transform 1s;
+                                }
+                                
+                                &:hover{
+
+                                    p::after{
+                                        transform: rotateY(180deg);
+                                        transition: transform 1s;
+                                    }
+                                }
+                            }
+
+                            .FlipZ-Button{
+
+                                background-color: transparent;
+                                color: transparent;
+                                
+                                p::after{
+                                    content: "Click Me";
+                                    color: var(--ChosenColor2);
+                                    top: 0%;
+                                    left: 0%;
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 10px;
+                                    background-color: var(--ChosenColor1);
+                                    @include alignCenter();
+                                    
+                                    transform: rotateZ(0deg);
+                                    transition: transform 1s;
+                                }
+                                
+                                &:hover{
+
+                                    p::after{
+                                        transform: rotateZ(180deg);
+                                        transition: transform 1s;
+                                    }
+                                }                                
+
+                            }
+
+                            .Neon-Button{
+                                background-color: transparent;
+                                color: var(--ChosenColor2);
+                                box-shadow: 0px 0px 10px var(--ChosenColor2);
+                                text-shadow: 0px 0px 3px var(--ChosenColor2);
+                                border: 4px solid var(--ChosenColor2);
+                                transition: border 500ms, background-color 500ms, box-shadow 500ms, text-shadow 500ms;
+                                
+                                &:hover{
+                                    background-color: var(--ChosenColor2);
+                                    color: var(--ChosenColor1);
+                                    text-shadow: 0px 0px 5px var(--ChosenColor1);
+                                    box-shadow: 0px 0px 20px var(--ChosenColor2);
+                                    transition: border 500ms, background-color 500ms, box-shadow 500ms, text-shadow 500ms;
+                                }
+                            }
+
+                            .Liquid-Button{
+
+                                // overflow: none;
+                                border: 2px solid var(--ChosenColor2);
+                                overflow: hidden;
+                                background-color: var(--ChosenColor2);
+                                color: var(--ChosenColor2);
+                                transition: color 500ms;
+                                
+                                p{z-index: 1; position: relative}
+
+                                .liquid{
+                                    z-index: 0;
+                                    position: absolute;
+                                    margin: 0px auto;
+                                    left: -65%;
+                                    bottom: 55%;
+                                    transform: translateY(1%);
+
+                                    width: 400px;
+                                    height: 400px;
+                                    background-color: transparent;
+                                    transition: transform 500ms;
+                                }
+                                
+                                .liquid::before{
+                                    content: "";
+                                    position: absolute;
+                                    border-radius: 40%;
+                                    width: 400px;
+                                    height: 400px;
+                                    animation: LiquidAnim 5s linear infinite;
+                                    background: var(--ChosenColor1);
+                                    left: 0%;
+                                    bottom: 0%;
+                                }
+                                
+                                &:hover{
+                                    .liquid{
+                                        transform: translateY(-20%);
+                                        transition: transform 500ms;
+                                    }
+
+                                    transition: color 500ms;
+                                    color: var(--ChosenColor1);
+                                }
+                            }
+
+                            .ULine-Button{
+
+                                background-color: transparent;
+                                color: var(--ChosenColor1);
+
+                                &:hover{
+                                    p::before{
+                                        width: 100%;
+                                        transition: width 500ms;
+                                    }   
+                                }
+                                
+                                p::before{
+                                    content: "";
+                                    position: absolute;
+                                    top: 0%;
+                                    left: 0%;
+                                    background-color: var(--ChosenColor2);
+                                    width: 0%;;
+                                    height: 3px;
+                                    transition: width 500ms;
+                                }
+                            }
+
+                            .Border-Button{
+                                background-color: transparent;
+                                color: var(--ChosenColor2);
+
+
+                                p::before{
+                                    content: "";
+                                    position: absolute;
+                                    height: 3px;
+                                    width: 0%;
+                                    bottom: 0%;
+                                    left: 0%;
+                                    background-color: var(--ChosenColor1);
+                                    transition: width 500ms;
+                                }
+                                
+                                p::after{
+                                    content: "";
+                                    position: absolute;
+                                    height: 0%;
+                                    width: 3px;
+                                    bottom: 0%;
+                                    left: 0%;
+                                    background-color: var(--ChosenColor1);
+                                    transition: height 500ms;
+                                }
+
+                                .liquid::before{
+                                    content: "";
+                                    position: absolute;
+                                    height: 0%;
+                                    width: 3px;
+                                    top: 0%;
+                                    right: 0%;
+                                    background-color: var(--ChosenColor1);
+                                    transition: height 500ms;
+                                }
+
+                                .liquid::after{
+                                    content: "";
+                                    position: absolute;
+                                    width: 0%;
+                                    height: 3px;
+                                    top: 0%;
+                                    right: 0%;
+                                    background-color: var(--ChosenColor1);
+                                    transition: width 500ms;
+                                }
+
+                                &:hover{
+
+                                    p::before{
+                                        
+                                        width: 100%;
+                                        transition: width 500ms;
+                                    }
+                                    p::after{
+                                    
+                                        height: 100%;
+                                        transition: height 500ms;
+                                    }
+
+                                    .liquid::after{
+
+                                        width: 100%;
+                                        transition: width 500ms;
+                                    }
+
+                                    .liquid::before{
+
+                                        height: 100%;
+                                        transition: height 500ms;
+                                    }
+
+                                }
+
+                            }
+
+                            .BorderFill-Button{
+                                background-color: transparent;
+                                color: var(--ChosenColor1);
+                                transition: background-color 300ms;
+                                // transition-delay: 5s;
+
+                                p::before{
+                                    content: "";
+                                    position: absolute;
+                                    height: 3px;
+                                    width: 0%;
+                                    top: 0%;
+                                    left: 0%;
+                                    background-color: var(--ChosenColor1);
+                                    transition: width 500ms;
+                                }
+                                
+                                p::after{
+                                    content: "";
+                                    position: absolute;
+                                    height: 0%;
+                                    width: 3px;
+                                    top: 0%;
+                                    left: 0%;
+                                    background-color: var(--ChosenColor1);
+                                    transition: height 500ms;
+                                }
+
+                                .liquid::before{
+                                    content: "";
+                                    position: absolute;
+                                    height: 0%;
+                                    width: 3px;
+                                    bottom: 0%;
+                                    right: 0%;
+                                    background-color: var(--ChosenColor1);
+                                    transition: height 500ms;
+                                }
+
+                                .liquid::after{
+                                    content: "";
+                                    position: absolute;
+                                    width: 0%;
+                                    height: 3px;
+                                    bottom: 0%;
+                                    right: 0%;
+                                    background-color: var(--ChosenColor1);
+                                    transition: width 500ms;
+                                }
+
+                                &:hover{
+
+                                    background-color: var(--ChosenColor2);
+                                    transition: background-color 500ms;
+                                    transition-delay: 400ms;
+                                    
+
+                                    p::before{
+                                        
+                                        width: 100%;
+                                        transition: width 500ms;
+                                    }
+                                    p::after{
+                                    
+                                        height: 100%;
+                                        transition: height 500ms;
+                                    }
+
+                                    .liquid::after{
+
+                                        width: 100%;
+                                        transition: width 500ms;
+                                    }
+
+                                    .liquid::before{
+
+                                        height: 100%;
+                                        transition: height 500ms;
+                                    }
+
+                                }
+
+                            }
+
+                            .Loading-Button{
+                                background-color: var(--ChosenColor2);
+                                color: var(--ChosenColor1);
+                                transition: background-color 500ms, color 500ms;
+                                // transition: background-color 300ms;
+                                // transition-delay: 5s;
+                                overflow: hidden;
+
+                                p::before{
+                                    content: "";
+                                    position: absolute;
+                                    height: 8px;
+                                    width: 100%;
+                                    top: 0%;
+                                    left: 0%;
+                                    background: linear-gradient(to right, var(--ChosenColor2), var(--ChosenColor1));
+                                    animation: BorderAnimLeftRight 2s linear 0ms infinite;
+                                    
+                                }
+                                
+                                p::after{
+                                    content: "";
+                                    position: absolute;
+                                    height: 100%;
+                                    width: 8px;
+                                    top: 0%;
+                                    left: 0%;
+                                    background: linear-gradient(to top, var(--ChosenColor2), var(--ChosenColor1));
+                                    transition: height 500ms;
+                                    animation: BorderAnimBottomTop 2s linear 3s infinite;
+                                }
+
+                                .liquid::before{
+                                    content: "";
+                                    position: absolute;
+                                    height: 100%;
+                                    width: 8px;
+                                    bottom: 0%;
+                                    right: 0%;
+                                    background: linear-gradient(to bottom, var(--ChosenColor2), var(--ChosenColor1));
+                                    transition: height 500ms;
+                                    animation: BorderAnimTopBottom 2s linear 1s infinite;
+                                }
+
+                                .liquid::after{
+                                    content: "";
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 8px;
+                                    bottom: 0%;
+                                    right: 0%;
+                                    background: linear-gradient(to left, var(--ChosenColor2), var(--ChosenColor1));
+                                    transition: width 500ms;
+                                    animation: BorderAnimRightLeft 2s linear 2s infinite;
+                                }
+                                
+                                &:hover{
+                                    background-color: var(--ChosenColor1);
+                                    color: var(--ChosenColor2);
+                                    transition: background-color 500ms, color 500ms;
+                                }
+
+                            }
+
+                            .Gradient-Button{
+                                color: black;
+                                background: linear-gradient(90deg, var(--ChosenColor1), var(--ChosenColor2), var(--ChosenColor2),var(--ChosenColor1));
+                                background-size: 500%;
+                                // border: 4px solid black;
+
+                                &:hover{
+
+                                    animation: GradientAnim 3s linear infinite;
+                                }
+                                
+                            }
+
+                            .BoxFlip-Button{
+
+                                color: transparent;
+                                background-color: transparent;
+
+                                p::before{
+
+                                    background-color: var(--ChosenColor1);
+                                    color: var(--ChosenColor2);
+                                    border: 3px solid var(--ChosenColor2);
+                                    content: "Click Me";
+                                    @include alignCenter();
+                                    border-radius: 0%;
+
+                                    width: 100%;
+                                    height: 100%;
+                                    position: absolute;
+                                    top: 0%;
+                                    left: 0%;
+
+                                    transform-origin: right;
+                                    transform: translateY(0deg);
+                                    transition: transform 1s;
+
+                                }
+                                
+                                p::after{
+                                    background-color: var(--ChosenColor2);
+                                    color: var(--ChosenColor1);
+                                    border: 3px solid var(--ChosenColor1);
+
+                                    @include alignCenter();
+                                    content: "Click Me";
+                                    width: 100%;
+                                    height: 100%;
+                                    position: absolute;
+                                    top: 0%;
+                                    left: 0%;
+                                    transform: translateX(100%) rotateY(90deg);
+                                    transition: transform 1s;
+                                    transform-origin: left;
+                                }
+
+                                &:hover{
+
+                                    p::before{
+                                        transform: translateX(-100%) rotateY(90deg);
+                                        transition: transform 1s;
+                                    }
+
+                                    p::after{
+                                        transform: rotateY(0deg);
+                                        transition: transform 1s;
+                                    }
+                                }
+                            }
+
+                            .Hidden-Button{
+                                background-color: var(--ChosenColor2);
+                                color: var(--ChosenColor1);
+                                
+                                p::before{
+                                    position: absolute;
+                                    content: "";
+                                    top:0%;
+                                    right:0%;
+                                    overflow: hidden;
+                                    background-color: var(--ChosenColor1);
+                                    border-top-right-radius: 8px;
+                                    border-bottom-right-radius: 8px;
+
+
+                                    width: 50%;
+                                    height: 100%;
+                                    @include alignCenter(); 
+                                    
+                                    // background-color: $var(--ChosenColor1);
+                                    
+                                    // transform: translateX(100%);
+                                    transition: width 1s;
+                                }
+
+                                p::after{
+                                    position: absolute;
+                                    content: "";
+                                    top:0%;
+                                    left:0%;
+                                    overflow: hidden;
+                                    background-color: var(--ChosenColor1);
+                                    border-top-left-radius: 8px;
+                                    border-bottom-left-radius: 8px;
+
+
+                                    width: 50%;
+                                    height: 100%;
+                                    @include alignCenter(); 
+                                    
+                                    // background-color: $BackgroundColor;
+                                    
+                                    // transform: translateX(-100%);
+                                    transition: width 1s;
+                                }
+
+                                .liquid::before{
+                                    @include alignCenter();
+                                    content: "Click Me";
+                                    position: absolute;
+                                    top:0%;
+                                    left: 0%;
+                                    width: 100%;
+                                    height: 100%;
+                                    // background-color: blue;
+
+                                    color: var(--ChosenColor2);
+                                    transition: color 1s;
+                                }
+
+                                &:hover{
+
+                                    p::before{
+                                        // transform: translateX(50%);
+                                        width: 0%;
+                                        transition: width 1s;
+
+                                    }
+
+                                    p::after{
+                                        // transform: translateX(-50%);
+                                        width: 0%;
+                                        transition: width 1s;
+                                    }
+                                    
+                                    .liquid:before{
+                                        color: transparent;
+                                        transition: color 1s;
+                                    }
+                                }
+                            }
+
+                        }
+
+                        .Info{
+
+                            background-color: black;
+                            width: 100%;
+                            height: 20%;
+                            @include alignCenter();
+                            flex-direction: row;
+
+                            p{
+                                font-family: 'MuseoModerno', cursive;
+                                color: white;
+                                text-align: center;
+                            }
+
+                            .ChooseButton{
+                                position: relative;
+                                padding: 5px 15px;
+                                border-radius: 200px;
+                                color: white;
+                                font-family: 'MuseoModerno', cursive;
+                                background-color: $BackgroundColor;
+                                transition: background-color 500ms, color 500ms;
+                                
+                                &:hover{
+                                    background-color: white;
+                                    color: $BackgroundColor;
+                                    transition: background-color 500ms, color 500ms;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            .Footer{
+                grid-area: Footer;
+                // border-top: 1px solid lightslategrey;
+                // background-color: lightseagreen;
+
+                @include alignCenter();
+                flex-direction: row;
+                justify-content: space-around;
+
+                .Line{
+                    position: absolute;
+                    width: 75%;
+                    height: 3px;
+                    background-color: grey;
+                    margin-bottom: 2.8%;
+                    z-index: -1;
+                }
+
+                .OffStage{
+
+                    position: relative;
+                    z-index: 0;
+                    width: 10%;
+                    height: 80%;
+                    @include alignCenter();
+
+                    span{
+                        width: 20px;
+                        height: 20px;
+                        background-color: $BackgroundColor;
+                        border: 3px solid white;
+                        border-radius: 50%;
+                        transition: background-color 500ms;
+                        box-shadow: 0px 0px 5px white;
+                    }
+
+                    p{
+                        // font-family: 'Righteous', cursive;
+                        font-family: 'MuseoModerno', cursive;
+                        text-align: center;
+                        font-size: calc(.6rem + .5vw);
+                    }
+
+                }
+
+                .OnStage{
+                    @extend .OffStage;
+                    
+                    span{
+                        background-color: $PageColor;
+                    }
+                }
+
+            }
+        }
+
+    }
+}

@@ -1,13 +1,7 @@
 // Pages
 @import "./HomeStyle";
 @import "./BuilderStyle";
-
-// SubComponents
-@import "./SubCStyles/ChooseMain";
-@import "./SubCStyles/ChooseButtons";
-@import "./SubCStyles/ChooseFont";
-@import "./SubCStyles/ChooseNav";
-@import "./SubCStyles/ChooseStyle";
+@import "./BuilderRootS";
 
 
 * {
@@ -17,6 +11,8 @@
     // font-family: 'Julius Sans One', sans-serif;
     // font-family: 'Monoton', cursive;
     // font-family: 'Righteous', cursive;
+    // font-family: 'Courgette', cursive;
+    // font-family: 'MuseoModerno', cursive;
 
 }
 

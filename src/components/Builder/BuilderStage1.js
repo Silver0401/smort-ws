@@ -18,7 +18,6 @@ const BlogInfo = "Te interesa dar a conocer tus ideas al mundo, Te encanta escri
 
 const BuilderStage1 = (props) => {
   
-    // let ClassList = [".Personal", ".Merca", ".Ventas", ".Empresarial", ".Blog"]
     const [stageDisplay, setDisplay] = useState(false)
 
     const [PCard, setPCard] = useState(false)
@@ -123,9 +122,7 @@ const BuilderStage1 = (props) => {
     }
 
     function StageTransition(siteTypeClicked){
-
-        // ClassList.splice(ClassList.indexOf(siteTypeClicked), 1);
-
+        
         const TimeLine = anime.timeline({
             // easing: "easeInOutElastic",
             delay: 100

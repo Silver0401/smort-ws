@@ -1,18 +1,16 @@
 import React, {useState} from "react";
 
 // Page Components
-import BuilderStage1 from "./../components/Builder/BuilderStage1"
-import BuilderStage2 from "./../components/Builder/BuilderStage2"
+import BuilderStage1 from "../components/Builder/BuilderStage1"
+import BuilderStage2 from "../components/Builder/BuilderStage2"
 
-const BuilderPage = () => {
+const BuilderInit = (props) => {
 
     const [SitePicked, getSite] = useState("none")
-    // let SitePicked = "none"
+    props.Chosen(SitePicked);
 
     const thingy = (value) => {
         getSite(value)
-        // SitePicked = value
-        // console.log(value)
     }
 
     return (
@@ -26,4 +24,4 @@ const BuilderPage = () => {
     );
 }
 
-export default BuilderPage
+export default BuilderInit
