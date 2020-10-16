@@ -1,0 +1,590 @@
+@mixin alignCenter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+// Burguer Types General Characteristics
+
+@mixin Burger{
+    @include alignCenter();
+    flex-direction: column;
+    cursor: pointer;
+
+    span{
+        position: relative;
+        width: 60%;
+        height: 5px;
+        background-color: var(--ChosenColor1);
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px var(--ChosenColor1);
+        transition: width 500ms, transform 700ms;
+        z-index: 1;
+    }
+
+    .bar2{
+        transition-delay: 500ms;
+    }
+
+    .ExtraBar{
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        z-index: 0;
+        background-color: var(--ChosenColor2);
+        overflow: hidden;
+
+        svg{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            fill: var(--ChosenColor1);
+            opacity: 0;
+        }
+
+    }
+
+    .SvgArrow{
+        position: absolute;
+        visibility: hidden;
+    }
+
+}
+
+@mixin  SvgBurger {
+    span{
+        visibility: hidden;
+    }
+
+    .ExtraBar{
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        z-index: 0;
+        background-color: var(--ChosenColor2);
+        overflow: hidden;
+
+        svg{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            fill: var(--ChosenColor1);
+            opacity: 0;
+        }
+
+    }
+
+    .SvgArrow{
+        position: absolute;
+        visibility: visible;
+        width: 100%;
+        height: 100%;
+        transition: transform 500ms;
+        cursor: pointer;
+        transform: rotate(-180deg);
+        fill: var(--ChosenColor1)
+    }
+
+}
+
+// Burger Animations
+
+@mixin XBurger{
+    .bar1{
+        transform: translateY(15px) rotate(225deg);
+        transition: transform 450ms;
+        transition-delay: 200ms;
+    }
+
+    .bar2{
+        // transform: translateX(5px);
+        width: 0px;
+        transition: width 100ms;
+    }
+
+    .bar3{
+        transform: translateY(-15px) rotate(-225deg);
+        transition: transform 450ms;
+        transition-delay: 200ms;
+    }
+}
+
+@mixin ArrowBurguer {
+    .bar1{
+        transform: translate(2px,2px) rotate(170deg);
+        width: 30%;
+        transition: transform 600ms, width 400ms;
+        // transition-delay: 200ms;
+    }
+
+    .bar2{
+        // transform: translateX(5px);
+        transform: rotate(-50deg);
+        transition: transform 200ms;
+    }
+
+    .bar3{
+        transform: translate(13px,-19px) rotate(-270deg);
+        width: 30%;
+        transition: transform 600ms, width 400ms;
+        // transition-delay: 200ms;
+    }
+    
+}
+
+@mixin SvgRotation {
+    
+    .SvgArrow{
+        transform: rotate(0deg);
+        transition: transform 500ms;
+    }
+   
+}
+
+// NavBar Types
+
+@mixin CircleNavBarAnim{
+    .ExtraBar{
+        width: 300px;
+        height: 300px;
+
+        opacity: 1;
+        transform: translate(75px,-75px);
+        transition: transform 400ms, width 400ms, height 400ms,opacity 400ms;
+        transition-delay: 400ms;
+
+        .ExtraElement{
+            top: 61px;
+            right: 50px;
+            opacity: 1;
+            transition: opacity 500ms;
+            transition-delay: 650ms;
+        }
+
+        svg{
+            opacity: 1;
+            transition: opacity 500ms;
+        }
+    }
+
+}
+
+@mixin SideNavBarAnim {
+
+    .ExtraBar{
+        transform: translateX(20px);
+        transition: transform 600ms;
+    }
+    
+}
+
+@mixin WholePageAnim {
+    content:"";
+}
+
+.Display{
+    .Section{
+        .NavBarBox{
+            .Item{
+                
+                nav{
+                    width: 90%;
+                    height: 70px;
+                    border-radius: 10px;
+                    background-color: var(--ChosenColor2);
+
+                    @include alignCenter();
+                    justify-content: space-between;
+                    margin-bottom: 200px;
+
+                    div{
+                        position: relative;
+                        height: 80%;
+                        width: 70px;
+                        margin: 0px 10px;
+                        // background-color: black;
+                    }
+
+                    .Logo{
+                        @include alignCenter();
+                        p{
+                            color: var(--ChosenColor1);
+                            text-align: center;
+                            font-weight: bolder;
+                            font-family: 'MuseoModerno', cursive;
+                        }
+                    }
+
+                    .X-CircleNavBarNotClicked{
+                        @include Burger();
+                        .ExtraBar{
+
+                            border-radius: 50%;
+                            transition: transform 500ms, width 500ms, height 500ms,opacity 500ms;
+
+                            .ExtraElement{
+                                position: absolute;
+                                top: 0px;
+                                right: 0px;
+                                width: 80px;
+                                height: 80px;
+                                border: 2px solid var(--ChosenColor1);
+                                border-radius: 50%;
+                                opacity: 0;
+                            }
+
+                            .Home{
+                                top: 50px;
+                                left: 50px;
+                            }
+
+                            .Contact{
+                                left: 30px;
+                                top: 140px;
+                            }
+
+                            .About{
+                                width: 45px;
+                                height: 45px;
+                                top: 220px;
+                                left: 80px;
+                            }
+
+                            .Login{
+                                bottom: 30px;
+                                right: 80px;
+                            }
+                        }
+                    }
+                    .X-CircleNavBarClicked{
+
+                        // @include Burger();
+                        @extend .X-CircleNavBarNotClicked;
+                        @include XBurger();
+                        @include CircleNavBarAnim();
+
+                        .ExtraBar{
+                            .Home{
+                                transition-delay: 700ms;
+                            }
+                            .Contact{
+                                transition-delay: 800ms;
+                            }
+                            .About{
+                                transition-delay: 900ms;
+                            }
+                            .Login{
+                                transition-delay: 1s;
+                            }
+                        }
+                    }
+
+
+                    .Simple-CircleNavBarNotClicked{
+                        @include Burger();
+                        .ExtraBar{
+
+                            border-radius: 50%;
+                            transition: transform 500ms, width 500ms, height 500ms,opacity 500ms;
+
+                            .ExtraElement{
+                                position: absolute;
+                                top: 0px;
+                                right: 0px;
+                                width: 80px;
+                                height: 80px;
+                                border: 2px solid var(--ChosenColor1);
+                                border-radius: 50%;
+                                opacity: 0;
+                            }
+
+                            .Home{
+                                top: 50px;
+                                left: 50px;
+                            }
+
+                            .Contact{
+                                left: 30px;
+                                top: 140px;
+                            }
+
+                            .About{
+                                width: 45px;
+                                height: 45px;
+                                top: 220px;
+                                left: 80px;
+                            }
+
+                            .Login{
+                                bottom: 30px;
+                                right: 80px;
+                            }
+                        }
+                    }
+                    .Simple-CircleNavBarClicked{
+                        @extend .Simple-CircleNavBarNotClicked;
+                        @include CircleNavBarAnim();
+
+                        .ExtraBar{
+                            transition-delay: 0ms;
+                            .ExtraElement{
+                                transition-delay: 250ms;
+                            }
+
+                            .Home{
+                                transition-delay: 200ms;
+                            }
+                            .Contact{
+                                transition-delay: 300ms;
+                            }
+                            .About{
+                                transition-delay: 400ms;
+                            }
+                            .Login{
+                                transition-delay: 500ms;
+                            }
+                        }
+                    }
+
+
+                    .Arrow-CircleNavBarNotClicked{
+                        @include Burger();
+                        .ExtraBar{
+
+                            border-radius: 50%;
+                            transition: transform 500ms, width 500ms, height 500ms,opacity 500ms;
+
+                            .ExtraElement{
+                                position: absolute;
+                                top: 0px;
+                                right: 0px;
+                                width: 80px;
+                                height: 80px;
+                                border: 2px solid var(--ChosenColor1);
+                                border-radius: 50%;
+                                opacity: 0;
+                            }
+
+                            .Home{
+                                top: 50px;
+                                left: 50px;
+                            }
+
+                            .Contact{
+                                left: 30px;
+                                top: 140px;
+                            }
+
+                            .About{
+                                width: 45px;
+                                height: 45px;
+                                top: 220px;
+                                left: 80px;
+                            }
+
+                            .Login{
+                                bottom: 30px;
+                                right: 80px;
+                            }
+                        }
+
+                        .bar2{
+                            transition-delay: 0ms;
+                        }
+                    }
+                    .Arrow-CircleNavBarClicked{
+                        @extend .Arrow-CircleNavBarNotClicked;
+                        @include CircleNavBarAnim();
+                        @include ArrowBurguer();
+
+                        .ExtraBar{
+
+                            transition-delay: 0ms;
+                            .ExtraElement{
+                                transition-delay: 250ms;
+                            }
+
+                            .Home{
+                                transition-delay: 400ms;
+                            }
+                            .Contact{
+                                transition-delay: 500ms;
+                            }
+                            .About{
+                                transition-delay: 600ms;
+                            }
+                            .Login{
+                                transition-delay: 700ms;
+                            }
+
+                        }
+                    }
+
+
+                    .X-SideNavBarNotClicked{
+                        @include Burger();
+                        .ExtraBar{
+                            visibility: visible;
+                            position: absolute;
+                            top: 73px;
+                            transform: translateX(300px);
+                            transition: transform 600ms;
+                            // right: -300px;
+                            opacity: 1;
+                            z-index: 0;
+                            // background: lightcoral;
+                            background-color: var(--ChosenColor2);
+                            overflow: hidden;
+                            width: 150px;
+                            height: 200px;
+                            border-radius: 10px;
+                            float: left;
+
+                            svg{
+                                position: relative;
+                                width: 50px;
+                                height: 50px;
+                                fill: var(--ChosenColor1);
+                                opacity: 1;
+                                margin: 20px 10px;
+                            }
+
+                        }
+                    }
+                    .X-SideNavBarClicked{
+                        @extend .X-SideNavBarNotClicked;
+                        @include XBurger();
+                        @include SideNavBarAnim();
+                    }
+
+
+                    .Svg-SideNavBarNotClicked{
+                        @include SvgBurger();
+                        .ExtraBar{
+                            visibility: visible;
+                            position: absolute;
+                            top: 73px;
+                            transform: translateX(300px);
+                            transition: transform 600ms;
+                            // right: -300px;
+                            opacity: 1;
+                            z-index: 0;
+                            // background: lightcoral;
+                            background-color: var(--ChosenColor2);
+                            overflow: hidden;
+                            width: 150px;
+                            height: 200px;
+                            border-radius: 10px;
+                            float: left;
+
+                            svg{
+                                position: relative;
+                                width: 50px;
+                                height: 50px;
+                                fill: var(--ChosenColor1);
+                                opacity: 1;
+                                margin: 20px 10px;
+                            }
+
+                        }
+                    }
+                    .Svg-SideNavBarClicked{
+                        @extend .Svg-SideNavBarNotClicked;
+                        @include SvgRotation();
+                        @include SideNavBarAnim();
+                    }
+
+
+                    .Simple-SideNavBarNotClicked{
+                        @include Burger();
+                        .ExtraBar{
+                            visibility: visible;
+                            position: absolute;
+                            top: 73px;
+                            transform: translateX(300px);
+                            transition: transform 600ms;
+                            // right: -300px;
+                            opacity: 1;
+                            z-index: 0;
+                            // background: lightcoral;
+                            background-color: var(--ChosenColor2);
+                            overflow: hidden;
+                            width: 150px;
+                            height: 200px;
+                            border-radius: 10px;
+                            float: left;
+
+                            svg{
+                                position: relative;
+                                width: 50px;
+                                height: 50px;
+                                fill: var(--ChosenColor1);
+                                opacity: 1;
+                                margin: 20px 10px;
+                            }
+
+                        }
+                    }
+                    .Simple-SideNavBarClicked{
+                        @extend .Simple-SideNavBarNotClicked;
+                        @include SideNavBarAnim();
+                    }
+
+
+                    .X-WholePageNavBarNotClicked{
+                        @include Burger();
+                        .ExtraBar{
+                            visibility: visible;
+                            position: absolute;
+                            transform: translate(30px,-20px);
+                            transition: transform 600ms;
+                            // right: -300px;
+                            opacity: 1;
+                            z-index: 0;
+                            flex-shrink: 1;
+                            min-width: 300px;
+                            // background: lightcoral;
+                            background-color: var(--ChosenColor2);
+                            overflow: hidden;
+                            width: 150px;
+                            height: 200px;
+                            border-radius: 10px;
+                            float: left;
+
+                            svg{
+                                position: relative;
+                                width: 50px;
+                                height: 50px;
+                                fill: var(--ChosenColor1);
+                                opacity: 1;
+                                margin: 20px 10px;
+                            }
+
+                        }
+
+                    }
+                    .X-WholePageNavBarClicked{
+                        @extend .X-WholePageNavBarNotClicked;
+                        @include XBurger();
+                    }
+
+
+
+                    .Simple-WholePageNavBarNotClicked{
+                        @include Burger();
+
+                    }
+                    .Simple-WholePageNavBarClicked{
+                        @extend .Simple-WholePageNavBarNotClicked;
+                    }
+
+                }
+            }
+        }
+    }
+}
+

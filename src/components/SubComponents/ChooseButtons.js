@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-const ChooseButtons = (props) => {
+const ChooseButtons = () => {
 
   const CreateButton = (ButtonName) => {
 
     return (
-      <div className="Box">
+      <div className="ButtonBox">
         <div className="Item">
           <a  href="#" className={ButtonName}>
             <p>Click Me</p>
@@ -20,14 +20,6 @@ const ChooseButtons = (props) => {
     );
   }
 
-  useEffect(() => {
-
-    let root = document.documentElement
-
-    root.style.setProperty("--ChosenColor1", props.pickedColors[0])
-    root.style.setProperty("--ChosenColor2", props.pickedColors[1])
-    
-  })
 
   return (
     <div className="Section">

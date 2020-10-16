@@ -10,11 +10,11 @@ const BuilderRoot = (props) => {
 
     const [sectionDisplayed, changeSection] = useState("Page Style")
 
-    const ColorBoxPicked1 = useRef("none")
-    const ColorBoxPicked2 = useRef("none")
+    const ColorBoxPicked1 = useRef("#1881C5")
+    const ColorBoxPicked2 = useRef("#ffffff")
 
-    const [Chosen1, setChosen1] = useState("#1881C5");
-    const [Chosen2, setChosen2] = useState("#ffffff");
+    // const [Chosen1, setChosen1] = useState("#1881C5");
+    // const [Chosen2, setChosen2] = useState("#ffffff");
     
 
     const ReturnSection = () => {
@@ -23,16 +23,16 @@ const BuilderRoot = (props) => {
 
         switch (sectionDisplayed){
             case "Page Style":
-                selected = (<StyleSection/>)
+            selected = (<StyleSection/>)
                 break;
             case "NavBar Style":
-                selected = (<NavSection/>)
+            selected = (<NavSection/>)
                 break;
             case "Button Style":
-                selected = (<ButtonsSection pickedColors={[Chosen1, Chosen2]} />)
+                selected = (<ButtonsSection />)
                 break;
             case "Font Style":
-                selected = (<FontsSection/>)
+            selected = (<FontsSection/>)
                 break;
             default:
                 selected = (<div>Error</div>)
@@ -43,16 +43,20 @@ const BuilderRoot = (props) => {
         )
     }
 
-    useEffect(() => {
-        ColorBoxPicked1.current.onchange = () => {
-            setChosen1(ColorBoxPicked1.current.value)
-            // console.log(`ColorPicked1: ${ColorBoxPicked1.current.value}`);
-        };
-        ColorBoxPicked2.current.onchange = () => {
-            setChosen2(ColorBoxPicked2.current.value)
-            // console.log(`ColorPicked2:  ${ColorBoxPicked2.current.value}`);
-        };
-    }); 
+  useEffect(() => {
+
+    let root = document.documentElement
+
+    ColorBoxPicked1.current.onchange = () => {
+      root.style.setProperty("--ChosenColor1", ColorBoxPicked1.current.value)
+    };
+    ColorBoxPicked2.current.onchange = () => {
+      root.style.setProperty("--ChosenColor2", ColorBoxPicked2.current.value)
+    };
+    // root.style.setProperty("--ChosenColor2", props.pickedColors[1])
+
+  })
+
 
 
     // console.log(props.Chosen)
