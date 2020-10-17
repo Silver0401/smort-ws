@@ -11,6 +11,7 @@
     @include alignCenter();
     flex-direction: column;
     cursor: pointer;
+    z-index: 1;
 
     span{
         position: relative;
@@ -53,7 +54,7 @@
 
 }
 
-@mixin  SvgBurger {
+@mixin SvgBurger {
     span{
         visibility: hidden;
     }
@@ -169,6 +170,7 @@
             opacity: 1;
             transition: opacity 500ms;
         }
+
     }
 
 }
@@ -182,8 +184,18 @@
     
 }
 
-@mixin WholePageAnim {
-    content:"";
+@mixin RightWholePageAnim {
+    & + .ExtraElement2{
+        transform: translateX(0%);
+        transition: transform 700ms;
+    }
+}
+
+@mixin BottomWholePageAnim {
+    & + .ExtraElement2{
+        transform: translateY(0%);
+        transition: transform 700ms;
+    }
 }
 
 .Display{
@@ -216,6 +228,28 @@
                             text-align: center;
                             font-weight: bolder;
                             font-family: 'MuseoModerno', cursive;
+                        }
+                    }
+
+                    .ExtraElement2{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background-color: var(--ChosenColor2);
+                        transform: translateX(101%);
+                        top: 0%;
+                        left: 0%;
+                        transition: transform 700ms;
+                        z-index: 0;
+
+                        @include alignCenter();
+                        flex-direction: column;
+
+                        svg{
+                            position: relative;
+                            width: 50px;
+                            height: 50px;
+                            fill: var(--ChosenColor1);
                         }
                     }
 
@@ -535,52 +569,33 @@
                     }
 
 
-                    .X-WholePageNavBarNotClicked{
+                    .X-RightWholePageNavBarNotClicked{
                         @include Burger();
-                        .ExtraBar{
-                            visibility: visible;
-                            position: absolute;
-                            transform: translate(30px,-20px);
-                            transition: transform 600ms;
-                            // right: -300px;
-                            opacity: 1;
-                            z-index: 0;
-                            flex-shrink: 1;
-                            min-width: 300px;
-                            // background: lightcoral;
-                            background-color: var(--ChosenColor2);
-                            overflow: hidden;
-                            width: 150px;
-                            height: 200px;
-                            border-radius: 10px;
-                            float: left;
-
-                            svg{
-                                position: relative;
-                                width: 50px;
-                                height: 50px;
-                                fill: var(--ChosenColor1);
-                                opacity: 1;
-                                margin: 20px 10px;
-                            }
-
+                        & + .ExtraElement2{
+                            transform: translateX(101%);
                         }
-
                     }
-                    .X-WholePageNavBarClicked{
-                        @extend .X-WholePageNavBarNotClicked;
+                    .X-RightWholePageNavBarClicked{
+                        @extend .X-RightWholePageNavBarNotClicked;
                         @include XBurger();
+                        @include RightWholePageAnim();
                     }
 
 
 
-                    .Simple-WholePageNavBarNotClicked{
+                    .X-BottomWholePageNavBarNotClicked{
                         @include Burger();
+                        & + .ExtraElement2{
+                            transform: translateY(-101%);
+                        }
+                    }
+                    .X-BottomWholePageNavBarClicked{
+                        @extend .X-BottomWholePageNavBarNotClicked;
+                        @include XBurger();
+                        @include BottomWholePageAnim();
+                    }
 
-                    }
-                    .Simple-WholePageNavBarClicked{
-                        @extend .Simple-WholePageNavBarNotClicked;
-                    }
+
 
                 }
             }

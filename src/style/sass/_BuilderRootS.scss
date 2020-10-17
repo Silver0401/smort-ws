@@ -1,9 +1,10 @@
 @import "./SubCStyles/ChooseButtons";
 @import "./SubCStyles/ChooseNav";
+@import "./SubCStyles/ChooseStyle";
 
 :root{
-    --ChosenColor1: #1881C5;
-    --ChosenColor2: #ffffff;
+    --ChosenColor1: #131E25;
+    --ChosenColor2: #0EECC0;
 }
 
 // SubComponents
@@ -14,7 +15,7 @@
 // @import "./SubCStyles/ChooseStyle";
 
 $PageColor: rgb(51, 162, 203);
-$BackgroundColor: rgb(31, 28, 28);
+$BackgroundColor: rgb(57, 55, 55);
 
 
 @mixin alignCenter {
@@ -136,6 +137,13 @@ $BackgroundColor: rgb(31, 28, 28);
                 grid-area: Display;
                 overflow: auto;
                 border-radius: 20px;
+
+                .PageStylesSection{
+                    width: 95%;
+                    height: 100%;
+                    // background-color: transparent;
+                    margin: 0px auto;
+                }
 
                 .Section{
                     margin: 0px auto;

@@ -10,8 +10,8 @@ const BuilderRoot = (props) => {
 
     const [sectionDisplayed, changeSection] = useState("Page Style")
 
-    const ColorBoxPicked1 = useRef("#1881C5")
-    const ColorBoxPicked2 = useRef("#ffffff")
+    const ColorBoxPicked1 = useRef("#131E25")
+    const ColorBoxPicked2 = useRef("#0EECC0")
 
     // const [Chosen1, setChosen1] = useState("#1881C5");
     // const [Chosen2, setChosen2] = useState("#ffffff");
@@ -70,8 +70,8 @@ const BuilderRoot = (props) => {
 
               <div className="ColorsBox">
                 <div className="Colors">
-                  <input ref={ColorBoxPicked1} type="color" defaultValue="#1881C5" />
-                  <input ref={ColorBoxPicked2} type="color" defaultValue="#ffffff" />
+                  <input ref={ColorBoxPicked1} type="color" defaultValue="#131E25" />
+                  <input ref={ColorBoxPicked2} type="color" defaultValue="#0EECC0" />
                 </div>
                 <p>Color Picker</p>
               </div>
