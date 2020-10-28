@@ -3,18 +3,15 @@ import React, { useState, useEffect, useRef } from "react";
 // Builder Sections (SubComponents)
 import NavSection from "./../components/SubComponents/ChooseNav";
 import ButtonsSection from "./../components/SubComponents/ChooseButtons";
-import FontsSection from "./../components/SubComponents/ChooseFont";
+import LoadersSection from "../components/SubComponents/ChooseLoader";
 import StyleSection from "./../components/SubComponents/ChooseStyle";
 
-const BuilderRoot = (props) => {
+const BuilderRoot = () => {
 
     const [sectionDisplayed, changeSection] = useState("Page Style")
 
     const ColorBoxPicked1 = useRef("#131E25")
     const ColorBoxPicked2 = useRef("#0EECC0")
-
-    // const [Chosen1, setChosen1] = useState("#1881C5");
-    // const [Chosen2, setChosen2] = useState("#ffffff");
     
 
     const ReturnSection = () => {
@@ -32,7 +29,7 @@ const BuilderRoot = (props) => {
                 selected = (<ButtonsSection />)
                 break;
             case "Font Style":
-            selected = (<FontsSection/>)
+            selected = (<LoadersSection/>)
                 break;
             default:
                 selected = (<div>Error</div>)
@@ -49,17 +46,15 @@ const BuilderRoot = (props) => {
 
     ColorBoxPicked1.current.onchange = () => {
       root.style.setProperty("--ChosenColor1", ColorBoxPicked1.current.value)
+      if (ColorBoxPicked1.current.value === "#000000") root.style.setProperty("--ChosenColor3", "#ffffff")
+      if (ColorBoxPicked1.current.value === "#ffffff") root.style.setProperty("--ChosenColor3", "#000000")
     };
     ColorBoxPicked2.current.onchange = () => {
       root.style.setProperty("--ChosenColor2", ColorBoxPicked2.current.value)
     };
-    // root.style.setProperty("--ChosenColor2", props.pickedColors[1])
 
   })
 
-
-
-    // console.log(props.Chosen)
 
     return (
       <div className="RootPage">

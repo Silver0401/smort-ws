@@ -47,12 +47,13 @@ $BackgroundColor: rgb(31, 28, 28);
             // padding: 20px 40px;
             // padding-bottom: 100px;
             font-size: calc(1.2em + 3vw);
-            letter-spacing: 3px;
+            // letter-spacing: 3px;
             // font-family: 'Dancing Script', cursive;
             // font-family: 'Julius Sans One', sans-serif;
             // font-family: 'Monoton', cursive;
             // font-family: 'Press Start 2P', cursive;
-            font-family: 'Righteous', cursive;    
+            // font-family: 'Righteous', cursive;    
+            font-family: 'MuseoModerno', cursive;
         }
     
         .Options{
@@ -243,7 +244,7 @@ $BackgroundColor: rgb(31, 28, 28);
         z-index: 1;
         visibility: hidden;
         @include alignCenter();
-        justify-content: start;
+        justify-content: flex-start;
 
         .Stage2Box{
 

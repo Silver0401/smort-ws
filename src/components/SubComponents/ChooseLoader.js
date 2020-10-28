@@ -1,11 +1,11 @@
 import React from "react";
 
-const ChooseFont = () => {
+const ChooseLoader = () => {
     return (
     <div className="Section">
-      Font Style
+      Loader Style
     </div>
   )
 };
 
-export default ChooseFont;
+export default ChooseLoader;

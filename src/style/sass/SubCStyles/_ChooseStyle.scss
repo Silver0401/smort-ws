@@ -4,7 +4,67 @@
     justify-content: space-evenly;
     align-items: center;
 }
+@mixin NeumorphType1 {
+    box-shadow: 
+    10px 10px 30px black,
+    -10px -10px 20px rgba(255, 255, 255, 0.043),
+    inset 5px 5px 10px black,
+    inset -10px -10px 20px rgba(255, 255, 255, 0.043);
+    border: 4px solid var(--ChosenColor1);
+}
+@mixin NeumorphType2 {
+    box-shadow: 
+    15px 15px 40px black,
+    -10px -10px 20px rgba(255, 255, 255, 0.043);
+    border: 4px solid var(--ChosenColor1);
+    // transition: box-shadow 500ms;
+}
 
+
+@keyframes MoveLeftRight{
+    0%{
+        transform:translateX(50px)
+    }
+    100%{
+        transform:translateX(-10px)
+    }
+}
+
+@keyframes MoveHead{
+    0%{
+        transform: rotate(15deg);
+    }
+    33%{
+        transform: rotate(-20deg);        
+    }
+    66%{
+        transform: rotate(0deg);        
+    }
+    100%{
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes MoveLine{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(.94);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes Rotate{
+    0%{
+        transform: rotateX(0deg)
+    }
+    100%{
+        transform: rotateX(100deg)
+    }
+}
 
 .PageStylesSection{
     background-color: transparent;
@@ -20,12 +80,12 @@
 
             @include alignCenter();
             height: 25%;
+            cursor: pointer;
             // background: linear-gradient(to right, rgb(2, 29, 70), rgb(47, 83, 201));
             background-color: rgb(46, 45, 45);
             width: 70%;
             border-radius: 10px;
             overflow: hidden;
-            cursor: pointer;
 
             .Arrow{
                 width: 0; 
@@ -46,18 +106,21 @@
         }
     }
 
+
     .MainSection{
 
         grid-area: MainSection;
         // position: absolute;
-        background-color: black;
+        // background-color: black;
         @include alignCenter();
+        border-radius: 5px;
+        overflow: hidden;
 
         .Page{
             // position: absolute;
             width: 100%;
             height: 100%;
-            background-color: lightcoral;
+            // background-color: lightcoral;
 
             display: grid;
             grid-template-rows: 60px 1fr;
@@ -68,11 +131,466 @@
     
             .StyleName{
                 grid-area: StyleName;
-                background-color: lightcoral;
+                background-color: black;
+
+                h1{
+                   font-family: 'MuseoModerno', cursive;
+                }
             }
+
             .PageStyle{
                 grid-area: PageStyle;
-                background-color: lightblue;
+                position: relative;
+
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+                grid-template-areas: 
+                "LeftBox RightBox";
+
+                font-family: 'MuseoModerno', cursive;
+
+                .LeftBox{
+                    grid-area: LeftBox;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    // overflow: hidden;
+                    background-color: transparent;
+                    @include alignCenter();
+                    // z-index: 1;
+
+                    .ImageBox{
+                        .BoxesBox, .Foto{
+                            position: absolute;
+                            visibility: hidden;
+                        }
+                    }
+
+                    .ContactsBox{
+                        position: absolute;
+                        visibility: hidden;
+                    }
+                }
+                
+                .RightBox{
+                    grid-area: RightBox;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    // overflow: hidden;
+                    background-color: transparent;
+                    @include alignCenter();
+                    // z-index: 1;
+                }
+
+                nav{
+                    position: absolute;
+                    top: 2.5%;
+                    left: 1%;
+                    width: 98%;
+                    height: 50px;
+                    background-color: transparent;
+                    @include alignCenter();
+                    flex-direction: row;
+                    justify-content: space-between;
+                    z-index: 5;
+
+                    .BurgerBox{
+
+                        position: relative;
+                        margin-right: 20px;
+                        width: 40px;
+                        height: 40px;
+                        @include alignCenter(); 
+
+                        span{
+                            background-color: var(--ChosenColor2);
+                            box-shadow: 0px 0px 10px var(--ChosenColor2);
+                            width: 90%;
+                            height: 3px;
+                        }
+                    }
+
+                    .LogoBox{
+                        z-index: 1;
+                        position: relative;
+                        width: 150px;
+                        height: 50px;
+                        margin-left: 10px;
+                        // background-color: white;
+                        @include alignCenter();
+                        flex-direction: row;
+
+                        h3{
+                            color: var(--ChosenColor2);
+                            font-family: 'MuseoModerno', cursive;
+                        }
+
+                        .Logo{
+                            position: relative;
+                            width: 40px;
+                            height: 40px;
+
+                            fill: var(--ChosenColor2);
+                        }
+                    }
+                }
+
+                .ParaxImg{
+                    position: absolute;
+                    visibility: hidden;
+                }
+
+            }
+            
+            .Neumorphic{
+                background-color: var(--ChosenColor1);
+                .LeftBox, .RightBox{
+                    background-color: transparent;
+                }
+                .RightBox{
+                    .TextBox{
+                        width: 250px;
+                        height: 150px;
+                        text-align: center;
+                        margin-right: 40px;
+                        // border: 1px solid var(--ChosenColor3);
+                        border-radius: 20px;
+                        @include NeumorphType1();
+                        color: var(--ChosenColor3);
+
+                    }
+                    button{
+                        padding: 10px 30px;
+                        border-radius: 10px;
+                        font-weight: bolder;
+                        background-color: var(--ChosenColor2);
+                        color: var(--ChosenColor1);
+                        @include NeumorphType2();
+                    }
+                }
+
+                .LeftBox{
+                    // justify-content: space-evenly;
+                    .ImageBox{
+                        width: 400px;
+                        height: 180px;
+                        // background-color: white;
+                        margin-left: 20%;
+                        @include alignCenter();
+                        flex-direction: row;
+
+                        .BoxesBox, .Foto{
+                            position: relative;
+                            visibility: visible;
+                        }
+
+                        .BoxesBox{
+                            position: relative;
+                            width: 100px;
+                            height: 100%;
+                            background-color: transparent;    
+                            @include alignCenter();
+                            margin-top: 40px;
+
+                            .ActBox1{
+                                position: relative;
+                                width: 80%;
+                                height: 40%;
+                                background-color: transparent;
+                                @include NeumorphType1();
+                                border-radius: 10px;
+                                transition: box-shadow 500ms;
+
+                                &:hover svg{
+                                    opacity: 1;
+                                    transition: opacity 500ms;
+                                }
+
+                                &:hover{
+                                    @include NeumorphType2();
+                                    transition: box-shadow 500ms;
+                                }
+                                
+                                svg{
+                                    fill: var(--ChosenColor2);
+                                    opacity: .1;
+                                    width: 70%;
+                                    height: 70%;
+                                    transition: opacity 500ms;
+                                }
+                            }
+                            .ActBox2{
+                                position: relative;
+                                width: 80%;
+                                height: 40%;
+                                background-color: transparent;
+                                @include NeumorphType1();
+                                border-radius: 10px;
+                                transition: box-shadow 500ms;
+
+                                &:hover svg{
+                                    opacity: 1;
+                                    transition: opacity 500ms;
+                                }
+
+                                &:hover{
+                                    @include NeumorphType2();
+                                    transition: box-shadow 500ms;
+                                }
+                                
+                                svg{
+                                    fill: var(--ChosenColor2);
+                                    opacity: .1;
+                                    width: 70%;
+                                    height: 70%;
+                                    transition: opacity 500ms;
+                                }
+
+                            }
+                        }
+
+                        .Foto{
+                            position: relative;
+                            overflow: hidden;
+                            width: 200px;
+                            height: 200px;
+                            border-radius: 50%;
+                            background-color: black;
+                            @include NeumorphType2();
+                            border: 7px solid var(--ChosenColor1);
+
+                            img{
+                                width: 100%;
+                                // height: 100%;
+                            }
+                        }
+                    }
+                    .ContactsBox{
+                        
+                        visibility: visible;
+                        position: relative;
+                        margin-top: 35px;
+
+                        width: 300px;
+                        height: 45px;
+                        // background-color: white;
+                        @include alignCenter();
+                        flex-direction: row;
+
+                        span{
+                            position: relative;
+                            width: 35px;
+                            height: 35px;
+                            background-color: transparent;
+                            // border: 4px solid black;
+                            @include NeumorphType1();
+                            border-radius: 50%;
+                            transition: box-shadow 500ms;
+                            @include alignCenter();
+
+                            &:hover{
+                                @include NeumorphType2();
+                            }
+
+                            svg{
+                                fill: var(--ChosenColor3);
+                                opacity: .2;
+                                width: 70%;
+                                height: 70%;
+                                transition: fill 500ms, opacity 500ms;
+                            }
+
+
+                            &:hover svg{
+                                opacity: .7;
+
+                                transition: fill 500ms, opacity 500ms;
+                            }
+
+                            &:hover .Whats{fill: rgb(38, 237, 38); }
+                            &:hover .Insta{fill: rgb(165, 52, 196); }
+                            &:hover .Face{fill: rgb(57, 105, 228); }
+                            &:hover .Twit{fill: rgb(65, 194, 233); }
+                        }
+
+                    }
+                }
+
+            }
+            
+            .Animated{
+                position: relative;
+                font-family: 'MuseoModerno', cursive;
+
+                .Waves{
+                    position: absolute;
+                    top: 0%;
+                    left: 0%;
+                    height: 100%;
+                    width: auto;
+                    fill: var(--ChosenColor1);
+                    background-color: var(--ChosenColor2);
+                    z-index: 0;
+                }
+                .LeftBox{
+                    .ImageBox{
+                        overflow: hidden;
+                        width: 300px;
+                        height: 300px;
+                        position:  relative;
+                        z-index: 1;
+                        margin-left: 20%;
+                        
+                        svg{
+                            width: 100%;
+                            height: 100%;
+
+                            #SquareColor2{
+                                animation: MoveLeftRight 800ms linear infinite alternate;
+                            }
+
+                            #Head, #Hair{
+                                transform-origin: center;
+                                animation: MoveHead 20s linear infinite;
+                            }
+
+                            #Line1, #Line2{
+                                transform-origin: center;
+                                animation:  MoveLine 5s linear infinite alternate;
+                            }
+
+                            #SquareColor3{
+                                transform-origin: center;
+                                animation: Rotate 2s linear infinite alternate;
+                            }
+
+                        }
+                    }
+                }
+                .RightBox{
+                    .TextBox{
+                        width: 250px;
+                        height: 150px;
+                        // background-color: black;
+                        text-align: center;
+                        margin-right: 40px;
+                        color: var(--ChosenColor3);
+
+                    }
+                    button{
+                        padding: 10px 30px;
+                        border-radius: 10px;
+                        font-weight: bolder;
+                        color: var(--ChosenColor1);
+                        background-color: var(--ChosenColor2);
+                    }
+                }
+            }
+
+            .Parallax{
+
+                background-image: url(../../resources/ParallaxBG.jpg);
+                background-color: black;
+                background-size: cover;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
+                grid-template-areas: 
+                "RightBox";
+
+                nav{
+                    background-color: var(--ChosenColor1);
+                    border-radius: 10px;
+                }
+
+                .RightBox{
+                    @include alignCenter();
+
+                    .TextBox{
+                        width: 30%;
+                        text-align: center;
+                        color: black;
+                        font-weight: bolder;
+                    }
+
+                    button{
+                        padding: 10px 25px;
+                        color: var(--ChosenColor1);
+                        background-color: var(--ChosenColor2);
+                        font-family: 'MuseoModerno', cursive;
+                        font-weight: bolder;
+                        border-radius: 10px;
+                    }
+                }
+
+
+            }
+
+            .Minimalist{
+                background-image: url(../../resources/minimalBG.jpg);
+                background-size: cover;
+                grid-template-columns: 70% 1fr;
+                grid-template-areas: 
+                "RightBox LeftBox";
+
+                nav{
+                    .LogoBox{
+                        .Logo{
+                            width: 25px;
+                            height: 25px;
+                            fill: var(--ChosenColor1)
+                        }
+
+                        h3{
+                            font-size: 13px;
+                            color: var(--ChosenColor1)
+                        }
+                    }
+                    .BurgerBox{
+                        width: 20px;
+                        height: 20px;
+
+                        span{
+                            background-color: var(--ChosenColor1);
+                            box-shadow: 0px 0px 0px black;
+                        }
+                    }
+                }
+
+                .RightBox{
+                    color: var(--ChosenColor1);
+
+                    .TextBox{
+                        width: 50%;
+                        height: 30%;
+                        @include alignCenter();
+                        justify-content: space-between;
+
+                        h1{
+                            font-size: 50px;
+                            text-shadow: 0px 0px 40px var(--ChosenColor2);
+                            font-family: 'Courgette', cursive;
+                        }
+
+                        p{
+                            font-size: 10px;
+                        }
+                        // font-family: 'Dancing Script', cursive;
+                        // font-family: 'Monoton', cursive;
+                        // font-family: 'Press Start 2P', cursive;
+                        // font-family: 'Righteous', cursive;    
+                        // font-family: 'Righteous', cursive;
+                        // font-family: 'Courgette', cursive;
+                        // font-family: 'MuseoModerno', cursive;
+
+                    }
+
+                    button{
+                        display: none;
+                    }
+                }
+                
             }
         }
 
@@ -83,3 +601,13 @@
         grid-area: RightSection;
     }
 }
+
+
+// font-family: 'Dancing Script', cursive;
+// font-family: 'Julius Sans One', sans-serif;
+// font-family: 'Monoton', cursive;
+// font-family: 'Press Start 2P', cursive;
+// font-family: 'Righteous', cursive;    
+// font-family: 'Righteous', cursive;
+// font-family: 'Courgette', cursive;
+// font-family: 'MuseoModerno', cursive;
