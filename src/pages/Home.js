@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import anime from "animejs";
+import "react-on-scroll-animation/build/index.css";
 
-// import "bower_components/aos/dist/aos.js";
 
 // Components
 
@@ -133,6 +133,7 @@ const HomePage = () => {
     HomeAnimations()
 
   },[])
+
 
   return (
     <div style={showPage ? {overflow:"visible"} : {overflow:"hidden"}} className="HomePage">
@@ -305,7 +306,6 @@ const HomePage = () => {
 
       </span>
     
-      {/* Page Scroll Blocks */}
 
       <Block1/>
 

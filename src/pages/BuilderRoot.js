@@ -28,7 +28,7 @@ const BuilderRoot = () => {
             case "Button Style":
                 selected = (<ButtonsSection />)
                 break;
-            case "Font Style":
+            case "Loader Style":
             selected = (<LoadersSection/>)
                 break;
             default:
@@ -105,13 +105,13 @@ const BuilderRoot = () => {
                 <p>Button Style</p>
               </div>
               <div
-                onClick={() => changeSection("Font Style")}
+                onClick={() => changeSection("Loader Style")}
                 className={
-                  sectionDisplayed === "Font Style" ? "OnStage" : "OffStage"
+                  sectionDisplayed === "Loader Style" ? "OnStage" : "OffStage"
                 }
               >
                 <span></span>
-                <p>Font Style</p>
+                <p>Loader Style</p>
               </div>
             </span>
           </div>

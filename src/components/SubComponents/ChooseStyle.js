@@ -121,7 +121,7 @@ const ChooseStyle = () => {
               </div>
 
               <span className="Foto">
-                <img src={Foto}></img>
+                <img alt="coso" src={Foto}></img>
               </span>
 
             </div>

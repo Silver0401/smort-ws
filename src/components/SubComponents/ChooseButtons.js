@@ -7,7 +7,7 @@ const ChooseButtons = () => {
     return (
       <div className="ButtonBox">
         <div className="Item">
-          <a  href="#" className={ButtonName}>
+          <a href="" className={ButtonName}>
             <p>Click Me</p>
 			      <span className="liquid"></span>
           </a>

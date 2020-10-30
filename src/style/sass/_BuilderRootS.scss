@@ -1,6 +1,7 @@
 @import "./SubCStyles/ChooseButtons";
 @import "./SubCStyles/ChooseNav";
 @import "./SubCStyles/ChooseStyle";
+@import "./SubCStyles/ChooseLoader";
 
 :root{
     --ChosenColor1: #131E25;
@@ -35,7 +36,6 @@ $BackgroundColor: rgb(57, 55, 55);
     }
 }
 
-
 @keyframes GradientAnim{
     0%{
         background-position-x: 0%;
@@ -44,6 +44,7 @@ $BackgroundColor: rgb(57, 55, 55);
         background-position-x: 400%;
     }
 }
+
 
 .RootPage{
 
@@ -220,6 +221,11 @@ $BackgroundColor: rgb(57, 55, 55);
                         // width: 200px;
                         min-width: 300px;
                         min-height: 450px;
+                    }
+
+                    .LoaderBox{
+                        @extend .ButtonBox;
+                        min-height: 300px;
                     }
                 }
             }

@@ -551,7 +551,7 @@
 
                         transform-origin: right;
                         transform: translateY(0deg);
-                        transition: transform 1s;
+                        transition: transform 700ms;
 
                     }
                     
@@ -568,7 +568,7 @@
                         top: 0%;
                         left: 0%;
                         transform: translateX(100%) rotateY(90deg);
-                        transition: transform 1s;
+                        transition: transform 700ms;
                         transform-origin: left;
                     }
 
@@ -576,12 +576,12 @@
 
                         p::before{
                             transform: translateX(-100%) rotateY(90deg);
-                            transition: transform 1s;
+                            transition: transform 700ms;
                         }
 
                         p::after{
                             transform: rotateY(0deg);
-                            transition: transform 1s;
+                            transition: transform 700ms;
                         }
                     }
                 }

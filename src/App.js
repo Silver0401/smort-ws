@@ -21,7 +21,7 @@ function App() {
 		if (Chosen !== "none") {
 			setTimeout(() => {
 				window.location = "/PageBuilder/Root"
-			},1500) 
+			},1000) 
 		}
 	}
 
