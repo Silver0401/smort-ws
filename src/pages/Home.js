@@ -1,12 +1,17 @@
 import React, {useEffect, useState} from "react";
 import anime from "animejs";
 import "react-on-scroll-animation/build/index.css";
+import SmortLogo from "./../resources/SmortLogo.svg";
+// import Rosa from "react-on-scroll-animation";
 
 
 // Components
 
 import Block1 from "./../components/Home/Block1";
 import Block2 from "./../components/Home/Block2";
+import Block3 from "./../components/Home/Block3";
+import Footer from "./../components/Home/Footer";
+
 
 const HomePage = () => {
 
@@ -30,23 +35,23 @@ const HomePage = () => {
 
       AnimTLletters.add({
           targets: ".text1",
-          translateY: [300, 0],
+          translateY: ["300px", "0px"],
           opacity: [0,1]
           
       })
       AnimTLletters.add({
           targets: ".text2",
-          translateY: [300,0],
+          translateY: ["300px","0px"],
           opacity: [0,1]
       })
       AnimTLletters.add({
           targets: ".text3",
-          translateY: [300,0],
+          translateY: ["300px","0px"],
           opacity: [0,1]
       })
       AnimTLletters.add({
           targets: [".text1", ".text2", ".text3"],
-          translateY: [0,-300],
+          translateY: ["0px","-300px"],
           delay: 2000
       })
   
@@ -137,6 +142,12 @@ const HomePage = () => {
 
   return (
     <div style={showPage ? {overflow:"visible"} : {overflow:"hidden"}} className="HomePage">
+
+      {/* <section className="HomeBox"> */}
+      <div style={{position:"absolute", top:"10px", left:"10px", width:"50px", height:"50px", background:"transparent",display:"flex", justifyContent:"center", alignItems:"center" }} id="SmortLogo">
+        <img style={{width:"100%"}} alt="SmortLogo" src={SmortLogo}></img>
+      </div>
+
       <div className="LeftBox">
         <h1>Smort</h1>
 
@@ -279,13 +290,13 @@ const HomePage = () => {
       <div className="RightBox">
         <div className="LettersBox">
           <div className="sent1">
-            <h1 className="text1">¿Buscas un Sitio Web Profesional?</h1>
+            <h1 className="text1">¿Buscas un Sitio Web </h1><h1 className=" text1 ProWord" >Profesional?</h1>
           </div>
           <div className="sent2">
-            <h1 className="text2">Dejáselo a los Profesionales</h1>
+            <h1 className="text2">Dejáselo a los </h1><h1 className=" text2 ProWord" >Profesionales</h1>
           </div>
           <div className="sent3">
-            <h1 className="text3">!Consigue el tuyo al mejor precio!</h1>
+            <h1 className="text3">!Consigue el tuyo ya!</h1>
           </div>
         </div>
         <button onClick={() => window.location = "/PageBuilder/Init"} className="CreateButton">Conseguir mi sitio</button>
@@ -306,11 +317,16 @@ const HomePage = () => {
 
       </span>
     
+      {/* </section> */}
 
       <Block1/>
 
       <Block2/>
-    
+
+      <Block3/>
+  
+      <Footer/>
+
     </div>
   );
 }
