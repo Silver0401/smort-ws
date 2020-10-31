@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import anime from "animejs";
 import "react-on-scroll-animation/build/index.css";
-
+import Rosa from "react-on-scroll-animation";
 
 // Components
 import LeftBox from "./../components/Home/HomeLeftB.js";
