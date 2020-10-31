@@ -1,5 +1,6 @@
 
 $PageColor: rgb(51, 162, 203);
+$BGColor: rgb(31, 28, 28);
 
 @mixin alignCenter {
     display: flex;
@@ -63,6 +64,24 @@ $PageColor: rgb(51, 162, 203);
     }
 }
 
+@mixin NeumorphType1 {
+    box-shadow: 
+    10px 10px 30px black,
+    -10px -10px 20px rgba(255, 255, 255, 0.043),
+    inset 10px 10px 5px black,
+    inset -10px -10px 15px rgba(255, 255, 255, 0.146);
+    border: 6px solid $BGColor;
+    transition: box-shadow 600ms;
+}
+@mixin NeumorphType2 {
+    box-shadow: 
+    15px 15px 40px black,
+    -10px -10px 20px rgba(255, 255, 255, 0.043);
+    border: 6px solid $BGColor;
+    transition: box-shadow 600ms;
+}
+
+
 // Font Families
 
 // font-family: 'Dancing Script', cursive;
@@ -84,7 +103,7 @@ $PageColor: rgb(51, 162, 203);
     display: grid;
     grid-template-columns: 1fr 55%;
     grid-template-rows: 100%;
-    grid-template-rows: 100% 1300px 900px 950px 400px;
+    grid-template-rows: 100% 1300px 900px 950px 500px;
     grid-template-areas:
     "LeftBox RightBox"
     "Block1 Block1"
@@ -155,13 +174,9 @@ $PageColor: rgb(51, 162, 203);
         .BrainBox{
             
             height: auto;
-            width: 400px;
+            width: 350px;
             margin-bottom: 50px;
-
-            #eye{
-                position: absolute;
-                transform: translateX(20px);
-            }
+            // background-color: lightsalmon;
 
             img, svg{
                 // background-color: lightgrey;
@@ -266,7 +281,7 @@ $PageColor: rgb(51, 162, 203);
         flex-direction: column;
 
         .Phrase{
-            height: 200px;
+            height: 15%;
             width: 100%;
             background-color: white;
 
@@ -286,7 +301,7 @@ $PageColor: rgb(51, 162, 203);
         }
         .WhyBox{
             width: 100%;
-            height: 800px;
+            height: 80%;
             // background-color: black;
             @include alignCenter();
 
@@ -304,7 +319,7 @@ $PageColor: rgb(51, 162, 203);
             }
             .Reasons{
                 width: 65%;
-                height: 100%;
+                height: 78%;
                 display: flex;
                 flex-wrap: wrap;
                 overflow: auto;
@@ -504,6 +519,7 @@ $PageColor: rgb(51, 162, 203);
         flex-direction: column;
         margin-top: 100px;
         font-family: 'MuseoModerno', cursive;
+        // margin-bottom: 150px;
 
         .B3Title{
 
@@ -521,7 +537,7 @@ $PageColor: rgb(51, 162, 203);
                 width: 100%;
                 height: 100%;
                 background-color: $PageColor;
-                color: white;
+                color: black;
             }
         }
 
@@ -742,6 +758,75 @@ $PageColor: rgb(51, 162, 203);
 
     .Footer{
         grid-area: Footer;
+        background-color: transparent;        
+        color: $PageColor;
+        @include alignCenter();
+        flex-direction: column;
+        font-family: 'MuseoModerno', cursive;
+        margin-top: 100px;
+
+        .ContactUsTitle{
+            // background-color: lightskyblue;
+            width: 100%;
+            height: 15%;
+            @include alignCenter();
+            justify-content: flex-start;
+
+            h1{
+                font-size: 30px;
+                letter-spacing: 3px;
+                margin: 0px 50px;
+            }
+        }
+        .MediaBar{
+            background-color: $BGColor;
+            width: 100%;
+            height: 55%;
+            @include alignCenter();
+
+            span{
+                position: relative;
+                width: 100px;
+                height: 100px;
+                background-color: $BGColor;
+                border-radius: 50%;
+                @include alignCenter();
+                @include NeumorphType1();
+
+                svg{
+                    width:95%;
+                    height: 95%;
+                    fill: white;
+                    opacity: .1;
+                    transition: fill 600ms, opacity 600ms;
+                }
+                
+                &:hover{
+                    @include NeumorphType2();
+                    
+                    .Insta{opacity: 1;fill: rgb(208, 39, 92); transition: fill 500ms, opacity 1000ms;}
+                    .Face{opacity: 1;fill: rgb(86, 74, 218); transition: fill 500ms, opacity 1000ms;}
+                    .Whats{opacity: 1;fill: rgb(106, 252, 99); transition: fill 500ms, opacity 1000ms;}
+                    .Twit{opacity: 1;fill: rgb(89, 228, 203); transition: fill 500ms, opacity 1000ms;}
+                }
+            }
+        }
+
+        .Right{
+            // background-color: lightcoral;
+            width: 100%;
+            height: 5%;
+            @include alignCenter();
+            justify-content: flex-end;
+        
+            h2{
+                margin: 0px 60px;
+                text-align: center;
+                text-shadow: 0px 3px 5px $PageColor;
+                color: white;
+                font-family: 'Dancing Script', cursive;
+            }
+        }
     }
 
 
@@ -828,37 +913,4 @@ $PageColor: rgb(51, 162, 203);
 
 }
 
-
-@media (max-width: 1100px){
-
-    .HomePage{
-
-        grid-template-columns: 1fr;
-        grid-template-rows: 800px 800px 1300px 800px;
-        grid-template-areas: 
-        "LeftBox"
-        "RightBox"
-        "Block1"
-        "Block2";
-
-        .LeftBox{
-            h1{
-                font-size: 70px;
-            }
-
-            .Arrow{
-                display: none;
-            }
-        }
-
-        .RightBox{
-            margin-bottom: 50px;
-
-            .CreateButton{
-                padding: 20px 10px
-            }
-        }
-    }
-
-}
 

@@ -16,7 +16,7 @@ const Block1 = () => {
                 <div className="Title">
                     <h1>¿Por qué Smort y no otros Softwares de Páginas Web?</h1>
                 </div>
-                <Rosa animation="fade-left" duration={1000} className="Reasons">
+                <Rosa animation="fade-up" duration={1000} className="Reasons">
                     <div className="Box1">
                         <h2>Precios Increibles</h2>
                         <p>Los precios más bajos del mercado.</p>

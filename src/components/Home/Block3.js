@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import SmortLogo from "./../../resources/SmortLogo.svg";
 import anime from "animejs";
 import Rosa from "react-on-scroll-animation";
 
 const Block3 = () => {
-
-    const [AnimationCount, setAnimationCount] = useState(0)
 
     function InstructionsAnimation(){
 
@@ -15,20 +13,12 @@ const Block3 = () => {
             loop:true
         })
 
-        // 1) Select Style Animations
-        // tl.add({
-        //     targets:"#B3Arrow",
-        //     duration: 500,
-        //     rotate: "-90deg",
-        // })
-
         tl.add({
             targets:"#B3Arrow",
             duration: 6000,
             translateY: ["-100px", "0px", "100px","-100px", "100px", "0px"],
             opacity: 1
         })
-
 
         tl.add({
             targets:["#B3Arrow","#svg1", "#svg3"],
@@ -297,7 +287,7 @@ const Block3 = () => {
 
 
             <div className="Instructions">
-                <Rosa animation="zoom-out-left" duration={1000} className="B3TextSection">
+                <Rosa animation="zoom-out-right" duration={1000} className="B3TextSection">
                     <ol>
                         <li><h1>1. Escoge tus diseños y estilos favoritos</h1></li>
                         <li><h1>2. Escribenos tus especificaciones y detalles</h1></li>
