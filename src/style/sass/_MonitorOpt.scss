@@ -1,0 +1,155 @@
+@media (min-width: 2000px){
+    .HomePage{
+
+        .HomeInit{
+            .LeftBox{
+                .BrainBox{
+                    width: 850px;
+                }
+            }
+
+            .RightBox{
+                .CreateButton{
+                    font-size: 40px;
+                    padding: 50px 80px;
+                }
+            }
+        }
+
+        .Block1{
+            height: 100vh;
+
+            .Phrase{
+                font-size: 55px;
+            }
+            .WhyBox{
+                .Title{
+                    h1{
+                        font-size: 80px;
+                    }
+                }
+
+                .Reasons{
+                    div{
+                        h2{
+                            margin: 0px 40px;
+                            font-size: 35px;
+                        }
+                        p{
+                            font-size: 20px;
+                        }
+                        .SvgBox{
+                            width: 100px;
+                            height: 100px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .Block2{
+            height: 100vh;
+
+            .LeftBoxB2{
+                border-top-right-radius: 300px;
+                border-bottom-right-radius: 300px;
+
+                h1{
+                    font-size: 70px;
+                }
+
+                .AnimBoxB2{
+                    h4{
+                        font-size: 60px;
+                    }
+                }
+
+                .TextAnimBox{
+                    h2{
+                        font-size: 45px;
+                    }
+                    svg{
+                        width: 300px;
+                        height: 300px;
+                    }
+                }
+            }
+            
+            .RightBoxB2{
+
+                border-top-left-radius: 300px;
+                border-bottom-left-radius: 300px;
+
+                .TextBox{
+                    h1{
+                        font-size: 100px;
+                    }
+                    h2{
+                        font-size: 130px;
+                    }
+                }
+            }
+        }
+
+        .Block3{
+            .B3Title{
+                h1{
+                    font-size: 80px;
+                }
+            }
+            .Instructions{
+             
+                .B3AnimSection{
+
+                    .B3AnimationBox{
+                        height: 40%;
+                    }
+
+                    .CreateButtonBox{
+                        .CreateButton{
+                            font-size: 50px;
+                            padding: 60px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .NavBar{
+            height: 90px;
+
+            ul li a{
+                font-size: 55px;
+            }
+        }
+
+        .Footer{
+
+            .ContactUsTitle{
+                h1{
+                    font-size: 50px;
+                    margin-left: 100px;
+                }
+            }
+
+            .MediaBar{
+                span{
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+
+            .Right{
+                h2{
+                    font-size: 50px;
+                }
+            }
+
+            .Questioner{
+                .BoxyBox{
+                    width: 80%;
+                }
+            }
+        }
+    }
+}

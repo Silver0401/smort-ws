@@ -2,7 +2,7 @@ import React from "react";
 
 const ChooseLoader = () => {
 
-    const CreateLoader = (LoaderName) => {
+    const CreateLoader = (LoaderName:string) => {
 
       let GearsActive = false
 

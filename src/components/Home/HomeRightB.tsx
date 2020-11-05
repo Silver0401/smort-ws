@@ -16,7 +16,7 @@ const RightBox = () => {
             </div>
         </div>
 
-        <button onClick={() => window.location = "/PageBuilder/Init"} className="CreateButton">Conseguir mi sitio</button>
+        <button onClick={() => window.location.href = "/PageBuilder/Init"} className="CreateButton">Conseguir mi sitio</button>
         </div>
     
     )

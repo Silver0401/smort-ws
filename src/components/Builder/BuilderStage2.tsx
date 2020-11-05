@@ -1,7 +1,7 @@
 import React from "react";
 import anime from "animejs";
 
-const BuilderStage2 = (props) => {
+const BuilderStage2 = (props:any) => {
 
     let stateChecker = false
 

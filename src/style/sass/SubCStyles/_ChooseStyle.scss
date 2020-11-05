@@ -392,6 +392,12 @@
 
                             &:hover{
                                 @include NeumorphType2();
+
+                                .Whats{ opacity: .7; fill: rgb(38, 237, 38); transition: fill 500ms, opacity 500ms; }
+                                .Insta{ opacity: .7; fill: rgb(165, 52, 196); transition: fill 500ms, opacity 500ms; }
+                                .Face{ opacity: .7; fill: rgb(57, 105, 228); transition: fill 500ms, opacity 500ms; }
+                                .Twit{ opacity: .7; fill: rgb(65, 194, 233); transition: fill 500ms, opacity 500ms; }
+
                             }
 
                             svg{
@@ -401,18 +407,7 @@
                                 height: 70%;
                                 transition: fill 500ms, opacity 500ms;
                             }
-
-
-                            &:hover svg{
-                                opacity: .7;
-
-                                transition: fill 500ms, opacity 500ms;
-                            }
-
-                            &:hover .Whats{fill: rgb(38, 237, 38); }
-                            &:hover .Insta{fill: rgb(165, 52, 196); }
-                            &:hover .Face{fill: rgb(57, 105, 228); }
-                            &:hover .Twit{fill: rgb(65, 194, 233); }
+   
                         }
 
                     }
@@ -491,7 +486,7 @@
 
             .Parallax{
 
-                background-image: url(../../resources/ParallaxBG.jpg);
+                background-image: url(../../resources/ParallaxBG3.jpg);
                 background-color: black;
                 background-size: cover;
                 grid-template-columns: 1fr;
@@ -528,8 +523,9 @@
             }
 
             .Minimalist{
-                background-image: url(../../resources/minimalBG.jpg);
-                background-size: cover;
+                // background-image: url(../../resources/minimalBG.jpg);
+                // background-size: cover;
+                background-color: white;
                 grid-template-columns: 70% 1fr;
                 grid-template-areas: 
                 "RightBox LeftBox";

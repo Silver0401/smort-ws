@@ -10,8 +10,10 @@ const BuilderRoot = () => {
 
     const [sectionDisplayed, changeSection] = useState("Page Style")
 
-    const ColorBoxPicked1 = useRef("#131E25")
-    const ColorBoxPicked2 = useRef("#0EECC0")
+    const ColorBoxPicked1 = useRef<HTMLInputElement>(null);
+    const ColorBoxPicked2 = useRef<HTMLInputElement>(null);
+    // const ColorBoxPicked1 = useRef("#131E25")
+    // const ColorBoxPicked2 = useRef("#0EECC0")
     
 
     const ReturnSection = () => {
@@ -44,14 +46,29 @@ const BuilderRoot = () => {
 
     let root = document.documentElement
 
-    ColorBoxPicked1.current.onchange = () => {
-      root.style.setProperty("--ChosenColor1", ColorBoxPicked1.current.value)
-      if (ColorBoxPicked1.current.value === "#000000") root.style.setProperty("--ChosenColor3", "#ffffff")
-      if (ColorBoxPicked1.current.value === "#ffffff") root.style.setProperty("--ChosenColor3", "#000000")
-    };
-    ColorBoxPicked2.current.onchange = () => {
-      root.style.setProperty("--ChosenColor2", ColorBoxPicked2.current.value)
-    };
+    if (ColorBoxPicked1 && ColorBoxPicked1.current){
+      
+      ColorBoxPicked1.current.onchange = () => {
+
+        if (ColorBoxPicked1 && ColorBoxPicked1.current){
+          root.style.setProperty("--ChosenColor1", ColorBoxPicked1.current.value)
+          if (ColorBoxPicked1.current.value === "#000000") root.style.setProperty("--ChosenColor3", "#ffffff")
+          if (ColorBoxPicked1.current.value === "#ffffff") root.style.setProperty("--ChosenColor3", "#000000")
+        }
+
+      };
+    }
+    
+    if (ColorBoxPicked2 && ColorBoxPicked2.current){
+      ColorBoxPicked2.current.onchange = () => {
+
+        if (ColorBoxPicked2 && ColorBoxPicked2.current){
+
+          root.style.setProperty("--ChosenColor2", ColorBoxPicked2.current.value)
+        }
+      };
+    }
+    
 
   })
 

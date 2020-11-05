@@ -13,7 +13,7 @@ const ChooseNav = () => {
   const [XRightWholePageNavBar, setXRightWholePageNavBar] = useState(false)
   const [XBottomWholePageNavBar, setXBottomWholePageNavBar] = useState(false)
 
-    const CreateNavBar = (NavBarName, NavBarChecker, setNavBarState) => {
+    const CreateNavBar = (NavBarName:string, NavBarChecker:boolean, setNavBarState:any) => {
 
       return (
         <div className="NavBarBox">

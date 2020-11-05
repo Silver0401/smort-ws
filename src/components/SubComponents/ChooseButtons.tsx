@@ -2,7 +2,7 @@ import React from "react";
 
 const ChooseButtons = () => {
 
-  const CreateButton = (ButtonName) => {
+  const CreateButton = (ButtonName:string) => {
 
     return (
       <div className="ButtonBox">

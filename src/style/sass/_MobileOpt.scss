@@ -1,34 +1,143 @@
+$PageColor: rgb(51, 162, 203);
+$BGColor: rgb(31, 28, 28);
+
+
+@mixin XBurger{
+    #l1{
+        transform: translateY(16px) rotate(225deg);
+        transition: transform 450ms;
+        transition-delay: 200ms;
+    }
+
+    #l2{
+        // transform: translateX(5px);
+        width: 0px;
+        transition: width 100ms;
+    }
+
+    #l3{
+        transform: translateY(-15px) rotate(-225deg);
+        transition: transform 450ms;
+        transition-delay: 200ms;
+    }
+}
+
+
 
 @media (max-width: 1100px){
 
     .HomePage{
 
-        grid-template-columns: 1fr;
-        grid-template-rows: 800px 800px 1500px 800px 1000px 500px;
-        grid-template-areas: 
-        "LeftBox"
-        "RightBox"
-        "Block1"
-        "Block2"
-        "Block3"
-        "Footer";
+        scroll-snap-type: none;
 
-        .LeftBox{
-            h1{
-                font-size: 70px;
+        .NavBar{
+            top: 0;
+            right: 0;
+            width: 75px;
+            height: 75px;
+            background-color: transparent;
+
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 20px;
+
+            ul{
+                position: absolute;
+                top: 0;
+                right: 0px;
+                background-color: $PageColor;
+                height: 100vh;
+                width: 250px;
+                z-index: 0;
+                transform: translateX(300px);
+                transition: transform 500ms;
+                flex-direction: column;
+
+                li a{
+                    font-size: 40px;
+                }
             }
 
-            .Arrow{
-                display: none;
+            .Burger{
+                z-index: 1;
+                cursor: pointer;
+                position: relative;
+                width: 80%;
+                height: 80%;
+                border: 8px solid $PageColor;
+                background-color: $PageColor;
+                border-bottom-left-radius: 20px;
+                // background-color: white;
+                @include alignCenter();
+                justify-content: space-evenly;
+                transition: transform 500ms;
+                
+                span{
+                    background-color: black;
+                    box-shadow: 0px 0px 6px black;
+                    border-radius: 100px;
+
+                    position: relative;
+                    width: 75%;
+                    height: 5px;
+                    transition: width 900ms, transform 700ms;
+                    z-index: 1;
+                }
+
+                .bar2{
+                    transition-delay: 500ms;
+                }
             }
+
+            .NavOn{
+                @extend .Burger;
+                @include XBurger();
+
+                transform: translateX(-250px);
+                transition: transform 500ms;
+
+                & + ul{
+                    transform: translateX(0px);
+                    transition: transform 500ms;
+                }
+            }
+
         }
 
-        .RightBox{
-            margin-bottom: 50px;
+        .HomeInit{
 
-            .CreateButton{
-                padding: 20px 10px
+            height: 200vh;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+            "LeftBox"
+            "RightBox";
+
+            // .LeftBox, .RightBox{
+            //     width: 100%;
+            // }
+    
+            .LeftBox{
+                h1{
+                    font-size: 70px;
+                }
+
+                .BrainBox{
+                    width: 300px;
+                }
+    
+                .Arrow{
+                    display: none;
+                }
             }
+    
+            .RightBox{
+                margin-bottom: 50px;
+    
+                .CreateButton{
+                    padding: 20px 10px
+                }
+            }
+
         }
 
         .Block1{
@@ -59,6 +168,26 @@
                 }
             }
         }
+
+        .Block2{
+            .RightBoxB2{
+                .TextBox{
+                    height: 80%;
+                }
+            }
+        }
+
+        .Block3{
+            height: 120vh;
+        }
+
+        .Footer{
+            .Questioner{
+                .BoxyBox{
+                    width: 100%;
+                }
+            }
+        }
     }
 
 }
@@ -66,7 +195,7 @@
 @media (max-width: 850px){
     .HomePage{
 
-        grid-template-rows: 800px 700px 1500px 800px 1300px 500px;
+        // grid-template-rows: 800px 700px 1500px 800px 1300px 500px;
 
         .Block1{
             .WhyBox{
@@ -83,16 +212,26 @@
         .Block2{
 
             .LeftBoxB2, .RightBoxB2{
-                width: 80%;
+                width: 95%;
             }
 
             .RightBoxB2{
                 font-size: 20px;
-                margin-left: 20%;
+                margin-left: 5%;
+
+                .TextBox{
+                    height: 30%;
+                    h1{
+                        font-size: 30px;
+                    }
+                    h2{
+                        font-size: 40px;
+                    }
+                }
             }
             
             .LeftBoxB2{
-                margin-right: 20%;
+                margin-right: 5%;
                 h1{
                     font-size: 1.5rem;
                     padding: 0px 15px;
@@ -119,7 +258,10 @@
         }
 
         .Block3{
-            // margin-top: 0px;
+
+            height: 1400px;
+
+            margin-top: 0px;
             .Instructions{
                 flex-direction: column;
 

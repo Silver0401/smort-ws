@@ -1,12 +1,18 @@
 import React, { useEffect } from "react";
 import SmortLogo from "./../../resources/SmortLogo.svg";
 import anime from "animejs";
-import Rosa from "react-on-scroll-animation";
+// const span = require("react-on-scroll-animation");
+
+// import span from "react-on-scroll-animation";
+
+// animation="zoom-in-down" duration={1000}
+// animation="zoom-out-right" duration={1000}
 
 const Block3 = () => {
 
     function InstructionsAnimation(){
 
+        // Choose you style
 
         const tl = anime.timeline({
             delay: 0,
@@ -19,6 +25,20 @@ const Block3 = () => {
             translateY: ["-100px", "0px", "100px","-100px", "100px", "0px"],
             opacity: 1
         })
+
+        tl.add({
+            targets: "#li1",
+            easing: "easeInOutQuad",
+            duration: 500,
+            color: "#33A2CB"
+        }, "-=6000")
+
+        tl.add({
+            targets: "#li4",
+            easing: "easeInOutQuad",
+            duration: 500,
+            color: "#ffffff"
+        }, "-=6000")
 
         tl.add({
             targets:["#B3Arrow","#svg1", "#svg3"],
@@ -37,6 +57,20 @@ const Block3 = () => {
             easing: "easeInOutSine",
             translateY: ["0px","30px"]
         },"+=50")
+
+        tl.add({
+            targets: "#li2",
+            easing: "easeInOutQuad",
+            duration: 500,
+            color: "#33A2CB"
+        }, "-=1050")
+
+        tl.add({
+            targets: "#li1",
+            easing: "easeInOutQuad",
+            duration: 500,
+            color: "#ffffff"
+        }, "-=1050")
 
         tl.add({
             targets:".LinesBox",
@@ -80,6 +114,20 @@ const Block3 = () => {
             opacity: [0,1],
             easing: "easeInOutSine",
         },"+=200")
+
+        tl.add({
+            targets: "#li3",
+            easing:"easeInOutQuad",
+            duration: 500,
+            color: "#33A2CB"
+        }, "-=700")
+
+        tl.add({
+            targets: "#li2",
+            easing:"easeInOutQuad",
+            duration: 500,
+            color: "#ffffff"
+        }, "-=700")
 
         tl.add({
             targets: "#Sun",
@@ -167,7 +215,22 @@ const Block3 = () => {
             duration: 50,
             scale: [1,1.7],
             translateX:"0px",
+            translateY:"28px",
         },"+=10")
+
+        tl.add({
+            targets: "#li4",
+            easing:"easeInOutQuad",
+            duration: 500,
+            color: "#33A2CB"
+        }, "-=60")
+
+        tl.add({
+            targets: "#li3",
+            easing:"easeInOutQuad",
+            duration: 500,
+            color: "#ffffff"
+        }, "-=60")
 
         tl.add({
             targets:"#svg2",
@@ -204,7 +267,7 @@ const Block3 = () => {
             duration: 1000,
             easing:"easeInOutSine",
             opacity: [0,1]
-        },"-=1000")
+        },"-=2000")
 
             // From Phone to Monitor
 
@@ -280,21 +343,21 @@ const Block3 = () => {
     },[])
 
     return(
-        <section className="Block3">
-            <Rosa animation="zoom-in-down" duration={1000} className="B3Title">
+        <section className="Block3" id="Build">
+            <span className="B3Title">
                 <h1>¿Como Funciona?</h1>
-            </Rosa>
+            </span>
 
 
             <div className="Instructions">
-                <Rosa animation="zoom-out-right" duration={1000} className="B3TextSection">
+                <span className="B3TextSection">
                     <ol>
-                        <li><h1>1. Escoge tus diseños y estilos favoritos</h1></li>
-                        <li><h1>2. Escribenos tus especificaciones y detalles</h1></li>
-                        <li><h1>3. Espera unos cuantos días a que sea terminada</h1></li>
-                        <li><h1>4. Disfruta tu Página en Cualquier Dispositivo</h1></li>
+                        <li id="li1"><h1>1. Escoge tus diseños y estilos favoritos</h1></li>
+                        <li id="li2"><h1>2. Escribenos tus especificaciones y detalles</h1></li>
+                        <li id="li3"><h1>3. Espera unos cuantos días a que sea terminada</h1></li>
+                        <li id="li4"><h1>4. Disfruta tu Página en Cualquier Dispositivo</h1></li>
                     </ol>
-                </Rosa>
+                </span>
                 <div className="B3AnimSection">
 
                     <div className="B3AnimationBox">
@@ -333,7 +396,7 @@ const Block3 = () => {
                     </div>
                     
                     <div className="CreateButtonBox">
-                        <button onClick={() => window.location = "/PageBuilder/Init"} className="CreateButton">¡Empezar Ya!</button>
+                        <button onClick={() => window.location.href = "/PageBuilder/Init"} className="CreateButton">¡Empezar Ya!</button>
                     </div>
 
                 </div>

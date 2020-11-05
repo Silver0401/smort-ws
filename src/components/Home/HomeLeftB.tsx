@@ -1,10 +1,10 @@
 import React from "react";
-import SmortLogo from "./../../resources/SmortLogo.svg";
+// import SmortLogo from "./../../resources/SmortLogo.svg";
 
 const LeftBox = () => {
 
     return(
-        <section className="LeftBox">
+        <div className="LeftBox">
             <h1>Smort</h1>
 
             <br></br>
@@ -29,8 +29,8 @@ const LeftBox = () => {
                     </g>
                     <ellipse cx="94.3041" cy="97.6561" rx="4" ry="11" transform="rotate(25.2087 94.3041 97.6561)" fill="black"/>
                     <path d="M124.804 104.111C122.217 109.608 118.499 113.301 116.5 112.36C114.501 111.419 114.979 106.2 117.566 100.704C120.154 95.2071 123.871 91.514 125.87 92.455C127.869 93.3959 127.392 98.6145 124.804 104.111Z" fill="black"/>
-                    <circle cx="94" cy="95" r="13" stroke="white" stroke-width="2"/>
-                    <circle cx="122" cy="102" r="13" stroke="white" stroke-width="2"/>
+                    <circle cx="94" cy="95" r="13" stroke="white" strokeWidth="2"/>
+                    <circle cx="122" cy="102" r="13" stroke="white" strokeWidth="2"/>
                     <rect x="106.49" y="98" width="3.75906" height="1.3689" transform="rotate(20.9571 106.49 98)" fill="#C4C4C4"/>
                     <rect x="86" y="123" width="37" height="2" fill="black"/>
                     <rect x="86" y="129" width="46" height="2" fill="#225C93"/>
@@ -42,8 +42,8 @@ const LeftBox = () => {
                     <rect x="91" y="140" width="5" height="11" fill="black"/>
                     <rect x="99" y="140" width="12" height="11" fill="black"/>
                     <defs>
-                    <filter id="filter0_d" x="13.136" y="57.32" width="79.712" height="124.208" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <filter id="filter0_d" x="13.136" y="57.32" width="79.712" height="124.208" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
                     <feOffset dy="4"/>
                     <feGaussianBlur stdDeviation="2"/>
@@ -51,8 +51,8 @@ const LeftBox = () => {
                     <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
                     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
                     </filter>
-                    <filter id="filter1_d" x="65.485" y="64.172" width="99.848" height="54.827" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <filter id="filter1_d" x="65.485" y="64.172" width="99.848" height="54.827" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
                     <feOffset dy="4"/>
                     <feGaussianBlur stdDeviation="2"/>
@@ -60,8 +60,8 @@ const LeftBox = () => {
                     <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
                     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
                     </filter>
-                    <filter id="filter2_d" x="131.484" y="80.987" width="49.409" height="90.947" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <filter id="filter2_d" x="131.484" y="80.987" width="49.409" height="90.947" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                    <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
                     <feOffset dy="4"/>
                     <feGaussianBlur stdDeviation="2"/>
@@ -76,7 +76,7 @@ const LeftBox = () => {
             <span className="Arrow">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 12c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm-18.005-1.568l1.415-1.414 4.59 4.574 4.579-4.574 1.416 1.414-5.995 5.988-6.005-5.988z"/></svg>
             </span> 
-      </section>
+      </div>
 
     )
 }

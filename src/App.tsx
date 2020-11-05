@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from "react-router-dom";
 import "./style/css/index.css";
 
@@ -15,12 +15,12 @@ function App() {
 	let Chosen = "none"
 	// const [thingy, setThingy] = useState("none")
 
-	const saveChosen = (chosen) => {
+	const saveChosen = (chosen: string) => {
 		Chosen = chosen
 
 		if (Chosen !== "none") {
 			setTimeout(() => {
-				window.location = "/PageBuilder/Root"
+				window.location.href = "/PageBuilder/Root"
 			},1000) 
 		}
 	}
@@ -33,10 +33,10 @@ function App() {
 
 			<Route exact path="/" component={HomePage} />
 
-			<Route exact path="/PageBuilder/Init" component={() => <BuilderInit Chosen={(page) => saveChosen(page)} />} />
+			<Route exact path="/PageBuilder/Init" component={() => <BuilderInit Chosen={(page:string) => saveChosen(page)} />} />
 
 			<Route exact path="/PageBuilder/Root">
-				<BuilderRoot Chosen={Chosen}/>
+				<BuilderRoot/>
 			</Route>
 
 		</Switch>

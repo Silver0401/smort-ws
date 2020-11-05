@@ -81,7 +81,32 @@ $BGColor: rgb(31, 28, 28);
     transition: box-shadow 600ms;
 }
 
+@keyframes BoxFlipping{
+    0%{
+        transform: rotateX(0deg);
+    }
+    25%{
+        transform: rotateX(180deg);
+    }
+    50%{
+        transform: rotateX(0deg);
+    }
+    75%{
+        transform: rotateY(180deg);
+    }
+    100%{
+        transform: rotateX(0deg);
+    }
+}
 
+@keyframes LetterOpacing{
+    0%{
+        opacity: 1;
+    }
+    25%,100%{
+        opacity: 0;
+    }
+}
 // Font Families
 
 // font-family: 'Dancing Script', cursive;
@@ -98,178 +123,227 @@ $BGColor: rgb(31, 28, 28);
     position: absolute;
     width: 100%;
     height: 100%;
-    // // overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    // overflow-y: scroll;
+    // scroll-behavior: smooth;
+    // display: grid;
+    // grid-template-columns: 1fr 55%;
+    // grid-template-rows: 100%;
+    // grid-template-rows: 100% 1300px 900px 950px 500px;
+    // grid-template-areas:
+    // "LeftBox RightBox"
+    // "Block1 Block1"
+    // "Block2 Block2"
+    // "Block3 Block3"
+    // "Footer Footer";
 
-    display: grid;
-    grid-template-columns: 1fr 55%;
-    grid-template-rows: 100%;
-    grid-template-rows: 100% 1300px 900px 950px 500px;
-    grid-template-areas:
-    "LeftBox RightBox"
-    "Block1 Block1"
-    "Block2 Block2"
-    "Block3 Block3"
-    "Footer Footer";
+    section{
+        width: 100%;
+        height: 100vh;
+        scroll-snap-align: start;
+    }
 
-    // .HomeBox{
 
-    //     position: relative;
-    //     width: 100%;
-    //     height: 100vh;
-    //     display: grid;
-    //     grid-template-columns: 1fr 55%;
-    //     grid-template-rows: 100%;
-    //     grid-template-areas:
-    //     "LeftBox RightBox";
+    .NavBar{
+        // grid-area: NavBar;
+        @include alignCenter(); 
+        z-index: 5;
+        position: fixed;
+        background-color: $PageColor;
+        top: 0px;
+        right: 50px;
+        width: 50%;
+        height: 40px;
+        border-bottom-right-radius: 200px;
+        border-bottom-left-radius: 200px;
+        font-family: 'Dancing Script', cursive;
 
-    .LeftBox{
-        grid-area: LeftBox;
-        position: relative;
-        // background: lightcoral;
-        @include alignCenter();
-        flex-direction: column;
-        justify-content: space-around;
-        // justify-content: flex-end;
-
-        h1{
-            font-family: 'Dancing Script', cursive;
-            // font-family: 'Julius Sans One', sans-serif;
-            // font-family: 'Monoton', cursive;
-            // font-family: 'Press Start 2P', cursive;
-            // font-family: 'Righteous', cursive;
-            padding: 5%;
-            font-size: calc(1em + 8vw);
-            text-shadow: 0px 10px 15px $PageColor;
-        }
-
-        p{
-            text-align: center;
-            padding: 0px 50px;
-            // font-family: 'Dancing Script', cursive;
-            // font-family: 'Julius Sans One', sans-serif;
-            // font-family: 'Monoton', cursive;
-            font-family: 'Press Start 2P', cursive;
-            // font-family: 'Righteous', cursive;
-            font-size: calc(1em + 1vw);
-        }
-
-        .price{
-            position: relative;
-            @include alignCenter();
-
-            .p{
-                position: relative;
-                font-size: calc(1em + 2.5vw);
-            }
-
-            .line{
-                position: absolute;
-                height: 4px;
-                background-color: $PageColor;
-                width: 80%;
-                bottom: -5px;
-            }
-        }
-
-        .BrainBox{
-            
-            height: auto;
-            width: 350px;
-            margin-bottom: 50px;
-            // background-color: lightsalmon;
-
-            img, svg{
-                // background-color: lightgrey;
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        .Arrow{
-            position: absolute;
-            bottom: 5%;
-            right: -70px;
-            width: 40px;
-            height: 40px;
-            background-color: $PageColor;
-            border-radius: 50%;
-            @include alignCenter();
-            animation: ArrowMov 1s linear infinite alternate;
-
-            svg{
-                width: 90%;
-                height: 90%;
-                fill: white;
-            }
-        }
-    }   
-
-    .RightBox{
-        grid-area: RightBox;
-        position: relative;
-        // background: lightgreen;
-        font-size: 15px;
-
-        @include alignCenter();
-        flex-direction: column;
-
-        .LettersBox{
-            position: relative;
+        ul{
             width: 100%;
-            height: 400px;
-            // background: black;
-
+            height: 100%;
+            // background-color: black;
             @include alignCenter();
-            flex-direction: column;
-            text-align: center;
-            font-family: 'Press Start 2P', cursive;
+            list-style-type: none;
+            
+            li{
+                
+                a{
+                    font-size: 25px;
+                    color: white;
+                    text-decoration: none;
+                    font-weight: bolder;
+                    transition: all 500ms;
 
-            div{
-                position: relative;
-                // @include alignCenter();
-                // background-color: lightgreen;
-                width: 90%;
-                height: 30%;
-                overflow: hidden;
-                // display: inline-block;
-                @include alignCenter();
-                flex-direction: column;
-
-
-                h1{
-                    position: relative;
-                    display: inline-block;
-                    // margin-right: auto;
-                    font-size: calc(.8rem + 1.5vw);
+                    &:hover{
+                        color: black;
+                        text-shadow: 0px 0px 15px black;
+                        transition: all 500ms;
+                    }
                 }
-
-                .ProWord{
-                    color: $PageColor;
-                }
-            }
-
-        }
-        .CreateButton{
-            padding: 30px 50px;
-            background: black;
-            border: 0px solid transparent;
-            border-radius: 50px;
-            box-shadow: 0px 0px 20px $PageColor;
-            margin-bottom: 90px;
-            font-size: calc(1em + .2vw);
-            font-family: 'Press Start 2P', cursive;
-            cursor: pointer;
-            transition: color 500ms, background-color 500ms, box-shadow 500ms;
-            color: $PageColor;
-
-            &:hover{
-                box-shadow: 0px 0px 50px $PageColor;
-                background-color: black;
-                color: $PageColor;
-                transition: color 500ms, background-color 500ms, box-shadow 500ms;
             }
         }
     }
+
+    .HomeInit{
+        display: grid;
+        grid-template-columns: 45% 55%;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "LeftBox RightBox";
+    
+        .LeftBox{
+            grid-area: LeftBox;
+            position: relative;
+            // background: lightcoral;
+            @include alignCenter();
+            flex-direction: column;
+            justify-content: space-around;
+            // justify-content: flex-end;
+    
+            h1{
+                font-family: 'Dancing Script', cursive;
+                // font-family: 'Julius Sans One', sans-serif;
+                // font-family: 'Monoton', cursive;
+                // font-family: 'Press Start 2P', cursive;
+                // font-family: 'Righteous', cursive;
+                padding: 5%;
+                font-size: calc(1em + 8vw);
+                text-shadow: 0px 10px 15px $PageColor;
+            }
+    
+            p{
+                text-align: center;
+                padding: 0px 50px;
+                // font-family: 'Dancing Script', cursive;
+                // font-family: 'Julius Sans One', sans-serif;
+                // font-family: 'Monoton', cursive;
+                font-family: 'Press Start 2P', cursive;
+                // font-family: 'Righteous', cursive;
+                font-size: calc(1em + 1vw);
+            }
+    
+            .price{
+                position: relative;
+                @include alignCenter();
+    
+                .p{
+                    position: relative;
+                    font-size: calc(1em + 2.5vw);
+                }
+    
+                .line{
+                    position: absolute;
+                    height: 4px;
+                    background-color: $PageColor;
+                    width: 80%;
+                    bottom: -5px;
+                }
+            }
+    
+            .BrainBox{
+                
+                height: auto;
+                width: 350px;
+                margin-bottom: 50px;
+                // background-color: lightsalmon;
+    
+                img, svg{
+                    // background-color: lightgrey;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+    
+            .Arrow{
+                position: absolute;
+                bottom: 5%;
+                right: -70px;
+                width: 40px;
+                height: 40px;
+                background-color: $PageColor;
+                border-radius: 50%;
+                @include alignCenter();
+                animation: ArrowMov 1s linear infinite alternate;
+    
+                svg{
+                    width: 90%;
+                    height: 90%;
+                    fill: white;
+                }
+            }
+        }   
+    
+        .RightBox{
+            grid-area: RightBox;
+            position: relative;
+            // background: lightgreen;
+            font-size: 15px;
+    
+            @include alignCenter();
+            flex-direction: column;
+    
+            .LettersBox{
+                position: relative;
+                width: 100%;
+                height: 50%;
+                // background: black;
+    
+                @include alignCenter();
+                flex-direction: column;
+                text-align: center;
+                font-family: 'Press Start 2P', cursive;
+    
+                div{
+                    position: relative;
+                    // @include alignCenter();
+                    // background-color: lightgreen;
+                    width: 90%;
+                    height: 30%;
+                    overflow: hidden;
+                    // display: inline-block;
+                    @include alignCenter();
+                    flex-direction: column;
+    
+    
+                    h1{
+                        position: relative;
+                        display: inline-block;
+                        // margin-right: auto;
+                        font-size: calc(.8rem + 1.5vw);
+                    }
+    
+                    .ProWord{
+                        color: $PageColor;
+                    }
+                }
+    
+            }
+            .CreateButton{
+                padding: 30px 50px;
+                background: black;
+                border: 0px solid transparent;
+                border-radius: 50px;
+                box-shadow: 0px 0px 20px $PageColor;
+                // margin-bottom: 90px;
+                font-size: calc(1em + .2vw);
+                font-family: 'Press Start 2P', cursive;
+                cursor: pointer;
+                transition: color 500ms, background-color 500ms, box-shadow 500ms;
+                color: $PageColor;
+    
+                &:hover{
+                    box-shadow: 0px 0px 50px $PageColor;
+                    background-color: black;
+                    color: $PageColor;
+                    transition: color 500ms, background-color 500ms, box-shadow 500ms;
+                }
+            }
+        }
+
+    }
+
 
 
     .Block1{
@@ -327,8 +401,8 @@ $BGColor: rgb(31, 28, 28);
                 // transform: rotate(2deg);
                 
                 div{
-                    width: 300px;
-                    height: 180px;
+                    min-width: 300px;
+                    min-height: 180px;
                     font-family: 'MuseoModerno', cursive;
                     border: 10px solid rgb(23, 21, 21);
                     box-shadow: 0px 0px 5px $PageColor;
@@ -338,19 +412,19 @@ $BGColor: rgb(31, 28, 28);
                     flex-direction: column;
                     transition: background-color 500ms, color 500ms;
 
-                    &:hover{
-                        background-color: $PageColor;
-                        color: black;
-                        transition: background-color 500ms, color 500ms;
+                    // &:hover{
+                    //     background-color: $PageColor;
+                    //     color: black;
+                    //     transition: background-color 500ms, color 500ms;
 
-                        .SvgBox{
-                            svg{
-                                fill: white;
-                                filter: drop-shadow(0px 0px 5px white);
-                                transition: fill 500ms, filter 500ms;
-                            }
-                        }
-                    }
+                    //     .SvgBox{
+                    //         svg{
+                    //             fill: white;
+                    //             filter: drop-shadow(0px 0px 5px white);
+                    //             transition: fill 500ms, filter 500ms;
+                    //         }
+                    //     }
+                    // }
 
                     h2{
                         font-size: 25px;
@@ -395,6 +469,7 @@ $BGColor: rgb(31, 28, 28);
         grid-area: Block2;
         @include alignCenter();
         flex-direction: column;
+        scroll-snap-align: center;
         // margin-top: 100px;
         // background-color: lightsalmon;
 
@@ -406,7 +481,8 @@ $BGColor: rgb(31, 28, 28);
             font-family: 'MuseoModerno', cursive;
             overflow: hidden;
             width: 70%;
-            height: 350px;
+            height: 35%;
+            // height: 350px;
         }
 
         .LeftBoxB2{
@@ -492,11 +568,14 @@ $BGColor: rgb(31, 28, 28);
             @include alignCenter();
             
             .TextBox{
-                position: relative;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 // margin: 0px auto;
                 display: inline;
                 width: 90%;
-                height: 150px;
+                height: 50%;;
                 // background-color: red;
                 
                 h1,h2{
@@ -536,8 +615,9 @@ $BGColor: rgb(31, 28, 28);
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: $PageColor;
-                color: black;
+                background-color: rgb(0, 0, 0);
+                color: $PageColor;
+                text-align: center;
             }
         }
 
@@ -566,9 +646,8 @@ $BGColor: rgb(31, 28, 28);
                         @include alignCenter();
                         justify-content: flex-start;
                         margin:0px 50px;
-                        font-size: 1rem;
-                        // border-bottom: 1px solid white;
-
+                        font-size: clamp(.5rem, 1.2vw, 2rem);
+                        color: white;
                         text-align: left;
                         position: relative;
                         width: 100%;
@@ -685,6 +764,16 @@ $BGColor: rgb(31, 28, 28);
                                 height: 50px;
                                 fill: white;
                             }
+
+                            #Moon{
+                                fill: rgb(46, 60, 255);
+                                filter: drop-shadow(0px 0px 5px rgb(46, 60, 255));
+                            }
+                            
+                            #Sun{
+                                fill: rgb(255, 255, 85);
+                                filter: drop-shadow(0px 0px 5px rgb(255, 255, 85));
+                            }
     
                         }
     
@@ -756,6 +845,8 @@ $BGColor: rgb(31, 28, 28);
         }   
     }
 
+
+
     .Footer{
         grid-area: Footer;
         background-color: transparent;        
@@ -764,7 +855,57 @@ $BGColor: rgb(31, 28, 28);
         flex-direction: column;
         font-family: 'MuseoModerno', cursive;
         margin-top: 100px;
+        position: relative;
 
+        .Questioner{
+            position: relative;
+            width: 100%;
+            height: 35%;
+            // background-color: white;
+            @include alignCenter();
+            justify-content: flex-start;
+            // animation: Zrotate 5s linear infinite;
+            
+            .BoxyBox{
+                
+                width: 70%;
+                height: 100%;
+                @include alignCenter();
+                // background-color: white;
+
+                ul{
+                    @include alignCenter();
+                    flex-direction: column;
+                    align-items: flex-start;
+                    height: 100%;
+                    width: 30%;
+                    // background-color: lightcoral;
+                    
+                    p{
+                        font-size: clamp(15px, 1.5vw, 50px);
+                    }
+
+                    li{
+                        list-style: none;
+                        
+                        a{
+                            font-size: clamp(12px, 1.2vw, 40px);
+                            text-decoration: none;
+                            color: white;
+                            transition: color 500ms;
+
+                            &:hover{
+                                color: rgb(77, 228, 127);
+                                text-decoration: underline;
+
+                                transition: color 500ms;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
         .ContactUsTitle{
             // background-color: lightskyblue;
             width: 100%;
@@ -781,7 +922,7 @@ $BGColor: rgb(31, 28, 28);
         .MediaBar{
             background-color: $BGColor;
             width: 100%;
-            height: 55%;
+            height: 20%;
             @include alignCenter();
 
             span{
@@ -792,26 +933,27 @@ $BGColor: rgb(31, 28, 28);
                 border-radius: 50%;
                 @include alignCenter();
                 @include NeumorphType1();
-
+                cursor: pointer;
+                
                 svg{
                     width:95%;
                     height: 95%;
                     fill: white;
                     opacity: .1;
-                    transition: fill 600ms, opacity 600ms;
+                    transform: scale(.85);
+                    transition: fill 600ms, opacity 600ms, transform 600ms;
                 }
                 
                 &:hover{
                     @include NeumorphType2();
                     
-                    .Insta{opacity: 1;fill: rgb(208, 39, 92); transition: fill 500ms, opacity 1000ms;}
-                    .Face{opacity: 1;fill: rgb(86, 74, 218); transition: fill 500ms, opacity 1000ms;}
-                    .Whats{opacity: 1;fill: rgb(106, 252, 99); transition: fill 500ms, opacity 1000ms;}
-                    .Twit{opacity: 1;fill: rgb(89, 228, 203); transition: fill 500ms, opacity 1000ms;}
+                    .Insta{ transform: scale(1); opacity: 1;fill: rgb(208, 39, 92); transition: fill 600ms, opacity 600ms, transform 500ms;}
+                    .Face{ transform: scale(1); opacity: 1;fill: rgb(17, 101, 255); transition: fill 600ms, opacity 600ms, transform 500ms;}
+                    .Whats{ transform: scale(1); opacity: 1;fill: rgb(106, 252, 99); transition: fill 600ms, opacity 600ms, transform 500ms;}
+                    .Twit{ transform: scale(1); opacity: 1;fill: rgb(252, 255, 46); transition: fill 600ms, opacity 600ms, transform 500ms;}
                 }
             }
         }
-
         .Right{
             // background-color: lightcoral;
             width: 100%;
@@ -829,7 +971,6 @@ $BGColor: rgb(31, 28, 28);
         }
     }
 
-
     .Loader{
         position: absolute;
         top: 0%;
@@ -839,6 +980,7 @@ $BGColor: rgb(31, 28, 28);
         background-color: black;
         @include alignCenter();
         overflow: hidden;
+        z-index: 10;
 
         .box{
             width: 300px;

@@ -16,7 +16,7 @@ const VentasInfo = "¿Siempre has querido tener tu negocio propio? ¡Es momento 
 const BlogInfo = "Te interesa dar a conocer tus ideas al mundo, Te encanta escribir y leer y te fascina el diálogo con otras personas. Entonces necesitas un blog personalizado, que logre mostrar de manera fluida tus textos, con un diseño único personalizado."
 
 
-const BuilderStage1 = (props) => {
+const BuilderStage1 = (props:any) => {
   
     const [stageDisplay, setDisplay] = useState(false)
 
@@ -26,13 +26,13 @@ const BuilderStage1 = (props) => {
     const [ECard, setECard] = useState(false)
     const [BCard, setBCard] = useState(false)
 
-    const MakeSiteBox = (name,img,description, fontFamily, fontSize, globalNumber) => {
+    const MakeSiteBox = (name:string,img:string,description:string, fontFamily:string, fontSize:string, globalNumber:string) => {
 
       let title = name
-      let GlobalCard = "none"
+      let GlobalCard = false
       if (name === "Merca") title = "Marketing"
 
-      const SelectCard = (name) => {
+      const SelectCard = (name:string) => {
         switch (name){
           case "Personal":
             setPCard(!PCard)
@@ -121,7 +121,7 @@ const BuilderStage1 = (props) => {
       );
     }
 
-    function StageTransition(siteTypeClicked){
+    function StageTransition(siteTypeClicked:string){
         
         const TimeLine = anime.timeline({
             // easing: "easeInOutElastic",

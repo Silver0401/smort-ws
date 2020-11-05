@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import Foto from "./../../resources/TempFotoPro.jpg";
-// import Foto2 from "./../../resources/ParaxTemp.jpg";
+// import FlowerVid from "./../../resources/flower.mp4";
 
 const ChooseStyle = () => {
 
-  const [PageNumbertoDisplay, setPageNumberToDisplay] = useState(0)
-  let PagesList = []
+  // type Direction = string<"left">
 
-  const ChangePageTo = (direction) => {
+  const [PageNumbertoDisplay, setPageNumberToDisplay] = useState(0)
+  let PagesList:any[] = []
+
+  const ChangePageTo = (direction:string) => {
 
     if (direction === "Right" && PageNumbertoDisplay === PagesList.length - 1) setPageNumberToDisplay(0)
     else if (direction === "Right") setPageNumberToDisplay(PageNumbertoDisplay + 1)
@@ -16,15 +18,19 @@ const ChooseStyle = () => {
     
   }
 
-  const DisplayPageNumber = (PageNumber) => {
+  const DisplayPageNumber = (PageNumber:number) => {
 
     return(PagesList[PageNumber])
   }
 
-  const CreatePageStyle = (StyleName) => {
+  const CreatePageStyle = (StyleName:string) => {
 
-    let showWaves = "hidden"
-    if (StyleName === "Animated") showWaves = "visible"
+    let showWaves = {
+      visibility:"hidden",
+      position:"absolute"
+    } as React.CSSProperties
+
+    if (StyleName === "Animated") showWaves.visibility = "visible"
 
     let Page = (
       <div className="Page">
@@ -50,14 +56,13 @@ const ChooseStyle = () => {
             </div>
           </nav>
 
-          <svg className="Waves" style={{visibility:`${showWaves}`, position:"absolute"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill-opacity="1" d="M0,320L26.7,304C53.3,288,107,256,160,245.3C213.3,235,267,245,320,261.3C373.3,277,427,299,480,309.3C533.3,320,587,320,640,282.7C693.3,245,747,171,800,122.7C853.3,75,907,53,960,69.3C1013.3,85,1067,139,1120,154.7C1173.3,171,1227,149,1280,128C1333.3,107,1387,85,1413,74.7L1440,64L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z"></path></svg>
-          {/* <img className="ParaxImg" alt="thingy" src={Foto2}></img> */}
+          <svg className="Waves" style={showWaves} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill-opacity="1" d="M0,320L26.7,304C53.3,288,107,256,160,245.3C213.3,235,267,245,320,261.3C373.3,277,427,299,480,309.3C533.3,320,587,320,640,282.7C693.3,245,747,171,800,122.7C853.3,75,907,53,960,69.3C1013.3,85,1067,139,1120,154.7C1173.3,171,1227,149,1280,128C1333.3,107,1387,85,1413,74.7L1440,64L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z"></path></svg>
 
           <span className="LeftBox">
 
             <div className="ImageBox">
 
-              <svg style={{visibility:`${showWaves}`, position:"absolute"}} width="602" height="630" viewBox="0 0 602 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg style={showWaves} width="602" height="630" viewBox="0 0 602 630" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="undraw_Process_re_gws7 1" clip-path="url(#clip0)">
                 <path id="Vector" d="M419.633 76.852L418.48 78.0627L497.566 153.357L498.719 152.147L419.633 76.852Z" fill="#E6E6E6"/>
                 <path id="Vector_2" d="M498.845 143.982L497.175 144.083L497.679 152.309L489.437 152.21L489.419 153.882L499.457 154.001L498.845 143.982Z" fill="#E6E6E6"/>
@@ -144,6 +149,9 @@ const ChooseStyle = () => {
           </span> 
 
           <span className="RightBox">
+
+            {/* <video style={{visibility: "visible", position:"relative"}} src={FlowerVid} autoPlay loop></video> */}
+
             <div className="TextBox">
               <h1>Your Title</h1>
               <p>Lorep ipsum dolor sit amet Lorep ipsum dolor sit amet Lorep ipsum dolor sit amet Lorep ipsum dolor sit amet </p>
@@ -166,6 +174,10 @@ const ChooseStyle = () => {
   CreatePageStyle("Minimalist")
   CreatePageStyle("Technological")
   CreatePageStyle("3D-Style")
+
+
+  console.log('Path of file in parent dir:', require('path').resolve(__dirname, '../app.js'));
+
 
   return (
     <div className="PageStylesSection">
