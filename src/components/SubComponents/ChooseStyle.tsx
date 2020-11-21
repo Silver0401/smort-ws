@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Foto from "./../../resources/TempFotoPro.jpg";
-// import FlowerVid from "./../../resources/flower.mp4";
+import FlowerVid from "./../../resources/FlowerPro.mp4";
+import * as THREE from "three";
+import anime from "animejs";
+import { request } from "https";
+// import $ from "jquery";
 
 const ChooseStyle = () => {
 
-  // type Direction = string<"left">
-
   const [PageNumbertoDisplay, setPageNumberToDisplay] = useState(0)
   let PagesList:any[] = []
+  const GetCanvas = useRef<HTMLDivElement>(null)
 
-  const ChangePageTo = (direction:string) => {
+
+  const ChangePageTo = (direction:string) => { 
 
     if (direction === "Right" && PageNumbertoDisplay === PagesList.length - 1) setPageNumberToDisplay(0)
     else if (direction === "Right") setPageNumberToDisplay(PageNumbertoDisplay + 1)
@@ -56,14 +60,15 @@ const ChooseStyle = () => {
             </div>
           </nav>
 
-          <svg className="Waves" style={showWaves} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill-opacity="1" d="M0,320L26.7,304C53.3,288,107,256,160,245.3C213.3,235,267,245,320,261.3C373.3,277,427,299,480,309.3C533.3,320,587,320,640,282.7C693.3,245,747,171,800,122.7C853.3,75,907,53,960,69.3C1013.3,85,1067,139,1120,154.7C1173.3,171,1227,149,1280,128C1333.3,107,1387,85,1413,74.7L1440,64L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z"></path></svg>
+          <svg className="Waves" style={showWaves} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fillOpacity="1" d="M0,320L26.7,304C53.3,288,107,256,160,245.3C213.3,235,267,245,320,261.3C373.3,277,427,299,480,309.3C533.3,320,587,320,640,282.7C693.3,245,747,171,800,122.7C853.3,75,907,53,960,69.3C1013.3,85,1067,139,1120,154.7C1173.3,171,1227,149,1280,128C1333.3,107,1387,85,1413,74.7L1440,64L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z"></path></svg>
+          <video className="FlowerVid" src={FlowerVid} autoPlay loop></video>
 
           <span className="LeftBox">
 
             <div className="ImageBox">
 
               <svg style={showWaves} width="602" height="630" viewBox="0 0 602 630" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="undraw_Process_re_gws7 1" clip-path="url(#clip0)">
+                <g id="undraw_Process_re_gws7 1" clipPath="url(#clip0)">
                 <path id="Vector" d="M419.633 76.852L418.48 78.0627L497.566 153.357L498.719 152.147L419.633 76.852Z" fill="#E6E6E6"/>
                 <path id="Vector_2" d="M498.845 143.982L497.175 144.083L497.679 152.309L489.437 152.21L489.419 153.882L499.457 154.001L498.845 143.982Z" fill="#E6E6E6"/>
                 <path id="Vector_3" d="M427.781 76.326L427.763 77.998L419.522 77.899L420.026 86.125L418.355 86.226L417.745 76.206L427.781 76.326Z" fill="#E6E6E6"/>
@@ -150,8 +155,6 @@ const ChooseStyle = () => {
 
           <span className="RightBox">
 
-            {/* <video style={{visibility: "visible", position:"relative"}} src={FlowerVid} autoPlay loop></video> */}
-
             <div className="TextBox">
               <h1>Your Title</h1>
               <p>Lorep ipsum dolor sit amet Lorep ipsum dolor sit amet Lorep ipsum dolor sit amet Lorep ipsum dolor sit amet </p>
@@ -165,18 +168,103 @@ const ChooseStyle = () => {
       </div>
     )
 
+    if (StyleName === "3D-Style"){
+      Page = (
+        <div className="Page">
+          <span className="StyleName">
+            <h1>{StyleName}</h1>
+          </span>
+
+          <section className="D3-Style">
+            <div ref={GetCanvas} className="Canvas">
+
+            </div>
+          </section>
+        </div>  
+      )
+    }
+
     PagesList.push(Page)
   }
 
+
+  useEffect(() => {
+
+    const D3Animation = () => {
+      
+      const Scene = new THREE.Scene();
+  
+      const Camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+      
+      const Renderer = new THREE.WebGLRenderer({antialias: true})
+  
+      Renderer.setClearColor("#e5e5e5")
+      
+      if (GetCanvas.current && GetCanvas){
+        
+        Renderer.setSize(window.innerWidth, window.innerHeight, false)
+        
+        GetCanvas.current.appendChild(Renderer.domElement)
+      }
+      
+      const Geometry = new THREE.BoxGeometry(1, 1, 1)
+      const Material = new THREE.MeshLambertMaterial({color: 0xFFCC00})
+      const Mesh = new THREE.Mesh(Geometry, Material)
+      
+      const Light = new THREE.PointLight(0xFFFFFF, 1, 500)
+      Light.position.set(10,0,25)
+      
+      Camera.position.z = 8
+
+      Mesh.position.set(-4,2,0)
+
+      // In case canvas is not responsive
+
+      window.addEventListener("resize", () => {
+
+        if (GetCanvas && GetCanvas.current){
+
+          Renderer.setSize(GetCanvas.current.getBoundingClientRect().width, GetCanvas.current.getBoundingClientRect().height, false)
+    
+          Camera.aspect = GetCanvas.current.getBoundingClientRect().width / GetCanvas.current.getBoundingClientRect().height
+          
+          Camera.updateProjectionMatrix()
+        }
+        
+      })
+
+      Scene.add(Mesh)
+
+      Scene.add(Light)
+
+      
+      const render = () => {
+        requestAnimationFrame(render)
+
+        Mesh.rotation.x += 0.01
+
+
+        Renderer.render(Scene, Camera)
+      }
+
+      render()
+
+    }
+
+
+
+    D3Animation()
+
+  })
+
+
+
+  CreatePageStyle("3D-Style")
   CreatePageStyle("Animated")
   CreatePageStyle("Parallax")
   CreatePageStyle("Neumorphic")
   CreatePageStyle("Minimalist")
   CreatePageStyle("Technological")
-  CreatePageStyle("3D-Style")
-
-
-  console.log('Path of file in parent dir:', require('path').resolve(__dirname, '../app.js'));
 
 
   return (

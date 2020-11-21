@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import {ChosenDataContext} from "./../components/ChosenData";
 
 // Builder Sections (SubComponents)
 import NavSection from "./../components/SubComponents/ChooseNav";
@@ -8,39 +9,40 @@ import StyleSection from "./../components/SubComponents/ChooseStyle";
 
 const BuilderRoot = () => {
 
-    const [sectionDisplayed, changeSection] = useState("Page Style")
+  const ChosenData = useContext(ChosenDataContext)
 
-    const ColorBoxPicked1 = useRef<HTMLInputElement>(null);
-    const ColorBoxPicked2 = useRef<HTMLInputElement>(null);
-    // const ColorBoxPicked1 = useRef("#131E25")
-    // const ColorBoxPicked2 = useRef("#0EECC0")
-    
+  const [sectionDisplayed, changeSection] = useState("Page Style")
 
-    const ReturnSection = () => {
+  const ColorBoxPicked1 = useRef<HTMLInputElement>(null);
+  const ColorBoxPicked2 = useRef<HTMLInputElement>(null);
+  // const ColorBoxPicked1 = useRef("#131E25")
+  // const ColorBoxPicked2 = useRef("#0EECC0")
 
-        let selected = (<div>none</div>)
+  const ReturnSection = () => {
 
-        switch (sectionDisplayed){
-            case "Page Style":
-            selected = (<StyleSection/>)
-                break;
-            case "NavBar Style":
-            selected = (<NavSection/>)
-                break;
-            case "Button Style":
-                selected = (<ButtonsSection />)
-                break;
-            case "Loader Style":
-            selected = (<LoadersSection/>)
-                break;
-            default:
-                selected = (<div>Error</div>)
-        }
+      let selected = (<div>none</div>)
 
-        return(
-            selected
-        )
-    }
+      switch (sectionDisplayed){
+          case "Page Style":
+          selected = (<StyleSection/>)
+              break;
+          case "NavBar Style":
+          selected = (<NavSection/>)
+              break;
+          case "Button Style":
+              selected = (<ButtonsSection />)
+              break;
+          case "Loader Style":
+          selected = (<LoadersSection/>)
+              break;
+          default:
+              selected = (<div>Error</div>)
+      }
+
+      return(
+          selected
+      )
+  }
 
   useEffect(() => {
 
@@ -78,7 +80,7 @@ const BuilderRoot = () => {
         <div className="RootBox">
           <div className="BuilderBox">
             <span className="Header">
-              <h1>{`Choose a ${sectionDisplayed}`}</h1>
+              <h1 onClick={() => console.log(ChosenData)}>{`Choose a ${sectionDisplayed}`}</h1>
 
               <div className="ColorsBox">
                 <div className="Colors">

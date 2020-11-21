@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import anime from "animejs";
+import {ChosenDataContext} from "./../ChosenData";
 
 // Svg's
 import PersonalImg from "./../../resources/person.svg"
@@ -17,7 +18,9 @@ const BlogInfo = "Te interesa dar a conocer tus ideas al mundo, Te encanta escri
 
 
 const BuilderStage1 = (props:any) => {
-  
+
+    const [Data,setData] = useContext(ChosenDataContext)
+
     const [stageDisplay, setDisplay] = useState(false)
 
     const [PCard, setPCard] = useState(false)
@@ -123,6 +126,8 @@ const BuilderStage1 = (props:any) => {
 
     function StageTransition(siteTypeClicked:string){
         
+        setData((prevData:any) => [...prevData, {coso:"thingy added"}])
+
         const TimeLine = anime.timeline({
             // easing: "easeInOutElastic",
             delay: 100

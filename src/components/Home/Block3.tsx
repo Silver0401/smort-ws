@@ -396,7 +396,10 @@ const Block3 = () => {
                     </div>
                     
                     <div className="CreateButtonBox">
-                        <button onClick={() => window.location.href = "/PageBuilder/Init"} className="CreateButton">¡Empezar Ya!</button>
+                        <button onClick={() => window.location.href = "/PageBuilder/Init"} className="CreateButton">
+                            <p>¡Empezar Ya!</p>
+                            <span className="liquid"></span>
+                        </button>
                     </div>
 
                 </div>

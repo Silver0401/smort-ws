@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Switch } from "react-router-dom";
 import "./style/css/index.css";
+import {ChosenDataProvider} from "./components/ChosenData";
 
 // Pages
 
@@ -33,11 +34,15 @@ function App() {
 
 			<Route exact path="/" component={HomePage} />
 
-			<Route exact path="/PageBuilder/Init" component={() => <BuilderInit Chosen={(page:string) => saveChosen(page)} />} />
+			<ChosenDataProvider>
 
-			<Route exact path="/PageBuilder/Root">
-				<BuilderRoot/>
-			</Route>
+				<Route exact path="/PageBuilder/Init" component={() => <BuilderInit Chosen={(page:string) => saveChosen(page)} />} />
+
+				<Route exact path="/PageBuilder/Root">
+					<BuilderRoot/>
+				</Route>
+
+			</ChosenDataProvider>
 
 		</Switch>
 
