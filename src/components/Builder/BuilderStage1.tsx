@@ -23,7 +23,7 @@ const BuilderStage1 = (props:any) => {
 
     const [stageDisplay, setDisplay] = useState(false)
 
-    const [PCard, setPCard] = useState(false)
+    const [PCard, setPCard] = useState(false) 
     const [MCard, setMCard] = useState(false)
     const [VCard, setVCard] = useState(false)
     const [ECard, setECard] = useState(false)
