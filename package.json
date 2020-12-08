@@ -24,13 +24,14 @@
     "react-on-scroll-animation": "^1.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-tsparticles": "^1.18.11",
     "three": "^0.122.0",
     "typescript": "^4.0.5"
   },
   "scripts": {
     "start": "cd Backend && npm start",
     "both-ends": "concurrently \"npm run front-end\" \"npm run back-end\"",
-    "front-end": "react-scripts start",
+    "front-end": "PORT=3333 react-scripts start",
     "back-end": "cd Backend && APP_STATE=dev nodemon sever.js",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -6,7 +6,7 @@ const NavBar = () => {
 
     return(
         <nav className="NavBar">
-            <div className={NavBarOpened ? "NavOn" : "Burger"} onClick={() => {setNavBar(prevstate => !prevstate); console.log(NavBarOpened)}}>
+            <div className={NavBarOpened ? "NavOn" : "Burger"} onClick={() => {setNavBar(prevstate => !prevstate)}}>
                 <span id="l1"></span>
                 <span id="l2"></span>
                 <span id="l3"></span>

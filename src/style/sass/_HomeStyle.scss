@@ -125,24 +125,13 @@ $BGColor: rgb(31, 28, 28);
     height: 100%;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    // overflow-y: scroll;
-    // scroll-behavior: smooth;
-    // display: grid;
-    // grid-template-columns: 1fr 55%;
-    // grid-template-rows: 100%;
-    // grid-template-rows: 100% 1300px 900px 950px 500px;
-    // grid-template-areas:
-    // "LeftBox RightBox"
-    // "Block1 Block1"
-    // "Block2 Block2"
-    // "Block3 Block3"
-    // "Footer Footer";
+    // scroll-snap-type: y mandatory;
+
 
     section{
         width: 100%;
         height: 100vh;
-        scroll-snap-align: start;
+        // scroll-snap-align: start;
     }
 
 
@@ -168,8 +157,11 @@ $BGColor: rgb(31, 28, 28);
             list-style-type: none;
             
             li{
+
+                position: relative;
                 
                 a{
+                    position: relative;
                     font-size: 25px;
                     color: white;
                     text-decoration: none;
@@ -178,9 +170,27 @@ $BGColor: rgb(31, 28, 28);
 
                     &:hover{
                         color: black;
-                        text-shadow: 0px 0px 15px black;
-                        transition: all 500ms;
                     }
+
+                    &:hover::after{
+                        width: 100%;
+                        transition:  width 500ms;
+                    }
+
+                }
+
+                a::after{
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    content: "";
+
+                    width: 0%;
+                    height: 3px;
+                    background-color: white;
+                    // background: linear-gradient(to right, rgb(1, 82, 255), rgb(2, 35, 91));
+                    border-radius: 35%;
+                    transition:  width 500ms;
                 }
             }
         }
@@ -209,7 +219,7 @@ $BGColor: rgb(31, 28, 28);
                 // font-family: 'Press Start 2P', cursive;
                 // font-family: 'Righteous', cursive;
                 padding: 5%;
-                font-size: calc(1em + 8vw);
+                font-size: clamp(7rem, 8vw, 18rem);
                 text-shadow: 0px 10px 15px $PageColor;
             }
     
@@ -245,9 +255,7 @@ $BGColor: rgb(31, 28, 28);
             .BrainBox{
                 
                 height: auto;
-                width: 350px;
-                margin-bottom: 50px;
-                // background-color: lightsalmon;
+                width: #{"max(300px, 55%)"};
     
                 img, svg{
                     // background-color: lightgrey;
@@ -260,8 +268,8 @@ $BGColor: rgb(31, 28, 28);
                 position: absolute;
                 bottom: 5%;
                 right: -70px;
-                width: 40px;
-                height: 40px;
+                width: 25px;
+                height: 25px;
                 background-color: transparent;
                 border-radius: 50%;
                 // animation: ArrowMov 1s linear infinite alternate;
@@ -326,12 +334,12 @@ $BGColor: rgb(31, 28, 28);
             }
             .CreateButton{
                 position: relative;
-                padding: 30px 50px;
+                padding: 1.8em 3.1em;
                 background: black;
                 border: 0px solid transparent;
-                border-radius: 50px;
+                border-radius: 1.5em;
                 box-shadow: 0px 0px 0px $PageColor;
-                font-size: calc(1em + .2vw);
+                font-size: clamp(18px, 1.5vw, 50px);
                 font-family: 'Press Start 2P', cursive;
                 cursor: pointer;
                 color: white;
@@ -339,17 +347,19 @@ $BGColor: rgb(31, 28, 28);
                 overflow: hidden;
                 transition: color 500ms, background-color 500ms, box-shadow 500ms;
                 p{z-index: 1; position: relative}
+                @include alignCenter();
 
                 .liquid{
                     z-index: 0;
                     position: absolute;
-                    margin: 0px auto;
-                    left: -65%;
-                    bottom: 60%;
+                    bottom: 30%;
+                    // margin: 0px auto;
+                    // left: -65%;
+                    // bottom: 60%;
                     transform: translateY(1%);
 
-                    width: 1000px;
-                    height: 1000px;
+                    width: #{"max(1000px, 130%)"};
+                    height: #{"max(1000px, 115%)"};
                     background-color: transparent;
                     transition: transform 500ms;
                 }
@@ -383,10 +393,9 @@ $BGColor: rgb(31, 28, 28);
     }
 
 
-
     .Block1{
         width: 100%;
-        height: 100vh;
+        height: 150vh;
         position: relative;
         grid-area: Block1;
         @include alignCenter();
@@ -394,7 +403,7 @@ $BGColor: rgb(31, 28, 28);
 
         .Phrase{
             margin-top: 10px;
-            height: 20%;
+            height: 15%;
             width: 100%;
             background-color: white;
 
@@ -450,20 +459,7 @@ $BGColor: rgb(31, 28, 28);
                     @include alignCenter();
                     flex-direction: column;
                     transition: background-color 500ms, color 500ms;
-
-                    // &:hover{
-                    //     background-color: $PageColor;
-                    //     color: black;
-                    //     transition: background-color 500ms, color 500ms;
-
-                    //     .SvgBox{
-                    //         svg{
-                    //             fill: white;
-                    //             filter: drop-shadow(0px 0px 5px white);
-                    //             transition: fill 500ms, filter 500ms;
-                    //         }
-                    //     }
-                    // }
+                    text-align: center;
 
                     h2{
                         font-size: 25px;
@@ -636,6 +632,7 @@ $BGColor: rgb(31, 28, 28);
         margin-top: 100px;
         font-family: 'MuseoModerno', cursive;
         // margin-bottom: 150px;
+        overflow: hidden;
 
         .B3Title{
 
@@ -704,10 +701,12 @@ $BGColor: rgb(31, 28, 28);
                 }
             }
             .B3AnimSection{
+                position: relative;
                 height: 100%;
                 width: 45%;
                 // background-color: lightgreen;
                 @include alignCenter();
+                justify-content: space-around;
                 flex-direction: column;
                 // background-color: black;
                 border-radius: 20px;
@@ -715,26 +714,28 @@ $BGColor: rgb(31, 28, 28);
                 .B3AnimationBox{
                     @include alignCenter();
                     flex-direction: column;
-                    width: 100%;
-                    height: 80%;
-                    // background-color: lightgreen;
+                    width: 40em;
+                    height: 30em;
+                    position: relative;
+                    overflow: hidden;
+                    // background-color: lightcoral;
 
                     .Screen{
     
                         position: relative;
                         overflow: hidden;
-                        width: 350px;
-                        height: 200px;
-                        border: 4px solid white;
+                        width: 21.8em;
+                        height: 12.5em;
+                        border: .16em solid white;
                         border-radius: 10px;
                         @include alignCenter();
-                        margin-top: 70px;
+                        margin-top: 10%;
                         flex-direction: column;
     
                         img{
-                            width: 100px;
-                            height: 100px;
-                            border-radius: 5px;
+                            width: 6.25em;
+                            height: 6.25em;
+                            border-radius: 0.3em;
                         }
     
                         span{
@@ -763,8 +764,8 @@ $BGColor: rgb(31, 28, 28);
                             transform: rotate(-90deg);
                             
                             svg{
-                                width: 40px;
-                                height: 40px;
+                                width: 2.5em;
+                                height: 2.5em;
                                 fill: white;
                             }
                         }
@@ -816,39 +817,40 @@ $BGColor: rgb(31, 28, 28);
     
                         .PhoneLine{
                             position: absolute;
-                            left: 30px;
+                            left: 1.8em;
                             background-color: white;
-                            height: 50px;
-                            width: 5px;
-                            border-radius: 20px;
+                            height: 3.1em;
+                            width: 0.3em;
+                            border-radius: 1.25em;
                             opacity: 0;
                         }
     
                     }
     
                     .keyboard{
+                        position: relative;
                         // width: 350px;
                         background-color: transparent;
                         // height: 150px;
                         // transform: rotateX(50deg);
                         // transition: transform 500ms;
-                        border-bottom: 100px solid white;
-                        border-left: 50px solid transparent;
-                        border-right: 50px solid transparent;
+                        border-bottom: 6.25em solid white;
+                        border-left: 3.12em solid transparent;
+                        border-right: 3.12em solid transparent;
                         height: 0;
-                        width: 350px;
-                        margin-bottom: 70px;
-                        border-radius: 10px;
+                        width: 21.8em;
+                        margin-bottom: 10%;
+                        border-radius: 0.6em;
                     }
     
                     .RandomRectangle{
                         position: absolute;
-                        width: 60px;
-                        height: 30px;
-                        margin-top: 150px;
+                        width: 3.75em;
+                        height: 1.8em;
+                        margin-top: 9.3em;
                         background-color: white;
-                        border-top-right-radius: 20px;
-                        border-top-left-radius: 20px;
+                        border-top-right-radius: 1.25em;
+                        border-top-left-radius: 1.25em;
                         opacity: 0;
                     }
                 }
@@ -926,7 +928,7 @@ $BGColor: rgb(31, 28, 28);
         @include alignCenter();
         flex-direction: column;
         font-family: 'MuseoModerno', cursive;
-        margin-top: 100px;
+        // margin-top: 100px;
         position: relative;
 
         .Questioner{

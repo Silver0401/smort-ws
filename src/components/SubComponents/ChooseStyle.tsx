@@ -3,10 +3,10 @@ import Foto from "./../../resources/TempFotoPro.jpg";
 import FlowerVid from "./../../resources/FlowerPro.mp4";
 import * as THREE from "three";
 import anime from "animejs";
-import { request } from "https";
+import Particles from "react-tsparticles";
 // import $ from "jquery";
 
-const ChooseStyle = () => {
+const ChooseStyle = (props:any) => {
 
   const [PageNumbertoDisplay, setPageNumberToDisplay] = useState(0)
   let PagesList:any[] = []
@@ -62,6 +62,89 @@ const ChooseStyle = () => {
 
           <svg className="Waves" style={showWaves} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fillOpacity="1" d="M0,320L26.7,304C53.3,288,107,256,160,245.3C213.3,235,267,245,320,261.3C373.3,277,427,299,480,309.3C533.3,320,587,320,640,282.7C693.3,245,747,171,800,122.7C853.3,75,907,53,960,69.3C1013.3,85,1067,139,1120,154.7C1173.3,171,1227,149,1280,128C1333.3,107,1387,85,1413,74.7L1440,64L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z"></path></svg>
           <video className="FlowerVid" src={FlowerVid} autoPlay loop></video>
+
+          <Particles
+            id="tsparticles"
+            options={{
+              background: {
+                color: {
+                  value: "#0d47a1",
+                },
+              },
+              fpsLimit: 60,
+              interactivity: {
+                detectsOn: "canvas",
+                events: {
+                  onClick: {
+                    enable: true,
+                    mode: "push",
+                  },
+                  onHover: {
+                    enable: true,
+                    mode: "repulse",
+                  },
+                  resize: true,
+                },
+                modes: {
+                  bubble: {
+                    distance: 400,
+                    duration: 2,
+                    opacity: 0.8,
+                    size: 40,
+                  },
+                  push: {
+                    quantity: 4,
+                  },
+                  repulse: {
+                    distance: 200,
+                    duration: 0.4,
+                  },
+                },
+              },
+              particles: {
+                color: {
+                  value: "#ffffff",
+                },
+                links: {
+                  color: "#ffffff",
+                  distance: 150,
+                  enable: true,
+                  opacity: 0.5,
+                  width: 1,
+                },
+                collisions: {
+                  enable: true,
+                },
+                move: {
+                  direction: "none",
+                  enable: true,
+                  outMode: "bounce",
+                  random: false,
+                  speed: 6,
+                  straight: false,
+                },
+                number: {
+                  density: {
+                    enable: true,
+                    value_area: 800,
+                  },
+                  value: 80,
+                },
+                opacity: {
+                  value: 0.5,
+                },
+                shape: {
+                  type: "circle",
+                },
+                size: {
+                  random: true,
+                  value: 5,
+                },
+              },
+              detectRetina: true,
+            }}
+          />
+
 
           <span className="LeftBox">
 
@@ -250,8 +333,6 @@ const ChooseStyle = () => {
       render()
 
     }
-
-
 
     D3Animation()
 

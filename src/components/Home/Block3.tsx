@@ -22,7 +22,7 @@ const Block3 = () => {
         tl.add({
             targets:"#B3Arrow",
             duration: 6000,
-            translateY: ["-100px", "0px", "100px","-100px", "100px", "0px"],
+            translateY: ["-6.25em", "0em", "6.25em","-6.25em", "6.25em", "0em"],
             opacity: 1
         })
 
@@ -53,9 +53,9 @@ const Block3 = () => {
             targets:"#svg2",
             duration: 1000,
             scale: [1,1.5],
-            translateX: ["0px","-60px"],
+            translateX: ["0em","-3.75em"],
             easing: "easeInOutSine",
-            translateY: ["0px","30px"]
+            translateY: ["0em","1.8em"]
         },"+=50")
 
         tl.add({
@@ -133,21 +133,21 @@ const Block3 = () => {
             targets: "#Sun",
             duration: 800,
             opacity: [0,1],
-            translateX: ["-200px","0px"]
+            translateX: ["-12.5em","0em"]
         },"+=200")
 
         tl.add({
             targets: "#Sun",
             duration: 800,
             opacity: [1,0],
-            translateX: ["0px","200px"]
+            translateX: ["0em","12.5em"]
         },"+=100")
 
         tl.add({
             targets: "#Moon",
             duration: 800,
             opacity: [0,1],
-            translateX: ["-200px","0px"]
+            translateX: ["-12.5em","0em"]
         },"-=500")
 
 
@@ -155,7 +155,7 @@ const Block3 = () => {
             targets: "#Moon",
             duration: 800,
             opacity: [1,0],
-            translateX: ["0px","200px"]
+            translateX: ["0em","12.5em"]
         },"+=100")
 
 
@@ -163,7 +163,7 @@ const Block3 = () => {
             targets: "#Sun",
             duration: 800,
             opacity: [0,1],
-            translateX: ["-200px","0px"]
+            translateX: ["-12.5em","0em"]
         },"-=500")
 
 
@@ -171,7 +171,7 @@ const Block3 = () => {
             targets: "#Sun",
             duration: 800,
             opacity: [1,0],
-            translateX: ["0px","200px"]
+            translateX: ["0em","12.5em"]
         },"+=100")
 
 
@@ -179,7 +179,7 @@ const Block3 = () => {
             targets: "#Moon",
             duration: 800,
             opacity: [0,1],
-            translateX: ["-200px","0px"]
+            translateX: ["-12.5em","0em"]
         },"-=500")
 
 
@@ -187,7 +187,7 @@ const Block3 = () => {
             targets: "#Moon",
             duration: 800,
             opacity: [1,0],
-            translateX: ["0px","200px"]
+            translateX: ["0em","12.5em"]
         },"+=100")
 
 
@@ -195,7 +195,7 @@ const Block3 = () => {
             targets: "#Sun",
             duration: 800,
             opacity: [0,1],
-            translateX: ["-200px","0px"]
+            translateX: ["-12.5em","0em"]
         },"-=500")
 
 
@@ -214,8 +214,8 @@ const Block3 = () => {
             targets:"#svg2",
             duration: 50,
             scale: [1,1.7],
-            translateX:"0px",
-            translateY:"28px",
+            translateX:"0em",
+            translateY:"1.75em",
         },"+=10")
 
         tl.add({
@@ -243,20 +243,20 @@ const Block3 = () => {
             targets:".Screen",
             duration: 2000,
             rotateZ: "-90deg",
-            translateX: "-50px"
+            translateX: "-3.1em"
         }, "+=500")
 
         tl.add({
             targets:"#svg2",
             duration: 2000,
             rotateZ: "90deg",
-            // translateY: "0px"
+            // translateY: "0em"
         }, "-=2000")
 
         tl.add({
             targets:".keyboard",
             duration: 1000,
-            width:"0px",
+            width:"0em",
             opacity: [1,0],
             easing:"easeInOutQuad"
 
@@ -276,7 +276,7 @@ const Block3 = () => {
             duration: 1000,
             easing:"easeInOutSine",
             rotateZ: "-360deg",
-            translateX: "0px"
+            translateX: "0em"
         },"+=1000")
 
         tl.add({
@@ -312,7 +312,7 @@ const Block3 = () => {
         tl.add({
             targets:".keyboard",
             duration: 1000,
-            width:"350px",
+            width:"21.8em",
             opacity: [0,1],
             easing:"easeInOutQuad"
         },"-=500")
@@ -322,7 +322,7 @@ const Block3 = () => {
             duration: 1000,
             easing:"easeInOutQuad",
             scale:1,
-            translateY:"0px"
+            translateY:"0em"
         },"-=500")
 
         // 23,350

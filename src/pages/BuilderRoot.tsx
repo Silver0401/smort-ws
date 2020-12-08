@@ -6,6 +6,7 @@ import NavSection from "./../components/SubComponents/ChooseNav";
 import ButtonsSection from "./../components/SubComponents/ChooseButtons";
 import LoadersSection from "../components/SubComponents/ChooseLoader";
 import StyleSection from "./../components/SubComponents/ChooseStyle";
+import { Color } from "three";
 
 const BuilderRoot = () => {
 
@@ -15,8 +16,8 @@ const BuilderRoot = () => {
 
   const ColorBoxPicked1 = useRef<HTMLInputElement>(null);
   const ColorBoxPicked2 = useRef<HTMLInputElement>(null);
-  // const ColorBoxPicked1 = useRef("#131E25")
-  // const ColorBoxPicked2 = useRef("#0EECC0")
+
+  const [ObtainedColors, setObtainedColors] = useState(["none","none"])
 
   const ReturnSection = () => {
 
@@ -24,7 +25,8 @@ const BuilderRoot = () => {
 
       switch (sectionDisplayed){
           case "Page Style":
-          selected = (<StyleSection/>)
+            selected = (<StyleSection />)
+
               break;
           case "NavBar Style":
           selected = (<NavSection/>)
@@ -54,6 +56,9 @@ const BuilderRoot = () => {
 
         if (ColorBoxPicked1 && ColorBoxPicked1.current){
           root.style.setProperty("--ChosenColor1", ColorBoxPicked1.current.value)
+
+          // setObtainedColors()
+
           if (ColorBoxPicked1.current.value === "#000000") root.style.setProperty("--ChosenColor3", "#ffffff")
           if (ColorBoxPicked1.current.value === "#ffffff") root.style.setProperty("--ChosenColor3", "#000000")
         }
@@ -65,6 +70,8 @@ const BuilderRoot = () => {
       ColorBoxPicked2.current.onchange = () => {
 
         if (ColorBoxPicked2 && ColorBoxPicked2.current){
+
+          // setObtainedColors(ObtainedColors[1] ? ColorBoxPicked2.current.value)
 
           root.style.setProperty("--ChosenColor2", ColorBoxPicked2.current.value)
         }

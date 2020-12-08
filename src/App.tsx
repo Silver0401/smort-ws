@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Route, Switch } from "react-router-dom";
+import React from 'react';
+import { Route, Switch, useHistory } from "react-router-dom";
 import "./style/css/index.css";
 import {ChosenDataProvider} from "./components/ChosenData";
 
@@ -14,14 +14,14 @@ import BuilderRoot from "./pages/BuilderRoot";
 function App() {
 
 	let Chosen = "none"
-	// const [thingy, setThingy] = useState("none")
+	let history = useHistory()
 
 	const saveChosen = (chosen: string) => {
 		Chosen = chosen
 
 		if (Chosen !== "none") {
 			setTimeout(() => {
-				window.location.href = "/PageBuilder/Root"
+				history.push("Root")
 			},1000) 
 		}
 	}

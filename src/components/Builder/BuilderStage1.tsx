@@ -11,7 +11,7 @@ import BlogImg from "./../../resources/type.svg"
 
 // Info
 const PersonalInfo = "Cualquier persona tiene un curriculum escrito. Hazte destacar y lleva un currículum global, al cual cualquiera pueda accesar con un link. Una página Web personal es el curriculum del futuro, date a conocer, invierte en ti, invierte en tu futuro."
-const MercaInfo = "Estas buscando promocionar un producto? alguna marca? algun videojuego? alguna aplicación? Invierte un poco y crea su propia página web, ésta, hace que se vea mucho mas profesional y de una calidad superior, dejando atrás a la competencia."
+const MercaInfo = "Estas buscando promocionar un equipo de personas? alguna marca o producto? algun videojuego? Invierte un poco y crea su propia página web, ésta, hace que se vea mucho mas profesional y de una calidad superior, dejando atrás a la competencia."
 const VentasInfo = "¿Siempre has querido tener tu negocio propio? ¡Es momento de intentarlo! Crea una pagina web de calidad profesional y de diseño sublime, donde puedas anunciar y vender tus productos."
 // const EmpresarialInfo = "¿Eres propietario de alguna institución, escuela o empresa, y necesitas modernizar la forma en que esta organizada? Inverte en un sistema web capaz de almacenar información, datos, perfiles, etc. De manera segura y con un diseño ergonómico."
 const BlogInfo = "Te interesa dar a conocer tus ideas al mundo, Te encanta escribir y leer y te fascina el diálogo con otras personas. Entonces necesitas un blog personalizado, que logre mostrar de manera fluida tus textos, con un diseño único personalizado."
