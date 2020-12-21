@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChooseLoader = () => {
+const ChooseLoader = (props:any) => {
 
     const CreateLoader = (LoaderName:string) => {
 

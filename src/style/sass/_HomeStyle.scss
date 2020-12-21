@@ -123,7 +123,7 @@ $BGColor: rgb(31, 28, 28);
     position: absolute;
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     scroll-behavior: smooth;
     // scroll-snap-type: y mandatory;
 
@@ -337,7 +337,7 @@ $BGColor: rgb(31, 28, 28);
                 padding: 1.8em 3.1em;
                 background: black;
                 border: 0px solid transparent;
-                border-radius: 1.5em;
+                border-radius: 3em;
                 box-shadow: 0px 0px 0px $PageColor;
                 font-size: clamp(18px, 1.5vw, 50px);
                 font-family: 'Press Start 2P', cursive;
@@ -1042,88 +1042,6 @@ $BGColor: rgb(31, 28, 28);
                 color: white;
                 font-family: 'Dancing Script', cursive;
             }
-        }
-    }
-
-    .Loader{
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        @include alignCenter();
-        overflow: hidden;
-        z-index: 10;
-
-        .box{
-            width: 300px;
-            height: 400px;
-            // background-color: turquoise;
-            @include alignCenter();
-            flex-direction: column;
-
-            h1{
-                font-family: 'Dancing Script', cursive;
-                letter-spacing: 3px;
-                font-size: 55px;
-                text-align: center;
-                text-shadow: 0px 5px 10px$PageColor;
-            }
-
-            .AnimBox{
-                position:  relative;
-                width: 100%;
-                height: 70%;
-                // background-color: violet;
-                @include alignCenter();
-
-
-                .Ball{
-                    border-radius: 50%;
-                    position: absolute;
-                    border: 4px solid white;
-                    box-shadow: 0px 0px 10px $PageColor;
-                }
-
-                .CenterBall{
-                    border-radius: 55%;
-                    width: 25%;
-                    height: 25%;
-                    @extend .Ball;
-                    border: 4px solid $PageColor;
-                    animation: Zrotate 3s linear infinite;
-                }
-                .MiddleBall{
-                    @extend .Ball;
-                    width: 40%;
-                    height: 40%;
-                    animation: Xrotate 4s linear infinite;
-                }
-                .OuterBall{
-                    @extend .Ball;
-                    width: 50%;
-                    height: 50%;
-                    animation: Yrotate 2s linear infinite;
-                }
-                .ExtraOuterBall{
-                    @extend .Ball;
-                    width: 60%;
-                    height: 60%;
-                    border: 4px solid transparent;
-                    animation: Orotate 5s linear infinite;
-                }
-            }
-        }
-
-        .MovingBox{
-            position: absolute;
-            top: 5%;
-            left: 0%;
-            width: 100%;
-            height: 90%;
-            background-color: lightblue;
-            transform: translateY(120%);
         }
     }
 

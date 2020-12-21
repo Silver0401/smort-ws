@@ -1,23 +1,31 @@
+// Libraries
 import React, { useState, useEffect, useRef, useContext } from "react";
 import {ChosenDataContext} from "./../components/ChosenData";
+import anime from "animejs";
 
 // Builder Sections (SubComponents)
 import NavSection from "./../components/SubComponents/ChooseNav";
 import ButtonsSection from "./../components/SubComponents/ChooseButtons";
 import LoadersSection from "../components/SubComponents/ChooseLoader";
 import StyleSection from "./../components/SubComponents/ChooseStyle";
-import { Color } from "three";
 
 const BuilderRoot = () => {
 
+  // Variables
+
   const ChosenData = useContext(ChosenDataContext)
 
-  const [sectionDisplayed, changeSection] = useState("Page Style")
+  const [sectionDisplayed, changeSection] = useState <string>("Page Style")
+  const [sectionTitle, setSectionTitle] = useState <string> ("Diseño para tu sitio")
+  const [sectionId, setSectionId] = useState <number> (1)
 
   const ColorBoxPicked1 = useRef<HTMLInputElement>(null);
   const ColorBoxPicked2 = useRef<HTMLInputElement>(null);
 
-  const [ObtainedColors, setObtainedColors] = useState(["none","none"])
+  const [ColorPicked1, setColorPicked1] = useState("#000000")
+  const [ColorPicked2, setColorPicked2] = useState("#ffffff")
+
+  // Functions
 
   const ReturnSection = () => {
 
@@ -25,26 +33,36 @@ const BuilderRoot = () => {
 
       switch (sectionDisplayed){
           case "Page Style":
-            selected = (<StyleSection />)
-
-              break;
+            selected = (<StyleSection changeFunction={(chosenSection:string, sectionId:number, sectionTitle:string) => {changeSection(chosenSection); setSectionId(sectionId); setSectionTitle(sectionTitle)}} color1={ColorPicked1} color2={ColorPicked2} />)
+            break;
           case "NavBar Style":
-          selected = (<NavSection/>)
-              break;
+            selected = (<NavSection changeFunction={(chosenSection:string, sectionId:number, sectionTitle:string) => {changeSection(chosenSection); setSectionId(sectionId); setSectionTitle(sectionTitle)}}/>)
+            break;
           case "Button Style":
-              selected = (<ButtonsSection />)
-              break;
+            selected = (<ButtonsSection changeFunction={(chosenSection:string, sectionId:number, sectionTitle:string) => {changeSection(chosenSection); setSectionId(sectionId); setSectionTitle(sectionTitle)}} />)
+            break;
           case "Loader Style":
-          selected = (<LoadersSection/>)
-              break;
+            selected = (<LoadersSection changeFunction={(chosenSection:string, sectionId:number, sectionTitle:string) => {changeSection(chosenSection); setSectionId(sectionId); setSectionTitle(sectionTitle)}}/>)
+            break;
           default:
-              selected = (<div>Error</div>)
+            selected = (<div>Error</div>)
       }
 
       return(
           selected
       )
   }
+
+  const RemoveWelcomeBox = () => {
+    anime({
+      targets:".WelcomeBox",
+      duration: 1000,
+      translateX: "-101%",
+      easing: "easeInOutSine"
+    })
+  }
+
+  // Live Color Changer
 
   useEffect(() => {
 
@@ -57,10 +75,10 @@ const BuilderRoot = () => {
         if (ColorBoxPicked1 && ColorBoxPicked1.current){
           root.style.setProperty("--ChosenColor1", ColorBoxPicked1.current.value)
 
-          // setObtainedColors()
-
           if (ColorBoxPicked1.current.value === "#000000") root.style.setProperty("--ChosenColor3", "#ffffff")
           if (ColorBoxPicked1.current.value === "#ffffff") root.style.setProperty("--ChosenColor3", "#000000")
+
+          setColorPicked1(ColorBoxPicked1.current.value)
         }
 
       };
@@ -71,76 +89,139 @@ const BuilderRoot = () => {
 
         if (ColorBoxPicked2 && ColorBoxPicked2.current){
 
-          // setObtainedColors(ObtainedColors[1] ? ColorBoxPicked2.current.value)
-
           root.style.setProperty("--ChosenColor2", ColorBoxPicked2.current.value)
+          setColorPicked2(ColorBoxPicked2.current.value)
+
         }
       };
     }
-    
 
   })
 
 
+  //  On Section Display Change Animation
+
+  useEffect(() => {
+
+    const tl = anime.timeline({
+      targets:".BuilderBox",
+      easing: "easeInOutSine"
+    })
+
+    tl.add({
+      duration: 1000,
+      opacity: 0,
+    },"-=1000");
+
+    tl.add({
+      duration: 1500,
+      opacity: 1,
+    });
+
+  },[sectionDisplayed])
+
+  // Rendered
+
     return (
       <div className="RootPage">
         <div className="RootBox">
-          <div className="BuilderBox">
+          <div className="InstructionsBox">
             <span className="Header">
-              <h1 onClick={() => console.log(ChosenData)}>{`Choose a ${sectionDisplayed}`}</h1>
+              <h1>{`Escoge un ${sectionTitle}`}</h1>
 
-              <div className="ColorsBox">
+              {/* <div className="ColorsBox">
                 <div className="Colors">
-                  <input ref={ColorBoxPicked1} type="color" defaultValue="#131E25" />
-                  <input ref={ColorBoxPicked2} type="color" defaultValue="#0EECC0" />
+                  <input
+                    ref={ColorBoxPicked1}
+                    type="color"
+                    defaultValue="#000000"
+                  />
+                  <input
+                    ref={ColorBoxPicked2}
+                    type="color"
+                    defaultValue="#ffffff"
+                  />
                 </div>
-                <p>Color Picker</p>
-              </div>
+                <p>Colores</p>
+              </div> */}
             </span>
 
-            <div className="Display">{ReturnSection()}</div>
+            <span className="Middler">
+                <div className="Circle">
+                  <h1>{sectionId}</h1>
+                </div>
+            </span>
 
             <span className="Footer">
-              <div className="Line"></div>
-
               <div
-                onClick={() => changeSection("Page Style")}
+                onClick={() => {
+                  changeSection("Page Style");
+                  setSectionTitle("diseño para tu Sitio");
+                  setSectionId(1);
+                }}
                 className={
                   sectionDisplayed === "Page Style" ? "OnStage" : "OffStage"
                 }
               >
                 <span></span>
-                <p>Page Style</p>
               </div>
               <div
-                onClick={() => changeSection("NavBar Style")}
+                onClick={() => {
+                  changeSection("NavBar Style");
+                  setSectionTitle("diseño para tu navegación");
+                  setSectionId(2);
+                }}
                 className={
                   sectionDisplayed === "NavBar Style" ? "OnStage" : "OffStage"
                 }
               >
                 <span></span>
-                <p>NavBar Style</p>
               </div>
               <div
-                onClick={() => changeSection("Button Style")}
+                onClick={() => {
+                  changeSection("Button Style");
+                  setSectionTitle("diseño para tus botones");
+                  setSectionId(3);
+                }}
                 className={
                   sectionDisplayed === "Button Style" ? "OnStage" : "OffStage"
                 }
               >
                 <span></span>
-                <p>Button Style</p>
               </div>
               <div
-                onClick={() => changeSection("Loader Style")}
+                onClick={() => {
+                  changeSection("Loader Style");
+                  setSectionTitle("diseño para tu cargador");
+                  setSectionId(4);
+                }}
                 className={
                   sectionDisplayed === "Loader Style" ? "OnStage" : "OffStage"
                 }
               >
                 <span></span>
-                <p>Loader Style</p>
               </div>
             </span>
           </div>
+
+          <div className="BuilderBox">
+            <div className="Display">{ReturnSection()}</div>
+          </div>
+        </div>
+
+        <div className="WelcomeBox">
+
+          <div className="WelcomeText">
+            <h1>Bienvenid@ a nuestro selector de estilos</h1>
+            <h2>Simplemente haz click en el botón de empezar, y escoge los diseños y colores que más te gusten para tu página</h2>
+            <h2>Si ya tienes un código para una página haz click en el bóton de código</h2>
+          </div>
+
+          <div className="ButtonsBox">
+            <button className="StartButton" onClick={RemoveWelcomeBox}>Empezar</button>
+            <button className="CodeButton">Código</button>
+          </div>
+
         </div>
       </div>
     );

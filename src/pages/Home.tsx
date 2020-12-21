@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect } from "react";
 import anime from "animejs";
 import "react-on-scroll-animation/build/index.css";
 // import Rosa from "react-on-scroll-animation";
@@ -16,7 +16,6 @@ import Footer from "./../components/Home/Footer";
 
 const HomePage = () => {
 
-  const [showPage, setShowPage] = useState(false)
 
   useEffect(() => {
 
@@ -98,61 +97,10 @@ const HomePage = () => {
       // document.body.innerHTML = output;
     }
 
-    function MoveLoader(){
-      const Loader =  anime.timeline({
-        easing: "easeInOutSine",
-      })
-
-      
-      Loader.add({
-        delay: 500,
-        targets: ".MovingBox",
-        duration: 2200,
-        translateY: ["120%", "-120%"]
-      })
-      
-      Loader.add({
-        targets: ".Loader",
-        duration: 750,
-        height: "0px"
-      }, "-=1700")
-
-      Loader.add({
-        targets:".LeftBox",
-        duration: 1000,
-        easing:"easeInOutQuad",
-        opacity: [0,1],
-        translateX: ["-100%","0%"]        
-      },"-=1000")
-
-      Loader.add({
-        targets:".RightBox",
-        duration: 1000,
-        easing:"easeInOutQuad",
-        opacity: [0,1],
-        translateX: ["100%","0%"]
-      },"-=1000")
-
-      Loader.add({
-        targets:".NavBar",
-        duration: 2500,
-        easing:"easeInOutElastic",
-        opacity: [0,1],
-        translateY: ["-100px","0px"]
-      },"-=1500")
-
-    }
-
     window.onload = () => {
 
       CheckBrowser()
-
-      MoveLoader()
       
-      setTimeout(()=> {
-        setShowPage(true)
-      },1000)
-
       setTimeout(()=> {
         HomeAnimations()
       }, 1900)
@@ -163,24 +111,9 @@ const HomePage = () => {
 
 
   return (
-    <div className="HomePage" style={showPage ? {overflowY:"scroll"} : {overflowY:"hidden"}}>
+    <div className="HomePage" style={{overflowY:"scroll"}}>
 
       <NavBar/>
-
-      <span className="Loader">
-        <span className="box">
-          <div className="AnimBox">
-            <div className="CenterBall Ball"></div>
-            <div className="MiddleBall Ball"></div>
-            <div className="OuterBall Ball"></div>
-            <div className="ExtraOuterBall Ball"></div>
-          </div>
-          <h1>Loading...</h1>
-        </span>
-
-        <div className="MovingBox"></div>
-
-      </span>
     
       <section className="HomeInit" id="Home">
 

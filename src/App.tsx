@@ -1,52 +1,115 @@
-import React from 'react';
-import { Route, Switch, useHistory } from "react-router-dom";
+// Libraries
+
+import React, { useEffect } from 'react';
+import { Route, Switch } from "react-router-dom";
 import "./style/css/index.css";
 import {ChosenDataProvider} from "./components/ChosenData";
+import anime from "animejs";
 
 // Pages
 
 import HomePage from "./pages/Home";
 import BuilderInit from "./pages/BuilderInit";
 import BuilderRoot from "./pages/BuilderRoot";
+import DataCenter from "./pages/DataCenter";
 
 
 
 function App() {
 
-	let Chosen = "none"
-	let history = useHistory()
+	useEffect(() => {
 
-	const saveChosen = (chosen: string) => {
-		Chosen = chosen
+		window.onload = () => {
 
-		if (Chosen !== "none") {
-			setTimeout(() => {
-				history.push("Root")
-			},1000) 
+			function MoveLoader() {
+		const Loader = anime.timeline({
+			easing: "easeInOutSine",
+		});
+
+		Loader.add({
+			delay: 500,
+			targets: ".MovingBox",
+			duration: 2200,
+			translateY: ["120%", "-120%"],
+		});
+
+		Loader.add(
+			{
+			targets: ".Loader",
+			duration: 750,
+			height: "0px",
+			},
+			"-=1700"
+		);
+
+		Loader.add(
+			{
+			targets: ".LeftBox",
+			duration: 1000,
+			easing: "easeInOutQuad",
+			opacity: [0, 1],
+			translateX: ["-100%", "0%"],
+			},
+			"-=1000"
+		);
+
+		Loader.add(
+			{
+			targets: ".RightBox",
+			duration: 1000,
+			easing: "easeInOutQuad",
+			opacity: [0, 1],
+			translateX: ["100%", "0%"],
+			},
+			"-=1000"
+		);
+
+		Loader.add(
+			{
+			targets: ".NavBar",
+			duration: 2500,
+			easing: "easeInOutElastic",
+			opacity: [0, 1],
+			translateY: ["-100px", "0px"],
+			},
+			"-=1500"
+		);
+			}
+
+			MoveLoader()
 		}
-	}
 
+	},[])
 
   return (
-	<div className="App">
-		
-		<Switch>
+    <div className="App">
 
-			<Route exact path="/" component={HomePage} />
+      <span className="Loader">
+        <span className="box">
+          <div className="AnimBox">
+            <div className="CenterBall Ball"></div>
+            <div className="MiddleBall Ball"></div>
+            <div className="OuterBall Ball"></div>
+            <div className="ExtraOuterBall Ball"></div>
+          </div>
+          <h1>Loading...</h1>
+        </span>
 
-			<ChosenDataProvider>
+        <div className="MovingBox"></div>
+      </span>
 
-				<Route exact path="/PageBuilder/Init" component={() => <BuilderInit Chosen={(page:string) => saveChosen(page)} />} />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
 
-				<Route exact path="/PageBuilder/Root">
-					<BuilderRoot/>
-				</Route>
+        <ChosenDataProvider>
+          <Route exact path="/PageBuilder/Init" component={BuilderInit} />
 
-			</ChosenDataProvider>
+          <Route exact path="/PageBuilder/Root" component={BuilderRoot} />
 
-		</Switch>
-
-	</div>
+          <Route exact path="/DataCenter" component={DataCenter} />
+        </ChosenDataProvider>
+      </Switch>
+    </div>
   );
 }
 

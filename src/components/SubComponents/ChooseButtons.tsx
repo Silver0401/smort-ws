@@ -1,6 +1,6 @@
 import React from "react";
 
-const ChooseButtons = () => {
+const ChooseButtons = (props:any) => {
 
   const CreateButton = (ButtonName:string) => {
 
@@ -9,11 +9,16 @@ const ChooseButtons = () => {
         <div className="Item">
           <a href="#" className={ButtonName}>
             <p>Click Me</p>
-			      <span className="liquid"></span>
+            <span className="liquid"></span>
           </a>
         </div>
         <div className="Info">
-          <button className="ChooseButton">Choose</button>
+          <button
+            onClick={() => props.changeFunction("Loader Style", 4, "diseño para tu cargador")}
+            className="ChooseButton"
+          >
+            Escoger
+          </button>
           <p>{ButtonName}</p>
         </div>
       </div>

@@ -1,5 +1,5 @@
 $PageColor: rgb(51, 162, 203);
-$BGColor: rgb(31, 28, 28);
+$BGColor: rgb(57, 55, 55);
 
 
 @mixin alignCenter {
@@ -8,20 +8,43 @@ $BGColor: rgb(31, 28, 28);
     justify-content: space-evenly;
     align-items: center;
 }
+
+
 @mixin NeumorphType1 {
     box-shadow: 
-    10px 10px 30px black,
-    -10px -10px 20px rgba(255, 255, 255, 0.043),
-    inset 5px 5px 10px black,
-    inset -10px -10px 20px rgba(255, 255, 255, 0.043);
-    border: 4px solid var(--ChosenColor1);
+    5px 5px 15px rgb(165, 164, 164),
+    -5px -5px 15px white,
+    inset 5px 5px 10px rgb(147, 144, 144),
+    inset -10px -10px 20px white;
+    border: 4px solid white;
+    transition: box-shadow 500ms, border 500ms;
 }
 @mixin NeumorphType2 {
     box-shadow: 
-    15px 15px 40px black,
-    -10px -10px 20px rgba(255, 255, 255, 0.043);
-    border: 4px solid var(--ChosenColor1);
-    // transition: box-shadow 500ms;
+    5px 5px 15px rgb(165, 164, 164),
+    -5px -5px 15px white;
+    // border: 2px solid white;
+    transition: box-shadow 500ms;
+    
+}
+@mixin NeumorphType3 {
+
+    box-shadow: 
+    5px 5px 15px rgb(165, 164, 164),
+    -5px -5px 15px white,
+    inset 0px 0px 0px rgb(70, 69, 69),
+    inset -0px -0px 0px rgb(70, 69, 69);
+    border: 4px solid lightgray;
+    transition: box-shadow 500ms, border 500ms;
+}
+
+@mixin Glassmorphic {
+    border-radius: 10px;
+    backdrop-filter: blur(7px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.153);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    // border: 1px solid rgba(145, 140, 140, 0.2);
 }
 
 
@@ -72,16 +95,16 @@ $BGColor: rgb(31, 28, 28);
 
 .PageStylesSection{
     background-color: transparent;
-    display: grid;
-    grid-template-columns: 1fr 80% 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: 
-    "LeftSection MainSection RightSection";
+    @include alignCenter();
+
 
     span{
+        position: absolute;
         @include alignCenter();
         .ArrowBox{
 
+            // position: absolute;
+            // left: 20px;
             @include alignCenter();
             height: 25%;
             cursor: pointer;
@@ -109,23 +132,14 @@ $BGColor: rgb(31, 28, 28);
         }
     }
 
-    .LeftSection{
-        grid-area: LeftSection;
-
-        .ArrowBox{
-            transform: rotate(180deg);
-        }
-    }
-
-
     .MainSection{
 
         grid-area: MainSection;
-        // position: absolute;
-        // background-color: black;
+        position: relative;
         @include alignCenter();
-        border-radius: 5px;
         overflow: hidden;
+        width: 100%;
+        height: 100%;
 
         .Page{
             // position: absolute;
@@ -134,7 +148,7 @@ $BGColor: rgb(31, 28, 28);
             // background-color: lightcoral;
 
             display: grid;
-            grid-template-rows: 60px 1fr;
+            grid-template-rows: 80px 1fr;
             grid-template-columns: 1fr;
             grid-template-areas: 
             "StyleName"
@@ -142,16 +156,64 @@ $BGColor: rgb(31, 28, 28);
     
             .StyleName{
                 grid-area: StyleName;
-                background-color: black;
+                background: linear-gradient(to right, $BGColor 25%, $PageColor , $BGColor 80%);
+                position: relative;
+                border: 2px solid white;
+                @include alignCenter();
+                flex-direction: row;
+                justify-content: space-between;
 
                 h1{
+                    position: relative;
                    font-family: 'MuseoModerno', cursive;
+                   color: black;
+                   font-size: 40px;
+                }
+
+                button{
+                    position: relative;
+                    right: 1em;
+                    justify-self: center;
+                    height: 70%;
+                    border-radius: 5em;
+                    background-color: white;
+                    font-family: 'Press Start 2P', cursive;
+                    padding: 0px 3em;
+                    font-size: 10px;
+                }
+
+                .ArrowsBox{
+                    position: relative;
+                    left: 1em;
+                    // background-color: lightgreen;
+                    width: 20%;
+                    height: 100%;
+                    @include alignCenter();
+                    justify-content: space-between;
+                    flex-direction: row;
+
+                    div{
+                        width: 40%;
+                        height: 50%;
+                        fill: white;
+
+                        svg{
+                            width: 100%;
+                            height: 100%;
+                            filter: drop-shadow(0px 0px 10px white);
+                        }
+                    }
+
+                    .ArrowBoxLeft{
+                        transform: rotate(180deg);
+                    }
                 }
             }
 
             .PageStyle{
                 grid-area: PageStyle;
                 position: relative;
+                overflow: scroll;
 
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -160,22 +222,14 @@ $BGColor: rgb(31, 28, 28);
                 "LeftBox RightBox";
 
                 font-family: 'MuseoModerno', cursive;
-
-                #tsparticles{
-                    top: 0;
-                    left: 0;
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    opacity: 0;
-                }
+                // overflow: hidden;
 
                 .LeftBox{
                     grid-area: LeftBox;
                     position: relative;
                     width: 100%;
                     height: 100%;
-                    // overflow: hidden;
+                    overflow: hidden;
                     background-color: transparent;
                     @include alignCenter();
                     // z-index: 1;
@@ -185,11 +239,42 @@ $BGColor: rgb(31, 28, 28);
                             position: absolute;
                             visibility: hidden;
                         }
+
+                        .RobotGif, .TechChip, .TechChip2{
+                            position: absolute;
+                            visibility: hidden;
+                        }
                     }
 
-                    .ContactsBox{
+                    .ContactsBox, .MinGrid{
                         position: absolute;
                         visibility: hidden;
+                    }
+
+                    .MinGrid{
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        // background-color: yellowgreen;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+                        background-image: url(./../../resources/minman.jpg);
+                        background-size: cover;
+                        background-position-y: -80%;
+                        
+                        z-index: 0;
+
+                        span{
+                            position: relative;
+                            align-self: center;
+                            justify-self: center;
+                            width: 90%;
+                            height: 90%;
+                            background-color: var(--ChosenColor1);
+                            opacity: .25;
+                        }
                     }
                 }
                 
@@ -198,16 +283,22 @@ $BGColor: rgb(31, 28, 28);
                     position: relative;
                     width: 100%;
                     height: 100%;
-                    // overflow: hidden;
+                    overflow: hidden;
                     background-color: transparent;
                     @include alignCenter();
                     // z-index: 1;
 
-                }
 
-                video{
-                    position: absolute;
-                    visibility: hidden;
+                    #tsparticles{
+                        top: 0;
+                        left: 0;
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        z-index: -1;
+                    }
+
                 }
 
                 nav{
@@ -231,6 +322,7 @@ $BGColor: rgb(31, 28, 28);
                         @include alignCenter(); 
 
                         span{
+                            position: relative;
                             background-color: var(--ChosenColor2);
                             box-shadow: 0px 0px 10px var(--ChosenColor2);
                             width: 90%;
@@ -271,28 +363,40 @@ $BGColor: rgb(31, 28, 28);
             }
             
             .Neumorphic{
-                background-color: var(--ChosenColor1);
+                background-color: var(--ChosenColor2);
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+                grid-template-areas: 
+                "LeftBox"
+                "RightBox";
+
                 .LeftBox, .RightBox{
                     background-color: transparent;
                 }
+
                 .RightBox{
                     .TextBox{
-                        width: 250px;
+                        width: 60%;
                         height: 150px;
                         text-align: center;
-                        margin-right: 40px;
                         // border: 1px solid var(--ChosenColor3);
                         border-radius: 20px;
                         @include NeumorphType2();
-                        color: var(--ChosenColor3);
+                        color: var(--ChosenColor1);
+                        @include alignCenter();
+
+                        p{
+                            color: gray;
+                            padding: 0px 20px;
+                        }
 
                     }
                     button{
                         padding: 10px 30px;
                         border-radius: 10px;
                         font-weight: bolder;
-                        background-color: var(--ChosenColor2);
-                        color: var(--ChosenColor1);
+                        background-color: var(--ChosenColor1);
+                        color: var(--ChosenColor2);
                         @include NeumorphType2();
                     }
                 }
@@ -300,12 +404,11 @@ $BGColor: rgb(31, 28, 28);
                 .LeftBox{
                     // justify-content: space-evenly;
                     .ImageBox{
-                        width: 400px;
-                        height: 180px;
-                        // background-color: white;
-                        margin-left: 20%;
+                        width: 60%;
+                        height: 60%;
                         @include alignCenter();
                         flex-direction: row;
+                        justify-content: space-around;
 
                         .BoxesBox, .Foto{
                             position: relative;
@@ -316,64 +419,38 @@ $BGColor: rgb(31, 28, 28);
                             position: relative;
                             width: 100px;
                             height: 100%;
-                            background-color: transparent;    
+                            // background-color: yellow;
                             @include alignCenter();
-                            margin-top: 40px;
 
                             .ActBox1{
                                 position: relative;
                                 width: 80%;
                                 height: 40%;
-                                background-color: transparent;
-                                @include NeumorphType1();
+                                // background-color: transparent;
+                                @include NeumorphType3();
                                 border-radius: 10px;
-                                transition: box-shadow 500ms;
+                                // transition: box-shadow 500ms;
 
                                 &:hover svg{
-                                    opacity: 1;
+                                    opacity: .1;
                                     transition: opacity 500ms;
                                 }
 
                                 &:hover{
-                                    @include NeumorphType2();
-                                    transition: box-shadow 500ms;
+                                    @include NeumorphType1();
+                                    // transition: box-shadow 500ms;
                                 }
                                 
                                 svg{
-                                    fill: var(--ChosenColor2);
-                                    opacity: .1;
+                                    fill: var(--ChosenColor1);
+                                    opacity: 1;
                                     width: 70%;
                                     height: 70%;
                                     transition: opacity 500ms;
                                 }
                             }
                             .ActBox2{
-                                position: relative;
-                                width: 80%;
-                                height: 40%;
-                                background-color: transparent;
-                                @include NeumorphType1();
-                                border-radius: 10px;
-                                transition: box-shadow 500ms;
-
-                                &:hover svg{
-                                    opacity: 1;
-                                    transition: opacity 500ms;
-                                }
-
-                                &:hover{
-                                    @include NeumorphType2();
-                                    transition: box-shadow 500ms;
-                                }
-                                
-                                svg{
-                                    fill: var(--ChosenColor2);
-                                    opacity: .1;
-                                    width: 70%;
-                                    height: 70%;
-                                    transition: opacity 500ms;
-                                }
-
+                                @extend .ActBox1;
                             }
                         }
 
@@ -383,9 +460,9 @@ $BGColor: rgb(31, 28, 28);
                             width: 200px;
                             height: 200px;
                             border-radius: 50%;
-                            background-color: black;
+                            // background-color: black;
                             @include NeumorphType2();
-                            border: 7px solid var(--ChosenColor1);
+                            border: 7px solid var(--ChosenColor2);
 
                             img{
                                 width: 100%;
@@ -399,9 +476,9 @@ $BGColor: rgb(31, 28, 28);
                         position: relative;
                         margin-top: 35px;
 
-                        width: 300px;
-                        height: 45px;
-                        // background-color: white;
+                        width: 100%;
+                        height: 10%;
+                        // background-color: green;
                         @include alignCenter();
                         flex-direction: row;
 
@@ -411,26 +488,32 @@ $BGColor: rgb(31, 28, 28);
                             height: 35px;
                             background-color: transparent;
                             // border: 4px solid black;
-                            @include NeumorphType1();
+                            @include NeumorphType2();
                             border-radius: 50%;
                             transition: box-shadow 500ms;
                             @include alignCenter();
 
                             &:hover{
-                                @include NeumorphType2();
+                                // @include NeumorphType2();
 
-                                .Whats{ opacity: .7; fill: rgb(38, 237, 38); transition: fill 500ms, opacity 500ms; }
-                                .Insta{ opacity: .7; fill: rgb(165, 52, 196); transition: fill 500ms, opacity 500ms; }
-                                .Face{ opacity: .7; fill: rgb(57, 105, 228); transition: fill 500ms, opacity 500ms; }
-                                .Twit{ opacity: .7; fill: rgb(65, 194, 233); transition: fill 500ms, opacity 500ms; }
+                                .Whats, .Insta, .Face, .Twit{
+                                    opacity: .7; 
+                                    fill: var(--ChosenColor1);
+                                    transition: fill 500ms, opacity 500ms;
+                                }
+
+                                // .Whats{ opacity: .7; fill: rgb(38, 237, 38); transition: fill 500ms, opacity 500ms; }
+                                // .Insta{ opacity: .7; fill: rgb(165, 52, 196); transition: fill 500ms, opacity 500ms; }
+                                // .Face{ opacity: .7; fill: rgb(57, 105, 228); transition: fill 500ms, opacity 500ms; }
+                                // .Twit{ opacity: .7; fill: rgb(65, 194, 233); transition: fill 500ms, opacity 500ms; }
 
                             }
 
                             svg{
-                                fill: var(--ChosenColor3);
-                                opacity: .2;
-                                width: 70%;
-                                height: 70%;
+                                fill: var(--ChosenColor1);
+                                opacity: .3;
+                                width: 100%;
+                                height: 100%;
                                 transition: fill 500ms, opacity 500ms;
                             }
    
@@ -439,16 +522,41 @@ $BGColor: rgb(31, 28, 28);
                     }
                 }
 
+                nav{
+                    .BurgerBox{
+                        @include NeumorphType2();
+
+                        span{
+                            background-color: var(--ChosenColor1);
+                            width: 60%;
+                        }
+                    }   
+
+                    .LogoBox{
+                        
+                        h3{
+                            color: var(--ChosenColor1);
+                        }
+                        
+                        .Logo{
+                            @include NeumorphType2();
+                            border-radius: 50%;
+                            fill: var(--ChosenColor1);
+                        }
+                    }
+                }
+
             }
             
             .Animated{
                 position: relative;
                 font-family: 'MuseoModerno', cursive;
+                overflow-x: hidden;
 
                 .Waves{
                     position: absolute;
                     top: 0%;
-                    left: 0%;
+                    left: -100%;
                     height: 100%;
                     width: auto;
                     fill: var(--ChosenColor1);
@@ -458,15 +566,17 @@ $BGColor: rgb(31, 28, 28);
                 .LeftBox{
                     .ImageBox{
                         overflow: hidden;
-                        width: 300px;
-                        height: 300px;
+                        width: 100%;
+                        height: 100%;
                         position:  relative;
                         z-index: 1;
-                        margin-left: 20%;
+                        margin-left: 2em;
+                        @include alignCenter();
+                        // background-color: yellow;
                         
                         svg{
-                            width: 100%;
-                            height: 100%;
+                            width: 90%;
+                            height: 90%;
 
                             #SquareColor2{
                                 animation: MoveLeftRight 800ms linear infinite alternate;
@@ -492,11 +602,10 @@ $BGColor: rgb(31, 28, 28);
                 }
                 .RightBox{
                     .TextBox{
-                        width: 250px;
-                        height: 150px;
-                        // background-color: black;
+                        @include alignCenter();
+                        width: 70%;
+                        height: 30%;
                         text-align: center;
-                        margin-right: 40px;
                         color: var(--ChosenColor3);
 
                     }
@@ -512,7 +621,7 @@ $BGColor: rgb(31, 28, 28);
 
             .Parallax{
 
-                background-image: url(../../resources/ParallaxBG3.jpg);
+                background-image: url(../../resources/foto2.jpg);
                 background-color: black;
                 background-size: cover;
                 grid-template-columns: 1fr;
@@ -529,10 +638,24 @@ $BGColor: rgb(31, 28, 28);
                     @include alignCenter();
 
                     .TextBox{
-                        width: 30%;
+                        @include alignCenter();
+                        width: 60%;
+                        height: 45%;
                         text-align: center;
                         color: black;
-                        font-weight: bolder;
+                        // font-weight: bolder;
+
+                        h1{
+                            font-size: 80px;
+                            font-family: 'Julius Sans One', sans-serif;
+                            font-weight: 900;
+                        }
+
+                        p{
+                            padding: 10px 30px;
+                            font-weight: bolder;
+                            @include Glassmorphic();
+                        }
                     }
 
                     button{
@@ -549,24 +672,14 @@ $BGColor: rgb(31, 28, 28);
             }
             
             .Minimalist{
-                // background-image: url(../../resources/minimalBG.jpg);
-                // background-size: cover;
-                background-color: white;
-                grid-template-columns: 1fr 40%;
-                grid-template-areas: 
-                "RightBox RightBox";
-                
-                video{
-                    position: absolute;
-                    left: -110px;
-                    top: 0;
-                    visibility: visible;
-                    width: 130%;
-                    height: 130%;
-                    // z-index: 0;
-                    // box-shadow: 0px 0px 5px blue;
-                }
 
+                background-color: var(--ChosenColor2);
+                grid-template-columns: 1fr;
+                grid-template-rows: 35% 1fr;
+                grid-template-areas: 
+                "RightBox"
+                "LeftBox";
+                
                 nav{
                     .LogoBox{
                         .Logo{
@@ -595,30 +708,21 @@ $BGColor: rgb(31, 28, 28);
                     color: var(--ChosenColor1);
 
                     .TextBox{
-                        width: 80%;
-                        height: 30%;
+                        width: 60%;
+                        height: 50%;
                         @include alignCenter();
                         justify-content: space-between;
-                        flex-direction: row;
 
                         h1{
                             font-size: 50px;
-                            text-shadow: 0px 0px 40px var(--ChosenColor2);
                             font-family: 'Courgette', cursive;
                         }
 
                         p{
-                            width: 20%;
+                            width: 80%;
+                            height: 30%;
                             font-size: 10px;
                         }
-                        // font-family: 'Dancing Script', cursive;
-                        // font-family: 'Monoton', cursive;
-                        // font-family: 'Press Start 2P', cursive;
-                        // font-family: 'Righteous', cursive;    
-                        // font-family: 'Righteous', cursive;
-                        // font-family: 'Courgette', cursive;
-                        // font-family: 'MuseoModerno', cursive;
-
                     }
 
                     button{
@@ -626,51 +730,271 @@ $BGColor: rgb(31, 28, 28);
                     }
 
                 }
+
+                .LeftBox{
+                    .MinGrid{
+                        visibility: visible;
+
+                        #NavSqr{
+                            opacity: 0;
+                        }
+                    }
+                }
                 
             }
 
             .D3-Style{
                 position: relative;
-                width: 100vw;
-                height: 100vh;
+                width: 100%;
+                height: 100%;
                 box-sizing: border-box;
-                background-color: grey;
+                background-color: black;
                 // @include alignCenter();
 
                 .Canvas{
-                    box-sizing: inherit;
-                    // width: 100%;
-                    // height: 100%;
+                    // box-sizing: inherit;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
                     display: block;
+                    background-color: grey;
+
+                    .htmlThingy{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background-color: lightblue;
+
+                        .container{
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            background-color: lightgrey;
+
+                            h1{
+                                font-size: 50px;
+                                color: white;
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            .Glassmorphic{
+
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+                grid-template-areas: 
+                "LeftBox" 
+                "RightBox";
+                overflow: hidden;
+
+                .LeftBox{
+
+                    background-color: var(--ChosenColor2);
+                    z-index: 1;
+                    overflow: visible;
+
+                    .ImageBox{
+
+                        width: 100%;
+                        height: 100%;
+                        @include alignCenter();
+                        justify-content: space-around;
+                        z-index: 1;
+                        background-color: transparent;
+                        // @include Glassmorphic();
+
+                        // backdrop-filter: blur(3px);
+
+                        .TechChip, .TechChip2{
+                            position: relative;
+                            visibility: visible;
+                            // width: auto;
+                            // height: 40%;
+                        }
+
+                        .TechChip{
+                            width: 200px;
+                            height: 200px;
+                            // background-color: turquoise;
+                            fill: var(--ChosenColor1);
+                            opacity: .8;
+                        }
+
+                        .TechChip2{
+                            @include alignCenter();
+                            // position: absolute;
+                            width: 60%;
+                            height: 110px;
+                            color: var(--ChosenColor1);
+                            font-size: 100px;
+                            font-family: 'Dancing Script', cursive;
+
+                            @include Glassmorphic();
+                            z-index: 1;
+                        }
+
+                    }
+
+                    .ImageBox::after{
+                        content: "";
+                        top: -100px;
+                        left: -100px;
+                        position: absolute;
+                        width: 250px;
+                        height: 250px;
+                        background: linear-gradient(to top left,var(--ChosenColor1), var(--ChosenColor2));
+                        visibility: visible;
+                        border-radius: 50%;
+                        z-index: 0;
+                    }
+
+                    .ImageBox::before{
+                        content: "";
+                        // bottom: -100px;
+                        // right: -100px;
+                        bottom: -50px;
+                        right: auto;
+                        left: auto;
+                        position: absolute;
+                        width: 200px;
+                        height: 200px;
+                        background: linear-gradient(to top left,var(--ChosenColor1), var(--ChosenColor2));
+                        visibility: visible;
+                        border-radius: 50%;
+                        z-index: 0;
+                    }
+
+                    .ContactsBox{
+                        opacity: 1;
+                        visibility: visible;
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+
+                        span{
+                            position: absolute;
+                            visibility: hidden;
+                        }
+
+                        // span:nth-child(1){
+                        //     top: -100px;
+                        //     left: -100px;
+                        //     position: absolute;
+                        //     width: 300px;
+                        //     height: 300px;
+                        //     background-color: var(--ChosenColor1);
+                        //     visibility: visible;
+                        //     border-radius: 50%;
+                        // }
+                    }
+
+                    .ContactsBox::before{
+                        content: "";
+                        top: -120px;
+                        right: -120px;
+                        position: absolute;
+                        width: 250px;
+                        height: 250px;
+                        background: linear-gradient(to top left,var(--ChosenColor1), var(--ChosenColor2));
+                        visibility: visible;
+                        border-radius: 50%;
+                        z-index: 0;
+                    }
+
+                }
+                .RightBox{
+
+                    z-index: 0;
+
+                    .TextBox{
+
+                        width: 70%;
+                        height: 40%;
+                        @include Glassmorphic();
+                        backdrop-filter: blur(4px);
+                        text-align: center;
+                        @include alignCenter();
+                        flex-direction: column;
+                        overflow: hidden;
+                        z-index: 1;
+
+                        h1{
+                            position: relative;
+                            color: var(--ChosenColor1);
+                            display: none;
+                        }
+                        p{
+                            position: relative;
+                            margin: 0px 15px;
+                            color: var(--ChosenColor1);
+                        }
+
+                        
+                    }
+
+                    #tsparticles{
+                        opacity: 1;
+                    }
+
+                    button{
+                        // border-radius: 40px;
+                        // backdrop-filter: blur(4px);
+                        // background-color: rgba(255, 255, 255, 0.2);
+                        border: 1px solid var(--ChosenColor1);
+                        padding: 15px 30px;
+                        color: var(--ChosenColor1);
+                        @include Glassmorphic()
+                    }
+                }
+
+                nav{
+                    .LogoBox{
+                        h3{
+                            opacity: 0;
+                        }
+                    }
                 }
             }
 
             .Technological{
-
-                #tsparticles{
-                    opacity: 1;
-                }
-
                 .LeftBox{
-                    // background-color: lightgreen;
-
+                    content: "";
                 }
                 .RightBox{
-                    // background-color: lightcoral;
-
+                    #tsparticles{
+                        opacity: 1;
+                    }
                 }
             }
 
         }
 
     }
-
-
-    .RightSection{
-        grid-area: RightSection;
-    }
 }
 
+
+// @media (max-width: 1000px){
+//     .PageStylesSection{
+//         .MainSection{
+//             .Page{
+//                 .PageStyle{
+//                     grid-template-columns: 100%;
+//                     grid-template-rows: 100% 100%;
+//                     grid-template-areas: 
+//                     "LeftBox" 
+//                     "RightBox";   
+//                 }
+
+//             }
+//         }
+//     }
+// }
 
 // font-family: 'Dancing Script', cursive;
 // font-family: 'Julius Sans One', sans-serif;

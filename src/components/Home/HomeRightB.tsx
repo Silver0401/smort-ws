@@ -1,8 +1,11 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const RightBox = () => {
-    return(
 
+    let History = useHistory()
+
+    return(
         <div className="RightBox">
             <div className="LettersBox">
                 <div className="sent1">
@@ -16,7 +19,7 @@ const RightBox = () => {
             </div>
         </div>
 
-        <button onClick={() => window.location.href = "/PageBuilder/Init"} className="CreateButton">
+        <button onClick={() => History.push("/PageBuilder/Init")} className="CreateButton">
             <p>Conseguir mi sitio</p>
             <span className="liquid"></span>
         </button>

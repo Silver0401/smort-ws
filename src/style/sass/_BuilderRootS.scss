@@ -4,17 +4,11 @@
 @import "./SubCStyles/ChooseLoader";
 
 :root{
-    --ChosenColor1: #131E25;
-    --ChosenColor2: #0EECC0;
+    --ChosenColor1: #000000;
+    --ChosenColor2: #ffffff;
     --ChosenColor3: #ffffff;
 }
 
-// SubComponents
-// @import "./SubCStyles/ChooseMain";
-// @import "./SubCStyles/ChooseButtons";
-// @import "./SubCStyles/ChooseFont";
-// @import "./SubCStyles/ChooseNav";
-// @import "./SubCStyles/ChooseStyle";
 
 $PageColor: rgb(51, 162, 203);
 $BackgroundColor: rgb(57, 55, 55);
@@ -59,36 +53,34 @@ $BackgroundColor: rgb(57, 55, 55);
     .RootBox{
         
         @include alignCenter();
-        margin-top: 40px;
         position: absolute;
-        height: 90%;
-        width: 95%;
-        border-radius: 50px;
-        border: 5px solid white;
+        height: 100%;
+        width: 100%;
         overflow: hidden;
-        
-        .BuilderBox{
-            background: linear-gradient(to top, rgba(31, 28, 28, 0.44), rgba(51, 162, 203, 0.500) );
-            overflow: hidden;
-            opacity: 0;
+        display: grid;
+        grid-template-columns: 40% 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "InsBox BuildBox";
+        background: linear-gradient(to bottom left, $PageColor 20%, $BackgroundColor 80%);
+
+        .InstructionsBox{
+            grid-area: InsBox;
+            position: relative;
+            background: transparent;
             width: 100%;
             height: 100%;
-            animation: PageFadeIn 1s linear both;
-
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 150px 1fr 120px;
-            grid-template-areas: 
-            "Header"
-            "Display"
-            "Footer";
-
+            @include alignCenter();
+            justify-content: space-around;
+            z-index: 0;
 
             .Header{
-                grid-area: Header;
+                // grid-area: Header;
                 // background-color: lightcoral;
                 @include alignCenter();
                 flex-direction: row;
+                width: 100%;
+                height: 20%;
 
                 .ColorsBox{
 
@@ -124,26 +116,106 @@ $BackgroundColor: rgb(57, 55, 55);
 
 
                 h1{
-                    // font-family: 'Righteous', cursive;
-                    // font-family: 'Courgette', cursive;
                     font-family: 'MuseoModerno', cursive;
-                    // letter-spacing: 3px;
                     font-size: calc(1.5rem + 1.5vw);
                     text-align: center;
                     color: white;
-                    text-shadow: 2px 2px 2px black;
+                    // text-shadow: 2px 2px 2px black;
+                    padding: 0px 20px;
                 }
             }
+
+            .Middler{
+                width: 100%;
+                height: 50%;
+                @include alignCenter();
+
+                .Circle{
+                    height: 20em;
+                    width: 20em;
+                    background-color: white;
+                    opacity: .35;
+                    border-radius: 50%;
+                    @include alignCenter();
+
+                    h1{
+                        font-size: 100px;
+                        font-family: 'Press Start 2P', cursive;
+                        color: black;
+                    }
+                }
+            }
+
+            .Footer{
+                // grid-area: Footer;
+                @include alignCenter();
+                flex-direction: row;
+                justify-content: space-around;
+                // background-color: lightgreen;
+                width: 60%;
+                height: 10%;
+
+                .Line{
+                    position: absolute;
+                    width: 75%;
+                    height: 3px;
+                    background-color: grey;
+                    margin-bottom: 2.8%;
+                    z-index: -1;
+                }
+
+                .OffStage{
+
+                    position: relative;
+                    z-index: 0;
+                    width: 10%;
+                    height: 80%;
+                    @include alignCenter();
+
+                    span{
+                        width: 20px;
+                        height: 20px;
+                        background-color: $BackgroundColor;
+                        border-radius: 50%;
+                        transform: scale(.7);
+                        opacity: .7;
+                        transition: background-color 500ms, transform 500ms, opacity 500ms;
+                        box-shadow: 0px 0px 5px white;
+                    }
+
+                }
+
+                .OnStage{
+                    @extend .OffStage;
+                    
+                    span{
+                        transform: scale(1);
+                        opacity: 1;
+                        background-color: white;
+                    }
+                }
+
+            }
+        }
+
+        .BuilderBox{
+            grid-area: BuildBox;
+            position: relative;
+            background: transparent;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
 
             .Display{
                 grid-area: Display;
                 overflow: auto;
-                border-radius: 20px;
+                width: 100%;
+                height: 100%;
 
                 .PageStylesSection{
-                    width: 95%;
+                    width: 100%;
                     height: 100%;
-                    // background-color: transparent;
                     margin: 0px auto;
                 }
 
@@ -229,60 +301,61 @@ $BackgroundColor: rgb(57, 55, 55);
                     }
                 }
             }
+        }
+    }
 
-            .Footer{
-                grid-area: Footer;
-                // border-top: 1px solid lightslategrey;
-                // background-color: lightseagreen;
+    .WelcomeBox{
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        opacity: 1;
+        background: linear-gradient(45deg, $PageColor 30%, $BGColor 70%);
+        font-family: 'MuseoModerno', cursive;
+        @include alignCenter();
+        text-align: center;
 
-                @include alignCenter();
-                flex-direction: row;
-                justify-content: space-around;
 
-                .Line{
-                    position: absolute;
-                    width: 75%;
-                    height: 3px;
-                    background-color: grey;
-                    margin-bottom: 2.8%;
-                    z-index: -1;
+        .WelcomeText{
+
+            @include alignCenter();
+            width: 50%;
+            height: 70%;
+
+            h1{
+                font-size: 60px;
+            }
+
+            h2{
+                display: inline;
+                font-size: 30px;
+            }
+
+            #h2phrase{
+                color:$PageColor;
+            }
+        }
+
+        .ButtonsBox{
+            width: 50%;
+            height: 100px;
+            @include alignCenter();
+            flex-direction: row;
+
+            button{
+                font-family: 'MuseoModerno', cursive;
+                background-color: $BGColor;
+                padding: 20px 40px;
+                font-size: 20px;
+                font-weight: bolder;
+                border-radius: 30px;
+                color: white;
+                transition: background-color 500ms, color 500ms;
+                
+                &:hover{
+                    background-color: black;
+                    color: $PageColor;
+                    transition: background-color 500ms, color 500ms;
                 }
-
-                .OffStage{
-
-                    position: relative;
-                    z-index: 0;
-                    width: 10%;
-                    height: 80%;
-                    @include alignCenter();
-
-                    span{
-                        width: 20px;
-                        height: 20px;
-                        background-color: $BackgroundColor;
-                        border: 3px solid white;
-                        border-radius: 50%;
-                        transition: background-color 500ms;
-                        box-shadow: 0px 0px 5px white;
-                    }
-
-                    p{
-                        // font-family: 'Righteous', cursive;
-                        font-family: 'MuseoModerno', cursive;
-                        text-align: center;
-                        font-size: calc(.6rem + .5vw);
-                    }
-
-                }
-
-                .OnStage{
-                    @extend .OffStage;
-                    
-                    span{
-                        background-color: $PageColor;
-                    }
-                }
-
             }
         }
 

@@ -1,7 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const Footer = () => {
 
+  let History = useHistory()
 
   return(
     <section className="Footer" id="Contacts">
@@ -31,26 +33,26 @@ const Footer = () => {
           <ul>
             <p>Acerca de Smort</p>
             <li>
-              <a href="/SmortDataCenter/#About">Dominios</a>
+              <a onClick={() => History.push("/DataCenter/#Domains")}>Dominios</a>
             </li>
             <li>
-              <a href="/SmortDataCenter/#About">Fechas y Pagos</a>
+              <a onClick={() => History.push("/DataCenter/#Dates")}>Fechas y Pagos</a>
             </li>
             <li>
-              <a href="/SmortDataCenter/#About">Términos y Condiciones</a>
+              <a onClick={() => History.push("/DataCenter/#Terms")}>Términos y Condiciones</a>
             </li>
           </ul>
 
           <ul>
             <p>Soporte</p>
             <li>
-              <a href="/SmortDataCenter/#Support">Ayuda al Cliente</a>
+              <a onClick={() => History.push("/DataCenter/#ClientSupport")}>Ayuda al Cliente</a>
             </li>
             <li>
-              <a href="/SmortDataCenter/#Support">Cambio de Diseño y Estilo</a>
+              <a onClick={() => History.push("/DataCenter/#StyleSupport")}>Cambio de Diseño y Estilo</a>
             </li>
             <li>
-              <a href="/SmortDataCenter/#Support">Cambio o Mejora de tu Página</a>
+              <a onClick={() => History.push("/DataCenter/#SiteChange")}>Actualización o Mejora de tu Página</a>
             </li>
           </ul>
 
