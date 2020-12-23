@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ChosenDataContext } from "./../ChosenData";
 
 const ChooseNav = (props:any) => {
 
   const [XCircleNavBar, setXCircleNavBar] = useState(false)
-  const [ArrowCircleNavBar, setArrowCircleNavBar] = useState(false)
-  const [SimpleCircleNavBar, setSimpleCircleNavBar] = useState(false)
+  const [SimpleCircleNavBar, setSimpleCircleNavBar] = useState(true)
+  const [ArrowCircleNavBar, setArrowCircleNavBar] = useState(true)
 
   const [XSideNavBar, setXSideNavBar] = useState(false)
   const [SvgSideNavBar, setSvgSideNavBar] = useState(false)
-  const [SimpleSideNavBar, setSimpleSideNavBar] = useState(false)
+  const [SimpleSideNavBar, setSimpleSideNavBar] = useState(true)
 
-  const [XRightWholePageNavBar, setXRightWholePageNavBar] = useState(false)
+  const [XRightWholePageNavBar, setXRightWholePageNavBar] = useState(true)
   const [XBottomWholePageNavBar, setXBottomWholePageNavBar] = useState(false)
+
+  const [Data, setData] = useContext(ChosenDataContext)
 
     const CreateNavBar = (NavBarName:string, NavBarChecker:boolean, setNavBarState:any) => {
 
@@ -136,7 +139,10 @@ const ChooseNav = (props:any) => {
           <div className="Info">
             <button
               className="ChooseButton"
-              onClick={() => props.changeFunction("Button Style", 3, "diseño para tus botones")}
+              onClick={() => {
+                props.changeFunction("Button Style", 3, "diseño para tus botones");
+                setData({ ...Data, NavBarStyle: NavBarName })
+              }}
             >
               Escoger
             </button>

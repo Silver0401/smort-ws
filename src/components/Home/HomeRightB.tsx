@@ -6,7 +6,7 @@ const RightBox = () => {
     let History = useHistory()
 
     return(
-        <div className="RightBox">
+        <div className="RightBoxHome">
             <div className="LettersBox">
                 <div className="sent1">
                 <h1 className="text1">¿Buscas un Sitio Web </h1><h1 className=" text1 ProWord" >Profesional?</h1>

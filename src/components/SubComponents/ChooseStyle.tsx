@@ -1,12 +1,12 @@
 // Libraries
 
-import React, { useEffect, useRef, useState, Suspense } from "react";
+import React, { useEffect, useState, Suspense, useContext } from "react";
 import anime from "animejs";
 import Particles from "react-tsparticles";
-// import * as THREE from "three";
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { Canvas } from "react-three-fiber";
-import { useGLTF } from "@react-three/drei"
+import { ChosenDataContext } from "./../ChosenData";
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+// import { useGLTF } from "@react-three/drei"
 
 // Resources
 
@@ -16,14 +16,13 @@ import DudFoto from "./../../resources/dud.jpg";
 const ChooseStyle = (props:any) => {
 
   // Variables
-
   const [PageNumbertoDisplay, setPageNumberToDisplay] = useState(0)
   let PagesList:any[] = []
-  const GetCanvas = useRef<HTMLDivElement>(null)
+  const [Data, setData] = useContext(ChosenDataContext)
+  // const GetCanvas = useRef<HTMLDivElement>(null)
+
 
   // Functions
-
-
   const ChangePageTo = (direction:string) => {
 
     if (direction === "Right" && PageNumbertoDisplay === PagesList.length - 1) setPageNumberToDisplay(0)
@@ -42,12 +41,6 @@ const ChooseStyle = (props:any) => {
   const DisplayPageNumber = (PageNumber:number) => {
 
     return(PagesList[PageNumber])
-  }
-
-  const Model = () => {
-    return(
-      <div>3d coso</div>
-    )
   }
 
   const CreatePageStyle = (StyleName:string) => {
@@ -95,7 +88,10 @@ const ChooseStyle = (props:any) => {
 
           <h1>{StyleName}</h1>
 
-          <button onClick={() => props.changeFunction("NavBar Style", 2, "diseño para tu navegación")}>
+          <button onClick={() => {
+            props.changeFunction("NavBar Style", 2, "diseño para tu navegación");
+            setData({...Data, PageStyle:StyleName})
+          }}>
             Escoger
           </button>
         </span>

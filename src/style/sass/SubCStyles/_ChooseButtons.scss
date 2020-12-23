@@ -47,7 +47,7 @@
         .ButtonBox{
             .Item{
                 
-                a{
+                button{
                     position: relative;
                     padding: 1rem 1.5rem;
                     background-color: lightslategray;
@@ -57,6 +57,7 @@
                     font-family: 'MuseoModerno', cursive;
                     cursor: pointer;
                     text-decoration: none;
+                    border: 0px solid transparent;
 
                     p{
                         width: 100%;

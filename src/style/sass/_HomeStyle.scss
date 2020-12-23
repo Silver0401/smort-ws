@@ -203,7 +203,7 @@ $BGColor: rgb(31, 28, 28);
         grid-template-areas:
         "LeftBox RightBox";
     
-        .LeftBox{
+        .LeftBoxHome{
             grid-area: LeftBox;
             position: relative;
             // background: lightcoral;
@@ -287,7 +287,7 @@ $BGColor: rgb(31, 28, 28);
             }
         }   
     
-        .RightBox{
+        .RightBoxHome{
             grid-area: RightBox;
             position: relative;
             // background: lightgreen;
@@ -962,11 +962,12 @@ $BGColor: rgb(31, 28, 28);
                     li{
                         list-style: none;
                         
-                        a{
+                        h4{
                             font-size: clamp(12px, 1.2vw, 40px);
                             text-decoration: none;
                             color: white;
                             transition: color 500ms;
+                            cursor: pointer;
 
                             &:hover{
                                 color: rgb(77, 228, 127);

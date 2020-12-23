@@ -4,14 +4,14 @@ import React from "react";
 const LeftBox = () => {
 
     return(
-        <div className="LeftBox">
+        <div className="LeftBoxHome">
             <h1>Smort</h1>
 
             <br></br>
             <p>Sitios desde</p>
             <br></br>
             <div className="price">
-            <p className="p">500$mxn</p>
+            <p className="p">1500$mxn</p>
             <div className="line"></div>
             </div>
 

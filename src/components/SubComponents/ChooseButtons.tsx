@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ChosenDataContext } from "./../ChosenData";
 
 const ChooseButtons = (props:any) => {
+
+  let [Data, setData] = useContext(ChosenDataContext)
 
   const CreateButton = (ButtonName:string) => {
 
     return (
       <div className="ButtonBox">
         <div className="Item">
-          <a href="#" className={ButtonName}>
+          <button className={ButtonName}>
             <p>Click Me</p>
             <span className="liquid"></span>
-          </a>
+          </button>
         </div>
         <div className="Info">
           <button
-            onClick={() => props.changeFunction("Loader Style", 4, "diseño para tu cargador")}
+            onClick={() => {
+              props.changeFunction("Loader Style", 4, "diseño para tu cargador");
+              setData({ ...Data, ButtonStyle: ButtonName });
+            }}
             className="ChooseButton"
           >
             Escoger

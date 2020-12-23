@@ -1,7 +1,7 @@
 // Libraries
 import React, { useState, useEffect, useRef, useContext } from "react";
-import {ChosenDataContext} from "./../components/ChosenData";
 import anime from "animejs";
+import { ChosenDataContext } from "./../components/ChosenData";
 
 // Builder Sections (SubComponents)
 import NavSection from "./../components/SubComponents/ChooseNav";
@@ -13,7 +13,7 @@ const BuilderRoot = () => {
 
   // Variables
 
-  const ChosenData = useContext(ChosenDataContext)
+  const [Data,setData] = useContext(ChosenDataContext)
 
   const [sectionDisplayed, changeSection] = useState <string>("Page Style")
   const [sectionTitle, setSectionTitle] = useState <string> ("Diseño para tu sitio")
@@ -24,6 +24,7 @@ const BuilderRoot = () => {
 
   const [ColorPicked1, setColorPicked1] = useState("#000000")
   const [ColorPicked2, setColorPicked2] = useState("#ffffff")
+  const [colorBoxState, setColorBoxState] = useState(true);
 
   // Functions
 
@@ -63,7 +64,6 @@ const BuilderRoot = () => {
   }
 
   // Live Color Changer
-
   useEffect(() => {
 
     let root = document.documentElement
@@ -79,6 +79,7 @@ const BuilderRoot = () => {
           if (ColorBoxPicked1.current.value === "#ffffff") root.style.setProperty("--ChosenColor3", "#000000")
 
           setColorPicked1(ColorBoxPicked1.current.value)
+          setData({...Data, Color1:ColorBoxPicked1.current.value})
         }
 
       };
@@ -91,16 +92,14 @@ const BuilderRoot = () => {
 
           root.style.setProperty("--ChosenColor2", ColorBoxPicked2.current.value)
           setColorPicked2(ColorBoxPicked2.current.value)
-
+          setData({ ...Data, Color2: ColorBoxPicked2.current.value });
         }
       };
     }
 
   })
 
-
   //  On Section Display Change Animation
-
   useEffect(() => {
 
     const tl = anime.timeline({
@@ -120,36 +119,33 @@ const BuilderRoot = () => {
 
   },[sectionDisplayed])
 
-  // Rendered
 
+  // Rendered
     return (
       <div className="RootPage">
         <div className="RootBox">
           <div className="InstructionsBox">
             <span className="Header">
               <h1>{`Escoge un ${sectionTitle}`}</h1>
-
-              {/* <div className="ColorsBox">
-                <div className="Colors">
-                  <input
-                    ref={ColorBoxPicked1}
-                    type="color"
-                    defaultValue="#000000"
-                  />
-                  <input
-                    ref={ColorBoxPicked2}
-                    type="color"
-                    defaultValue="#ffffff"
-                  />
-                </div>
-                <p>Colores</p>
-              </div> */}
             </span>
 
             <span className="Middler">
-                <div className="Circle">
-                  <h1>{sectionId}</h1>
-                </div>
+              <div className="Circle">
+                <h1>{sectionId}</h1>
+              </div>
+
+              <svg
+                style={sectionId === 1 ? {visibility:"hidden"}: {visibility:"visible"}}
+                width="24"
+                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+                fillRule="evenodd"
+                clipRule="evenodd"
+                viewBox="0 0 24 24"
+              >
+                <path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z" />
+              </svg>
+
             </span>
 
             <span className="Footer">
@@ -206,22 +202,71 @@ const BuilderRoot = () => {
 
           <div className="BuilderBox">
             <div className="Display">{ReturnSection()}</div>
+
+            <div
+              className="ColorsBox"
+              style={
+                colorBoxState
+                  ? { transform: "translateX(0px)" }
+                  : { transform: "translateX(200px)" }
+              }
+            >
+              <span
+                className="ColorsButton"
+                onClick={() => setColorBoxState((prevState) => !prevState)}
+                style={
+                  colorBoxState
+                    ? { transform: "rotate(0deg)" }
+                    : { transform: "rotate(180deg)" }
+                }
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M4 .755l14.374 11.245-14.374 11.219.619.781 15.381-12-15.391-12-.609.755z" />
+                </svg>
+              </span>
+
+              <span className="colors">
+                <input
+                  ref={ColorBoxPicked1}
+                  type="color"
+                  defaultValue="#000000"
+                />
+                <input
+                  ref={ColorBoxPicked2}
+                  type="color"
+                  defaultValue="#ffffff"
+                />
+              </span>
+            </div>
           </div>
         </div>
 
         <div className="WelcomeBox">
-
           <div className="WelcomeText">
             <h1>Bienvenid@ a nuestro selector de estilos</h1>
-            <h2>Simplemente haz click en el botón de empezar, y escoge los diseños y colores que más te gusten para tu página</h2>
-            <h2>Si ya tienes un código para una página haz click en el bóton de código</h2>
+            <h2>
+              Simplemente haz click en el botón de empezar, y escoge los diseños
+              y colores que más te gusten para tu página
+            </h2>
+            <h2>
+              Si ya tienes un código para una página haz click en el bóton de
+              código
+            </h2>
           </div>
 
           <div className="ButtonsBox">
-            <button className="StartButton" onClick={RemoveWelcomeBox}>Empezar</button>
+            <button className="StartButton" onClick={RemoveWelcomeBox}>
+              Empezar
+            </button>
             <button className="CodeButton">Código</button>
           </div>
-
         </div>
       </div>
     );

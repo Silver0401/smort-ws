@@ -12,6 +12,7 @@ import HomePage from "./pages/Home";
 import BuilderInit from "./pages/BuilderInit";
 import BuilderRoot from "./pages/BuilderRoot";
 import DataCenter from "./pages/DataCenter";
+import BuilderFinal from "./pages/BuilderFinal";
 
 
 
@@ -44,7 +45,7 @@ function App() {
 
 		Loader.add(
 			{
-			targets: ".LeftBox",
+			targets: ".LeftBoxHome",
 			duration: 1000,
 			easing: "easeInOutQuad",
 			opacity: [0, 1],
@@ -55,7 +56,7 @@ function App() {
 
 		Loader.add(
 			{
-			targets: ".RightBox",
+			targets: ".RightBoxHome",
 			duration: 1000,
 			easing: "easeInOutQuad",
 			opacity: [0, 1],
@@ -106,8 +107,11 @@ function App() {
 
           <Route exact path="/PageBuilder/Root" component={BuilderRoot} />
 
-          <Route exact path="/DataCenter" component={DataCenter} />
+          <Route exact path="/PageBuilder/Final" component={BuilderFinal} />
+
+		  <Route exact path="/DataCenter" component={DataCenter} />
         </ChosenDataProvider>
+		
       </Switch>
     </div>
   );

@@ -25,7 +25,6 @@ const BuilderInit = () => {
 
   const [Data, setData] = useContext(ChosenDataContext);
   let History = useHistory();
-  const [stageDisplay, setDisplay] = useState(false);
 
   const [PCard, setPCard] = useState(false);
   const [MCard, setMCard] = useState(false);
@@ -127,7 +126,10 @@ const BuilderInit = () => {
             style={
               GlobalCard ? { visibility: "visible" } : { visibility: "hidden" }
             }
-            onClick={() => StageTransition(name)}
+            onClick={() => {
+              StageTransition(name);
+              setData({ ...Data, SiteType: name })
+            }}
           >
             Escoger
           </button>
@@ -143,7 +145,6 @@ const BuilderInit = () => {
   return (
     <div className="BuilderPage">
       <div
-        style={stageDisplay ? { display: "none" } : { opacity: 1 }}
         className="Stage1"
       >
         <h1 id="Stage1Title">¿Que tipo de sitioWeb Buscas?</h1>

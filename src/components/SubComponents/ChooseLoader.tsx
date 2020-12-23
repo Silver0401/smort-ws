@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ChosenDataContext } from "./../ChosenData";
+import { useHistory } from "react-router-dom";
 
 const ChooseLoader = (props:any) => {
+
+    const [Data, setData] = useContext(ChosenDataContext)
+    const History = useHistory()
 
     const CreateLoader = (LoaderName:string) => {
 
@@ -23,7 +28,10 @@ const ChooseLoader = (props:any) => {
           </span>
         </div>
         <div className="Info">
-          <button className="ChooseButton">Choose</button>
+          <button className="ChooseButton" onClick={ () => {
+            setData({ ...Data, LoaderStyle: LoaderName });
+            History.push("/PageBuilder/Final")
+          }}>Escoger</button>
           <p>{LoaderName}</p>
         </div>
       </div>
