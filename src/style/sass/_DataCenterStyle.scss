@@ -20,11 +20,6 @@ $BGColor: rgb(31, 28, 28);
     height: 100%;
     overflow: hidden;
     overflow-y: scroll;
-    // font-family: 'Dancing Script', cursive;
-    // font-family: 'Julius Sans One', sans-serif;
-    // font-family: 'Monoton', cursive;
-    // font-family: 'Righteous', cursive;
-    // font-family: 'Courgette', cursive;
     font-family: 'MuseoModerno', cursive;
 
     .About, .Support {
@@ -59,13 +54,8 @@ $BGColor: rgb(31, 28, 28);
         position: relative;
         width: 80%;
         height: 300vh;
-        // background-color: lightskyblue;
         z-index: 0;
         margin-left: auto;
-
-        // li :nth-child(2){
-        //     height: 100vh;
-        // }
     }
 
     .Support{
@@ -121,49 +111,64 @@ $BGColor: rgb(31, 28, 28);
         position: fixed;
         width: 20%;
         height: 100%;
-        background-color: black;
+        background-color: transparent;
         z-index: 1;
-        @include alignCenter();
-        justify-content: space-around;
 
-        .LinkBox{
-            width: 100%;
-            height: 60%;
+        .DataCenterBurguer{
+            visibility: hidden;
         }
-        .LogoBox{
-            width: 100%;
-            height: 30%;
+
+        .SideBarBox{
             @include alignCenter();
-            cursor: pointer;
+            justify-content: space-around;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: black;
 
-            svg{
+            .LinkBox{
                 width: 100%;
-                height: 100%;
+                height: 60%;
+                z-index: 0;
+
+
+                h2{
+                    color: $PageColor;
+                }
+
+                h2, ul{
+                    margin: 30px 20px;
+                    list-style: none;
+                }
+
+                li{
+                    margin: 30px 10px;
+                    cursor: pointer;
+
+                    a{
+                        text-decoration: none;
+                        color: white;
+                        transition: color 500ms, text-decoration 500ms;
+
+                        &:hover{
+                            color: rgb(77, 228, 127);
+                            text-decoration: underline;
+                            transition: color 500ms, text-decoration 500ms;
+                        }
+                    }
+                }
+    
             }
-        }
-
-        h2{
-            color: $PageColor;
-        }
-
-        h2, ul{
-            margin: 30px 20px;
-            list-style: none;
-        }
-
-        li{
-            margin: 30px 10px;
-            cursor: pointer;
-
-            a{
-                text-decoration: none;
-                color: white;
-                transition: color 500ms, text-decoration 500ms;
-
-                &:hover{
-                    color: rgb(77, 228, 127);
-                    text-decoration: underline;
-                    transition: color 500ms, text-decoration 500ms;
+            .LogoBox{
+                width: 100%;
+                height: 30%;
+                @include alignCenter();
+                cursor: pointer;
+                z-index: 0;
+    
+                svg{
+                    width: 100%;
+                    height: 100%;
                 }
             }
         }

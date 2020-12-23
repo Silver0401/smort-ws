@@ -38,6 +38,12 @@ const Footer = () => {
         </span>
         <span>
           <svg
+            onClick={() =>
+              window.open(
+                "https://www.facebook.com/Smort-mc2-104848164862837/?view_public_for=104848164862837",
+                "_newtab"
+              )
+            }
             className="Face"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -49,7 +55,9 @@ const Footer = () => {
         </span>
         <span>
           <svg
-            onClick={() =>window.open("https://www.instagram.com/smortmc2/", "_newtab")}
+            onClick={() =>
+              window.open("https://www.instagram.com/smortmc2/", "_newtab")
+            }
             className="Insta"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -66,38 +74,38 @@ const Footer = () => {
           <ul>
             <p>Acerca de Smort</p>
             <li>
-              <h4 onClick={() => History.push("/DataCenter/#Domains")}>
+              <a href="/DataCenter/#Domains">
                 Dominios
-              </h4>
+              </a>
             </li>
             <li>
-              <h4 onClick={() => History.push("/DataCenter/#Dates")}>
+              <a href="/DataCenter/#Dates&Payments">
                 Fechas y Pagos
-              </h4>
+              </a>
             </li>
             <li>
-              <h4 onClick={() => History.push("/DataCenter/#Terms")}>
+              <a href="/DataCenter/#Terms&Conditions">
                 Términos y Condiciones
-              </h4>
+              </a>
             </li>
           </ul>
 
           <ul>
             <p>Soporte</p>
             <li>
-              <h4 onClick={() => History.push("/DataCenter/#ClientSupport")}>
+              <a href="/DataCenter/#ClientSupport">
                 Ayuda al Cliente
-              </h4>
+              </a>
             </li>
             <li>
-              <h4 onClick={() => History.push("/DataCenter/#StyleSupport")}>
+              <a href="/DataCenter/#StyleChanges">
                 Cambio de Diseño y Estilo
-              </h4>
+              </a>
             </li>
             <li>
-              <h4 onClick={() => History.push("/DataCenter/#SiteChange")}>
+              <a href="/DataCenter/#SiteUpdates">
                 Actualización o Mejora de tu Página
-              </h4>
+              </a>
             </li>
           </ul>
         </div>

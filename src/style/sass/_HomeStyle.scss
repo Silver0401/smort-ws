@@ -962,7 +962,7 @@ $BGColor: rgb(31, 28, 28);
                     li{
                         list-style: none;
                         
-                        h4{
+                        h4,a{
                             font-size: clamp(12px, 1.2vw, 40px);
                             text-decoration: none;
                             color: white;
