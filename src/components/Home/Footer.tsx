@@ -1,9 +1,6 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 
 const Footer = () => {
-
-  let History = useHistory()
 
   return (
     <section className="Footer" id="Contacts">
