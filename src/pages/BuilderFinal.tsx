@@ -24,7 +24,7 @@ const StripeForm : React.FC = () => {
 
   const stripe = useStripe();
   const elements = useElements();
-  const [Data] = useContext(ChosenDataContext)
+  const [Data, setData] = useContext(ChosenDataContext)
   const History = useHistory()
 
   const HandlePayRequest = async () => {
@@ -89,7 +89,8 @@ const StripeForm : React.FC = () => {
                   })
                   .then((res) => {
                     toast.success("Operación Realizada con Éxito, redireccionando...")
-                    console.log(res);
+                    setData({...Data, MongoDBOrderId: res.data._id})
+
                     setTimeout(() => {
                       History.push("/PageBuilder/Success");
                     }, 3500)

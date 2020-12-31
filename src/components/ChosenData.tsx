@@ -20,7 +20,9 @@ interface Data {
 
     SiteChosenPrice: number
     PaymentMethod: string,
-    TransactionId: number
+    TransactionId: number,
+
+    MongoDBOrderId: number
 }
 
 
@@ -43,12 +45,14 @@ export const ChosenDataProvider: React.FC = (props) => {
 
       MainTheme: "awaiting...",
       Details: "awaiting...",
-      DomainOptions: ["awaiting...", "awaiting...","awaiting..."],
+      DomainOptions: ["awaiting...", "awaiting...", "awaiting..."],
       DomainExtension: "awaiting...",
 
       SiteChosenPrice: 0,
       PaymentMethod: "awaiting...",
       TransactionId: 0,
+
+      MongoDBOrderId: 0,
     });
 
     return(
