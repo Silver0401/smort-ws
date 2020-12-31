@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styleSvg from "./../../resources/style.svg";
 import changesSvg from "./../../resources/changes.svg";
+import emailjs from "emailjs-com"
 
 const Support = () => {
 
@@ -11,11 +12,9 @@ const Support = () => {
   const EmailRef = useRef <HTMLInputElement> (null)
   const MessageRef = useRef <HTMLTextAreaElement> (null)
 
-  const [currentNameData, setCurrentNameData] = useState <string | undefined> ()
-  const [currentEmailData, setCurrentEmailData] = useState <string | undefined> ()
-  const [currentMessageData, setCurrentMessageData] = useState <string | undefined> ()
-
-  const [messageSent, setMessageSent] = useState(false)
+  const [currentNameData, setCurrentNameData] = useState <string> ("")
+  const [currentEmailData, setCurrentEmailData] = useState <string> ("")
+  const [currentMessageData, setCurrentMessageData] = useState <string> ("")
 
   const PostHelpRequest = () => {
 
@@ -25,11 +24,36 @@ const Support = () => {
       Message: MessageRef.current?.value
     }
 
+    const SendEmail = (Name:string | undefined, Email:string | undefined, Message:string | undefined) => {
+      emailjs
+        .send(
+          "service_h86ldsp",
+          "template_gzdrak2",
+          {
+            Name: Name,
+            Email: Email,
+            Message: Message,
+          },
+          "user_TpS9YP6Fwr4okNaN6XOOH"
+        )
+        .then(
+          (response) => {
+            console.log("SUCCESS!", response.status, response.text);
+          },
+          (err) => {
+            console.log("FAILED...", err);
+          }
+        );
+    }
+
     axios.post("/DataCenter/HelpRequest", HelpRequestData)
       .then(res => {
         console.log(res.data); 
+        SendEmail(HelpRequestData.Name, HelpRequestData.Email, HelpRequestData.Message)
         toast.success("¡Solicitud de Ayuda Enviada!");
-        setMessageSent(true)
+        setCurrentMessageData("")
+        setCurrentNameData("")
+        setCurrentEmailData("")
       })
       .catch(err => {console.log(err); toast.success(err);})
   }
@@ -53,13 +77,13 @@ const Support = () => {
               <input
                 ref={NameRef}
                 onChange={(e) => setCurrentNameData(e.target.value)}
-                value={messageSent ? "" : currentNameData}
+                value={currentNameData}
               />
               <label>Correo</label>
               <input
                 ref={EmailRef}
                 onChange={(e) => setCurrentEmailData(e.target.value)}
-                value={messageSent ? "" : currentEmailData}
+                value={currentEmailData}
               />
               <button
                 onClick={(e) => {
@@ -83,7 +107,7 @@ const Support = () => {
                 ref={MessageRef}
                 placeholder="En que te podemos ayudar?"
                 onChange={(e) => setCurrentMessageData(e.target.value)}
-                value={messageSent ? "" : currentMessageData}
+                value={currentMessageData}
               />
             </div>
           </form>
