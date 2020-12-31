@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import anime from "animejs";
 import "react-on-scroll-animation/build/index.css";
-// import Rosa from "react-on-scroll-animation";
+import { motion } from "framer-motion";
 
 // Components
 import LeftBox from "./../components/Home/HomeLeftB";
@@ -111,28 +111,29 @@ const HomePage = () => {
 
 
   return (
-    <div className="HomePage" style={{overflowY:"scroll"}}>
+    <motion.div
+      className="HomePage"
+      style={{ overflowY: "scroll" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <NavBar />
 
-      <NavBar/>
-    
       <section className="HomeInit" id="Home">
+        <LeftBox />
 
-        <LeftBox/>
-
-        <RightBox/>
-
+        <RightBox />
       </section>
 
+      <Block1 />
 
-      <Block1/>
+      <Block2 />
 
-      <Block2/>
+      <Block3 />
 
-      <Block3/>
-  
-      <Footer/>
-
-    </div>
+      <Footer />
+    </motion.div>
   );
 }
 

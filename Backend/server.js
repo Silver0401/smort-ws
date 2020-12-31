@@ -5,7 +5,7 @@ const path = require("path")
 const fs = require("fs")
 const https = require("https")
 const stripe = require("stripe")
-const stripeKey = stripe("sk_test_51I2XfOBwVvvXbSw3wKEvsjnWLq2VvChCW0agoiIwbjTakGMsUTzpclEu2Yl5h4Fxf3Pd3I1umjwNb6Vk3EZZkHtF00xXEHsa5Y")
+const stripeKey = stripe("sk_test_51I4BzFIcDQemC5B8ag0BMTUO3W7vNdBidyW3mCTPFIZnf49ZvA9lwphwLAEWq7LXj5tLNWVe4yxVbRiwSN4YTZ1s00bcPmsvyP")
 require("dotenv").config()
 
 // Variables and Inits

@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import anime from "animejs";
 import { ChosenDataContext } from "./../components/ChosenData";
+import { motion } from "framer-motion";
 
 // Builder Sections (SubComponents)
 import NavSection from "./../components/SubComponents/ChooseNav";
@@ -43,7 +44,7 @@ const BuilderRoot = () => {
             selected = (<ButtonsSection changeFunction={(chosenSection:string, sectionId:number, sectionTitle:string) => {changeSection(chosenSection); setSectionId(sectionId); setSectionTitle(sectionTitle)}} />)
             break;
           case "Loader Style":
-            selected = (<LoadersSection changeFunction={(chosenSection:string, sectionId:number, sectionTitle:string) => {changeSection(chosenSection); setSectionId(sectionId); setSectionTitle(sectionTitle)}}/>)
+            selected = (<LoadersSection/>)
             break;
           default:
             selected = (<div>Error</div>)
@@ -122,7 +123,12 @@ const BuilderRoot = () => {
 
   // Rendered
     return (
-      <div className="RootPage">
+      <motion.div
+        className="RootPage"
+        initial={{ opacity: 0, y:"-100vh" }}
+        animate={{ opacity: 1, y:0 }}
+        exit={{ opacity: 0, y:"-100vh"}}
+      >
         <div className="RootBox">
           <div className="InstructionsBox">
             <span className="Header">
@@ -135,7 +141,11 @@ const BuilderRoot = () => {
               </div>
 
               <svg
-                style={sectionId === 1 ? {visibility:"hidden"}: {visibility:"visible"}}
+                style={
+                  sectionId === 1
+                    ? { visibility: "hidden" }
+                    : { visibility: "visible" }
+                }
                 width="24"
                 height="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +155,6 @@ const BuilderRoot = () => {
               >
                 <path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z" />
               </svg>
-
             </span>
 
             <span className="Footer">
@@ -268,7 +277,7 @@ const BuilderRoot = () => {
             <button className="CodeButton">Código</button>
           </div>
         </div>
-      </div>
+      </motion.div>
     );
 }
 

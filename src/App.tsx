@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import "./style/css/index.css";
 import {ChosenDataProvider} from "./components/ChosenData";
 import anime from "animejs";
+import {AnimatePresence} from "framer-motion";
 
 // Pages
 
@@ -13,68 +14,69 @@ import BuilderInit from "./pages/BuilderInit";
 import BuilderRoot from "./pages/BuilderRoot";
 import DataCenter from "./pages/DataCenter";
 import BuilderFinal from "./pages/BuilderFinal";
-
+import BuilderSuccess from "./pages/BuilderSuccess"
 
 
 function App() {
+
 
 	useEffect(() => {
 
 		window.onload = () => {
 
 			function MoveLoader() {
-		const Loader = anime.timeline({
-			easing: "easeInOutSine",
-		});
+				const Loader = anime.timeline({
+					easing: "easeInOutSine",
+				});
 
-		Loader.add({
-			delay: 500,
-			targets: ".MovingBox",
-			duration: 2200,
-			translateY: ["120%", "-120%"],
-		});
+				Loader.add({
+					delay: 500,
+					targets: ".MovingBox",
+					duration: 2200,
+					translateY: ["120%", "-120%"],
+				});
 
-		Loader.add(
-			{
-			targets: ".Loader",
-			duration: 750,
-			height: "0px",
-			},
-			"-=1700"
-		);
+				Loader.add(
+					{
+					targets: ".Loader",
+					duration: 750,
+					height: "0px",
+					},
+					"-=1700"
+				);
 
-		Loader.add(
-			{
-			targets: ".LeftBoxHome",
-			duration: 1000,
-			easing: "easeInOutQuad",
-			opacity: [0, 1],
-			translateX: ["-100%", "0%"],
-			},
-			"-=1000"
-		);
+				Loader.add(
+					{
+					targets: ".LeftBoxHome",
+					duration: 500,
+					easing: "spring(1,80,10,0)",
+					opacity: [0, 1],
+					translateX: ["-100%", "0%"],
+					},
+					"-=1000"
+				);
 
-		Loader.add(
-			{
-			targets: ".RightBoxHome",
-			duration: 1000,
-			easing: "easeInOutQuad",
-			opacity: [0, 1],
-			translateX: ["100%", "0%"],
-			},
-			"-=1000"
-		);
+				Loader.add(
+					{
+					targets: ".RightBoxHome",
+					duration: 500,
+					easing: "spring(1,80,10,0)",
+					opacity: [0, 1],
+					translateX: ["100%", "0%"],
+					},
+					"-=1100"
+				);
 
-		Loader.add(
-			{
-			targets: ".NavBar",
-			duration: 2500,
-			easing: "easeInOutElastic",
-			opacity: [0, 1],
-			translateY: ["-100px", "0px"],
-			},
-			"-=1500"
-		);
+				Loader.add(
+					{
+					targets: ".NavBar",
+					duration: 2500,
+					easing: "easeInOutElastic",
+					opacity: [0, 1],
+					translateY: ["-100px", "0px"],
+					},
+					"-=2500"
+				);
 			}
 
 			MoveLoader()
@@ -103,13 +105,21 @@ function App() {
         <Route exact path="/" component={HomePage} />
 
         <ChosenDataProvider>
-          <Route exact path="/PageBuilder/Init" component={BuilderInit} />
 
-          <Route exact path="/PageBuilder/Root" component={BuilderRoot} />
+			<AnimatePresence exitBeforeEnter>
 
-          <Route exact path="/PageBuilder/Final" component={BuilderFinal} />
+				<Route key="BuilderInit" exact path="/PageBuilder/Init" component={BuilderInit} />
 
-		  <Route exact path="/DataCenter" component={DataCenter} />
+				<Route key="BuilderRoot" exact path="/PageBuilder/Root" component={BuilderRoot} />
+
+				<Route key="BuilderFinal" exact path="/PageBuilder/Final" component={BuilderFinal} />
+				
+				<Route key="BuilderSuccess" exact path="/PageBuilder/Success" component={BuilderSuccess} />
+
+				<Route key="DataCenter" exact path="/DataCenter" component={DataCenter} />
+
+			</AnimatePresence>
+
         </ChosenDataProvider>
 		
       </Switch>

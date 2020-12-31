@@ -1,11 +1,28 @@
 import React, { useContext } from "react";
 import { ChosenDataContext } from "./../ChosenData";
 import { useHistory } from "react-router-dom";
+import anime from "animejs";
 
-const ChooseLoader = (props:any) => {
+const ChooseLoader = () => {
 
     const [Data, setData] = useContext(ChosenDataContext)
     const History = useHistory()
+
+
+    const AnimatePageOut = () => {
+      anime({
+        targets: ".RootPage",
+        translateY: "101%",
+        duration: 1000,
+        easing: "easeInOutSine"
+      })
+
+      setTimeout(() => {
+        History.push("/PageBuilder/Final");
+      }, 1200)
+
+    }
+
 
     const CreateLoader = (LoaderName:string) => {
 
@@ -30,7 +47,7 @@ const ChooseLoader = (props:any) => {
         <div className="Info">
           <button className="ChooseButton" onClick={ () => {
             setData({ ...Data, LoaderStyle: LoaderName });
-            History.push("/PageBuilder/Final")
+            AnimatePageOut()
           }}>Escoger</button>
           <p>{LoaderName}</p>
         </div>

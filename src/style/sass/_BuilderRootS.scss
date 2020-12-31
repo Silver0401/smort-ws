@@ -388,6 +388,8 @@ $BackgroundColor: rgb(57, 55, 55);
                 border-radius: 30px;
                 color: white;
                 transition: background-color 500ms, color 500ms;
+                cursor: pointer;
+                outline: none;
                 
                 &:hover{
                     background-color: black;

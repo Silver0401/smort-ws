@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import anime from "animejs";
+import useInterval from "use-interval"
 // const span = require("react-on-scroll-animation");
 // import span from "react-on-scroll-animation";
 
@@ -31,40 +32,36 @@ const Block2 = () => {
         ]
     }
 
-    
-    useEffect(() => {
-        
-        const ChangeReasonDisplayed = () => {
-    
-            setTimeout(() => {
-    
-                const tl = anime.timeline({
-                    targets:".AnimBoxB2",
-                    easing: "easeInOutQuad",
-                    delay: 0
-                })
-    
-                tl.add({
-                    duration: 1000,
-                    width: ["0%","50%"]
-                })
-    
-                tl.add({
-                    duration: 1000,
-                    width: ["50%","0%"]
-                })
-            }, 2000) 
-    
-            setTimeout(() => {
-    
-            if (ReasonCounter === ComplicatedReasons.Reason.length - 1) setReasonCounter(0)
-            else setReasonCounter(prevCounter => prevCounter + 1)
-    
-        }, 3000)
-        }
-        ChangeReasonDisplayed()
+    useInterval(() => {
 
-    },[ReasonCounter])
+        const tl = anime.timeline({
+            targets: ".AnimBoxB2",
+            easing: "easeInOutQuad",
+            delay: 0,
+            // loop:true
+        });
+
+        tl.add(
+            {
+            duration: 1000,
+            width: ["0%", "50%"],
+            }
+        );
+
+        tl.add({
+            duration: 1000,
+            width: ["50%", "0%"],
+        });
+
+        setTimeout(() => {
+            if (ReasonCounter === ComplicatedReasons.Reason.length - 1)
+                setReasonCounter(0);
+            else setReasonCounter((prevCounter) => prevCounter + 1);
+
+        }, 1000)
+
+    }, 3000)
+
 
     return(
         <section className="Block2">

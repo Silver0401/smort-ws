@@ -42,29 +42,53 @@ $BGColor: rgb(31, 28, 28);
             width: 100%;
             height: 10%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr;
+            @include alignCenter();
+            flex-direction: row;
 
             h2{
                 @include alignCenter();
                 flex-direction: row;
-                justify-content: space-evenly;
+                // justify-content: space-around;
                 width: 100%;
                 height: 100%;
                 color: black;
                 border: 1px solid $BGColor;
-                border-bottom-right-radius: 2em;
-                border-bottom-left-radius: 2em;
-                font-size: clamp(12px, 2vw,20px);
+                font-size: clamp(12px, 2vw,30px);
+                overflow: hidden;
 
                 p{
-                    width: 30px;
-                    height: 30px;
+                    width: 45px;
+                    height: 45px;
                     @include alignCenter();
                     border-radius: 50%;
-                    border: 1px solid $PageColor;
+                    border: 2px solid $PageColor;
+                    margin: 0px 1em;
                 }
             }
+
+            .toggled{
+                @extend h2;
+                background-color: white;
+                color: black;
+                transition: all 500ms;
+                width: 85%;
+
+            }
+
+            .notToggled{
+                @extend h2;
+                background-color: black;
+                color: $PageColor;
+                transition: all 500ms;
+                width: 15%;
+                font-size: 1px;
+                
+                p{
+                    position: absolute;
+                    font-size: clamp(12px, 2vw,30px);
+                }
+            }
+
         }
 
         .StepsBody{
@@ -72,7 +96,7 @@ $BGColor: rgb(31, 28, 28);
             width: 100%;
             height: 80%;
 
-            .Step1Style, .Step2Style, .Step3Style{
+            .Step1Style, .Step2Style{
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -80,7 +104,7 @@ $BGColor: rgb(31, 28, 28);
                 height: 100%;
             }
 
-            .Step1Style{
+            .Step2Style{
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: 1fr;
@@ -110,6 +134,7 @@ $BGColor: rgb(31, 28, 28);
                     }
                 }
                 .RightBoxFinal{
+                    position: relative;
                     background-color: transparent;   
                     @include alignCenter();
                     flex-direction: column;
@@ -128,6 +153,7 @@ $BGColor: rgb(31, 28, 28);
                         }
 
                     }
+
                     .ButtonsBox{
                         position: relative;
                         width: 100%;
@@ -139,6 +165,7 @@ $BGColor: rgb(31, 28, 28);
                         button{
                             position: relative;
                             background-color: black;
+                            outline: none;
                             color: transparent;
                             padding: 15px 40px;
                             border: none;
@@ -148,6 +175,7 @@ $BGColor: rgb(31, 28, 28);
                             font-size: 20px;
                             @include alignCenter();
                             border-style: none;
+                            cursor: pointer;
 
                             svg{
                                 position: absolute;
@@ -253,11 +281,129 @@ $BGColor: rgb(31, 28, 28);
                     p{
                         height: 20%;
                         font-size: 30px;
+                        z-index: 0;
+                    }
+
+                    .PaymentBox{
+                        position: absolute;
+                        z-index: 1;
+                        left: 0;
+                        top: 0;
+                        width: 90%;
+                        height: 0%;
+                        left: auto;
+                        right: auto;
+                        background-color: $BGColor;
+                        opacity: 0;
+                        visibility: hidden;
+                        @include alignCenter();
+                        transform: rotateY(180deg);
+
+                        img{
+                            width: auto;
+                            height: 170%;
+                            position: absolute;
+                            left: -150px;
+                            top: -50px;
+                            opacity: .05;
+                            z-index: -1;
+                        }
+
+                        .CardBox{
+
+                            width: 100%;
+                            height: 50%;
+                            @include alignCenter();
+ 
+                            .CardLine{
+                                width: 80%;
+                                height: 300px;
+
+
+                                form{
+                                    width: 100%;
+                                    height: 100%;
+                                    @include alignCenter();
+                                    flex-direction: column;
+                                    justify-content: space-around;
+
+                                    .PayLine{
+                                        width: 100%;
+                                        height: 30px;
+                                        border-bottom: 1px solid $PageColor;
+                                    }
+
+                                    .PayButton{
+                                        padding: 10px 30px;
+                                        width: 150px;
+                                        height: 70px;
+                                        background-color: $PageColor;
+                                        font-size: 25px;
+                                        border-radius: 1em;
+                                        font-family: 'MuseoModerno', cursive;
+                                        transition: all 500ms;
+                                        cursor: pointer;
+                                        outline: none;
+                                        @include alignCenter();
+
+                                        svg{
+                                            width: 100%;
+                                            height: 100%;
+                                            fill: black;
+                                            transition: all 500ms;
+                                        }
+
+                                        &:hover{
+                                            background-color: black;
+                                            color: $PageColor;
+                                            transition: all 500ms;
+                                            
+                                            svg{
+                                                fill: $PageColor;
+                                                transition: all 500ms;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+
+                        }
+
+                        .FlipButton{
+                            width: 40px;
+                            height: 40px;
+                            position: absolute;
+                            left: 10px;
+                            top: 10px;
+                            border-radius: 50%;
+                            border: 2px solid white;
+                            @include alignCenter();
+                            cursor: pointer;
+                            transition: all 500ms;
+
+                            svg{
+                                width: 60%;
+                                height: 60%;
+                                fill: $PageColor;
+                                transition: all 500ms;
+                            }
+
+                            &:hover{
+                                transition: all 500ms;
+                                background-color: $PageColor;
+                                svg{
+                                    fill: black;
+                                    transition: all 500ms;
+                                }
+                            }
+                        }
+
                     }
                 }
             }
 
-            .Step2Style{
+            .Step1Style{
                 // @include alignCenter();
                 justify-content: space-around;
                 overflow: scroll;
@@ -277,6 +423,7 @@ $BGColor: rgb(31, 28, 28);
                     height: 100px;
                     width: 90%;
                     margin-top: 0px;
+                    font-size: 25px;
                 }
 
 
@@ -388,8 +535,54 @@ $BGColor: rgb(31, 28, 28);
                     }
 
                 }
+
+                .FooterBox{
+                    @include alignCenter();
+                    flex-direction: row;
+                    justify-content: space-around;
+                    width: 100%;
+                    height: 200px;
+
+                    p{
+                        margin: 0px;
+                        width: 50%;
+                    }
+
+                    p,button{position: relative;}
+
+                    button{
+                        width: 150px;
+                        cursor: pointer;
+                        outline: none;
+                        height: 70px;
+                        position: relative;
+                        padding: 15px 25px;
+                        border-radius: 1em;
+                        font-size: 25px;
+                        background-color: $PageColor;
+                        @include alignCenter();
+                        transition: background-color 500ms;
+                        
+                        svg{
+                            width: auto;
+                            height: 100%;
+                            transition: fill 500ms;
+                        }
+
+                        &:hover{
+                            background-color: black;
+                            transition: background-color 500ms;
+                            
+                            svg{
+                                fill: $PageColor;
+                                transition: fill 500ms;
+                            }
+                        }
+                    }
+                }
             }
         }
 
     }
+
 }

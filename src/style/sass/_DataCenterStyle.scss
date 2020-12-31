@@ -18,11 +18,18 @@ $BGColor: rgb(31, 28, 28);
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
     font-family: 'MuseoModerno', cursive;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 
     .About, .Support {
+
+        
+        // overflow: hidden;
+        ul{
+            position: relative;
+        }
 
         h1,h2,p{
             margin: 35px 20px;
@@ -30,7 +37,8 @@ $BGColor: rgb(31, 28, 28);
 
         li{
             width: 100%;
-            margin: 100px 0px;
+            height: 100vh;
+            position: relative;
         }
 
         h1{
@@ -40,7 +48,8 @@ $BGColor: rgb(31, 28, 28);
         }
         h2{
             font-size: clamp(20px, 2vw, 30px );
-            text-decoration: underline $PageColor;
+            text-decoration: underline rgb(77, 228, 127);
+            padding-top: 40px;
         }   
         p{
             font-size: clamp(10px, 2vw, 20px );
@@ -56,6 +65,38 @@ $BGColor: rgb(31, 28, 28);
         height: 300vh;
         z-index: 0;
         margin-left: auto;
+
+        .DandP{
+            height: 120vh;
+        }
+
+
+        .Content{
+            @include alignCenter();
+            flex-direction: column;
+            justify-content: space-evenly;
+            overflow: hidden;
+            width: 100%;
+            height: 85%;
+
+            .ImgBox{
+
+                position: relative;
+                width: 100%;
+                height: 20%;
+                overflow: hidden;
+                @include alignCenter();
+                justify-content: flex-start;
+            
+                img{
+
+                    position: absolute;
+                    width: auto;
+                    height: 750px;
+                }
+            }
+
+        }
     }
 
     .Support{
@@ -67,8 +108,6 @@ $BGColor: rgb(31, 28, 28);
         margin-left: auto;
 
         li{
-            // background-color: lightcyan;
-            height: 80vh;
 
             form{
                 height: 60%;
@@ -76,31 +115,89 @@ $BGColor: rgb(31, 28, 28);
                 @include alignCenter();
                 justify-content: space-around;
                 align-items: flex-start;
-                margin-left: 2em;
+
+                input,textarea{
+                    border-radius: 10px;
+                }
 
                 .TopForm{
+                    margin: 0px 2em;
                     height: 20%;
-                    width: 60%;
+                    width: 100%;
                     @include alignCenter();
-
                     flex-direction: row;
+                    justify-content: flex-start;
+
+                    input,label{
+
+                        margin: 0px 1em;
+                        font-family: 'MuseoModerno', cursive;
+                        font-size: clamp(10px, 2vw, 20px);
+                    }
+
+                    .NameLabel{
+                        margin-left: 0px;
+                    }
+
+                    button{
+
+                        width: 150px;
+                        height: 70px;
+                        border-radius: 10px;
+                        margin: 0px auto;
+                        background-color: $PageColor;
+
+                        svg{
+                            height: 70%;
+                            width: auto;
+                        }
+                    }
+
                 }
 
                 .BottomForm{
+                    margin: 0px 2em;
                     width: 100%;
                     height: 70%;
                     @include alignCenter();
                     align-items: flex-start;
 
-                    label, input{
-                        margin-left: 2em;
+                    label, textarea{
+                        font-family: 'MuseoModerno', cursive;
+                        font-size: clamp(10px, 2vw, 20px);
                     }
 
-                    input{
-                        width: 90%;
+                    textarea{
+                        width: 95%;
                         height: 70%;
                     }
                 }
+            }
+
+            .Content{
+                width: 100%;
+                height: 85%;
+                overflow: hidden;
+
+                @include alignCenter();
+                flex-direction: row;
+                justify-content: space-evenly;
+
+                p{
+                    width: 40%;
+                    height: 100%;
+                    @include alignCenter();
+                }
+
+                img{
+                    width: 50%;
+                    height: 100%;
+                }
+            }
+
+            .SU{
+
+                flex-direction: row-reverse;
             }
         }
     }

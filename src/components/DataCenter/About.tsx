@@ -1,38 +1,45 @@
+import { domain } from "process";
 import React from "react";
+import DomainSvg from "./../../resources/domain.svg";
 
 const About = () => {
   return (
     <section className="About">
-      <h1>Acerca de Smort</h1>
+      {/* <h1>Acerca de Smort</h1> */}
       <ul>
-        <li>
-          <h2 id="Domains">Dominios</h2>
-          <p>
-            Los dominios son las ligas web por las cuales la gente accesa a las
-            páginas creadas (ej: www.smort.tech). Nota: Los dominios son
-            diferentes y completamente separados del diseño web de un sitio.
-          </p>
-          <hr />
-          <p>
-            Al comprar una página con Smort, usted nos provee 3 opciones o
-            posibles nombres que le pudieramos dar a su página. Nosotros nos
-            encargamos de checar la disponibiliad, así como de administrar el
-            mismo dominio; dependiendo del nombre y la extensión (.com, .tech,
-            .net, etc) que usted escoga los precios pueden variar.
-          </p>
-          <hr />
-          <p>
-            La primera vez que usted compre una página web con nosotros obtendrá
-            su diseño web y su dominio. El diseño de la página es completamente
-            suyo y nunca le volveremos a hacer un nuevo cargo por su diseño (a
-            menos de que usted quiera que lo mejoremos, cambiemos o
-            actualizemos). Sin embargo, el dominio es algo que se tiene que
-            renovar cada año, por lo cual para mantenerlo, es necesario hacer
-            pagos anuales, para que sigamos administrando y teniendo el dominio.
-          </p>
+        <li id="Domains">
+          <h2>Dominios</h2>
+          <div className="D Content">
+
+            <span className="TextBox">
+              <p>
+                Al comprar una página con Smort, usted nos provee 3 opciones o
+                posibles nombres que le pudieramos dar a su página. Nosotros nos
+                encargamos de checar la disponibiliad, así como de administrar el
+                mismo dominio; dependiendo del nombre y la extensión (.com, .tech,
+                .net, etc) que usted escoga los precios pueden variar.
+              </p>
+              <hr />
+              <p>
+                La primera vez que usted compre una página web con nosotros
+                obtendrá su diseño web y su dominio. El diseño de la página es
+                completamente suyo y nunca le volveremos a hacer un nuevo cargo
+                por su diseño (a menos de que usted quiera que lo mejoremos,
+                cambiemos o actualizemos). Sin embargo, el dominio es algo que se
+                tiene que renovar cada año, por lo cual para mantenerlo, es
+                necesario hacer pagos anuales, para que sigamos administrando y
+                teniendo el dominio.
+              </p>
+            </span>
+
+            <span className="ImgBox">
+              <img src={DomainSvg} alt="Style Changes svg" />
+            </span>
+
+          </div>
         </li>
-        <li>
-          <h2 id="Dates&Payments">Fechas y Pagos</h2>
+        <li id="Dates&Payments" className="DandP">
+          <h2>Fechas y Pagos</h2>
           <p>
             El pago inicial al comprar un sitio comprende el diseño permanente y
             un dominio de un año. Dicho pago inicial puede variar dependiendo de
@@ -41,7 +48,7 @@ const About = () => {
             etc), tipo de diseño y recursos utilizados para el desarrollo del
             sitio web, entre otros.
           </p>
-            <hr />
+          <hr />
           <p>
             El día que te entreguemos tu sitio web, también nos encargaremos de
             mandarte un correo como comprobante de la fecha de entrega y pago.
@@ -64,8 +71,8 @@ const About = () => {
             mexicanos.
           </p>
         </li>
-        <li>
-          <h2 id="Terms&Conditions">Términos y Condiciones</h2>
+        <li id="Terms&Conditions">
+          <h2>Términos y Condiciones</h2>
           <p>
             Al comprar un sitio en Smort, usted accede a que nosotros
             administremos la página en todos sus aspectos, usted es el

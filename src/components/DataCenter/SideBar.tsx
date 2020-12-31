@@ -26,25 +26,25 @@ const SideBar = () => {
             <h2>Acerca de</h2>
             <ul>
                 <li>
-                <a href="#Domains">Dominios</a>
+                <a onClick={() => setDCBurguer(false)} href="#Domains">Dominios</a>
                 </li>
                 <li>
-                <a href="#Dates&Payments">Fechas y Pagos</a>
+                <a onClick={() => setDCBurguer(false)} href="#Dates&Payments">Fechas y Pagos</a>
                 </li>
                 <li>
-                <a href="#Terms&Conditions">Términos y Condiciones</a>
+                <a onClick={() => setDCBurguer(false)} href="#Terms&Conditions">Términos y Condiciones</a>
                 </li>
             </ul>
             <h2>Soporte</h2>
             <ul>
                 <li>
-                <a href="#ClientSupport">Ayuda al Cliente</a>
+                <a onClick={() => setDCBurguer(false)} href="#ClientSupport">Ayuda al Cliente</a>
                 </li>
                 <li>
-                <a href="#StyleChanges">Cambios de Diseño</a>
+                <a onClick={() => setDCBurguer(false)} href="#StyleChanges">Cambios de Diseño</a>
                 </li>
                 <li>
-                <a href="#SiteUpdates">Actualización o Mejora</a>
+                <a onClick={() => setDCBurguer(false)} href="#SiteUpdates">Actualización o Mejora</a>
                 </li>
             </ul>
             </span>

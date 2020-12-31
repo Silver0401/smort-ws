@@ -1,14 +1,11 @@
 import React, { useEffect } from "react";
 import SmortLogo from "./../../resources/SmortLogo.svg";
 import anime from "animejs";
-// const span = require("react-on-scroll-animation");
-
-// import span from "react-on-scroll-animation";
-
-// animation="zoom-in-down" duration={1000}
-// animation="zoom-out-right" duration={1000}
+import { useHistory } from "react-router-dom";
 
 const Block3 = () => {
+
+    const History = useHistory()
 
     function InstructionsAnimation(){
 
@@ -396,7 +393,7 @@ const Block3 = () => {
                     </div>
                     
                     <div className="CreateButtonBox">
-                        <button onClick={() => window.location.href = "/PageBuilder/Init"} className="CreateButton">
+                        <button onClick={() => History.push("/PageBuilder/Init")} className="CreateButton">
                             <p>¡Empezar Ya!</p>
                             <span className="liquid"></span>
                         </button>

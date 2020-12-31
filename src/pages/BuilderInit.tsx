@@ -2,6 +2,7 @@
 import React, { useState, useContext } from "react";
 import { ChosenDataContext } from "./../components/ChosenData";
 import { useHistory } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Svg's
 import PersonalImg from "./../resources/person.svg";
@@ -127,8 +128,8 @@ const BuilderInit = () => {
               GlobalCard ? { visibility: "visible" } : { visibility: "hidden" }
             }
             onClick={() => {
-              StageTransition(name);
               setData({ ...Data, SiteType: name })
+              History.push("/PageBuilder/Root");
             }}
           >
             Escoger
@@ -138,12 +139,13 @@ const BuilderInit = () => {
     );
   };
 
-  const StageTransition = (name: string) => {
-    History.push("/PageBuilder/Root");
-  };
-
   return (
-    <div className="BuilderPage">
+    <motion.div 
+    className="BuilderPage"
+    initial={{opacity:0, y:"-100vh"}}
+    animate={{opacity:1, y:0 }}
+    exit={{opacity:0, y:"-100vh"}}
+    >
       <div
         className="Stage1"
       >
@@ -196,7 +198,7 @@ const BuilderInit = () => {
           )} */}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
