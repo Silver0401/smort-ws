@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,6 +11,12 @@ const Support = () => {
   const EmailRef = useRef <HTMLInputElement> (null)
   const MessageRef = useRef <HTMLTextAreaElement> (null)
 
+  const [currentNameData, setCurrentNameData] = useState <string | undefined> ()
+  const [currentEmailData, setCurrentEmailData] = useState <string | undefined> ()
+  const [currentMessageData, setCurrentMessageData] = useState <string | undefined> ()
+
+  const [messageSent, setMessageSent] = useState(false)
+
   const PostHelpRequest = () => {
 
     const HelpRequestData = {
@@ -20,7 +26,11 @@ const Support = () => {
     }
 
     axios.post("/DataCenter/HelpRequest", HelpRequestData)
-      .then(res => {console.log(res.data); toast.success("¡Solicitud de Ayuda Enviada!");})
+      .then(res => {
+        console.log(res.data); 
+        toast.success("¡Solicitud de Ayuda Enviada!");
+        setMessageSent(true)
+      })
       .catch(err => {console.log(err); toast.success(err);})
   }
 
@@ -40,9 +50,17 @@ const Support = () => {
           <form>
             <div className="TopForm">
               <label className="NameLabel">Nombre</label>
-              <input ref={NameRef} />
+              <input
+                ref={NameRef}
+                onChange={(e) => setCurrentNameData(e.target.value)}
+                value={messageSent ? "" : currentNameData}
+              />
               <label>Correo</label>
-              <input ref={EmailRef} />
+              <input
+                ref={EmailRef}
+                onChange={(e) => setCurrentEmailData(e.target.value)}
+                value={messageSent ? "" : currentEmailData}
+              />
               <button
                 onClick={(e) => {
                   e.preventDefault();
@@ -64,6 +82,8 @@ const Support = () => {
               <textarea
                 ref={MessageRef}
                 placeholder="En que te podemos ayudar?"
+                onChange={(e) => setCurrentMessageData(e.target.value)}
+                value={messageSent ? "" : currentMessageData}
               />
             </div>
           </form>
@@ -88,14 +108,15 @@ const Support = () => {
           <h2>Actualización o Mejora de tu Página</h2>
           <div className="SU Content">
             <p>
-              Si en algun punto busca que le agreguemos, actualizemos o mejoremos
-              la página de cualquier manera, se cobrará un cantidad acorde al
-              tamaño de la nueva implementación deseada (los precios pueden variar
-              desde tan solo $500 hasta $1000 pesos mexicanos). En casos de nuevas
-              secciones o adiciones a páginas ya creadas, cada nueva sección
-              tendrá un costo de 500$ pesos mexicanos. Cuando se busque añadir
-              desde cero una núeva página, cada una de estas tendrá un costo de
-              creación e implementación de 1000$ pesos mexicanos.
+              Si en algun punto busca que le agreguemos, actualizemos o
+              mejoremos la página de cualquier manera, se cobrará un cantidad
+              acorde al tamaño de la nueva implementación deseada (los precios
+              pueden variar desde tan solo $500 hasta $1000 pesos mexicanos). En
+              casos de nuevas secciones o adiciones a páginas ya creadas, cada
+              nueva sección tendrá un costo de 500$ pesos mexicanos. Cuando se
+              busque añadir desde cero una núeva página, cada una de estas
+              tendrá un costo de creación e implementación de 1000$ pesos
+              mexicanos.
             </p>
             <img src={changesSvg} alt="SU svg image"></img>
           </div>
