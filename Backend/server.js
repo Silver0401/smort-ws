@@ -12,6 +12,10 @@ require("dotenv").config()
 const app = express()
 let port = process.env.PORT || 5000
 app.use(express.json())
+const httpsOptions = {
+    key: fs.readFileSync(path.join(__dirname, "ssl" ,"key.pem")),
+    cert: fs.readFileSync(path.join(__dirname, "ssl" ,"cert.pem"))
+}
 
 
 // BackEnd and FrontEnd Connections
@@ -42,12 +46,6 @@ const dataBase = mongoose.connection
 dataBase.on("error", error => console.log(error))
 dataBase.once("open", () => console.log("Connected to MongooseDB"))
 
-
-// SSL Certificate Data Fetch
-const httpsOptions = {
-    cert: fs.readFileSync(path.join(__dirname, "ssl" ,"server.crt")),
-    key: fs.readFileSync(path.join(__dirname, "ssl" ,"server.key")),
-}
 
 
 // Order Routes
