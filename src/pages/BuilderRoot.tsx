@@ -217,7 +217,7 @@ const BuilderRoot = () => {
               style={
                 colorBoxState
                   ? { transform: "translateX(0px)" }
-                  : { transform: "translateX(200px)" }
+                  : { transform: "translateX(160px)" }
               }
             >
               <span
@@ -264,17 +264,12 @@ const BuilderRoot = () => {
               Simplemente haz click en el botón de empezar, y escoge los diseños
               y colores que más te gusten para tu página
             </h2>
-            <h2>
-              Si ya tienes un código para una página haz click en el bóton de
-              código
-            </h2>
           </div>
 
           <div className="ButtonsBox">
             <button className="StartButton" onClick={RemoveWelcomeBox}>
               Empezar
             </button>
-            <button className="CodeButton">Código</button>
           </div>
         </div>
       </motion.div>

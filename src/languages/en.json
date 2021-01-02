@@ -1,0 +1,84 @@
+{
+
+    "Lang.en":"English",
+    "Lang.sp":"Español",
+
+    "NavBar.Home": "Home",
+    "NavBar.About": "About Us",
+    "NavBar.Begin": "Begin",
+    "NavBar.ContactUs": "Contact Us",
+
+    "HomeLeft.SitesText":"Sites for only",
+    "HomeLeft.SitesPrice":"90$usd",
+
+    "HomeRight.line1":"Looking for a site that is",
+    "HomeRight.line1.word":"professional?",
+    "HomeRight.line2":"Leave it to the",
+    "HomeRight.line2.word":"professionals",
+    "HomeRight.line3":"Obtain yours now!",
+    "Begin.button":"Get my site",
+    
+    "Block1.phrase":"Invest in yourself, invest in your future. Invest Smortly",
+    "Block1.Question":"Why Smort and not some other Website Softwares?",
+
+    "Block1.Box1.title":"Amazing Prices",
+    "Block1.Box1.par":"The lowest prices in the market",
+
+    "Block1.Box2.title":"Unmeasurable quality",
+    "Block1.Box2.par":"Websites with more than excelent quality",
+
+    "Block1.Box3.title":"Alucinating designs",
+    "Block1.Box3.par":"Pages with sublime and extravagant styles and designs",
+
+    "Block1.Box4.title":"Extraordinary Animations",
+    "Block1.Box4.par":"Sites with animations, movement and interactivity",
+
+    "Block1.Box5.title":"Personalization",
+    "Block1.Box5.par":"Websites that capture your essence",
+
+    "Block1.Box6.title":"Client Attention",
+    "Block1.Box6.par":"Contact us at any time and through different platforms",
+
+    "Block1.Box7.title":"Super Optimized",
+    "Block1.Box7.par":"Fast and responsive Websites for any device",
+
+    "Block1.Box8.title":"Fast Deliveries",
+    "Block1.Box8.par":"You'll have your website in just a matter of days",
+    
+    
+    "Block2.LeftBox.title":"Creating a truly professional website is complicated",
+    "Block2.LeftBox.mover":"You require of",
+
+    "Block2.LeftBox.Svg1":"Quality Images",
+    "Block2.LeftBox.Svg2":"Data Bases",
+    "Block2.LeftBox.Svg3":"A design process",
+    "Block2.LeftBox.Svg4":"Resources Optimization",
+    "Block2.LeftBox.Svg5":"Constant Updates",
+    "Block2.LeftBox.Svg6":"A personalized logo",
+
+    "Block2.RightBox.sentence1.1":"Don't waste your time, we do ",
+    "Block2.RightBox.word":"Everything ",
+    "Block2.RightBox.sentence1.2":"for you.",
+
+    "Block3.title":"How does it work?",
+    "Block3.line1":"Choose your favorite styles and designs",
+    "Block3.line2":"Write us your site especifications and details",
+    "Block3.line3":"Wait a few day for your Website to be finished",
+    "Block3.line4":"Enjoy your page from any device",
+
+    "Footer.title": "Contact and Follow Us",
+    "Footer.About.title": "About Smort",
+    "Footer.About.Domains": "Domains",
+    "Footer.About.Dates&Payments": "Payments and Dates",
+    "Footer.About.Terms&Conditions": "Terms and Conditions",
+
+    "Footer.Support.title": "Support",
+    "Footer.Support.ClientSupport": "Client Support",
+    "Footer.Support.StyleChange": "Style and Design Change",
+    "Footer.Support.SiteUpgrade": "Site Update or Upgrade",
+    
+    "Footer.Footer": "©Smort 2020 - all rights reserved",
+
+
+    "Default":""
+}

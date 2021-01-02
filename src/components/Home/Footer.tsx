@@ -1,11 +1,14 @@
 import React from "react";
+import { useTranslation } from "react-i18next"
 
 const Footer = () => {
+
+  const { t } = useTranslation()
 
   return (
     <section className="Footer" id="Contacts">
       <span className="ContactUsTitle">
-        <h1>Contáctanos Y Síguenos</h1>
+        <h1>{t("Footer.title")}</h1>
       </span>
 
       <div className="MediaBar">
@@ -69,39 +72,37 @@ const Footer = () => {
       <div className="Questioner">
         <div className="BoxyBox">
           <ul>
-            <p>Acerca de Smort</p>
+            <p>{t("Footer.About.title")}</p>
             <li>
-              <a href="/DataCenter/#Domains">
-                Dominios
-              </a>
+              <a href="/DataCenter/#Domains">{t("Footer.About.Domains")}</a>
             </li>
             <li>
               <a href="/DataCenter/#Dates&Payments">
-                Fechas y Pagos
+                {t("Footer.About.Dates&Payments")}
               </a>
             </li>
             <li>
               <a href="/DataCenter/#Terms&Conditions">
-                Términos y Condiciones
+                {t("Footer.About.Terms&Conditions")}
               </a>
             </li>
           </ul>
 
           <ul>
-            <p>Soporte</p>
+            <p>{t("Footer.Support.title")}</p>
             <li>
               <a href="/DataCenter/#ClientSupport">
-                Ayuda al Cliente
+                {t("Footer.Support.ClientSupport")}
               </a>
             </li>
             <li>
               <a href="/DataCenter/#StyleChanges">
-                Cambio de Diseño y Estilo
+                {t("Footer.Support.StyleChange")}
               </a>
             </li>
             <li>
               <a href="/DataCenter/#SiteUpdates">
-                Actualización o Mejora de tu Página
+                {t("Footer.Support.SiteUpgrade")}
               </a>
             </li>
           </ul>
@@ -109,7 +110,7 @@ const Footer = () => {
       </div>
 
       <div className="Right">
-        <h2>©Smort 2020 - all rights reserved</h2>
+        <h2>{t("Footer.Footer")}</h2>
       </div>
     </section>
   );

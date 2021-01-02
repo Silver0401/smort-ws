@@ -211,6 +211,47 @@ $BGColor: rgb(31, 28, 28);
             flex-direction: column;
             justify-content: space-around;
             // justify-content: flex-end;
+
+            .LangBox{
+                position: absolute;
+                left: -15px;
+                top: -10px;
+                @include alignCenter();
+                flex-direction: row;
+                width: 140px;
+                height: 50px;
+
+                .LangText{
+                    width: 60%;
+                    height: 100%;
+                    position: relative;
+                    @include alignCenter();
+                    
+                    select{
+                        background-color: transparent;
+                        color: white;
+                        font-family: 'MuseoModerno', cursive;
+                        border: 0px solid transparent;
+                        outline: none;
+                    }
+
+                }
+
+                .LangSvg{
+                    width: 40%;
+                    height: 100%;
+                    position: relative;
+                    background-color: $PageColor;
+                    border-radius: 50%;
+                    @include alignCenter();
+
+                    img{
+                        position: absolute;
+                        width: 70%;
+                        height: 70%;
+                    }
+                }
+            }
     
             h1{
                 font-family: 'Dancing Script', cursive;
@@ -317,13 +358,17 @@ $BGColor: rgb(31, 28, 28);
                     // display: inline-block;
                     @include alignCenter();
                     flex-direction: column;
-    
-    
+                    justify-content: center;
+                    border-bottom: 1px solid white;
+                    // background-color: lightskyblue;
+                    
                     h1{
                         position: relative;
                         display: inline-block;
+                        margin: 10px 0px;
                         // margin-right: auto;
-                        font-size: clamp(20px, 2vw, 40px);
+                        // background-color: lightcoral;
+                        font-size: clamp(20px, 1.9vw, 40px);
                     }
     
                     .ProWord{
@@ -356,7 +401,7 @@ $BGColor: rgb(31, 28, 28);
                     // margin: 0px auto;
                     // left: -65%;
                     // bottom: 60%;
-                    transform: translateY(1%);
+                    transform: translateY(-1.5%);
 
                     width: #{"max(1000px, 130%)"};
                     height: #{"max(1000px, 115%)"};

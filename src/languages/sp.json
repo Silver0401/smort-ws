@@ -1,0 +1,84 @@
+{
+
+    "Lang.en":"English",
+    "Lang.sp":"Español",
+
+    "NavBar.Home": "Inicio",
+    "NavBar.About": "Acerca de",
+    "NavBar.Begin": "Comenzar",
+    "NavBar.ContactUs": "Contáctanos",
+
+    "HomeLeft.SitesText":"Sitios desde",
+    "HomeLeft.SitesPrice":"1500$mx",
+
+    "HomeRight.line1":"¿Buscas un sitio web",
+    "HomeRight.line1.word":"profesional?",
+    "HomeRight.line2":"Déjaselo a los",
+    "HomeRight.line2.word":"profesionales",
+    "HomeRight.line3":"!Consigue el tuyo ya!",
+    "Begin.button":"Conseguir mi sitio",
+
+    "Block1.phrase":"Invierte en ti, invierte en tu futuro. Invierte Smortly",
+    "Block1.Question":"¿Porqué smort y no otros Softwares de Páginas Web?",
+
+    "Block1.Box1.title":"Precios Increibles",
+    "Block1.Box1.par":"Los precios más bajos del mercado",
+
+    "Block1.Box2.title":"Calidad Inmensurable",
+    "Block1.Box2.par":"Página de calidad excelente",
+
+    "Block1.Box3.title":"Diseño Alucinantes",
+    "Block1.Box3.par":"Página con diseños y estilos sublimes y extravagantes",
+
+    "Block1.Box4.title":"Animaciones Extraordinarias",
+    "Block1.Box4.par":"Sitios con animaciones, movimiento e interactividad",
+
+    "Block1.Box5.title":"Personalización",
+    "Block1.Box5.par":"Sitios Web que capturan tu esencia",
+
+    "Block1.Box6.title":"Atención al Cliente",
+    "Block1.Box6.par":"Contactanos en cualquier momento a través de diferentes plataformas",
+
+    "Block1.Box7.title":"Super Optimizado",
+    "Block1.Box7.par":"Sitio web rápidos y responsivos en cualquier dispositivo",
+
+    "Block1.Box8.title":"Entregas Rápidas",
+    "Block1.Box8.par":"Tendras tu sitio en tan solo unos cuantos días",
+    
+    
+    "Block2.LeftBox.title":"Crear un sitio web Realmente Profesional es Complicado",
+    "Block2.LeftBox.mover":"Se necesita de",
+    "Block2.LeftBox.Svg1":"Imágenes de Calidad",
+    "Block2.LeftBox.Svg2":"Bases de Datos",
+    "Block2.LeftBox.Svg3":"Un Proceso de Diseño",
+    "Block2.LeftBox.Svg4":"Optmización de Recursos",
+    "Block2.LeftBox.Svg5":"Actualización Constantes",
+    "Block2.LeftBox.Svg6":"Un Logo Personalizado",
+
+    "Block2.RightBox.sentence1.1":"No pierdas tu tiempo, nosotros lo hacemos ",
+    "Block2.RightBox.word":"Todo ",
+    "Block2.RightBox.sentence1.2":"por tí.",
+
+    "Block3.title":"¿Cómo Funciona?",
+    "Block3.line1":"Escoge tus diseños y estilos favoritos",
+    "Block3.line2":"Escribenos tus especificaciones y detalles",
+    "Block3.line3":"Espera unos cuantos dias a que la terminemos",
+    "Block3.line4":"Disfruta tu página en cualquier dispositivo",
+
+    "Footer.title": "Contáctanos y Síguenos",
+    "Footer.About.title": "Acerca de Smort",
+    "Footer.About.Domains": "Dominios",
+    "Footer.About.Dates&Payments": "Fechas y Pagos",
+    "Footer.About.Terms&Conditions": "Términos y Condiciones",
+
+    "Footer.Support.title": "Soporte",
+    "Footer.Support.ClientSupport": "Ayuda al Cliente",
+    "Footer.Support.StyleChange": "Cambio de Diseño y Estilo",
+    "Footer.Support.SiteUpgrade": "Actualización o Mejora de tu Página",
+    
+    "Footer.Footer": "©Smort 2020 - todos los derechos reservados",
+
+
+
+    "Default":""
+}
