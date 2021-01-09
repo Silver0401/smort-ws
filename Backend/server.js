@@ -5,8 +5,13 @@ const path = require("path")
 const fs = require("fs")
 const https = require("https")
 const stripe = require("stripe")
-const stripeKey = stripe("sk_test_51I4BzFIcDQemC5B8ag0BMTUO3W7vNdBidyW3mCTPFIZnf49ZvA9lwphwLAEWq7LXj5tLNWVe4yxVbRiwSN4YTZ1s00bcPmsvyP")
 require("dotenv").config()
+
+// Live Stripe Code
+const stripeKey = stripe("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")
+
+// Test Stripe Code
+// const stripeKey = stripe("sk_test_51I4BzFIcDQemC5B8ag0BMTUO3W7vNdBidyW3mCTPFIZnf49ZvA9lwphwLAEWq7LXj5tLNWVe4yxVbRiwSN4YTZ1s00bcPmsvyP")
 
 // Variables and Inits
 const app = express()

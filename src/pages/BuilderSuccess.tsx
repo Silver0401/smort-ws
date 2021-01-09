@@ -1,13 +1,15 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useCallback, useRef, MutableRefObject } from 'react'
 import emailjs from "emailjs-com"
 import { ChosenDataContext } from "./../components/ChosenData"
 import axios from "axios";
+import lottie, { AnimationConfigWithPath } from "lottie-web";
 
 export default function BuilderSuccess() {
 
     const [Data] = useContext(ChosenDataContext)
+    const container = useRef <HTMLDivElement> (null)
 
-    const sendEmail = () => {
+    const sendEmail = useCallback(() => {
 
         if (Data.MongoDBOrderId !== 0){
 
@@ -38,19 +40,48 @@ export default function BuilderSuccess() {
 
                 })
                 .catch(err => console.error(err))
-    
         }
 
-    }
+    }, [Data.MongoDBOrderId])
 
     useEffect(() => {
         sendEmail()
+    },[sendEmail])
+
+    useEffect(() => {
+
+        if (container && container.current){
+            lottie.loadAnimation({
+                container: container.current,
+                renderer: "svg",
+                loop: true,
+                autoplay: true,
+                animationData: require("./../resources/Working.json"),
+            })
+        }
+
+
     },[])
 
 
     return (
-        <div className="BuilderSuccessPage">
-            Success!
+      <div className="BuilderSuccessPage">
+        <div className="TextSuccessBox">
+          <h1>!Todo Listo!</h1>
+          <p>
+            Te acabamos de mandar un correo como comprobante de la fecha y del
+            pago que acabas de realizar. Hemos recibido tu información y empezaremos
+            a desarrollar tu sitio lo más pronto posible.
+
+            Escucharas de nosotros en algunos días cuando hayamos terminado tu sitio.
+
+            <br/>
+            <br/>
+
+            - El Equipo de Smort
+          </p>
         </div>
-    )
+        <div className="lottieContainer" ref={container}></div>
+      </div>
+    );
 }

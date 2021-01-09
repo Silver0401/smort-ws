@@ -52,7 +52,7 @@
     "Block2.LeftBox.Svg2":"Bases de Datos",
     "Block2.LeftBox.Svg3":"Un Proceso de Diseño",
     "Block2.LeftBox.Svg4":"Optmización de Recursos",
-    "Block2.LeftBox.Svg5":"Actualización Constantes",
+    "Block2.LeftBox.Svg5":"Actualizaciones Constantes",
     "Block2.LeftBox.Svg6":"Un Logo Personalizado",
 
     "Block2.RightBox.sentence1.1":"No pierdas tu tiempo, nosotros lo hacemos ",
@@ -61,8 +61,8 @@
 
     "Block3.title":"¿Cómo Funciona?",
     "Block3.line1":"Escoge tus diseños y estilos favoritos",
-    "Block3.line2":"Escribenos tus especificaciones y detalles",
-    "Block3.line3":"Espera unos cuantos dias a que la terminemos",
+    "Block3.line2":"Escríbenos tus especificaciones y detalles",
+    "Block3.line3":"Espera unos cuantos días a que la terminemos",
     "Block3.line4":"Disfruta tu página en cualquier dispositivo",
 
     "Footer.title": "Contáctanos y Síguenos",
@@ -77,8 +77,34 @@
     "Footer.Support.SiteUpgrade": "Actualización o Mejora de tu Página",
     
     "Footer.Footer": "©Smort 2020 - todos los derechos reservados",
+    
+    
+    "DC.About.Domains.title": "Dominios",
+    "DC.About.Domains.P1": "Al comprar una página con Smort, usted nos provee 3 opciones o posibles nombres que le pudieramos dar a su página. Nosotros nos encargamos de checar la disponibiliad de cada uno, así como de administrar el mismo dominio; dependiendo del nombre y la extensión (.com, .tech, .net, etc) que usted escoga los precios pueden variar.",
+    "DC.About.Domains.P2": "La primera vez que usted compre una página web con nosotros obtendrá su diseño web y su dominio. El diseño es de un único pago inicial, sin embargo, el dominio es algo que se tiene que renovar cada año, por lo cual para mantenerlo, es necesario hacer pagos anuales, para que sigamos administrando tanto el dominio como el mismo sitio web.",
+    
+    "DC.About.D&P.title": "Fechas y Pagos",
+    "DC.About.D&P.P1": "El pago inicial al comprar un sitio comprende el diseño permanente y un dominio de un año. Dicho pago inicial puede variar dependiendo de varios factores, como: tipo de sitio web (de ventas, de portafiolio, de producto, etc.), extensión del sitio web (.com, .tech, .net, etc), tipo de diseño y recursos utilizados para el desarrollo del sitio web, entre otros.",
+    "DC.About.D&P.P2": "El día que te entreguemos tu sitio web, también nos encargaremos de mandarte un correo como comprobante de la fecha de entrega y pago. Una vez que haya pasado un año desde esta fecha, te enviaremos nuevamente un correo algunos días antes, para recordarte sobre los pagos anuales de administración y gestión de la página y el dominio. En caso de que haya un atraso en dichos pagos anuales, se perderá la posesión del dominio y ya no será posible acceder al sitio web. En caso de haya un atraso y usted quiera recuperar la página, contará con 2 semanas hábiles para contactarnos y volver a activar el sitio web.",
+    
+    "DC.About.T&C.title": "Términos y Condiciones",
+    "DC.About.T&C.P1": "Al comprar un sitio en Smort, usted accede a que nosotros administremos la página en todos sus aspectos, respetando las fechas y pagos establecidos.",
+    "DC.About.T&C.P2": "Si en algun punto su página empieza a recibir un elevado número de visitas diarias (miles) será necesario empezar a realizar cargos mensuales, puesto que estaríamos administrando mucha información y datos (lo cual, usualmente solo ocurriría en sitios de ventas).",
+    
+    
+    "DC.Support.CS.title": "Ayuda al Cliente",
+    "DC.Support.CS.P1": "Si necesita contactarnos para cualquier problema, duda o aclaración puede enviarnos un correo al email: smortmc2@gmail.com, enviarnos un whatsapp o llamrnos al número 771 411 6235 o también escribirnos por aquí mismo, llenando la información requerida.",
+    
+    "DC.Support.Label.Name": "Nombre",
+    "DC.Support.Label.Email": "Correo",
+    "DC.Support.Label.Message": "Mensaje",
+    
+    "DC.Support.StyleChanges.title": "Cambios del diseño y estilo de la página",
+    "DC.Support.StyleChanges.P1": "Al comprar un sitio web con nosotros puede contactarnos en cualquier momento si encuentra o considera que su página posee algún error o falla. Nosotros nos encargaremos de arreglar el error en menos de 24 horas sin costo alguno. Si por otro lado, busca que le cambiemos o removamos algo del diseño inicial, como cliente tendrá derecho a 2 cambios en su sitio totalmente gratis, cualquier cambio que se quiera después de los dos gratuitos, se considerará como una actualización o mejora de la página, lo cual implica un cargo. Lea la siguiente sección para entender más sobre las mejoras y/o actualizaciones de tu página.",    
 
-
+    "DC.Support.SiteUpdates.title": "Actualización o Mejora de tu Página",
+    "DC.Support.SiteUpdates.P1": "Si en algun punto busca que le agreguemos, actualizemos o mejoremos la página de cualquier manera, se cobrará un cantidad acorde al tamaño de la nueva implementación deseada (los precios pueden variar significativamente dependiendo de los recursos necesarios para la creación, adición o actualización de la sección de la página a cambiar).",
+    
 
     "Default":""
 }

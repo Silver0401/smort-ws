@@ -111,44 +111,13 @@ function App() {
 		}
 
 		function CheckBrowser() {
-		// Opera 8.0+
-		// var isOpera = (!!(window as any).opr && !!opr.addons) || !!(window as any).opera || navigator.userAgent.indexOf(' OPR/') >= 0;
 
-		// Firefox 1.0+
-		// var isFirefox = typeof InstallTrigger !== 'undefined';
-
-		// Safari 3.0+ "[object HTMLElementConstructor]"
-		// var isSafari = /constructor/i.test((window as any).HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!(window as any)['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
-
-		// Internet Explorer 6-11
-		// var isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-		// Edge 20+
-		// var isEdge = !isIE && !!(window as any).StyleMedia;
-
-		// Chrome 1 - 79
-		var isChrome =
+			var isChrome =
 			!!(window as any).chrome &&
 			(!!(window as any).chrome.webstore ||
 			!!(window as any).chrome.runtime);
 
-		// Edge (based on chromium) detection
-		// var isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edg") != -1);
-
-		// Blink engine detection
-		// var isBlink = (isChrome || isOpera) && !!(window as any).CSS;
-
-		isChrome ? console.log("In chrome") : console.log("Not chrome");
-		// var output = 'Detecting browsers by ducktyping:<hr>';
-		// output += 'isFirefox: ' + isFirefox + '<br>';
-		// output += 'isChrome: ' + isChrome + '<br>';
-		// output += 'isSafari: ' + isSafari + '<br>';
-		// output += 'isOpera: ' + isOpera + '<br>';
-		// output += 'isIE: ' + isIE + '<br>';
-		// output += 'isEdge: ' + isEdge + '<br>';
-		// output += 'isEdgeChromium: ' + isEdgeChromium + '<br>';
-		// output += 'isBlink: ' + isBlink + '<br>';
-		// document.body.innerHTML = output;
+			isChrome ? console.log("In chrome") : console.log("Not chrome");
 		}
 
 
@@ -166,47 +135,48 @@ function App() {
 
 	},[])
 
-  return (
-    <div className="App">
+	return (
+		<div className="App">
 
-      <span className="Loader">
-        <span className="box">
-          <div className="AnimBox">
-            <div className="CenterBall Ball"></div>
-            <div className="MiddleBall Ball"></div>
-            <div className="OuterBall Ball"></div>
-            <div className="ExtraOuterBall Ball"></div>
-          </div>
-          <h1>Loading...</h1>
-        </span>
+			<span className="Loader">
+			<span className="box">
+				<div className="AnimBox">
+				<div className="CenterBall Ball"></div>
+				<div className="MiddleBall Ball"></div>
+				<div className="OuterBall Ball"></div>
+				<div className="ExtraOuterBall Ball"></div>
+				</div>
+				<h1>Loading...</h1>
+			</span>
 
-        <div className="MovingBox"></div>
-      </span>
+			<div className="MovingBox"></div>
+			</span>
 
-      <Switch>
-        <Route exact path="/" component={HomePage} />
+			<Switch>
 
-        <ChosenDataProvider>
+				<Route exact path="/" component={HomePage} />
 
-			<AnimatePresence exitBeforeEnter>
+				<ChosenDataProvider>
 
-				<Route key="BuilderInit" exact path="/PageBuilder/Init" component={BuilderInit} />
+					<AnimatePresence exitBeforeEnter>
 
-				<Route key="BuilderRoot" exact path="/PageBuilder/Root" component={BuilderRoot} />
+						<Route key="BuilderInit" exact path="/PageBuilder/Init" component={BuilderInit} />
 
-				<Route key="BuilderFinal" exact path="/PageBuilder/Final" component={BuilderFinal} />
+						<Route key="BuilderRoot" exact path="/PageBuilder/Root" component={BuilderRoot} />
+
+						<Route key="BuilderFinal" exact path="/PageBuilder/Final" component={BuilderFinal} />
+						
+						<Route key="BuilderSuccess" exact path="/PageBuilder/Success" component={BuilderSuccess} />
+
+						<Route key="DataCenter" exact path="/DataCenter" component={DataCenter} />
+
+					</AnimatePresence>
+
+				</ChosenDataProvider>
 				
-				<Route key="BuilderSuccess" exact path="/PageBuilder/Success" component={BuilderSuccess} />
-
-				<Route key="DataCenter" exact path="/DataCenter" component={DataCenter} />
-
-			</AnimatePresence>
-
-        </ChosenDataProvider>
-		
-      </Switch>
-    </div>
-  );
+			</Switch>
+		</div>
+	);
 }
 
 export default App;

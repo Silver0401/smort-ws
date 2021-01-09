@@ -4,345 +4,453 @@ import anime from "animejs";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const Block3 = () => {
+const Block3 = (props:any) => {
 
     const History = useHistory()
     const { t } = useTranslation()
+    var tl = anime.timeline({
+      delay: 0,
+      loop: true,
+    });
 
-    function InstructionsAnimation(){
+    useEffect(() => {
 
+      function InstructionsAnimation() {
         // Choose you style
 
-        const tl = anime.timeline({
-            delay: 0,
-            loop:true
-        })
-
         tl.add({
-            targets:"#B3Arrow",
-            duration: 6000,
-            translateY: ["-6.25em", "0em", "6.25em","-6.25em", "6.25em", "0em"],
-            opacity: 1
-        })
+          targets: "#B3Arrow",
+          duration: 6000,
+          translateY: ["-6.25em", "0em", "6.25em", "-6.25em", "6.25em", "0em"],
+          opacity: 1,
+        });
 
-        tl.add({
+        tl.add(
+          {
             targets: "#li1",
             easing: "easeInOutQuad",
             duration: 500,
-            color: "#33A2CB"
-        }, "-=6000")
+            color: "#33A2CB",
+          },
+          "-=6000"
+        );
 
-        tl.add({
+        tl.add(
+          {
             targets: "#li4",
             easing: "easeInOutQuad",
             duration: 500,
-            color: "#ffffff"
-        }, "-=6000")
+            color: "#ffffff",
+          },
+          "-=6000"
+        );
 
-        tl.add({
-            targets:["#B3Arrow","#svg1", "#svg3"],
+        tl.add(
+          {
+            targets: ["#B3Arrow", "#svg1", "#svg3"],
             duration: 1000,
-            easing:"easeInOutSine",
-            opacity: [1,0]
-        },"+=50")
+            easing: "easeInOutSine",
+            opacity: [1, 0],
+          },
+          "+=50"
+        );
 
         // 2) Write down the especifics
 
-        tl.add({
-            targets:"#svg2",
+        tl.add(
+          {
+            targets: "#svg2",
             duration: 1000,
-            scale: [1,1.5],
-            translateX: ["0em","-3.75em"],
+            scale: [1, 1.5],
+            translateX: ["0em", "-3.75em"],
             easing: "easeInOutSine",
-            translateY: ["0em","1.8em"]
-        },"+=50")
+            translateY: ["0em", "1.8em"],
+          },
+          "+=50"
+        );
 
-        tl.add({
+        tl.add(
+          {
             targets: "#li2",
             easing: "easeInOutQuad",
             duration: 500,
-            color: "#33A2CB"
-        }, "-=1050")
+            color: "#33A2CB",
+          },
+          "-=1050"
+        );
 
-        tl.add({
+        tl.add(
+          {
             targets: "#li1",
             easing: "easeInOutQuad",
             duration: 500,
-            color: "#ffffff"
-        }, "-=1050")
+            color: "#ffffff",
+          },
+          "-=1050"
+        );
 
-        tl.add({
-            targets:".LinesBox",
+        tl.add(
+          {
+            targets: ".LinesBox",
             duration: 500,
-            opacity: 1
-        }, "-=50")
+            opacity: 1,
+          },
+          "-=50"
+        );
 
-        tl.add({
-            targets:"#Line1",
-            easing:"easeInOutQuad",
+        tl.add(
+          {
+            targets: "#Line1",
+            easing: "easeInOutQuad",
             duration: 500,
-            width: ["0%","80%"]
-        },"+=50")
+            width: ["0%", "80%"],
+          },
+          "+=50"
+        );
 
-        tl.add({
-            targets:"#Line2",
-            easing:"easeInOutQuad",
-            duration:500,
-            width: ["0%","50%"]
-        },"+=10")
-
-        tl.add({
-            targets:"#Line3",
-            easing:"easeInOutQuad",
-            duration:500,
-            width: ["0%","65%"]
-        },"+=10")
-
-        tl.add({
-            targets: [".LinesBox","#svg2"],
+        tl.add(
+          {
+            targets: "#Line2",
+            easing: "easeInOutQuad",
             duration: 500,
-            opacity: [1,0],
+            width: ["0%", "50%"],
+          },
+          "+=10"
+        );
+
+        tl.add(
+          {
+            targets: "#Line3",
+            easing: "easeInOutQuad",
+            duration: 500,
+            width: ["0%", "65%"],
+          },
+          "+=10"
+        );
+
+        tl.add(
+          {
+            targets: [".LinesBox", "#svg2"],
+            duration: 500,
+            opacity: [1, 0],
             easing: "easeInOutSine",
-        },"+=500")
+          },
+          "+=500"
+        );
 
         // 3) Wait for a couple of days
 
-        tl.add({
+        tl.add(
+          {
             targets: ".DayNightBox",
             duration: 500,
-            opacity: [0,1],
+            opacity: [0, 1],
             easing: "easeInOutSine",
-        },"+=200")
+          },
+          "+=200"
+        );
 
-        tl.add({
+        tl.add(
+          {
             targets: "#li3",
-            easing:"easeInOutQuad",
+            easing: "easeInOutQuad",
             duration: 500,
-            color: "#33A2CB"
-        }, "-=700")
+            color: "#33A2CB",
+          },
+          "-=700"
+        );
 
-        tl.add({
+        tl.add(
+          {
             targets: "#li2",
-            easing:"easeInOutQuad",
+            easing: "easeInOutQuad",
             duration: 500,
-            color: "#ffffff"
-        }, "-=700")
+            color: "#ffffff",
+          },
+          "-=700"
+        );
 
-        tl.add({
+        tl.add(
+          {
             targets: "#Sun",
             duration: 800,
-            opacity: [0,1],
-            translateX: ["-12.5em","0em"]
-        },"+=200")
+            opacity: [0, 1],
+            translateX: ["-12.5em", "0em"],
+          },
+          "+=200"
+        );
 
-        tl.add({
+        tl.add(
+          {
             targets: "#Sun",
             duration: 800,
-            opacity: [1,0],
-            translateX: ["0em","12.5em"]
-        },"+=100")
+            opacity: [1, 0],
+            translateX: ["0em", "12.5em"],
+          },
+          "+=100"
+        );
 
-        tl.add({
+        tl.add(
+          {
             targets: "#Moon",
             duration: 800,
-            opacity: [0,1],
-            translateX: ["-12.5em","0em"]
-        },"-=500")
+            opacity: [0, 1],
+            translateX: ["-12.5em", "0em"],
+          },
+          "-=500"
+        );
 
-
-        tl.add({
+        tl.add(
+          {
             targets: "#Moon",
             duration: 800,
-            opacity: [1,0],
-            translateX: ["0em","12.5em"]
-        },"+=100")
+            opacity: [1, 0],
+            translateX: ["0em", "12.5em"],
+          },
+          "+=100"
+        );
 
-
-        tl.add({
+        tl.add(
+          {
             targets: "#Sun",
             duration: 800,
-            opacity: [0,1],
-            translateX: ["-12.5em","0em"]
-        },"-=500")
+            opacity: [0, 1],
+            translateX: ["-12.5em", "0em"],
+          },
+          "-=500"
+        );
 
-
-        tl.add({
+        tl.add(
+          {
             targets: "#Sun",
             duration: 800,
-            opacity: [1,0],
-            translateX: ["0em","12.5em"]
-        },"+=100")
+            opacity: [1, 0],
+            translateX: ["0em", "12.5em"],
+          },
+          "+=100"
+        );
 
-
-        tl.add({
+        tl.add(
+          {
             targets: "#Moon",
             duration: 800,
-            opacity: [0,1],
-            translateX: ["-12.5em","0em"]
-        },"-=500")
+            opacity: [0, 1],
+            translateX: ["-12.5em", "0em"],
+          },
+          "-=500"
+        );
 
-
-        tl.add({
+        tl.add(
+          {
             targets: "#Moon",
             duration: 800,
-            opacity: [1,0],
-            translateX: ["0em","12.5em"]
-        },"+=100")
+            opacity: [1, 0],
+            translateX: ["0em", "12.5em"],
+          },
+          "+=100"
+        );
 
-
-        tl.add({
+        tl.add(
+          {
             targets: "#Sun",
             duration: 800,
-            opacity: [0,1],
-            translateX: ["-12.5em","0em"]
-        },"-=500")
+            opacity: [0, 1],
+            translateX: ["-12.5em", "0em"],
+          },
+          "-=500"
+        );
 
-
-        tl.add({
+        tl.add(
+          {
             targets: ".DayNightBox",
             duration: 500,
-            opacity: [1,0],
+            opacity: [1, 0],
             easing: "easeInOutSine",
-        },"+=100")
+          },
+          "+=100"
+        );
 
         // 4) Enjoy you website in every device
 
-            // From Computer to Phone
+        // From Computer to Phone
 
-        tl.add({
-            targets:"#svg2",
+        tl.add(
+          {
+            targets: "#svg2",
             duration: 50,
-            scale: [1,1.7],
-            translateX:"0em",
-            translateY:"1.75em",
-        },"+=10")
+            scale: [1, 1.7],
+            translateX: "0em",
+            translateY: "1.75em",
+          },
+          "+=10"
+        );
 
-        tl.add({
+        tl.add(
+          {
             targets: "#li4",
-            easing:"easeInOutQuad",
+            easing: "easeInOutQuad",
             duration: 500,
-            color: "#33A2CB"
-        }, "-=60")
+            color: "#33A2CB",
+          },
+          "-=60"
+        );
 
-        tl.add({
+        tl.add(
+          {
             targets: "#li3",
-            easing:"easeInOutQuad",
+            easing: "easeInOutQuad",
             duration: 500,
-            color: "#ffffff"
-        }, "-=60")
+            color: "#ffffff",
+          },
+          "-=60"
+        );
 
-        tl.add({
-            targets:"#svg2",
+        tl.add(
+          {
+            targets: "#svg2",
             duration: 500,
-            opacity: [0,1],
+            opacity: [0, 1],
             easing: "easeInOutSine",
-        },"+=10")
+          },
+          "+=10"
+        );
 
-        tl.add({
-            targets:".Screen",
+        tl.add(
+          {
+            targets: ".Screen",
             duration: 2000,
             rotateZ: "-90deg",
-            translateX: "-3.1em"
-        }, "+=500")
+            translateX: "-3.1em",
+          },
+          "+=500"
+        );
 
-        tl.add({
-            targets:"#svg2",
+        tl.add(
+          {
+            targets: "#svg2",
             duration: 2000,
             rotateZ: "90deg",
             // translateY: "0em"
-        }, "-=2000")
+          },
+          "-=2000"
+        );
 
-        tl.add({
-            targets:".keyboard",
+        tl.add(
+          {
+            targets: ".keyboard",
             duration: 1000,
-            width:"0em",
-            opacity: [1,0],
-            easing:"easeInOutQuad"
+            width: "0em",
+            opacity: [1, 0],
+            easing: "easeInOutQuad",
+          },
+          "-=2000"
+        );
 
-        },"-=2000")
-
-        tl.add({
-            targets:".PhoneLine",
+        tl.add(
+          {
+            targets: ".PhoneLine",
             duration: 1000,
-            easing:"easeInOutSine",
-            opacity: [0,1]
-        },"-=2000")
+            easing: "easeInOutSine",
+            opacity: [0, 1],
+          },
+          "-=2000"
+        );
 
-            // From Phone to Monitor
+        // From Phone to Monitor
 
-        tl.add({
-            targets:".Screen",
+        tl.add(
+          {
+            targets: ".Screen",
             duration: 1000,
-            easing:"easeInOutSine",
+            easing: "easeInOutSine",
             rotateZ: "-360deg",
-            translateX: "0em"
-        },"+=1000")
+            translateX: "0em",
+          },
+          "+=1000"
+        );
 
-        tl.add({
-            targets:"#svg2",
+        tl.add(
+          {
+            targets: "#svg2",
             duration: 1000,
-            easing:"easeInOutSine",
-            rotateZ: "-0deg"
-        },"-=1000")
+            easing: "easeInOutSine",
+            rotateZ: "-0deg",
+          },
+          "-=1000"
+        );
 
-        tl.add({
-            targets:".RandomRectangle",
+        tl.add(
+          {
+            targets: ".RandomRectangle",
             duration: 500,
-            easing:"easeInOutSine",
-            opacity: [0,1]
-        },"-=1000")
+            easing: "easeInOutSine",
+            opacity: [0, 1],
+          },
+          "-=1000"
+        );
 
-        tl.add({
-            targets:".PhoneLine",
+        tl.add(
+          {
+            targets: ".PhoneLine",
             duration: 500,
-            easing:"easeInOutSine",
-            opacity: [1,0]
-        },"-=1500")
+            easing: "easeInOutSine",
+            opacity: [1, 0],
+          },
+          "-=1500"
+        );
 
-            // From Monitor to Computer
+        // From Monitor to Computer
 
-        tl.add({
-            targets:".RandomRectangle",
+        tl.add(
+          {
+            targets: ".RandomRectangle",
             duration: 500,
-            easing:"easeInOutSine",
-            opacity: [1,0]
-        },"+=1000")
+            easing: "easeInOutSine",
+            opacity: [1, 0],
+          },
+          "+=1000"
+        );
 
-        tl.add({
-            targets:".keyboard",
+        tl.add(
+          {
+            targets: ".keyboard",
             duration: 1000,
-            width:"21.8em",
-            opacity: [0,1],
-            easing:"easeInOutQuad"
-        },"-=500")
+            width: "21.8em",
+            opacity: [0, 1],
+            easing: "easeInOutQuad",
+          },
+          "-=500"
+        );
 
-        tl.add({
-            targets:"#svg2",
+        tl.add(
+          {
+            targets: "#svg2",
             duration: 1000,
-            easing:"easeInOutQuad",
-            scale:1,
-            translateY:"0em"
-        },"-=500")
+            easing: "easeInOutQuad",
+            scale: 1,
+            translateY: "0em",
+          },
+          "-=500"
+        );
 
         // 23,350
 
         tl.add({
-            targets:["#svg1", "#svg3", "B3Arrow"],
-            duration:1000,
-            easing:"easeInOutQuad",
-            opacity:[0,1]
-        })
+          targets: ["#svg1", "#svg3", "B3Arrow"],
+          duration: 1000,
+          easing: "easeInOutQuad",
+          opacity: [0, 1],
+        });
+      }
 
-    }
+      if (props.animInit) InstructionsAnimation()
+      
+    }, [props.animInit, tl])
 
-    useEffect(() => {
 
-        InstructionsAnimation()
-
-    },[])
 
     return (
-      <section className="Block3" id="Build">
+      <section className="Block3" id="Build" ref={props.refData}>
         <span className="B3Title">
           <h1>{t("Block3.title")}</h1>
         </span>

@@ -5,9 +5,11 @@ import "react-toastify/dist/ReactToastify.css";
 import styleSvg from "./../../resources/style.svg";
 import changesSvg from "./../../resources/changes.svg";
 import emailjs from "emailjs-com"
+import { useTranslation } from "react-i18next";
 
 const Support = () => {
 
+  const { t } = useTranslation()
   const NameRef = useRef <HTMLInputElement> (null)
   const EmailRef = useRef <HTMLInputElement> (null)
   const MessageRef = useRef <HTMLTextAreaElement> (null)
@@ -63,23 +65,18 @@ const Support = () => {
       {/* <h1>Soporte</h1> */}
       <ul>
         <li id="ClientSupport">
-          <h2>Ayuda al Cliente</h2>
-          <p>
-            Si necesita contactarnos para cualquier problema, duda o aclaración
-            puede enviarnos un correo al email: smortmc2@gmail.com, enviarnos un
-            whatsapp o llamrnos al número 771 411 6235 o también escribirnos por
-            aqui mismo, llenando la información requerida.
-          </p>
+          <h2>{t("DC.Support.CS.title")}</h2>
+          <p>{t("DC.Support.CS.P1")}</p>
 
           <form>
             <div className="TopForm">
-              <label className="NameLabel">Nombre</label>
+              <label className="NameLabel">{t("DC.Support.Label.Name")}</label>
               <input
                 ref={NameRef}
                 onChange={(e) => setCurrentNameData(e.target.value)}
                 value={currentNameData}
               />
-              <label>Correo</label>
+              <label>{t("DC.Support.Label.Email")}</label>
               <input
                 ref={EmailRef}
                 onChange={(e) => setCurrentEmailData(e.target.value)}
@@ -102,7 +99,7 @@ const Support = () => {
               </button>
             </div>
             <div className="BottomForm">
-              <label>Mensaje</label>
+              <label>{t("DC.Support.Label.Message")}</label>
               <textarea
                 ref={MessageRef}
                 placeholder="En que te podemos ayudar?"
@@ -113,36 +110,17 @@ const Support = () => {
           </form>
         </li>
         <li id="StyleChanges">
-          <h2>Cambios del diseño y estilo de la página</h2>
+          <h2>{t("DC.Support.StyleChanges.title")}</h2>
           <div className="SC Content">
-            <p>
-              En el caso de que ya haya comprado su sitio web con nosotros,
-              puede contactarnos en cualquier momento si encuentra algun error o
-              falla en el sitio. Nosotros nos encargaremos de arreglar el error
-              en menos de 24 horas sin costo alguno. Pero si por otro lado,
-              busca que le cambiemos o removamos algo del diseño inicial,
-              únicamente tendrá derecho a dos de estos cambios sin cosot alguno,
-              cualquier otro cambio o remoción que usted quiera tendrá un costo
-              exacto de $500 pesos mexicano (cada uno).
-            </p>
+            <p>{t("DC.Support.StyleChanges.P1")}</p>
             <img src={styleSvg} alt="Style Changes svg" />
           </div>
         </li>
         <li id="SiteUpdates">
-          <h2>Actualización o Mejora de tu Página</h2>
+          <h2>{t("DC.Support.SiteUpdates.title")}</h2>
           <div className="SU Content">
-            <p>
-              Si en algun punto busca que le agreguemos, actualizemos o
-              mejoremos la página de cualquier manera, se cobrará un cantidad
-              acorde al tamaño de la nueva implementación deseada (los precios
-              pueden variar desde tan solo $500 hasta $1000 pesos mexicanos). En
-              casos de nuevas secciones o adiciones a páginas ya creadas, cada
-              nueva sección tendrá un costo de 500$ pesos mexicanos. Cuando se
-              busque añadir desde cero una núeva página, cada una de estas
-              tendrá un costo de creación e implementación de 1000$ pesos
-              mexicanos.
-            </p>
-            <img src={changesSvg} alt="SU svg image"></img>
+            <p>{t("DC.Support.SiteUpdates.P1")}</p>
+            <img src={changesSvg} alt="SU svg"></img>
           </div>
         </li>
       </ul>

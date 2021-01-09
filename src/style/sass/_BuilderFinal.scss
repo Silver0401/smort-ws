@@ -9,6 +9,14 @@ $BGColor: rgb(31, 28, 28);
     align-items: center;
 }
 
+@keyframes MoveLeftRight {
+    from{
+        transform: translateX(-20px);
+    }
+    to{
+        transform: translateX(-5px);
+    }
+}
 
 
 .BuilderFinalPage{
@@ -35,7 +43,6 @@ $BGColor: rgb(31, 28, 28);
         height: 80%;
         @include alignCenter();
         justify-content: space-between;
-        // background-color: whitesmoke;
 
         .StepsHeader{
             position: relative;
@@ -71,7 +78,7 @@ $BGColor: rgb(31, 28, 28);
                 background-color: white;
                 color: black;
                 transition: all 500ms;
-                width: 85%;
+                width: 70%;
 
             }
 
@@ -82,6 +89,7 @@ $BGColor: rgb(31, 28, 28);
                 transition: all 500ms;
                 width: 15%;
                 font-size: 1px;
+                cursor: pointer;
                 
                 p{
                     position: absolute;
@@ -96,20 +104,22 @@ $BGColor: rgb(31, 28, 28);
             width: 100%;
             height: 80%;
 
-            .Step1Style, .Step2Style{
+            .Step1Style, .Step2Style, .Step3Style{
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
+                // background-color: lightgreen;
             }
 
-            .Step2Style{
+            .Step3Style{
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: 1fr;
+                overflow: visible;
 
-                .LeftBoxFinal{
+                .LeftBoxS3Final{
                     position: relative;
                     // background-color: lightskyblue;
                     .ResumeBox{
@@ -120,7 +130,7 @@ $BGColor: rgb(31, 28, 28);
 
                         .ChosenBox{
                             width: 80%;
-                            height: 10%;
+                            height: 8%;
                             @include alignCenter();
                             justify-content: space-around;
                             flex-direction: row;
@@ -133,7 +143,7 @@ $BGColor: rgb(31, 28, 28);
                         }
                     }
                 }
-                .RightBoxFinal{
+                .RightBoxS3Final{
                     position: relative;
                     background-color: transparent;   
                     @include alignCenter();
@@ -293,10 +303,10 @@ $BGColor: rgb(31, 28, 28);
                         height: 0%;
                         left: auto;
                         right: auto;
-                        background-color: $BGColor;
                         opacity: 0;
                         visibility: hidden;
                         @include alignCenter();
+                        overflow: visible;
                         transform: rotateY(180deg);
 
                         img{
@@ -314,11 +324,13 @@ $BGColor: rgb(31, 28, 28);
                             width: 100%;
                             height: 50%;
                             @include alignCenter();
+                            position: relative;
  
                             .CardLine{
                                 width: 80%;
-                                height: 300px;
-
+                                height: 100%;
+                                // background-color: lightcoral;
+                                position: relative;
 
                                 form{
                                     width: 100%;
@@ -326,14 +338,17 @@ $BGColor: rgb(31, 28, 28);
                                     @include alignCenter();
                                     flex-direction: column;
                                     justify-content: space-around;
+                                    position: relative;
 
                                     .PayLine{
+                                        position: relative;
                                         width: 100%;
                                         height: 30px;
                                         border-bottom: 1px solid $PageColor;
                                     }
 
                                     .PayButton{
+                                        position: relative;
                                         padding: 10px 30px;
                                         width: 150px;
                                         height: 70px;
@@ -400,6 +415,174 @@ $BGColor: rgb(31, 28, 28);
                         }
 
                     }
+                }
+            }
+
+            .Step2Style{
+                display: grid;
+                grid-template-columns: 45% 1fr;
+                grid-template-rows: 1fr;
+                // margin-bottom: 20px;
+                // z-index: 1;
+
+                .LeftBoxS2Final{
+                    @include alignCenter();
+                    flex-direction: column;
+                    justify-content: space-around;
+                    // background-color: lightyellow;
+
+                    .Explanation{
+                        width: 90%;
+                        height: 35%;
+                        // background-color: lightcoral;
+
+                        p{
+                            padding: 20px;
+                        }
+
+                        h2{
+                            text-align: center;
+                            color: $PageColor;
+                            padding: 0px 20px;
+                        }
+
+                    }
+
+                    .NumberOfPages{
+                        width: 100%;
+                        height: 55%;
+                        @include alignCenter();
+                        justify-content: space-around;
+
+                        .NotPressed{
+                            background-color: black;
+                            color: $PageColor;
+                            padding: 20px 30px;
+                            font-size: 20px;
+                            border-radius: 1em;
+                            outline: none;
+                            @include alignCenter();
+                            flex-direction: row;
+                            width: 80%;
+                            font-family: 'MuseoModerno', cursive;
+                            justify-content: space-around;
+                            cursor: pointer;
+                            border: none;
+                            transition: border 100ms;
+
+                            svg{
+                                fill: $PageColor;
+                                // transition: fill 500ms;
+                            }
+                        }
+
+                        .Pressed{
+                            @extend .NotPressed;
+                            border: 2px solid white;
+
+                            svg{
+                                animation: MoveLeftRight 1s linear infinite alternate;
+                            }
+                        }
+
+                        .NextButton{
+                            width: 100px;
+                            cursor: pointer;
+                            outline: none;
+                            height: 60px;
+                            position: relative;
+                            padding: 15px 25px;
+                            border-radius: 1em;
+                            font-size: 25px;
+                            background-color: $PageColor;
+                            @include alignCenter();
+                            transition: background-color 500ms;
+                            
+                            svg{
+                                width: auto;
+                                height: 100%;
+                                transition: fill 500ms;
+                            }
+
+                            &:hover{
+                                background-color: black;
+                                transition: background-color 500ms;
+                                
+                                svg{
+                                    fill: $PageColor;
+                                    transition: fill 500ms;
+                                }
+                            }
+                        }
+                    }
+
+                }
+                .RightBoxS2Final{
+                    position: relative;
+                    // background-color: lightyellow;
+
+                    .Layout{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        overflow-x: scroll;
+                        @include alignCenter();
+                        flex-direction: row;
+                        justify-content: space-evenly;
+
+                        .InnerImageBox{
+
+                            position: relative;
+                            width: 50%;
+                            // flex: 1 1;
+                            height: 100%;
+                            // background-color: lightcoral;
+                            @include alignCenter();
+                            align-items: center;
+                            // z-index: 0;
+    
+                            img{
+                                width: 220px;
+                                height: auto;
+                                margin: -2px;
+                                // margin-right: clamp(0px, 13vw, 200px);
+                            }
+    
+                        }
+    
+                        .InnerTagsBox{
+                            position: relative;
+                            // background-color: lightgreen;
+                            // z-index: 1;
+                            // flex: 1 1;
+                            width: 35%;
+                            height: 100%;
+                            // right: 0;
+                            // top: 0;
+                            @include alignCenter();
+                            justify-content: space-around;
+                            transform-origin: bottom left;
+
+                            .Tag{
+                                width: 100%;
+                                @include alignCenter();
+                                justify-content: space-around;
+                                flex-direction: row;
+
+                                p{
+                                    color: $PageColor;
+                                    text-align: center;
+                                    width: 100px;
+                                    // background-color: lightgreen;
+                                }
+                            }
+                        }
+
+                    }
+
+
                 }
             }
 
@@ -546,9 +729,8 @@ $BGColor: rgb(31, 28, 28);
                     p{
                         margin: 0px;
                         width: 50%;
+                        position: relative;
                     }
-
-                    p,button{position: relative;}
 
                     button{
                         width: 150px;

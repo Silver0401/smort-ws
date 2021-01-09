@@ -12,6 +12,7 @@ interface Data {
     LoaderStyle: string,
     Color1: string,
     Color2: string,
+    SiteStructure: string,
 
     MainTheme: string,
     Details: string,
@@ -42,6 +43,7 @@ export const ChosenDataProvider: React.FC = (props) => {
       LoaderStyle: "awaiting...",
       Color1: "awaiting...",
       Color2: "awaiting...",
+      SiteStructure: "awaiting...",
 
       MainTheme: "awaiting...",
       Details: "awaiting...",

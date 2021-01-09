@@ -80,5 +80,33 @@
     "Footer.Footer": "©Smort 2020 - all rights reserved",
 
 
+    "DC.About.Domains.title": "Domains",
+    "DC.About.Domains.P1": "After buying a website with Smort, you provide us with 3 possible options, to name your site. We take care of checking the availability of each option, as well as of the administration of the domiain itself. Depending of the chosen domain extension (.com, .tech, .net, etc) prices may vary.",
+    "DC.About.Domains.P2": "The first stime you buy a website with us you'll receive a personalized web designed and its domain. The design of the website consists of a unique initial payment with no other charges, however, the domain must be renewed every year, which is why to mantain the website up and running, there will be yearly charges made, so that we can keep administering both the site and the domain.",
+    
+    "DC.About.D&P.title": "Dates & Payments",
+    "DC.About.D&P.P1": "The inicial payment after buying a website with us, will guarantee you a design, domain and site administration for a complete year, with no other extra charges (with a few exceptions), such initial payment can vary due to a number of factors (like site type, site extension, developmente resources, amongst others).",
+    "DC.About.D&P.P2": "The day we deliver your website, we will also send you en email, as a receipt of the date and payment. Once a year has passed from the date in the receipt, we'll once again care to send you another email a few days earlier as a reminder of the yearly payment (so that we can keep on administrating the site's domain and data). In cases, where the buyer fails to pay the anual charge on, the site will stop being publicly available, unmanaged and with no domain. The buyer can contact us at any time to fullfill the delayed payment, so that we can reactivate the website (warning: if too much time passes, the domain may have to be changed to a new one).",
+    
+    "DC.About.T&C.title": "Terms and Conditions",
+    "DC.About.T&C.P1": "Whenever you buy a website with us, you agree to us administrating the website in every aspect, respecting the dates and payments established.",
+    "DC.About.T&C.P2": "If at any point, your website starts obtaining a highly eleveated number of daily views (thousands), it will be necessary to start realizing monthly charges, due to the fact that as administrators, we would be dealing with more information and data storages (this usually only applies to sales sites).",
+    
+    
+    "DC.Support.CS.title": "Client Support",
+    "DC.Support.CS.P1": "If you ever need to contact us about a problem, doubt or clarification of any king, you can contact us without any hesitation either through email at smortmc2@gmail.com, send us a whatsapp of call us to the number +52 771 411 6235 or write us through here, by filling the spaces below.",
+    
+    "DC.Support.Label.Name": "Name",
+    "DC.Support.Label.Email": "Email",
+    "DC.Support.Label.Message": "Message",
+    
+    "DC.Support.StyleChanges.title": "Style and Design Changes",
+    "DC.Support.StyleChanges.P1": "If you bought a website with us, you can contact us at any time if you've found or consider your website has a mistake; we'll solve the error in 24 hours or less with no cost. However if, on the other hand you merely wish to move or change a feature of the website as a client of us, you'll have the right to two cost-free changes, after these two any other change we'll be considered as an update/upgrade of your site, which implies a payment. Read the next section to understand more about website updates and upgrades.",    
+
+    "DC.Support.SiteUpdates.title": "Site Update or Upgrade",
+    "DC.Support.SiteUpdates.P1": "Whenever you desire for us to add, update or implement your website in any way you'll be charged for the changes, depending on the size and resources needed for the wished upgrade (prices may vary significanty).",
+    
+
+
     "Default":""
 }

@@ -103,7 +103,7 @@ const Block2 = () => {
         });
 
         setTimeout(() => {
-            if (ReasonCounter === ComplicatedReasons.Reason.length - 1)
+            if (ReasonCounter === ComplicatedReasons.Reason.length - 1 || ReasonCounter >= 6)
                 setReasonCounter(0);
             else setReasonCounter((prevCounter) => prevCounter + 1);
 

@@ -31,7 +31,7 @@ const LeftBox = () => {
           </div>
           <div className="LangText">
             <select
-              defaultValue="sp"
+              defaultValue={chosenLang}
               onChange={(e) => ChangeLang(e.target.value)}
             >
               <option value="en">{t("Lang.en")}</option>

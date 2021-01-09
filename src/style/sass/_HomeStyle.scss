@@ -495,12 +495,11 @@ $BGColor: rgb(31, 28, 28);
                 
                 div{
                     min-width: 300px;
-                    min-height: 180px;
+                    max-height: 200px;
                     font-family: 'MuseoModerno', cursive;
                     border: 10px solid rgb(23, 21, 21);
                     box-shadow: 0px 0px 5px $PageColor;
-                    flex-grow: 1;
-                    flex-shrink: 1;
+                    flex: 1 1 300px;
                     @include alignCenter();
                     flex-direction: column;
                     transition: background-color 500ms, color 500ms;
