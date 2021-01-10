@@ -121,6 +121,12 @@ const BuilderRoot = () => {
   },[sectionDisplayed])
 
 
+  useEffect(() => {
+    
+    setData({...Data, Color1: ColorBoxPicked1.current?.value , Color2: ColorBoxPicked2.current?.value })
+
+  }, [])
+
   // Rendered
     return (
       <motion.div

@@ -10,12 +10,12 @@
                 }
             }
 
-            .RightBoxHome{
-                .CreateButton{
-                    font-size: 40px;
-                    padding: 50px 80px;
-                }
-            }
+            // .RightBoxHome{
+            //     .CreateButton{
+            //         font-size: 40px;
+            //         padding: 50px 80px;
+            //     }
+            // }
         }
 
         .Block1{
@@ -33,6 +33,10 @@
 
                 .Reasons{
                     div{
+
+                        // min-height: 320px;
+                        min-width: 500px;
+
                         h2{
                             margin: 0px 40px;
                             font-size: 35px;
@@ -111,22 +115,18 @@
 
                     }
 
-                    .CreateButtonBox{
-                        .CreateButton{
-                            font-size: 45px;
-                            padding: 60px;
-                        }
-                    }
+                    // .CreateButtonBox{
+                    //     .CreateButton{
+                    //         font-size: 45px;
+                    //         padding: 60px;
+                    //     }
+                    // }
                 }
             }
         }
 
         .NavBar{
             height: 90px;
-
-            ul li a{
-                font-size: 55px;
-            }
         }
 
         .Footer{

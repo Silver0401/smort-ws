@@ -162,7 +162,7 @@ $BGColor: rgb(31, 28, 28);
                 
                 a{
                     position: relative;
-                    font-size: 25px;
+                    font-size: clamp(25px, 2vw, 50px);
                     color: white;
                     text-decoration: none;
                     font-weight: bolder;
@@ -218,8 +218,8 @@ $BGColor: rgb(31, 28, 28);
                 top: -10px;
                 @include alignCenter();
                 flex-direction: row;
-                width: 140px;
-                height: 50px;
+                width: clamp(140px, 10vw, 1000px);
+                height: clamp(50px, 4vw, 100px);
 
                 .LangText{
                     width: 60%;
@@ -233,6 +233,7 @@ $BGColor: rgb(31, 28, 28);
                         font-family: 'MuseoModerno', cursive;
                         border: 0px solid transparent;
                         outline: none;
+                        font-size: clamp(15px, 1vw, 25px);
                     }
 
                 }
@@ -368,7 +369,7 @@ $BGColor: rgb(31, 28, 28);
                         margin: 10px 0px;
                         // margin-right: auto;
                         // background-color: lightcoral;
-                        font-size: clamp(20px, 1.9vw, 40px);
+                        font-size: clamp(20px, 1.9vw, 60px);
                     }
     
                     .ProWord{
@@ -379,11 +380,11 @@ $BGColor: rgb(31, 28, 28);
             }
             .CreateButton{
                 position: relative;
-                padding: 1.8em 3.1em;
                 background: black;
                 border: 0px solid transparent;
                 border-radius: 3em;
                 box-shadow: 0px 0px 0px $PageColor;
+                padding: 1.8em 3.1em;
                 font-size: clamp(18px, 1.5vw, 50px);
                 font-family: 'Press Start 2P', cursive;
                 cursor: pointer;
@@ -403,8 +404,8 @@ $BGColor: rgb(31, 28, 28);
                     // bottom: 60%;
                     transform: translateY(-1.5%);
 
-                    width: #{"max(1000px, 130%)"};
-                    height: #{"max(1000px, 115%)"};
+                    width: #{"max(1500px, 130%)"};
+                    height: #{"max(1500px, 115%)"};
                     background-color: transparent;
                     transition: transform 500ms;
                 }
@@ -495,7 +496,7 @@ $BGColor: rgb(31, 28, 28);
                 
                 div{
                     min-width: 300px;
-                    max-height: 200px;
+                    // max-height: 200px;
                     font-family: 'MuseoModerno', cursive;
                     border: 10px solid rgb(23, 21, 21);
                     box-shadow: 0px 0px 5px $PageColor;
@@ -906,12 +907,12 @@ $BGColor: rgb(31, 28, 28);
 
                     .CreateButton{
                         position: relative;
-                        padding: 30px 50px;
+                        padding: 1.8em 3.1em;
+                        font-size: clamp(18px, 1.5vw, 50px);
                         background: black;
                         border: 0px solid transparent;
-                        border-radius: 50px;
+                        border-radius: 3em;
                         box-shadow: 0px 0px 0px $PageColor;
-                        font-size: calc(1em + .2vw);
                         font-family: 'Press Start 2P', cursive;
                         cursor: pointer;
                         color: white;
@@ -919,17 +920,19 @@ $BGColor: rgb(31, 28, 28);
                         overflow: hidden;
                         transition: color 500ms, background-color 500ms, box-shadow 500ms;
                         p{z-index: 1; position: relative}
+                        @include alignCenter();
 
                         .liquid{
                             z-index: 0;
                             position: absolute;
-                            margin: 0px auto;
-                            left: -85%;
-                            bottom: 75%;
-                            transform: translateY(1%);
+                            bottom: 30%;
+                            // margin: 0px auto;
+                            // left: -65%;
+                            // bottom: 60%;
+                            transform: translateY(-1.5%);
 
-                            width: 1000px;
-                            height: 1000px;
+                            width: #{"max(1500px, 130%)"};
+                            height: #{"max(1500px, 115%)"};
                             background-color: transparent;
                             transition: transform 500ms;
                         }
