@@ -27,6 +27,7 @@ const BuilderRoot = () => {
   const [ColorPicked1, setColorPicked1] = useState("#000000");
   const [ColorPicked2, setColorPicked2] = useState("#ffffff");
   const [colorBoxState, setColorBoxState] = useState(true);
+  const [pageYFlow, setPageYFlow] = useState(false);
 
   const BuilderRef = useRef<HTMLDivElement>(null);
   const InstructionsRef = useRef<HTMLDivElement>(null);
@@ -211,6 +212,7 @@ const BuilderRoot = () => {
       initial={{ opacity: 0, y: "-100vh" }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: "-100vh" }}
+      style={ pageYFlow ? {overflowY: "scroll"} : {overflowY:"hidden"} }
     >
       <div className="RootBox">
         <div className="InstructionsBox" ref={InstructionsRef}>
@@ -354,6 +356,7 @@ const BuilderRoot = () => {
             className="StartButton"
             onClick={() => {
               RemoveWelcomeBox();
+              setPageYFlow(true)
               setTimeout(() => {
                 ScrollToSection("Builder")
               }, 1000)

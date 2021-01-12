@@ -101,6 +101,10 @@ $BGColor: rgb(31, 28, 28);
                 transition: transform 500ms;
                 flex-direction: column;
 
+                li a{
+                    font-size: 35px;
+                }
+
             }
 
             .Burger{
@@ -264,7 +268,6 @@ $BGColor: rgb(31, 28, 28);
 
 @media (max-width: 850px){
     .HomePage{
-
 
         .Block1{
             .WhyBox{

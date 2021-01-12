@@ -149,6 +149,7 @@ $BGColor: rgb(31, 28, 28);
                     @include alignCenter();
                     flex-direction: column;
                     justify-content: center;
+                    overflow: hidden;
 
                     .Price{
                         width: 100%;
