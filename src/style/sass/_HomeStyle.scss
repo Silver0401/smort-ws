@@ -129,12 +129,8 @@ $BGColor: rgb(31, 28, 28);
 
     .liquid{
         z-index: 0;
-        overflow: hidden;
         position: absolute;
         bottom: 30%;
-        // margin: 0px auto;
-        // left: -65%;
-        // bottom: 60%;
         transform: translateY(-1.5%);
 
         width: #{"max(1500px, 130%)"};

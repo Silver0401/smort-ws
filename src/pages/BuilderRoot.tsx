@@ -301,8 +301,8 @@ const BuilderRoot = () => {
             className="ColorsBox"
             style={
               colorBoxState
-                ? { transform: "translateX(0px)" }
-                : { transform: "translateX(160px)" }
+                ? { transform: "translateX(0em)" }
+                : { transform: "translateX(10em)" }
             }
           >
             <span

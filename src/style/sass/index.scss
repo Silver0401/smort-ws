@@ -121,3 +121,10 @@ body{
         }
     }
 }
+
+@media (min-width: 2000px){
+    .App .Loader .box{
+        width: 400px;
+        height: 600px;
+    }
+}

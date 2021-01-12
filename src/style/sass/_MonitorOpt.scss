@@ -9,13 +9,6 @@
                     height: 50px;
                 }
             }
-
-            // .RightBoxHome{
-            //     .CreateButton{
-            //         font-size: 40px;
-            //         padding: 50px 80px;
-            //     }
-            // }
         }
 
         .Block1{
@@ -144,5 +137,112 @@
                 }
             }
         }
+    }
+
+    .RootPage .RootBox{
+
+        .BuilderBox .ColorsBox{
+            width: 30em;
+            height: 15em;
+        }
+
+        .BuilderBox .Display .PageStylesSection{
+            .MainSection{
+                .Page{
+                    grid-template-rows: 150px 1fr;
+
+                    .PageStyle{
+                        nav{
+
+                            height: 120px;
+
+                            .LogoBox{
+                                width: 90px;
+                                height: 90px;
+
+                                margin-left: 4em;
+                                // margin-top: 4em;
+
+                                h3{
+                                    display: none;
+                                }
+
+                                .Logo{
+                                    width: 500px;
+                                    height: 100px;
+                                }
+                            }
+
+                            .BurgerBox{
+
+                                // margin-right: 4em;
+                                // margin-top: 4em;
+                                width: 100px;
+                                height: 100px;
+                            }
+                        }
+                    }
+
+                    .Glassmorphic{
+                        .LeftBox{
+
+                            .ImageBox{
+                                .TechChip{
+                                    width: 400px;
+                                    height: 400px;
+                                }
+                                .TechChip2{
+                                    width: 60%;
+                                    height: 150px;
+                                }
+                            }
+
+                            .ImageBox::before{
+                                width: 450px;
+                                height: 450px;
+                            }
+                            .ImageBox::after{
+                                width: 400px;
+                                height: 400px;
+                            }
+
+                            .ContactsBox::before{
+                                width: 350px;
+                                height: 350px;
+                            }
+                        }
+
+                    }
+
+                    .Parallax{
+                        nav{
+                            height: 100px;
+                        }
+                    }
+
+                    .Neumorphic{
+                        .LeftBox{
+                            .BoxesBox{
+                                width: 220px;
+                            }
+
+                            .Foto{
+                                width: 350px;
+                                height: 350px;
+                            }
+
+                            .ContactsBox{
+                                span{
+                                    width: 75px;
+                                    height: 75px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
     }
 }
