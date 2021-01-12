@@ -128,6 +128,11 @@ $BGColor: rgb(31, 28, 28);
     transition: color 500ms, background-color 500ms, box-shadow 500ms;
     p{z-index: 1; position: relative}
     @include alignCenter();
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+
 
     .liquid{
         z-index: 0;
