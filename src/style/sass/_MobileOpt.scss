@@ -264,17 +264,31 @@ $BGColor: rgb(31, 28, 28);
         }
     }
 
-    .BuilderFinalPage .Steps .StepsBody .Step2Style{
+    .BuilderFinalPage .Steps .StepsBody{
 
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
+        .Step2Style{
 
-        .RightBoxS2Final{
-            display: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+    
+            .RightBoxS2Final{
+                display: none;
+            }
+        }
+
+        .Step3Style{
+            .RightBoxS3Final{
+                .PaymentBox{
+                    .CardBox{
+                        .CardLine{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
         }
     }
-
 }
 
 @media (max-width: 850px){

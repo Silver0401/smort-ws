@@ -141,7 +141,7 @@ const StripeForm : React.FC = () => {
           options={{
             style: {
               base: {
-                fontSize: "20px",
+                fontSize: "17px",
                 color: "#FFFFFF",
                 "::placeholder": {
                   color: "#FFFFFF",
