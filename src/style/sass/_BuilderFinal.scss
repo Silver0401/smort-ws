@@ -55,7 +55,7 @@ $BGColor: rgb(31, 28, 28);
             h2{
                 @include alignCenter();
                 flex-direction: row;
-                // justify-content: space-around;
+                justify-content: space-around;
                 width: 100%;
                 height: 100%;
                 color: black;
@@ -69,7 +69,6 @@ $BGColor: rgb(31, 28, 28);
                     @include alignCenter();
                     border-radius: 50%;
                     border: 2px solid $PageColor;
-                    margin: 0px 1em;
                     font-size: clamp(17px, 2vw,30px);
                 }
             }
@@ -137,6 +136,10 @@ $BGColor: rgb(31, 28, 28);
                             background-color: black;
                             border-radius: 2em;
 
+                            p{
+                                font-size: clamp(11px, 1.3vw, 100px);
+                            }
+
                             #TheData{
                                 color: $PageColor;
                             }
@@ -156,11 +159,11 @@ $BGColor: rgb(31, 28, 28);
                         height: 40%;
                         @include alignCenter();
                         h1{
-                            font-size: 70px;
+                            font-size: clamp(60px ,1.5vw ,70px);
                             color: $PageColor;
                         }
                         h2{
-                            font-size: 35px;
+                            font-size: clamp(30px ,1.5vw ,50px);
                         }
 
                     }
@@ -178,7 +181,7 @@ $BGColor: rgb(31, 28, 28);
                             background-color: black;
                             outline: none;
                             color: transparent;
-                            padding: 15px 40px;
+                            padding: clamp(10px ,1.5vw ,15px) clamp(20px ,1.5vw ,40px);
                             border: none;
                             border-radius: 1em;
                             font-weight: bolder;
@@ -291,8 +294,9 @@ $BGColor: rgb(31, 28, 28);
 
                     p{
                         height: 20%;
-                        font-size: 30px;
+                        font-size: clamp( 20px, 1.5vw, 30px);
                         z-index: 0;
+                        text-align: center;
                     }
 
                     .PaymentBox{
@@ -439,12 +443,14 @@ $BGColor: rgb(31, 28, 28);
                         p{
                             padding: 20px;
                             text-align: justify;
+                            font-size: clamp(10px, 1.1vw, 100px);
                         }
 
                         h2{
                             text-align: center;
                             color: $PageColor;
                             padding: 0px 20px;
+                            font-size: clamp(25px, 1.3vw, 100px);
                         }
 
                     }
@@ -458,8 +464,8 @@ $BGColor: rgb(31, 28, 28);
                         .NotPressed{
                             background-color: black;
                             color: $PageColor;
-                            padding: 20px 30px;
-                            font-size: 20px;
+                            padding: clamp(10px, 1.5vw, 40px) clamp(20px, 3vw, 60px);
+                            font-size: clamp(15px, 1.3vw, 100px);
                             border-radius: 1em;
                             outline: none;
                             @include alignCenter();
@@ -568,9 +574,8 @@ $BGColor: rgb(31, 28, 28);
 
                             .Tag{
                                 width: 100%;
+                                height: 40px;
                                 @include alignCenter();
-                                justify-content: space-around;
-                                flex-direction: row;
 
                                 p{
                                     color: $PageColor;
@@ -593,7 +598,7 @@ $BGColor: rgb(31, 28, 28);
                 position: relative;
 
                 p,label,textarea,input, select{
-                    font-size: clamp(11px, 1.3vw, 20px);
+                    font-size: clamp(15px, 1.3vw, 100px);
                     font-family: 'MuseoModerno', cursive;
                 }
 

@@ -54,13 +54,13 @@ body{
         .box{
             width: 300px;
             height: 400px;
-            // background-color: turquoise;
             @include alignCenter();
             flex-direction: column;
+            margin-bottom: 50px;
 
             h1{
                 letter-spacing: 3px;
-                font-size: 55px;
+                font-size: clamp(40px, 4vw, 100px);
                 text-align: center;
                 text-shadow: 0px 5px 10px$PageColor;
             }

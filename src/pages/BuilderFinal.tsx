@@ -183,7 +183,7 @@ const BuilderFinal: React.FC = () => {
     const DomainOpt3 = useRef<HTMLInputElement>(null)
     const DomainExtension = useRef<HTMLSelectElement>(null)
 
-    const AlignHorizontaly = {
+    const ContainerAlignHorizontaly = {
 
       width: "100%",
       height: "50%",
@@ -193,7 +193,7 @@ const BuilderFinal: React.FC = () => {
 
     } as React.CSSProperties
 
-    const AlignVertically = {
+    const ContainerAlignVertically = {
       
       width: "50%",
       height: "100%",
@@ -201,6 +201,28 @@ const BuilderFinal: React.FC = () => {
       transition: "all 500ms",
       justifyContent: "center",
     } as React.CSSProperties;
+
+    const ItemAlignHorizontaly = {
+
+      width: "100%",
+      height: "130px",
+      flexDirection: "row",
+      transition: "all 500ms",
+      justifyContent: "space-evenly",
+
+    } as React.CSSProperties;
+
+    const ItemAlignVertically = {
+      
+      height: "100%",
+      width: "150px",
+      flexDirection: "column",
+      transition: "all 500ms",
+      justifyContent: "space-evenly",
+    } as React.CSSProperties;
+
+
+
 
     const SaveDataReceived = useCallback(() => {
 
@@ -386,7 +408,7 @@ const BuilderFinal: React.FC = () => {
 
     const NumberOfPagesDecider = (returner:string) => {
 
-      // let thingy = "Merca"
+      // let thingy = "Ventas"
 
       if (returner === "Images"){
         
@@ -398,8 +420,8 @@ const BuilderFinal: React.FC = () => {
                 className="InnerImageBox"
                 style={
                   pageStructure === "vertical"
-                    ? AlignVertically
-                    : AlignHorizontaly
+                    ? ContainerAlignVertically
+                    : ContainerAlignHorizontaly
                 }
               >
                 <img alt="Svg" id="HomeSvg" src={HomeSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
@@ -413,8 +435,8 @@ const BuilderFinal: React.FC = () => {
                 className="InnerImageBox"
                 style={
                   pageStructure === "vertical"
-                    ? AlignVertically
-                    : AlignHorizontaly
+                    ? ContainerAlignVertically
+                    : ContainerAlignHorizontaly
                 }
               >
                 <img alt="Svg" id="HomeSvg" src={HomeSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
@@ -428,8 +450,8 @@ const BuilderFinal: React.FC = () => {
                 className="InnerImageBox"
                 style={
                   pageStructure === "vertical"
-                    ? AlignVertically
-                    : AlignHorizontaly
+                    ? ContainerAlignVertically
+                    : ContainerAlignHorizontaly
                 }
               >
                 <img alt="Svg" id="HomeSvg" src={HomeSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
@@ -444,8 +466,8 @@ const BuilderFinal: React.FC = () => {
                 className="InnerImageBox"
                 style={
                   pageStructure === "vertical"
-                    ? AlignVertically
-                    : AlignHorizontaly
+                    ? ContainerAlignVertically
+                    : ContainerAlignHorizontaly
                 }
               >
                 <img alt="Svg" id="HomeSvg" src={HomeSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
@@ -474,16 +496,16 @@ const BuilderFinal: React.FC = () => {
                 className="InnerTagsBox"
                 style={
                   pageStructure === "vertical"
-                    ? AlignVertically
-                    : AlignHorizontaly
+                    ? ContainerAlignVertically
+                    : ContainerAlignHorizontaly
                 }
               >
                 <div
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -501,8 +523,8 @@ const BuilderFinal: React.FC = () => {
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -520,8 +542,8 @@ const BuilderFinal: React.FC = () => {
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -544,16 +566,16 @@ const BuilderFinal: React.FC = () => {
                 className="InnerTagsBox"
                 style={
                   pageStructure === "vertical"
-                    ? AlignVertically
-                    : AlignHorizontaly
+                    ? ContainerAlignVertically
+                    : ContainerAlignHorizontaly
                 }
               >
                 <div
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -571,8 +593,8 @@ const BuilderFinal: React.FC = () => {
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -590,8 +612,8 @@ const BuilderFinal: React.FC = () => {
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -614,16 +636,16 @@ const BuilderFinal: React.FC = () => {
                 className="InnerTagsBox"
                 style={
                   pageStructure === "vertical"
-                    ? AlignVertically
-                    : AlignHorizontaly
+                    ? ContainerAlignVertically
+                    : ContainerAlignHorizontaly
                 }
               >
                 <div
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -641,8 +663,8 @@ const BuilderFinal: React.FC = () => {
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -660,8 +682,8 @@ const BuilderFinal: React.FC = () => {
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -679,8 +701,8 @@ const BuilderFinal: React.FC = () => {
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -703,16 +725,16 @@ const BuilderFinal: React.FC = () => {
                 className="InnerTagsBox"
                 style={
                   pageStructure === "vertical"
-                    ? AlignVertically
-                    : AlignHorizontaly
+                    ? ContainerAlignVertically
+                    : ContainerAlignHorizontaly
                 }
               >
                 <div
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -730,8 +752,8 @@ const BuilderFinal: React.FC = () => {
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -749,8 +771,8 @@ const BuilderFinal: React.FC = () => {
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -768,8 +790,8 @@ const BuilderFinal: React.FC = () => {
                   className="Tag"
                   style={
                     pageStructure === "vertical"
-                      ? AlignHorizontaly
-                      : AlignVertically
+                      ? ItemAlignHorizontaly
+                      : ItemAlignVertically
                   }
                 >
                   <img
@@ -795,6 +817,26 @@ const BuilderFinal: React.FC = () => {
               </div>
             );
         }
+      }
+      if (returner === "Names"){
+
+        switch (Data.SiteType){
+          case "Personal":
+            return '"Inicio", "Acerca De" y "Contactos"'
+
+          case "Merca":
+            return '"Inicio", "Acerca De" y "Contactos"'
+
+          case "Ventas":
+            return '"Inicio", "Acerca De", "Ventas" y "Contactos"'
+
+          case "Blog":
+            return '"Inicio", "Acerca De", "Blog" y "Contactos"'
+
+          default:
+            return '"Inicio", "Acerca De" y "Contactos"';
+        }
+
       }
     }
 
@@ -1024,7 +1066,7 @@ const BuilderFinal: React.FC = () => {
                   <h2>{Data.SiteType}</h2>
                   <p>
                     Para las Sitios Web de tipo "{Data.SiteType}", ofrecemos una
-                    estructura que consta de los siguientes componentes, los
+                    estructura que consta de los siguientes componentes: {NumberOfPagesDecider("Names")} .Los
                     cuales pueden ser puestos en una sola página, o en varias
                     páginas. Escoga la opción que más le guste.
                   </p>

@@ -264,6 +264,17 @@ $BGColor: rgb(31, 28, 28);
         }
     }
 
+    .BuilderFinalPage .Steps .StepsBody .Step2Style{
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+
+        .RightBoxS2Final{
+            display: none;
+        }
+    }
+
 }
 
 @media (max-width: 850px){
@@ -482,10 +493,10 @@ $BGColor: rgb(31, 28, 28);
 
     .BuilderFinalPage{
         .Steps .StepsBody {
-            .Step3Style, .Step2Style {
+            .Step3Style {
                 display: grid;
                 grid-template-columns: 1fr ;
-                grid-template-rows: 100vh 100vh;
+                grid-template-rows: 70vh 70vh;
             }
         }
     }
