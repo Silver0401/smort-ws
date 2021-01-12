@@ -66,7 +66,6 @@ $BackgroundColor: rgb(57, 55, 55);
         position: absolute;
         height: 100%;
         width: 100%;
-        overflow: hidden;
         display: grid;
         grid-template-columns: 40% 1fr;
         grid-template-rows: 1fr;
@@ -223,12 +222,11 @@ $BackgroundColor: rgb(57, 55, 55);
                         background-color: $BackgroundColor;
                         border: 2px solid black;
                         min-height: 200px;
-                        min-width: 300px;
+                        // min-width: 300px;
                         overflow: hidden;
                         @include alignCenter();
 
-                        flex-shrink: 1;
-                        flex-grow: 1;
+                        flex: 1 1 300px;
 
                         .Item{
                             position: relative;
@@ -268,6 +266,12 @@ $BackgroundColor: rgb(57, 55, 55);
                                 outline: none;
                                 
                                 &:hover{
+                                    background-color: white;
+                                    color: $BackgroundColor;
+                                    transition: background-color 500ms, color 500ms;
+                                }
+
+                                &:active{
                                     background-color: white;
                                     color: $BackgroundColor;
                                     transition: background-color 500ms, color 500ms;
@@ -362,12 +366,12 @@ $BackgroundColor: rgb(57, 55, 55);
             height: 70%;
 
             h1{
-                font-size: 60px;
+                font-size: clamp(35px, 5vw, 150px);
             }
 
             h2{
                 display: inline;
-                font-size: 30px;
+                font-size: clamp(15px, 2.2vw, 50px);
             }
 
             #h2phrase{
@@ -381,13 +385,13 @@ $BackgroundColor: rgb(57, 55, 55);
             @include alignCenter();
             flex-direction: row;
 
-            button{
+            .StartButton{
                 font-family: 'MuseoModerno', cursive;
                 background-color: $BGColor;
-                padding: 20px 40px;
-                font-size: 20px;
+                padding: clamp(20px, 1.5vw, 40px) clamp(40px, 3vw, 80px);
+                font-size: clamp(20px, 2.5vw, 100px);
                 font-weight: bolder;
-                border-radius: 30px;
+                border-radius: 1.87em;
                 color: white;
                 transition: background-color 500ms, color 500ms;
                 cursor: pointer;

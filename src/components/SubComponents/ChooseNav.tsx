@@ -140,8 +140,12 @@ const ChooseNav = (props:any) => {
             <button
               className="ChooseButton"
               onClick={() => {
-                props.changeFunction("Button Style", 3, "diseño para tus botones");
                 setData({ ...Data, NavBarStyle: NavBarName })
+                setTimeout(() => {
+                  props.changeFunction("Button Style", 3, "diseño para tus botones");
+                  props.ScrollToSectionFunction("Instructions");
+                },500)
+
               }}
             >
               Escoger

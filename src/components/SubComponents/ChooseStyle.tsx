@@ -89,8 +89,13 @@ const ChooseStyle = (props:any) => {
           <h1>{StyleName}</h1>
 
           <button onClick={() => {
-            props.changeFunction("NavBar Style", 2, "diseño para tu navegación");
+            
             setData({...Data, PageStyle:StyleName})
+            setTimeout(() => {
+              props.changeFunction("NavBar Style", 2, "diseño para tu navegación");
+              props.ScrollToSectionFunction("Instructions")
+            },500)
+
           }}>
             Escoger
           </button>

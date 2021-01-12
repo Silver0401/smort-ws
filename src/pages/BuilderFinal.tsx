@@ -220,7 +220,7 @@ const BuilderFinal: React.FC = () => {
           DomainExtension: DomainExtension.current?.value || "awaiting..",
           SiteStructure: pageStructure
       });
-    },[Data, Price, pageStructure, setData])
+    },[])
 
     const PriceDecider = () => {
       switch (Data.SiteType) {
@@ -927,7 +927,7 @@ const BuilderFinal: React.FC = () => {
               </span>
 
               <span className="InputBox3">
-                <label>Nombre para el Dominio de tu Sitio</label>
+                <label id="IB3title" >Nombre para el Dominio de tu Sitio</label>
 
                 <span>
                   <label>Opción #1</label>

@@ -38,7 +38,6 @@ const BuilderInit = () => {
     img: string,
     description: string,
     fontFamily: string,
-    fontSize: string,
     globalNumber: string
   ) => {
     let title = name;
@@ -100,14 +99,13 @@ const BuilderInit = () => {
           </div>
 
           <span className="numberBox">
-            <h4 style={{ fontSize: "10px" }}>{globalNumber}</h4>
+            <p>{globalNumber}</p>
           </span>
 
           <div className="TitleBox">
-            <h2
+            <h2 className={name}
               style={{
                 fontFamily: fontFamily,
-                fontSize: fontSize,
               }}
             >
               {title}
@@ -157,7 +155,6 @@ const BuilderInit = () => {
             PersonalImg,
             PersonalInfo,
             "'Dancing Script', cursive",
-            "40px",
             "01"
           )}
 
@@ -166,7 +163,6 @@ const BuilderInit = () => {
             MercaImg,
             MercaInfo,
             "'Press Start 2P', cursive",
-            "25px",
             "02"
           )}
 
@@ -175,7 +171,6 @@ const BuilderInit = () => {
             VentasImg,
             VentasInfo,
             "'Berkshire Swash', cursive",
-            "40px",
             "03"
           )}
 
@@ -184,7 +179,6 @@ const BuilderInit = () => {
             BlogImg,
             BlogInfo,
             "'Indie Flower', cursive",
-            "50px",
             "04"
           )}
 
@@ -193,7 +187,6 @@ const BuilderInit = () => {
             EmpresarialImg,
             EmpresarialInfo,
             "'Julius Sans One', sans-serif",
-            "35px",
             "04"
           )} */}
         </div>

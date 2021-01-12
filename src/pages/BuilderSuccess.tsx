@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useCallback, useRef, MutableRefObject } from 'react'
+import React, { useContext, useEffect, useCallback, useRef } from 'react'
 import emailjs from "emailjs-com"
 import { ChosenDataContext } from "./../components/ChosenData"
 import axios from "axios";
-import lottie, { AnimationConfigWithPath } from "lottie-web";
+import lottie from "lottie-web";
 
 export default function BuilderSuccess() {
 

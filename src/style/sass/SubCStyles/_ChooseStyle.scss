@@ -16,7 +16,7 @@ $BGColor: rgb(57, 55, 55);
     -5px -5px 15px white,
     inset 5px 5px 10px rgb(147, 144, 144),
     inset -10px -10px 20px white;
-    border: 4px solid white;
+    // border: 4px solid white;
     transition: box-shadow 500ms, border 500ms;
 }
 @mixin NeumorphType2 {
@@ -34,7 +34,7 @@ $BGColor: rgb(57, 55, 55);
     -5px -5px 15px white,
     inset 0px 0px 0px rgb(70, 69, 69),
     inset -0px -0px 0px rgb(70, 69, 69);
-    border: 4px solid lightgray;
+    // border: 4px solid lightgray;
     transition: box-shadow 500ms, border 500ms;
 }
 
@@ -167,7 +167,7 @@ $BGColor: rgb(57, 55, 55);
                     position: relative;
                    font-family: 'MuseoModerno', cursive;
                    color: black;
-                   font-size: 40px;
+                   font-size: clamp(20px, 3vw, 40px);
                 }
 
                 button{
@@ -179,9 +179,10 @@ $BGColor: rgb(57, 55, 55);
                     background-color: white;
                     font-family: 'MuseoModerno', cursive;
                     padding: 0px 1em;
-                    font-size: 20px;
+                    font-size: clamp(15px, 1.5vw, 50px);
                     cursor: pointer;
                     transition: all 500ms;
+                    outline: none;
 
                     &:hover{
                         background-color: black;
@@ -403,7 +404,12 @@ $BGColor: rgb(57, 55, 55);
                         color: var(--ChosenColor1);
                         @include alignCenter();
 
+                        h1{
+                            font-size: clamp(25px, 2vw, 50px);
+                        }
+
                         p{
+                            font-size: clamp(10px, 1vw, 20px);
                             color: gray;
                             padding: 0px 20px;
                         }
@@ -506,30 +512,25 @@ $BGColor: rgb(57, 55, 55);
                             height: 35px;
                             background-color: transparent;
                             // border: 4px solid black;
-                            @include NeumorphType2();
+                            @include NeumorphType1();
                             border-radius: 50%;
                             transition: box-shadow 500ms;
                             @include alignCenter();
 
                             &:hover{
-                                // @include NeumorphType2();
+
+                                @include NeumorphType3();
 
                                 .Whats, .Insta, .Face, .Twit{
                                     opacity: .7; 
                                     fill: var(--ChosenColor1);
                                     transition: fill 500ms, opacity 500ms;
                                 }
-
-                                // .Whats{ opacity: .7; fill: rgb(38, 237, 38); transition: fill 500ms, opacity 500ms; }
-                                // .Insta{ opacity: .7; fill: rgb(165, 52, 196); transition: fill 500ms, opacity 500ms; }
-                                // .Face{ opacity: .7; fill: rgb(57, 105, 228); transition: fill 500ms, opacity 500ms; }
-                                // .Twit{ opacity: .7; fill: rgb(65, 194, 233); transition: fill 500ms, opacity 500ms; }
-
                             }
 
                             svg{
                                 fill: var(--ChosenColor1);
-                                opacity: .3;
+                                opacity: .2;
                                 width: 100%;
                                 height: 100%;
                                 transition: fill 500ms, opacity 500ms;
@@ -590,7 +591,6 @@ $BGColor: rgb(57, 55, 55);
                         z-index: 1;
                         margin-left: 2em;
                         @include alignCenter();
-                        // background-color: yellow;
                         
                         svg{
                             width: 90%;
@@ -626,7 +626,16 @@ $BGColor: rgb(57, 55, 55);
                         text-align: center;
                         color: var(--ChosenColor3);
 
+                        h1{
+                            font-size: clamp(25px, 2.5vw, 50px);
+                        }
+
+                        p{
+                            font-size: clamp(10px, 1.5vw, 20px);
+                        }
+
                     }
+
                     button{
                         padding: 10px 30px;
                         border-radius: 10px;
@@ -664,7 +673,7 @@ $BGColor: rgb(57, 55, 55);
                         // font-weight: bolder;
 
                         h1{
-                            font-size: 80px;
+                            font-size: clamp(40px, 4vw, 80px);
                             font-family: 'Julius Sans One', sans-serif;
                             font-weight: 900;
                         }
@@ -712,8 +721,9 @@ $BGColor: rgb(57, 55, 55);
                         }
                     }
                     .BurgerBox{
-                        width: 20px;
-                        height: 20px;
+                        width: 25px;
+                        height: 25px;
+                        justify-content: space-evenly;
 
                         span{
                             background-color: var(--ChosenColor1);
@@ -752,10 +762,6 @@ $BGColor: rgb(57, 55, 55);
                 .LeftBox{
                     .MinGrid{
                         visibility: visible;
-
-                        #NavSqr{
-                            opacity: 0;
-                        }
                     }
                 }
                 
@@ -822,16 +828,14 @@ $BGColor: rgb(57, 55, 55);
                         justify-content: space-around;
                         z-index: 1;
                         background-color: transparent;
-                        // @include Glassmorphic();
 
-                        // backdrop-filter: blur(3px);
 
                         .TechChip, .TechChip2{
                             position: relative;
                             visibility: visible;
-                            // width: auto;
-                            // height: 40%;
+
                         }
+
 
                         .TechChip{
                             width: 200px;
@@ -844,10 +848,10 @@ $BGColor: rgb(57, 55, 55);
                         .TechChip2{
                             @include alignCenter();
                             // position: absolute;
-                            width: 60%;
-                            height: 110px;
+                            width: 50%;
+                            height: 80px;
                             color: var(--ChosenColor1);
-                            font-size: 100px;
+                            font-size: clamp(50px, 5vw, 100px);
                             font-family: 'Dancing Script', cursive;
 
                             @include Glassmorphic();
@@ -893,23 +897,13 @@ $BGColor: rgb(57, 55, 55);
                         height: 100%;
                         top: 0;
                         left: 0;
-                        z-index: 1;
+                        z-index: 0;
 
                         span{
                             position: absolute;
                             visibility: hidden;
                         }
 
-                        // span:nth-child(1){
-                        //     top: -100px;
-                        //     left: -100px;
-                        //     position: absolute;
-                        //     width: 300px;
-                        //     height: 300px;
-                        //     background-color: var(--ChosenColor1);
-                        //     visibility: visible;
-                        //     border-radius: 50%;
-                        // }
                     }
 
                     .ContactsBox::before{
@@ -951,6 +945,7 @@ $BGColor: rgb(57, 55, 55);
                             position: relative;
                             margin: 0px 15px;
                             color: var(--ChosenColor1);
+                            font-size: clamp(10px, 2vw, 20px);
                         }
 
                         
@@ -996,23 +991,6 @@ $BGColor: rgb(57, 55, 55);
     }
 }
 
-
-// @media (max-width: 1000px){
-//     .PageStylesSection{
-//         .MainSection{
-//             .Page{
-//                 .PageStyle{
-//                     grid-template-columns: 100%;
-//                     grid-template-rows: 100% 100%;
-//                     grid-template-areas: 
-//                     "LeftBox" 
-//                     "RightBox";   
-//                 }
-
-//             }
-//         }
-//     }
-// }
 
 // font-family: 'Dancing Script', cursive;
 // font-family: 'Julius Sans One', sans-serif;

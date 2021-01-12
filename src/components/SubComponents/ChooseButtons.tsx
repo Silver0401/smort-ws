@@ -18,8 +18,13 @@ const ChooseButtons = (props:any) => {
         <div className="Info">
           <button
             onClick={() => {
-              props.changeFunction("Loader Style", 4, "diseño para tu cargador");
               setData({ ...Data, ButtonStyle: ButtonName });
+
+              setTimeout(() => {
+                props.changeFunction("Loader Style", 4, "diseño para tu cargador");
+                props.ScrollToSectionFunction("Instructions")
+              }, 500)
+
             }}
             className="ChooseButton"
           >

@@ -44,16 +44,9 @@ $BackgroundColor: rgb(31, 28, 28);
         
         h1{
             position: relative;
-            // padding: 20px 40px;
-            // padding-bottom: 100px;
-            font-size: calc(1.2em + 3vw);
-            // letter-spacing: 3px;
-            // font-family: 'Dancing Script', cursive;
-            // font-family: 'Julius Sans One', sans-serif;
-            // font-family: 'Monoton', cursive;
-            // font-family: 'Press Start 2P', cursive;
-            // font-family: 'Righteous', cursive;    
+            font-size: clamp(30px, 4vw, 90px);
             font-family: 'MuseoModerno', cursive;
+            padding: 0px 20px;
         }
     
         .Options{
@@ -68,15 +61,7 @@ $BackgroundColor: rgb(31, 28, 28);
             background: linear-gradient(to bottom, rgba(31, 28, 28, 0.44), rgba(51, 162, 203, 0.500) );
 
             .opt{
-                // font-family: 'Dancing Script', cursive;
-                // font-family: 'Julius Sans One', sans-serif;
-                // font-family: 'Monoton', cursive;
-                // font-family: 'Press Start 2P', cursive;
-                // font-family: 'Righteous', cursive;
-                
-                // @include alignCenter();
                 position: relative;
-
                 flex-basis: calc(calc(1200px - 100%) * 999);
                 flex-shrink: 1;
                 flex-grow: 1;
@@ -100,8 +85,8 @@ $BackgroundColor: rgb(31, 28, 28);
     
                     .numberBox{
                         position: absolute;
-                        width: 25px;
-                        height: 25px;
+                        width: clamp(25px, 2vw, 100px);
+                        height: clamp(25px, 2vw, 100px);
                         border-bottom: 1px solid white;
                         top: 20px;
                         left: 30px;
@@ -109,15 +94,16 @@ $BackgroundColor: rgb(31, 28, 28);
     
                         p{
                             color: white;
+                            font-size: clamp(10px, 1vw, 50px);
                         }
                     }
     
                     .imgContainer{
     
-                        width: 100px;
-                        height: 100px;
+                        width: clamp(100px, 10vw, 200px);
+                        height: clamp(100px, 10vw, 200px);
                         margin-top: 25px;
-    
+
                         position: relative;
                         @include alignCenter();
                         border-radius: 50%;
@@ -176,16 +162,21 @@ $BackgroundColor: rgb(31, 28, 28);
                         width: 90%;
     
                         h2{
-                            font-size: calc(.5rem + 1.2vw);
+                            font-size: clamp(40px, 4vw, 150px);
                             padding-top: 20px;
                             border-bottom: 0px solid $BackgroundColor;
                             transition: border-bottom 500ms;
+                        }
+
+                        .Merca{
+                            font-size: clamp(20px, 2vw, 75px);
                         }
     
                         h4{
                             padding: 0px 20%;
                             text-align: center;
                             font-family: 'Righteous', cursive;
+                            font-size: clamp(15px, 1.3vw, 35px);
                         }
                     }
                 }
@@ -203,20 +194,20 @@ $BackgroundColor: rgb(31, 28, 28);
 
                         position: relative;
                         font-family: 'Righteous', cursive;
-                        font-size: calc(.8em + .7vw);
-                        padding: 20px 20px;
-                        text-align: center;
+                        font-size: clamp(15px, 1.5vw, 60px);
+                        padding: 20px clamp(20px, 2vw, 50px);
+                        text-align: justify;
                         
                     }
 
                     button{
-                        padding: 20px;
-                        border-radius: 50px;
+                        padding: clamp(20px, 1.5vw, 40px);
+                        border-radius: 3.125em;
                         box-shadow: 0px 0px 20px black;
                         transition: background-color 500ms, color 500ms;
                         font-family: 'Press Start 2P', cursive;
                         cursor: pointer;
-
+                        font-size: clamp(13px, 1.2vw, 35px);
 
                         &:hover{
                             background-color: black;
@@ -234,28 +225,5 @@ $BackgroundColor: rgb(31, 28, 28);
             }   
         }
     }
-
-    .Stage2{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        opacity: 1;
-        color: white;
-        z-index: 1;
-        visibility: hidden;
-        @include alignCenter();
-        justify-content: flex-start;
-
-        .Stage2Box{
-
-            margin-top: 40px;
-            position: absolute;
-            height: 0px;
-            width: 95%;
-            border-radius: 50px;
-            border: 5px solid white;
-        }
-    }
-
 
 }
