@@ -20,6 +20,8 @@ const Support = () => {
 
   const PostHelpRequest = () => {
 
+    toast("Procesando...")
+
     const HelpRequestData = {
       Name: NameRef.current?.value,
       Email: EmailRef.current?.value,
@@ -49,15 +51,22 @@ const Support = () => {
     }
 
     axios.post("/DataCenter/HelpRequest", HelpRequestData)
-      .then(res => {
-        console.log(res.data); 
-        SendEmail(HelpRequestData.Name, HelpRequestData.Email, HelpRequestData.Message)
+      .then((res) => {
+        console.log(res.data);
+        SendEmail(
+          HelpRequestData.Name,
+          HelpRequestData.Email,
+          HelpRequestData.Message
+        );
         toast.success("¡Solicitud de Ayuda Enviada!");
-        setCurrentMessageData("")
-        setCurrentNameData("")
-        setCurrentEmailData("")
+        setCurrentMessageData("");
+        setCurrentNameData("");
+        setCurrentEmailData("");
       })
-      .catch(err => {console.log(err); toast.success(err);})
+      .catch((err) => {
+        console.log(`FE error: ${err}`);
+        toast.error("Error :(");
+      });
   }
 
   return (
@@ -85,7 +94,7 @@ const Support = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  PostHelpRequest();
+                  PostHelpRequest()
                 }}
               >
                 <svg
