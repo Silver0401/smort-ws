@@ -35,7 +35,7 @@ const SideBar = () => {
               </a>
             </li>
             <li>
-              <a onClick={() => setDCBurguer(false)} href="#Terms&Conditions">
+              <a onClick={() => setDCBurguer(false)} href="#TandC">
                 {t("DC.About.T&C.title")}
               </a>
             </li>

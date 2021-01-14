@@ -55,15 +55,15 @@ $BGColor: rgb(31, 28, 28);
             }
     
             h2{
-                font-size: clamp(20px, 2vw, 30px );
+                font-size: clamp(22px, 2vw, 50px);
                 text-decoration: underline rgb(77, 228, 127);
                 align-self: flex-start;
             }   
             p{
-                font-size: clamp(11px, 2vw, 20px );
+                font-size: clamp(12px, 1.3vw, 40px );
                 text-align: justify;
-                line-height: 40px;
-                margin-right: 40px;
+                line-height: 2.5em;
+                overflow-y: scroll;
             }
         }
     
@@ -87,6 +87,7 @@ $BGColor: rgb(31, 28, 28);
                     position: relative;
                     width: 100%;
                     height: 70%;
+                    overflow-y: scroll;
                 }
     
                 .ImgBox{
@@ -245,9 +246,10 @@ $BGColor: rgb(31, 28, 28);
                     justify-content: space-evenly;
     
                     p{
-                        width: 40%;
-                        height: 100%;
-                        @include alignCenter();
+                        width: 50%;
+                        height: 70%;
+                        align-self: center;
+                        justify-self: center;
                     }
     
                     img{
@@ -303,28 +305,47 @@ $BGColor: rgb(31, 28, 28);
 
         .LinkBox{
             width: 100%;
-            height: 60%;
+            height: 70%;
             z-index: 0;
+            @include alignCenter();
+            flex-direction: column;
+            justify-content: space-evenly;
 
 
             h2{
                 color: $PageColor;
-                font-size: 22px;
+                font-size: clamp(22px, 2vw, 50px);
+                align-self: flex-start;
+                margin: 0px 1em;
             }
 
             h2, ul{
-                margin: 30px 20px;
                 list-style: none;
             }
 
+            ul{
+                @include alignCenter();
+                flex-direction: column;
+                justify-content: space-around;
+                width: 100%;
+                height: 30%;
+            }
+
             li{
-                margin: 30px 10px;
+                // margin: 1.8em 0.6em;
                 cursor: pointer;
+                position: relative;
+                width: 100%;
+                height: 20%;
+                @include alignCenter();
+                align-items: flex-start;
 
                 a{
+                    margin: 0px 1.5em;
                     text-decoration: none;
                     color: white;
                     transition: color 500ms, text-decoration 500ms;
+                    font-size: clamp(10px, 1.1vw, 30px);
 
                     &:hover{
                         color: rgb(77, 228, 127);
