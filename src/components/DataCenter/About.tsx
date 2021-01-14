@@ -37,7 +37,7 @@ const About = (props:any) => {
           <hr />
         </li>
         <li id="TandC" ref={props.Refs.TermsAndConditionsRef}>
-
+            
           <div className="TextBox">
             <h2>{t("DC.About.T&C.title")}</h2>
             <p>{t("DC.About.T&C.P1")}</p>

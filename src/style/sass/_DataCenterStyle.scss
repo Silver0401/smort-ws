@@ -43,24 +43,21 @@ $BGColor: rgb(31, 28, 28);
             }
     
             h1,h2,p{
-                margin: 2.18em 20px;
+                margin: 1em 20px;
             }
     
             li{
                 width: 100%;
                 height: 100vh;
                 position: relative;
+                @include alignCenter();
+                justify-content: space-evenly;
             }
     
-            h1{
-                font-size: clamp(30px, 4vw, 45px);
-                text-align:  center;
-                text-shadow: 0px 0px 10px $PageColor;
-            }
             h2{
                 font-size: clamp(20px, 2vw, 30px );
                 text-decoration: underline rgb(77, 228, 127);
-                padding-top: 40px;
+                align-self: flex-start;
             }   
             p{
                 font-size: clamp(11px, 2vw, 20px );
@@ -116,6 +113,8 @@ $BGColor: rgb(31, 28, 28);
                 flex-direction: column;
 
                 .TextBox{
+                    @include alignCenter();
+                    flex-direction: column;
                     width: 100%;
                     height: 50%;
                 }   
@@ -128,7 +127,7 @@ $BGColor: rgb(31, 28, 28);
 
                     img{
                         height: 90%;
-                        width: 70%;
+                        width: 60%;
                     }
                 }
             }
@@ -310,7 +309,7 @@ $BGColor: rgb(31, 28, 28);
 
             h2{
                 color: $PageColor;
-                font-size: 25px;
+                font-size: 22px;
             }
 
             h2, ul{
