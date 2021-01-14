@@ -22,7 +22,7 @@ $BGColor: rgb(31, 28, 28);
     // overflow-x: hidden;
     // overflow-y: scroll;
     overflow: hidden;
-    scroll-behavior: smooth;
+    
 
     .DataContainer{
 
@@ -32,6 +32,7 @@ $BGColor: rgb(31, 28, 28);
         margin-left: auto;
         overflow-x: hidden;
         overflow-y: scroll;
+        scroll-behavior: smooth;
 
         .About, .Support {
     
@@ -42,7 +43,7 @@ $BGColor: rgb(31, 28, 28);
             }
     
             h1,h2,p{
-                margin: 35px 20px;
+                margin: 2.18em 20px;
             }
     
             li{
@@ -62,7 +63,7 @@ $BGColor: rgb(31, 28, 28);
                 padding-top: 40px;
             }   
             p{
-                font-size: clamp(10px, 2vw, 20px );
+                font-size: clamp(11px, 2vw, 20px );
                 text-align: justify;
                 line-height: 40px;
                 margin-right: 40px;
@@ -76,10 +77,6 @@ $BGColor: rgb(31, 28, 28);
             z-index: 0;
             margin-left: auto;
     
-            .DandP{
-                height: 120vh;
-            }
-    
     
             .Content{
                 @include alignCenter();
@@ -92,14 +89,14 @@ $BGColor: rgb(31, 28, 28);
                 .TextBox{
                     position: relative;
                     width: 100%;
-                    height: 80%;
+                    height: 70%;
                 }
     
                 .ImgBox{
     
                     position: relative;
                     width: 100%;
-                    height: 20%;
+                    height: 30%;
                     overflow: hidden;
                     @include alignCenter();
                     justify-content: flex-start;
@@ -107,11 +104,33 @@ $BGColor: rgb(31, 28, 28);
                     img{
     
                         position: absolute;
-                        width: auto;
-                        height: 750px;
+                        width: 80%;
+                        height: 250%;
                     }
                 }
     
+            }
+
+            #TandC{
+                @include alignCenter();
+                flex-direction: column;
+
+                .TextBox{
+                    width: 100%;
+                    height: 50%;
+                }   
+
+                .ImageBox{
+                    width: 100%;
+                    height: 50%;
+                    overflow: hidden;
+                    @include alignCenter();
+
+                    img{
+                        height: 90%;
+                        width: 70%;
+                    }
+                }
             }
         }
     
@@ -137,24 +156,33 @@ $BGColor: rgb(31, 28, 28);
                     }
     
                     .TopForm{
-                        margin: 0px 2em;
-                        height: 20%;
+                        position: relative;
+                        height: 40%;
                         width: 100%;
-                        @include alignCenter();
-                        flex-direction: row;
-                        justify-content: flex-start;
-    
-                        input,label{
-    
-                            margin: 0px 1em;
-                            font-family: 'MuseoModerno', cursive;
-                            font-size: clamp(10px, 2vw, 20px);
-                        }
-    
-                        input{color: black;}
-    
-                        .NameLabel{
-                            margin-left: 0px;
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        span{
+                            @include alignCenter();
+                            flex-direction: row;
+                            justify-content: space-evenly;
+
+                            position: relative;
+                            flex: 1 1 200px;
+                            min-height: 100px;
+
+                            input,label{
+                                // margin: 0px .5em;
+                                font-family: 'MuseoModerno', cursive;
+                                font-size: clamp(13px, 2vw, 20px);
+                            }
+        
+                            input{
+                                color: black;
+                                width: 50%;
+                            }
+        
+        
                         }
     
                         button{
@@ -166,6 +194,7 @@ $BGColor: rgb(31, 28, 28);
                             cursor: pointer;
                             outline: none;
                             transition: background-color 500ms, color 500ms;
+                            font-size: clamp(15px, 2vw, 20px);
     
                             &:hover{
                                 
@@ -189,15 +218,14 @@ $BGColor: rgb(31, 28, 28);
                     }
     
                     .BottomForm{
-                        margin: 0px 2em;
+                        position: relative;
                         width: 100%;
-                        height: 70%;
+                        height: 60%;
                         @include alignCenter();
-                        align-items: flex-start;
     
                         label, textarea{
                             font-family: 'MuseoModerno', cursive;
-                            font-size: clamp(10px, 2vw, 20px);
+                            font-size: clamp(13px, 2vw, 20px);
                         }
     
                         textarea{
@@ -225,7 +253,7 @@ $BGColor: rgb(31, 28, 28);
     
                     img{
                         width: 50%;
-                        height: 100%;
+                        height: 65%;
                     }
                 }
     
@@ -244,66 +272,80 @@ $BGColor: rgb(31, 28, 28);
         position: fixed;
         width: 20%;
         height: 100vh;
-        background-color: transparent;
+        background-color: black;
         z-index: 1;
+        @include alignCenter();
+        justify-content: space-around;
 
         .DataCenterBurguer{
+            position: absolute;
             visibility: hidden;
+            top: 0px;
+            right: -50px;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            z-index: 5;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            cursor: pointer;
+
+            div{
+                position: relative;;
+                width: 60%;
+                background-color: $PageColor;
+                height: 3px;
+                border-radius: 1em;
+            }
         }
 
-        .SideBarBox{
-            @include alignCenter();
-            justify-content: space-around;
-            position: absolute;
+        .LinkBox{
             width: 100%;
-            height: 100%;
-            background-color: black;
-
-            .LinkBox{
-                width: 100%;
-                height: 60%;
-                z-index: 0;
+            height: 60%;
+            z-index: 0;
 
 
-                h2{
-                    color: $PageColor;
-                    font-size: 25px;
-                }
+            h2{
+                color: $PageColor;
+                font-size: 25px;
+            }
 
-                h2, ul{
-                    margin: 30px 20px;
-                    list-style: none;
-                }
+            h2, ul{
+                margin: 30px 20px;
+                list-style: none;
+            }
 
-                li{
-                    margin: 30px 10px;
-                    cursor: pointer;
+            li{
+                margin: 30px 10px;
+                cursor: pointer;
 
-                    a{
-                        text-decoration: none;
-                        color: white;
+                a{
+                    text-decoration: none;
+                    color: white;
+                    transition: color 500ms, text-decoration 500ms;
+
+                    &:hover{
+                        color: rgb(77, 228, 127);
+                        text-decoration: underline;
                         transition: color 500ms, text-decoration 500ms;
-
-                        &:hover{
-                            color: rgb(77, 228, 127);
-                            text-decoration: underline;
-                            transition: color 500ms, text-decoration 500ms;
-                        }
                     }
                 }
-    
             }
-            .LogoBox{
+
+        }
+        .LogoBox{
+            width: 100%;
+            height: 30%;
+            @include alignCenter();
+            cursor: pointer;
+            z-index: 0;
+
+            svg{
                 width: 100%;
-                height: 30%;
-                @include alignCenter();
-                cursor: pointer;
-                z-index: 0;
-    
-                svg{
-                    width: 100%;
-                    height: 100%;
-                }
+                height: 100%;
             }
         }
     }

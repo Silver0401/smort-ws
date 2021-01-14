@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom"
 import SmortLogo from "./../../resources/SmortLogo.svg";
+import { useTranslation } from "react-i18next";
 
 
 const SideBar = () => {
 
+    const { t } = useTranslation()
     let History = useHistory()
     const [DCBurguer, setDCBurguer] = useState(false)
 
     return (
-      <div className="SideBar">
+      <div className={DCBurguer ? `SideBar Toggled` : `SideBar notToggled`}>
         <div
-          className={DCBurguer ? "DataCenterBurguer Toggled" : "DataCenterBurguer notToggled"}
+          className="DataCenterBurguer"
           onClick={() => setDCBurguer((prevState) => !prevState)}
         >
           <div></div>
@@ -19,46 +21,52 @@ const SideBar = () => {
           <div></div>
         </div>
 
-        <section className={DCBurguer ? `SideBarBox Toggled` :`SideBarBox notToggled`}>
-            <span
-            className="LinkBox"
-            >
-            <h2>Acerca de</h2>
-            <ul>
-                <li>
-                <a onClick={() => setDCBurguer(false)} href="#Domains">Dominios</a>
-                </li>
-                <li>
-                <a onClick={() => setDCBurguer(false)} href="#Dates&Payments">Fechas y Pagos</a>
-                </li>
-                <li>
-                <a onClick={() => setDCBurguer(false)} href="#Terms&Conditions">Términos y Condiciones</a>
-                </li>
-            </ul>
-            <h2>Soporte</h2>
-            <ul>
-                <li>
-                <a onClick={() => setDCBurguer(false)} href="#ClientSupport">Ayuda al Cliente</a>
-                </li>
-                <li>
-                <a onClick={() => setDCBurguer(false)} href="#StyleChanges">Cambios de Diseño</a>
-                </li>
-                <li>
-                <a onClick={() => setDCBurguer(false)} href="#SiteUpdates">Actualización o Mejora</a>
-                </li>
-            </ul>
-            </span>
+        <span className="LinkBox">
+          <h2>{t("About.TitleWord")}</h2>
+          <ul>
+            <li>
+              <a onClick={() => setDCBurguer(false)} href="#Domains">
+                {t("DC.About.Domains.title")}
+              </a>
+            </li>
+            <li>
+              <a onClick={() => setDCBurguer(false)} href="#Dates&Payments">
+                {t("DC.About.D&P.title")}
+              </a>
+            </li>
+            <li>
+              <a onClick={() => setDCBurguer(false)} href="#Terms&Conditions">
+                {t("DC.About.T&C.title")}
+              </a>
+            </li>
+          </ul>
+          <h2>{t("Support.TitleWord")}</h2>
+          <ul>
+            <li>
+              <a onClick={() => setDCBurguer(false)} href="#ClientSupport">
+                {t("DC.Support.CS.title")}
+              </a>
+            </li>
+            <li>
+              <a onClick={() => setDCBurguer(false)} href="#StyleChanges">
+                {t("DC.Support.StyleChanges.title")}
+              </a>
+            </li>
+            <li>
+              <a onClick={() => setDCBurguer(false)} href="#SiteUpdates">
+                {t("DC.Support.SiteUpdates.title")}
+              </a>
+            </li>
+          </ul>
+        </span>
 
-            <span
-            className="LogoBox"
-            >
-            <img
-                onClick={() => History.push("/")}
-                src={SmortLogo}
-                alt="SmortLogo"
-            ></img>
-            </span>
-        </section>
+        <span className="LogoBox">
+          <img
+            onClick={() => History.push("/")}
+            src={SmortLogo}
+            alt="SmortLogo"
+          ></img>
+        </span>
       </div>
     );
 };

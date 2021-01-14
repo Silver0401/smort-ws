@@ -105,6 +105,8 @@
     "DC.Support.SiteUpdates.title": "Actualización o Mejora de tu Página",
     "DC.Support.SiteUpdates.P1": "Si en algun punto busca que le agreguemos, actualizemos o mejoremos la página de cualquier manera, se cobrará un cantidad acorde al tamaño de la nueva implementación deseada (los precios pueden variar significativamente dependiendo de los recursos necesarios para la creación, adición o actualización de la sección de la página a cambiar).",
     
+    "Support.TitleWord" : "Soporte",
+    "About.TitleWord" : "Acerca de",
 
     "Default":""
 }

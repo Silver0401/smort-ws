@@ -1,5 +1,6 @@
 import React from "react";
 import DomainSvg from "./../../resources/domain.svg";
+import TermsAndConditionsSvg from "./../../resources/TermsAndConditions.svg";
 import { useTranslation } from "react-i18next";
 
 const About = (props:any) => {
@@ -35,11 +36,19 @@ const About = (props:any) => {
           <p>{t("DC.About.D&P.P2")}</p>
           <hr />
         </li>
-        <li id="Terms&Conditions" ref={props.Refs.TermsAndConditionsRef}>
-          <h2>{t("DC.About.T&C.title")}</h2>
-          <p>{t("DC.About.T&C.P1")}</p>
-          <hr />
-          <p>{t("DC.About.T&C.P2")}</p>
+        <li id="TandC" ref={props.Refs.TermsAndConditionsRef}>
+
+          <div className="TextBox">
+            <h2>{t("DC.About.T&C.title")}</h2>
+            <p>{t("DC.About.T&C.P1")}</p>
+            <hr />
+            <p>{t("DC.About.T&C.P2")}</p>
+          </div>
+
+          <div className="ImageBox">
+            <img alt="Terms and Conditions svg" src={TermsAndConditionsSvg} />
+          </div>
+
         </li>
       </ul>
     </section>

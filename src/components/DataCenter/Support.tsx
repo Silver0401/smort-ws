@@ -95,34 +95,43 @@ const Support = (props:any) => {
 
           <form>
             <div className="TopForm">
-              <label className="NameLabel">{t("DC.Support.Label.Name")}</label>
-              <input
-                ref={NameRef}
-                onChange={(e) => setCurrentNameData(e.target.value)}
-                value={currentNameData}
-              />
-              <label>{t("DC.Support.Label.Email")}</label>
-              <input
-                ref={EmailRef}
-                onChange={(e) => setCurrentEmailData(e.target.value)}
-                value={currentEmailData}
-              />
 
-              <ChakraProvider>
-                <Button
-                  rightIcon={<SendPlaneIcon />}
-                  size="lg"
-                  isLoading={buttonLoading}
-                  loadingText="Enviando"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setButtonLoading(true);
-                    PostHelpRequest();
-                  }}
-                >
-                  Enviar
-                </Button>
-              </ChakraProvider>
+              <span>
+                <label className="NameLabel">{t("DC.Support.Label.Name")}</label>
+                <input
+                  ref={NameRef}
+                  onChange={(e) => setCurrentNameData(e.target.value)}
+                  value={currentNameData}
+                />
+              </span>
+
+              <span>
+                <label>{t("DC.Support.Label.Email")}</label>
+                <input
+                  ref={EmailRef}
+                  onChange={(e) => setCurrentEmailData(e.target.value)}
+                  value={currentEmailData}
+                />
+              </span>
+
+              <span>
+                <ChakraProvider>
+                  <Button
+                    rightIcon={<SendPlaneIcon />}
+                    size="lg"
+                    isLoading={buttonLoading}
+                    loadingText="Enviando"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setButtonLoading(true);
+                      PostHelpRequest();
+                    }}
+                  >
+                    Enviar
+                  </Button>
+                </ChakraProvider>
+              </span>
+
             </div>
             <div className="BottomForm">
               <label>{t("DC.Support.Label.Message")}</label>
