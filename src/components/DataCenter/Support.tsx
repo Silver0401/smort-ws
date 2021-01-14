@@ -64,7 +64,7 @@ const Support = (props:any) => {
         );
     }
 
-    axios.post("/DataCenter/HelpRequest", HelpRequestData)
+    axios.post("https://smort-backend-server.herokuapp.com/DataCenter/HelpRequest", HelpRequestData)
       .then((res) => {
         console.log(res.data);
         SendEmail(
