@@ -62,67 +62,68 @@ const StripeForm : React.FC = () => {
 
           const { id } = paymentMethod
           
-          axios
-            .post("/DataCenter/PaymentProcedure", {
-              id: id,
-              amount: parseInt(`${Data.SiteChosenPrice}00`),
-              Name: Data.Name,
-              Email: Data.Email
-            })
+          axios.post(
+              `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PaymentProcedure`,
+              {
+                id: id,
+                amount: parseInt(`${Data.SiteChosenPrice}00`),
+                Name: Data.Name,
+                Email: Data.Email,
+              }
+            )
             .then((res) => {
+              if (res.data === "Payment Successfull") {
+                console.log("placing in data base...");
 
-              if (res.data === "Payment Successfull"){
+                axios.post(`${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PlaceOrder`,
+                    {
+                      Name: Data.Name,
+                      Email: Data.Email,
+                      Phone: Data.Phone,
 
-                console.log("placing in data base...")
-
-                axios
-                  .post("/DataCenter/PlaceOrder", {
-                    Name: Data.Name,
-                    Email: Data.Email,
-                    Phone: Data.Phone,
-  
-                    SiteEspecifications: {
-                      MainTheme: Data.MainTheme,
-                      Details: Data.Details,
-                      DomainOptions: Data.DomainOptions,
-                      DomainExtension: Data.DomainExtension,
-                    },
-                    PageStyleDetails: {
-                      SiteType: Data.SiteType,
-                      PageStyle: Data.PageStyle,
-                      ButtonStyle: Data.ButtonStyle,
-                      NavBarStyle: Data.NavBarStyle,
-                      LoaderStyle: Data.LoaderStyle,
-                      Color1: Data.Color1,
-                      Color2: Data.Color2,
-                      SiteStructure: Data.SiteStructure
-                    },
-                    PaymentInfo: {
-                      SiteChosenPrice: Data.SiteChosenPrice,
-                      PaymentMethod: Data.PaymentMethod,
-                      TransactionId: id,
-                    },
-                  })
+                      SiteEspecifications: {
+                        MainTheme: Data.MainTheme,
+                        Details: Data.Details,
+                        DomainOptions: Data.DomainOptions,
+                        DomainExtension: Data.DomainExtension,
+                      },
+                      PageStyleDetails: {
+                        SiteType: Data.SiteType,
+                        PageStyle: Data.PageStyle,
+                        ButtonStyle: Data.ButtonStyle,
+                        NavBarStyle: Data.NavBarStyle,
+                        LoaderStyle: Data.LoaderStyle,
+                        Color1: Data.Color1,
+                        Color2: Data.Color2,
+                        SiteStructure: Data.SiteStructure,
+                      },
+                      PaymentInfo: {
+                        SiteChosenPrice: Data.SiteChosenPrice,
+                        PaymentMethod: Data.PaymentMethod,
+                        TransactionId: id,
+                      },
+                    }
+                  )
                   .then((res) => {
-                    toast.success("Operación Realizada con Éxito, redireccionando...")
-                    setData({...Data, MongoDBOrderId: res.data._id})
+                    toast.success(
+                      "Operación Realizada con Éxito, redireccionando..."
+                    );
+                    setData({ ...Data, MongoDBOrderId: res.data._id });
 
                     setTimeout(() => {
                       History.push("/PageBuilder/Success");
-                    }, 3500)
+                    }, 3500);
                   })
                   .catch((err) => {
-                    console.error(`FrontEnd Order Error: ${err}`)
-                    toast.error("Hubo un error en la operación")
+                    console.error(`FrontEnd Order Error: ${err}`);
+                    toast.error("Hubo un error en la operación");
                   });
-
               } else {
-                console.log("error placing in database")
+                console.log("error placing in database");
               }
-
             })
             .catch((err) => {
-              console.error(`FrontEnd Payment Error: ${err}`)
+              console.error(`FrontEnd Payment Error: ${err}`);
               toast.error("Hubo un error en la operación  :(");
             });
           

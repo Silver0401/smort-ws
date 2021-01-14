@@ -7,6 +7,7 @@ import changesSvg from "./../../resources/changes.svg";
 import emailjs from "emailjs-com"
 import { useTranslation } from "react-i18next";
 import { ChakraProvider,Button } from "@chakra-ui/react";
+// require("dotenv").config()
 
 const Support = (props:any) => {
 
@@ -32,7 +33,6 @@ const Support = (props:any) => {
       </svg>
     );
   }
-
 
   const PostHelpRequest = () => {
 
@@ -64,7 +64,7 @@ const Support = (props:any) => {
         );
     }
 
-    axios.post("https://smort-backend-server.herokuapp.com/DataCenter/HelpRequest", HelpRequestData)
+    axios.post(`${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/HelpRequest`, HelpRequestData)
       .then((res) => {
         console.log(res.data);
         SendEmail(
