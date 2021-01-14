@@ -2,7 +2,7 @@ import React from "react";
 import DomainSvg from "./../../resources/domain.svg";
 import { useTranslation } from "react-i18next";
 
-const About = () => {
+const About = (props:any) => {
 
 
   const { t } = useTranslation()
@@ -10,7 +10,7 @@ const About = () => {
   return (
     <section className="About">
       <ul>
-        <li id="Domains">
+        <li id="Domains" ref={props.Refs.DomainRef}>
           <h2>{t("DC.About.Domains.title")}</h2>
           <div className="D Content">
             <span className="TextBox">
@@ -24,14 +24,18 @@ const About = () => {
             </span>
           </div>
         </li>
-        <li id="Dates&Payments" className="DandP">
+        <li
+          id="Dates&Payments"
+          className="DandP"
+          ref={props.Refs.DatesAndPaymentsRef}
+        >
           <h2>{t("DC.About.D&P.title")}</h2>
           <p>{t("DC.About.D&P.P1")}</p>
           <hr />
           <p>{t("DC.About.D&P.P2")}</p>
           <hr />
         </li>
-        <li id="Terms&Conditions">
+        <li id="Terms&Conditions" ref={props.Refs.TermsAndConditionsRef}>
           <h2>{t("DC.About.T&C.title")}</h2>
           <p>{t("DC.About.T&C.P1")}</p>
           <hr />

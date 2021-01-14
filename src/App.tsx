@@ -3,9 +3,9 @@
 import React, { useEffect } from 'react';
 import { Route, Switch } from "react-router-dom";
 import "./style/css/index.css";
-import {ChosenDataProvider} from "./components/ChosenData";
 import anime from "animejs";
 import {AnimatePresence} from "framer-motion";
+
 
 // Pages
 
@@ -153,27 +153,23 @@ function App() {
 			</span>
 
 			<Switch>
-
-				<Route exact path="/" component={HomePage} />
-
-				<ChosenDataProvider>
-
-					<AnimatePresence exitBeforeEnter>
-
-						<Route key="BuilderInit" exact path="/PageBuilder/Init" component={BuilderInit} />
-
-						<Route key="BuilderRoot" exact path="/PageBuilder/Root" component={BuilderRoot} />
-
-						<Route key="BuilderFinal" exact path="/PageBuilder/Final" component={BuilderFinal} />
-						
-						<Route key="BuilderSuccess" exact path="/PageBuilder/Success" component={BuilderSuccess} />
-
-						<Route key="DataCenter" exact path="/DataCenter" component={DataCenter} />
-
-					</AnimatePresence>
-
-				</ChosenDataProvider>
 				
+				<AnimatePresence>
+
+					<Route key="Home" exact path="/" component={HomePage} />
+							
+					<Route key="DataCenter" exact path="/DataCenter" component={DataCenter} />
+
+					<Route key="BuilderInit" exact path="/PageBuilder/Init" component={BuilderInit} />
+
+					<Route key="BuilderRoot" exact path="/PageBuilder/Root" component={BuilderRoot} />
+
+					<Route key="BuilderFinal" exact path="/PageBuilder/Final" component={BuilderFinal} />
+					
+					<Route key="BuilderSuccess" exact path="/PageBuilder/Success" component={BuilderSuccess} />
+
+				</AnimatePresence>
+
 			</Switch>
 		</div>
 	);

@@ -81,6 +81,7 @@ const Block2 = () => {
       ],
     };
 
+
     useInterval(() => {
 
         const tl = anime.timeline({
@@ -95,6 +96,8 @@ const Block2 = () => {
             duration: 1000,
             width: ["0%", "50%"],
             }
+
+            
         );
 
         tl.add({
@@ -102,14 +105,19 @@ const Block2 = () => {
             width: ["50%", "0%"],
         });
 
-        setTimeout(() => {
+        let changeSvg = setTimeout(() => {
             if (ReasonCounter === ComplicatedReasons.Reason.length - 1 || ReasonCounter >= 6)
                 setReasonCounter(0);
             else setReasonCounter((prevCounter) => prevCounter + 1);
 
         }, 1000)
+  
+        return(() => {
+          clearTimeout(changeSvg)
+        })
 
     }, 3000)
+
 
 
     return (
@@ -119,7 +127,6 @@ const Block2 = () => {
 
           <span className="TextAnimBox">
             {ComplicatedReasons.Svgs[ReasonCounter]}
-            {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d={ComplicatedReasons.SvgPaths[ReasonCounter]}/></svg> */}
             <h2>{ComplicatedReasons.Reason[ReasonCounter]}</h2>
           </span>
 

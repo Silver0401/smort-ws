@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useTranslation } from "react-i18next"
+import { useHistory } from "react-router-dom";
+import { DataCenterContext } from "./../DataCenterPath";
 
 const Footer = () => {
 
   const { t } = useTranslation()
+  const History = useHistory()
+  const [chosenPath ,setChosenPath] = useContext(DataCenterContext)
+
+  const ChangePage = async (chosenLink:string) => {
+
+    function setPath(){
+      return(
+        new Promise((resolve) => {
+          resolve(setChosenPath(chosenLink))
+        })
+      )
+    }
+
+    await setPath()
+
+    History.push("/DataCenter")
+
+  }
 
   return (
     <section className="Footer" id="Contacts">
@@ -74,36 +94,38 @@ const Footer = () => {
           <ul>
             <p>{t("Footer.About.title")}</p>
             <li>
-              <a href="/DataCenter/#Domains">{t("Footer.About.Domains")}</a>
+              <h4 onClick={() => ChangePage("Domains")}>
+                {t("Footer.About.Domains")}
+              </h4>
             </li>
             <li>
-              <a href="/DataCenter/#Dates&Payments">
+              <h4 onClick={() => ChangePage("Dates&Payments")}>
                 {t("Footer.About.Dates&Payments")}
-              </a>
+              </h4>
             </li>
             <li>
-              <a href="/DataCenter/#Terms&Conditions">
+              <h4 onClick={() => ChangePage("Terms&Conditions")}>
                 {t("Footer.About.Terms&Conditions")}
-              </a>
+              </h4>
             </li>
           </ul>
 
           <ul>
             <p>{t("Footer.Support.title")}</p>
             <li>
-              <a href="/DataCenter/#ClientSupport">
+              <h4 onClick={() => ChangePage("ClientSupport")}>
                 {t("Footer.Support.ClientSupport")}
-              </a>
+              </h4>
             </li>
             <li>
-              <a href="/DataCenter/#StyleChanges">
+              <h4 onClick={() => ChangePage("StyleChanges")}>
                 {t("Footer.Support.StyleChange")}
-              </a>
+              </h4>
             </li>
             <li>
-              <a href="/DataCenter/#SiteUpdates">
+              <h4 onClick={() => ChangePage("SiteUpdates")}>
                 {t("Footer.Support.SiteUpgrade")}
-              </a>
+              </h4>
             </li>
           </ul>
         </div>

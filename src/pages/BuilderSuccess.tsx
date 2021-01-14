@@ -3,6 +3,7 @@ import emailjs from "emailjs-com"
 import { ChosenDataContext } from "./../components/ChosenData"
 import axios from "axios";
 import lottie from "lottie-web";
+import { motion } from "framer-motion";
 
 export default function BuilderSuccess() {
 
@@ -65,23 +66,24 @@ export default function BuilderSuccess() {
 
 
     return (
-      <div className="BuilderSuccessPage">
+      <motion.div
+        className="BuilderSuccessPage"
+        initial={{ opacity: 0, x: "100vw" }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: "100vw" }}
+      >
         <div className="TextSuccessBox">
           <h1>!Todo Listo!</h1>
           <p>
             Te acabamos de mandar un correo como comprobante de la fecha y del
-            pago que acabas de realizar. Hemos recibido tu información y empezaremos
-            a desarrollar tu sitio lo más pronto posible.
-
-            Escucharas de nosotros en algunos días cuando hayamos terminado tu sitio.
-
-            <br/>
-            <br/>
-
-            - El Equipo de Smort
+            pago que acabas de realizar. Hemos recibido tu información y
+            empezaremos a desarrollar tu sitio lo más pronto posible. Escucharas
+            de nosotros en algunos días cuando hayamos terminado tu sitio.
+            <br />
+            <br />- El Equipo de Smort
           </p>
         </div>
         <div className="lottieContainer" ref={container}></div>
-      </div>
+      </motion.div>
     );
 }
