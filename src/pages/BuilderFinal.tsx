@@ -203,25 +203,6 @@ const BuilderFinal: React.FC = () => {
       justifyContent: "center",
     } as React.CSSProperties;
 
-    const ItemAlignHorizontaly = {
-
-      width: "100%",
-      height: "130px",
-      flexDirection: "row",
-      transition: "all 500ms",
-      justifyContent: "space-evenly",
-
-    } as React.CSSProperties;
-
-    const ItemAlignVertically = {
-      
-      height: "100%",
-      width: "150px",
-      flexDirection: "column",
-      transition: "all 500ms",
-      justifyContent: "space-evenly",
-    } as React.CSSProperties;
-
 
 
 
@@ -425,9 +406,9 @@ const BuilderFinal: React.FC = () => {
                     : ContainerAlignHorizontaly
                 }
               >
-                <img alt="Svg" id="HomeSvg" src={HomeSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
-                <img alt="Svg" id="AboutSvg" src={AboutSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
-                <img alt="Svg" id="ContactSvg" src={ContactSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
+                <img alt="Svg" id="HomeSvg" src={HomeSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
+                <img alt="Svg" id="AboutSvg" src={AboutSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
+                <img alt="Svg" id="ContactSvg" src={ContactSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
               </div>)
 
           case "Merca":
@@ -440,9 +421,9 @@ const BuilderFinal: React.FC = () => {
                     : ContainerAlignHorizontaly
                 }
               >
-                <img alt="Svg" id="HomeSvg" src={HomeSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
-                <img alt="Svg" id="AboutSvg" src={AboutSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
-                <img alt="Svg" id="ContactSvg" src={ContactSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
+                <img alt="Svg" id="HomeSvg" src={HomeSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
+                <img alt="Svg" id="AboutSvg" src={AboutSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
+                <img alt="Svg" id="ContactSvg" src={ContactSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
               </div>)
 
           case "Ventas":
@@ -455,14 +436,14 @@ const BuilderFinal: React.FC = () => {
                     : ContainerAlignHorizontaly
                 }
               >
-                <img alt="Svg" id="HomeSvg" src={HomeSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
-                <img alt="Svg" id="AboutSvg" src={AboutSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
-                <img alt="Svg" id="BlogSvg" src={SalesSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
-                <img alt="Svg" id="ContactSvg" src={ContactSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
+                <img alt="Svg" id="HomeSvg" src={HomeSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
+                <img alt="Svg" id="AboutSvg" src={AboutSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
+                <img alt="Svg" id="BlogSvg" src={SalesSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
+                <img alt="Svg" id="ContactSvg" src={ContactSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
               </div>)
 
           case "Blog":
-            return (
+            return(
               <div
                 className="InnerImageBox"
                 style={
@@ -471,10 +452,10 @@ const BuilderFinal: React.FC = () => {
                     : ContainerAlignHorizontaly
                 }
               >
-                <img alt="Svg" id="HomeSvg" src={HomeSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
-                <img alt="Svg" id="AboutSvg" src={AboutSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
-                <img alt="Svg" id="BlogSvg" src={BlogSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
-                <img alt="Svg" id="ContactSvg" src={ContactSvg} style={pageStructure === "vertical" ? {width: "220px", transition: "all 500ms"} : {width: "150px", transition: "all 500ms"}} />
+                <img alt="Svg" id="HomeSvg" src={HomeSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
+                <img alt="Svg" id="AboutSvg" src={AboutSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
+                <img alt="Svg" id="BlogSvg" src={BlogSvg} className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
+                <img alt="Svg" id="ContactSvg" src={ContactSvg}  className={pageStructure === "vertical" ? "AlignVertically" : "AlignHorizontally"} />
               </div>
             );
 
@@ -502,12 +483,7 @@ const BuilderFinal: React.FC = () => {
                 }
               >
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -521,12 +497,7 @@ const BuilderFinal: React.FC = () => {
                   <p className="TagPelement HomeSvg">Home Component</p>
                 </div>
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -540,12 +511,7 @@ const BuilderFinal: React.FC = () => {
                   <p className="TagPelement AboutSvg">About Component</p>
                 </div>
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -572,12 +538,7 @@ const BuilderFinal: React.FC = () => {
                 }
               >
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -591,12 +552,7 @@ const BuilderFinal: React.FC = () => {
                   <p className="TagPelement HomeSvg">Home Component</p>
                 </div>
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -610,12 +566,7 @@ const BuilderFinal: React.FC = () => {
                   <p className="TagPelement AboutSvg">About Component</p>
                 </div>
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -642,12 +593,7 @@ const BuilderFinal: React.FC = () => {
                 }
               >
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -661,12 +607,7 @@ const BuilderFinal: React.FC = () => {
                   <p className="TagPelement HomeSvg">Home Component</p>
                 </div>
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -680,12 +621,7 @@ const BuilderFinal: React.FC = () => {
                   <p className="TagPelement AboutSvg">About Component</p>
                 </div>
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -699,12 +635,7 @@ const BuilderFinal: React.FC = () => {
                   <p className="TagPelement BlogSvg">Sales Component</p>
                 </div>
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -731,12 +662,7 @@ const BuilderFinal: React.FC = () => {
                 }
               >
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -750,12 +676,7 @@ const BuilderFinal: React.FC = () => {
                   <p className="TagPelement HomeSvg">Home Component</p>
                 </div>
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -769,12 +690,7 @@ const BuilderFinal: React.FC = () => {
                   <p className="TagPelement AboutSvg">About Component</p>
                 </div>
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"
@@ -788,12 +704,7 @@ const BuilderFinal: React.FC = () => {
                   <p className="TagPelement BlogSvg">Blog Component</p>
                 </div>
                 <div
-                  className="Tag"
-                  style={
-                    pageStructure === "vertical"
-                      ? ItemAlignHorizontaly
-                      : ItemAlignVertically
-                  }
+                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
                 >
                   <img
                     alt="bracket"

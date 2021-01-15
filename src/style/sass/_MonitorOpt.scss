@@ -245,4 +245,27 @@
         }
 
     }
+
+    .BuilderFinalPage{
+        .Step2Style{
+            .RightBoxS2Final{
+
+                overflow: hidden;
+
+                .Layout .InnerTagsBox{
+                    
+                    .AlignVertically{
+                        height: 40%;
+                    }
+                    .AlignHorizontally{
+                        height: 500px;
+                    }
+
+                    // .AlignHorizontally{
+                    //     height: 50%;
+                    // }
+                }
+            }
+        }
+    }
 }

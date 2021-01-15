@@ -159,11 +159,11 @@ $BGColor: rgb(31, 28, 28);
                         height: 40%;
                         @include alignCenter();
                         h1{
-                            font-size: clamp(60px ,1.5vw ,70px);
+                            font-size: clamp(60px ,6vw ,200px);
                             color: $PageColor;
                         }
                         h2{
-                            font-size: clamp(30px ,1.5vw ,50px);
+                            font-size: clamp(30px ,3vw ,150px);
                         }
 
                     }
@@ -186,7 +186,7 @@ $BGColor: rgb(31, 28, 28);
                             border-radius: 1em;
                             font-weight: bolder;
                             font-family: 'MuseoModerno', cursive;
-                            font-size: 20px;
+                            font-size: clamp(20px ,1vw ,40px);
                             @include alignCenter();
                             border-style: none;
                             cursor: pointer;
@@ -450,7 +450,7 @@ $BGColor: rgb(31, 28, 28);
                             text-align: center;
                             color: $PageColor;
                             padding: 0px 20px;
-                            font-size: clamp(25px, 1.3vw, 100px);
+                            font-size: clamp(25px, 2vw, 60px);
                         }
 
                     }
@@ -550,12 +550,28 @@ $BGColor: rgb(31, 28, 28);
                             align-items: center;
                             // z-index: 0;
     
+
+
                             img{
                                 width: 220px;
                                 height: auto;
                                 margin: -2px;
                                 // margin-right: clamp(0px, 13vw, 200px);
                             }
+
+                            .AlignVertically {
+
+                                width: 100%;
+                                height: 25%;
+                                // transition: all 500ms;
+                            }
+                            
+                            .AlignHorizontally {
+                                
+                                height: 100%;
+                                width: 20%;
+                                // transition: all 500ms;
+                            }                            
     
                         }
     
@@ -573,15 +589,49 @@ $BGColor: rgb(31, 28, 28);
                             transform-origin: bottom left;
 
                             .Tag{
-                                width: 100%;
-                                height: 40px;
                                 @include alignCenter();
 
                                 p{
                                     color: $PageColor;
                                     text-align: center;
                                     width: 100px;
-                                    // background-color: lightgreen;
+                                    font-size: clamp(20px, 1.5vw, 40px);
+                                }
+                            }
+
+                            .AlignVertically {
+
+                                width: 100%;
+                                height: 25%;
+                                flex-direction: row;
+                                transition: all 500ms;
+                                justify-content: space-evenly;
+
+                                img{
+                                    height: 90%;
+                                    width: 20%;
+                                }
+
+                                p{
+                                    width: 100%;
+                                }
+                            }
+                            
+                            .AlignHorizontally {
+                                
+                                height: 100%;
+                                width: 30%;
+                                flex-direction: column;
+                                transition: all 500ms;
+                                justify-content: space-evenly;
+
+                                img{
+                                    width: 90%;
+                                    height: 40%;
+                                }
+
+                                p{
+                                    width: 100%;
                                 }
                             }
                         }
