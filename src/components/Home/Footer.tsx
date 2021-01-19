@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { useHistory } from "react-router-dom";
 import { DataCenterContext } from "./../DataCenterPath";
 
-const Footer = () => {
+const Footer = (props:any) => {
 
   const { t } = useTranslation()
   const History = useHistory()
@@ -26,7 +26,7 @@ const Footer = () => {
   }
 
   return (
-    <section className="Footer" id="Contacts">
+    <section className="Footer" id="Contacts" ref={props.refData}>
       <span className="ContactUsTitle">
         <h1>{t("Footer.title")}</h1>
       </span>

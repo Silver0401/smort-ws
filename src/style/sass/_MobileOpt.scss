@@ -56,57 +56,35 @@ $BGColor: rgb(31, 28, 28);
 
     .HomePage{
 
-        scroll-snap-type: none;
-
         .NavBar{
-            top: 0;
-            right: 0;
-            width: 60px;
-            height: 60px;
-            background-color: transparent;
 
-            border-bottom-right-radius: 0px;
-            border-bottom-left-radius: 20px;
+            justify-content: space-between;
+            flex-direction: row-reverse;
 
-            ul{
-                position: absolute;
-                top: 0;
-                right: 0px;
-                background-color: $PageColor;
-                height: 100vh;
-                width: 250px;
-                z-index: 0;
-                transform: translateX(250px);
-                transition: transform 500ms;
-                flex-direction: column;
-
-                li a{
-                    font-size: 35px;
-                }
-
+            .LogoBox{
+                position: relative;
             }
 
             .Burger{
-                z-index: 1;
                 cursor: pointer;
                 position: relative;
-                width: 80%;
-                height: 80%;
-                border: 8px solid $PageColor;
-                background-color: $PageColor;
-                border-bottom-left-radius: 20px;
+                width: 50px;
+                height: 50px;
+                margin-right: 3em;
+                border-radius: 50%;
+                border: 2px solid $PageColor;
                 @include alignCenter();
                 justify-content: space-evenly;
                 transition: transform 500ms;
                 
                 span{
-                    background-color: black;
-                    box-shadow: 0px 0px 6px black;
+                    background-color: white;
+                    box-shadow: 0px 0px 5px white;
                     border-radius: 100px;
 
                     position: relative;
-                    width: 75%;
-                    height: 5px;
+                    width: 50%;
+                    height: 3px;
                     transition: width 900ms, transform 700ms;
                     z-index: 1;
                 }
@@ -121,14 +99,40 @@ $BGColor: rgb(31, 28, 28);
                 @extend .Burger;
                 @include XBurger();
 
-                transform: translateX(-250px);
-
                 & + ul{
-                    transform: translateX(0px);
                     transition: transform 500ms;
                 }
             }
 
+            ul{
+                width: 250px;
+                height: calc(100vh - 70px);
+                position: absolute;
+                right: 0;
+                top: 70px;
+                flex-direction: column;
+                background: linear-gradient(to bottom, rgba(31, 28, 28, 0.927) 5% ,rgba(0, 0, 0, 0.968) 95%);
+                backdrop-filter: blur(10px);
+
+                li{
+                    width: 100%;
+                    height: 10%;
+
+                    a, .LangText select{
+                        font-size: 15px;
+                    }
+                }
+            }
+
+            .toggled{
+                transform: translateX(0px);
+                transition: transform 500ms;
+            }
+
+            .notToggled{
+                transform: translateX(250px);
+                transition: transform 500ms;
+            }
         }
 
         .HomeInit{
@@ -147,13 +151,13 @@ $BGColor: rgb(31, 28, 28);
                     position: absolute;
                     left: auto;
                     right: auto;
-                    bottom: 0px;
+                    bottom: 20px;
                 }
             }
     
             .RightBoxHome{
                 // margin-bottom: 50px;
-    
+
                 .CreateButton{
                     width: 80%;
                 }
@@ -272,6 +276,18 @@ $BGColor: rgb(31, 28, 28);
 
 @media (max-width: 850px){
     .HomePage{
+
+        .HomeInit{
+
+            height: 160vh;
+            grid-template-rows: 100vh 1fr;
+
+            .RightBoxHome{
+                .SiteAnimationBox{
+                    transform: scale(.5);
+                }
+            }
+        }
 
         .Block1{
             .WhyBox{

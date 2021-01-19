@@ -6,12 +6,12 @@ import { useTranslation } from "react-i18next";
 // animation="fade-down" duration={1000}
 // animation="fade-up" duration={1000}
 
-const Block1 = () => {
+const Block1 = (props:any) => {
 
     const { t } = useTranslation()
 
     return (
-      <section className="Block1">
+      <section className="Block1" ref={props.Block1Ref}>
         <span className="Phrase">
           <h1>{t("Block1.phrase")}</h1>
         </span>

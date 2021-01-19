@@ -67,18 +67,18 @@ $BGColor: rgb(31, 28, 28);
 
 @mixin NeumorphType1 {
     box-shadow: 
-    10px 10px 30px black,
-    -10px -10px 20px rgba(255, 255, 255, 0.043),
-    inset 10px 10px 5px black,
-    inset -10px -10px 15px rgba(255, 255, 255, 0.146);
-    border: 6px solid $BGColor;
+    0.62em 0.62em 1.8em black,
+    -0.62em -0.62em 1.25em rgba(255, 255, 255, 0.043),
+    inset 0.62em 0.62em .3em rgb(24, 24, 24),
+    inset -0.62em -0.62em .9em rgba(60, 60, 60, 0.742);
+    border: .375em solid $BGColor;
     transition: box-shadow 600ms;
 }
 @mixin NeumorphType2 {
     box-shadow: 
-    15px 15px 40px black,
-    -10px -10px 20px rgba(255, 255, 255, 0.043);
-    border: 6px solid $BGColor;
+    .93em .93em 2.5em black,
+    -.62em -.62em 1.25em rgba(255, 255, 255, 0.043);
+    border: .375em solid $BGColor;
     transition: box-shadow 600ms;
 }
 
@@ -109,15 +109,50 @@ $BGColor: rgb(31, 28, 28);
     }
 }
 
+@keyframes ImageChanger1{
+    0%, 20%{
+        background-image: url(./../../resources/HomeLS1.jpg);
+    }
+    20%, 40%{
+        background-image: url(./../../resources/HomeLS3.jpg);
+    }
+    40%, 60%{
+        background-image: url(./../../resources/HomeLS5.jpg);
+    }
+    60%,80%{
+        background-image: url(./../../resources/HomeLS7.jpg);
+    }
+    80%,100%{
+        background-image: url(./../../resources/HomeLS1.jpg);
+    }
+}
+
+@keyframes ImageChanger2{
+    0%, 20%{
+        background-image: url(./../../resources/HomeLS2.jpg);
+    }
+    20%, 40%{
+        background-image: url(./../../resources/HomeLS4.jpg);
+    }
+    40%, 60%{
+        background-image: url(./../../resources/HomeLS6.jpg);
+    }
+    60%,80%{
+        background-image: url(./../../resources/HomeLS8.jpg);
+    }
+    80%,100%{
+        background-image: url(./../../resources/HomeLS2.jpg);
+    }
+}
 
 @mixin LiquidButtonProperties{
     position: relative;
     background: black;
     border-radius: 3em;
     box-shadow: 0px 0px 0px $PageColor;
-    padding: 1.8em 2.5em;
+    padding: 1em 2em;
     font-size: clamp(18px, 1.5vw, 50px);
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'MuseoModerno', cursive;
     cursor: pointer;
     color: white;
     line-height: 1.5em;
@@ -181,6 +216,15 @@ $BGColor: rgb(31, 28, 28);
 // font-family: 'Courgette', cursive;
 // font-family: 'MuseoModerno', cursive;
 
+// #scrolled{
+//     transition: background-color 500ms;
+//     background-color: rgba(0, 0, 0, 0.800);
+// }
+// #notScrolled{
+//     transition: background-color 500ms;
+//     background-color: transparent; 
+// }
+
 .HomePage{
     
     position: absolute;
@@ -188,102 +232,85 @@ $BGColor: rgb(31, 28, 28);
     height: 100%;
     overflow-y: auto;
     scroll-behavior: smooth;
-    // scroll-snap-type: y mandatory;
 
 
     section{
         width: 100%;
         height: 100vh;
-        // scroll-snap-align: start;
+        scroll-snap-align: end;
     }
-
 
     .NavBar{
-        // grid-area: NavBar;
         @include alignCenter(); 
+        justify-content: space-between;
+        overflow: visible;
         z-index: 5;
         position: fixed;
-        background-color: $PageColor;
+        background-color: transparent;
         top: 0px;
-        right: 50px;
-        width: 50%;
-        height: 40px;
-        border-bottom-right-radius: 200px;
-        border-bottom-left-radius: 200px;
-        font-family: 'Dancing Script', cursive;
+        width: 100%;
+        height: 70px;
+        backdrop-filter: blur(20px);
+        overflow: visible;
 
-        ul{
-            width: 100%;
+
+        .LogoBox{
+
+            position: fixed;
+            cursor: pointer;
+            left: 0px;
+            top: 0px;
+            width: 200px;
             height: 100%;
-            // background-color: black;
             @include alignCenter();
-            list-style-type: none;
-            
-            li{
+            justify-content: space-evenly;
 
-                position: relative;
-                
-                a{
-                    position: relative;
-                    font-size: clamp(20px, 2vw, 50px);
-                    color: white;
-                    text-decoration: none;
-                    font-weight: bolder;
-                    transition: all 500ms;
+            .MainLogoBox{
+                width: 30%;
+                height: 100%;
+                @include alignCenter();
 
-                    &:hover{
-                        color: black;
-                    }
-
-                    &:hover::after{
-                        width: 100%;
-                        transition:  width 500ms;
-                    }
-
-                }
-
-                a::after{
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                    content: "";
-
-                    width: 0%;
-                    height: 3px;
-                    background-color: white;
-                    // background: linear-gradient(to right, rgb(1, 82, 255), rgb(2, 35, 91));
-                    border-radius: 35%;
-                    transition:  width 500ms;
+                svg{
+                    width: auto;
+                    height: 80%;
                 }
             }
+
+
+            &:hover{
+
+                .MainLogoBox{
+                    animation: Yrotate 500ms linear;
+                }
+            }
+
+            h1{
+                font-family: 'Dancing Script', cursive;
+                font-size: clamp(35px, 2vw, 50px);
+                text-shadow: 0px 5px 5px $PageColor;
+            }
         }
-    }
 
-    .HomeInit{
-        position: relative;
-        display: grid;
-        grid-template-columns: 45% 55%;
-        grid-template-rows: 1fr;
-        grid-template-areas:
-        "LeftBox RightBox";
-    
-        .LeftBoxHome{
-            grid-area: LeftBox;
+
+        ul{
             position: relative;
-            // background: lightcoral;
+            width: 70%;
+            height: 100%;
             @include alignCenter();
-            flex-direction: column;
-            justify-content: space-around;
-            // justify-content: flex-end;
-
-            .LangBox{
-                position: absolute;
-                left: -15px;
-                top: -10px;
+            list-style-type: none;
+            background-color: transparent;
+            overflow: visible;
+            
+            li{
                 @include alignCenter();
                 flex-direction: row;
-                width: clamp(140px, 10vw, 1000px);
-                height: clamp(50px, 4vw, 100px);
+                position: relative;
+                cursor: pointer;
+                overflow: visible;
+                
+
+                width: 20%;
+                height: 90%;
 
                 .LangText{
                     width: 60%;
@@ -293,81 +320,176 @@ $BGColor: rgb(31, 28, 28);
                     
                     select{
                         background-color: transparent;
-                        color: white;
+                        color: $PageColor;
                         font-family: 'MuseoModerno', cursive;
                         border: 0px solid transparent;
                         outline: none;
-                        font-size: clamp(15px, 1vw, 25px);
+                        font-size: clamp(20px, 1.3vw, 50px);
                     }
 
                 }
 
                 .LangSvg{
-                    width: 40%;
-                    height: 100%;
+                    width: 30px;
+                    height: 30px;
                     position: relative;
-                    background-color: $PageColor;
-                    border-radius: 50%;
+                    background-color: transparent;
                     @include alignCenter();
 
                     img{
                         position: absolute;
-                        width: 70%;
-                        height: 70%;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                
+                .SvgContainer{
+                    position: relative;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+
+                    @include NeumorphType1();
+                    border: 4px solid $BGColor;
+                    box-shadow: 0px 0px 5px BGColor;
+                    transition: box-shadow 600ms, background-color 500ms;
+
+                    @include alignCenter();
+                    svg{
+                        width: 80%;
+                        height: 80%;
+                        fill: white;
+                        opacity: .3;
+                        transition: all 500ms;
+                    }
+                }
+
+                a{
+                    font-family: 'MuseoModerno', cursive;
+                    position: relative;
+                    font-size: clamp(20px, 1.3vw, 50px);
+                    color: white;
+                    opacity: .7;
+                    text-decoration: none;
+                    font-weight: bolder;
+                    transition: all 500ms;
+
+                }
+
+                &:hover{
+
+                    a{
+                        opacity: 1;
+                    }
+
+
+                    .SvgContainer{
+                        @include NeumorphType2();
+                        border: 4px solid $BGColor;
+                        box-shadow: 0px 0px 5px BGColor;
+                        background-color: $BGColor;
+                        transition: box-shadow 600ms, background-color 500ms;
+                    }
+
+
+                    &:nth-child(1){
+
+                        a{
+                            text-shadow: 0px 0px 1px rgb(252, 255, 46);
+                        }
+
+                        svg{
+                            fill: rgb(252, 255, 46);
+                            opacity: 1;
+                            transition: all 500ms;
+                        }
+                    }
+                    &:nth-child(2){
+
+                        a{
+                            text-shadow: 0px 0px 1px rgb(208, 39, 92);
+                        }
+
+                        svg{
+                            fill: rgb(208, 39, 92);
+                            opacity: 1;
+                            transition: all 500ms;
+                        }
+                    }
+                    &:nth-child(3){
+
+                        a{
+                            text-shadow: 0px 0px 1px rgb(106, 252, 99);
+                        }
+
+                        svg{
+                            fill: rgb(106, 252, 99);
+                            opacity: 1;
+                            transition: all 500ms;
+                        }
                     }
                 }
             }
-    
-            h1{
-                font-family: 'Dancing Script', cursive;
-                // font-family: 'Julius Sans One', sans-serif;
-                // font-family: 'Monoton', cursive;
-                // font-family: 'Press Start 2P', cursive;
-                // font-family: 'Righteous', cursive;
-                padding: 5%;
-                font-size: clamp(7rem, 8vw, 18rem);
-                text-shadow: 0px 10px 15px $PageColor;
-            }
-    
-            p{
-                text-align: center;
-                padding: 0px 50px;
-                // font-family: 'Dancing Script', cursive;
-                // font-family: 'Julius Sans One', sans-serif;
-                // font-family: 'Monoton', cursive;
-                font-family: 'Press Start 2P', cursive;
-                // font-family: 'Righteous', cursive;
-                font-size: calc(1em + 1vw);
-            }
-    
-            .price{
-                position: relative;
-                @include alignCenter();
-    
-                .p{
-                    position: relative;
-                    font-size: calc(1em + 2.5vw);
-                }
-    
-                .line{
-                    position: absolute;
-                    height: 4px;
-                    background-color: $PageColor;
-                    width: 80%;
-                    bottom: -5px;
-                }
-            }
-    
-            .BrainBox{
+        }
+    }
+
+
+    .HomeInit{
+        position: relative;
+        display: grid;
+        grid-template-columns: 45% 55%;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "LeftBox RightBox";
+        overflow: hidden;
+        font-family: 'MuseoModerno', cursive;
+
+        .LeftBoxHome{
+            grid-area: LeftBox;
+            position: relative;
+            @include alignCenter();
+            flex-direction: column;
+            justify-content: space-evenly;
+
+
                 
-                height: auto;
-                width: #{"max(300px, 55%)"};
-    
-                img, svg{
-                    // background-color: lightgrey;
-                    width: 100%;
-                    height: 100%;
+            .Slogan{
+                width: 100%;
+                height: 50%;
+                position: relative;
+                // background-color: black;
+                @include alignCenter();
+                justify-content: space-evenly;
+                flex-direction: column;
+                align-items: flex-start;
+
+                > * {
+                    margin-left: clamp(1rem, 5vw, 5rem);
+                    margin-right: clamp(.5rem, 2.5vw, 3rem);
                 }
+
+                p{
+                    font-size: clamp(15px, 1.2vw, 30px);
+                    align-self: flex-start;
+                    color: $PageColor;
+                    font-weight: bolder;
+                    text-decoration: underline black;
+                }
+
+                h1{
+                    font-size: clamp(40px, 4vw, 60px);
+                    color: $PageColor;
+                }
+
+                h2{
+                    font-size: clamp(15px, 1.5vw, 30px);
+                    color: white;
+                    align-self: flex-start;
+                }
+            }
+
+            .CreateButton{
+                @include LiquidButtonProperties();
             }
     
             .Arrow{
@@ -378,7 +500,6 @@ $BGColor: rgb(31, 28, 28);
                 height: 25px;
                 background-color: transparent;
                 border-radius: 50%;
-                // animation: ArrowMov 1s linear infinite alternate;
     
                 svg{
                     position: absolute;
@@ -396,55 +517,474 @@ $BGColor: rgb(31, 28, 28);
         .RightBoxHome{
             grid-area: RightBox;
             position: relative;
-            // background: lightgreen;
             font-size: 15px;
     
             @include alignCenter();
             flex-direction: column;
     
-            .LettersBox{
-                position: relative;
-                width: 100%;
-                height: 50%;
-                // background: black;
-    
+            .SiteAnimationBox{
+                position: absolute;
+                width: 45em;
+                height: 45em;
+                overflow: hidden;
                 @include alignCenter();
-                flex-direction: column;
-                text-align: center;
-                font-family: 'Press Start 2P', cursive;
-    
-                div{
+                justify-content: center;
+
+                .Polymorph{
                     position: relative;
-                    // @include alignCenter();
-                    // background-color: lightgreen;
-                    width: 90%;
-                    height: 30%;
-                    overflow: hidden;
-                    // display: inline-block;
+                    z-index: 0;
+                    width: 70%;
+                    height: 70%;
+                    opacity: 1;
+                    overflow: visible;
+                    @include alignCenter();
+                    justify-content: center;
+
+                    svg{
+                        position: absolute;
+                        overflow: visible;
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    #ShapeShifter{
+                        opacity: 0;
+                        width: 80%;
+                        height: 80%;
+                    }
+
+
+                    .PhoneContainer{
+                        top: 0;
+                        left: 0;
+                        overflow: hidden;
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        border: 1px solid white;
+                        border-radius: 1em;
+                        z-index: 0;
+                        margin-right: auto;
+                        opacity: 0;
+                        margin-left: 1em;
+                        margin-bottom: -2.5em;
+                        
+                        .SiteContainer .BackgroundImgs{
+                            img{
+                                height: 100%;
+                                width: 100%;
+                            }
+                        }
+
+                        .BrowserBar{
+
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 15px;
+                            background-color: black;
+                            @include alignCenter();
+
+                            .CirclesContainer{
+                                position: relative;
+                                width: 50px;
+                                height: 100%;
+                                @include alignCenter();
+
+                                span{
+                                    position: relative;
+                                    width: 5px;
+                                    height: 5px;
+                                    border-radius: 50%;
+                                }
+
+                                .c1{background-color: red;}
+                                .c2{background-color: yellow;}
+                                .c3{background-color: lime;}
+
+                            }
+
+                            .UrlBox{
+                                position: relative;
+                                width: 70%;
+                                height: 40%;
+                                border-radius: 1em;
+                                background-color: lightgray;
+                            }
+                        }
+
+                        .SiteContainer{
+                            position: absolute;
+                            top: 15px;
+                            left: 0;
+                            width: 100%;
+                            height: calc(100% - 15px);
+
+                            @include alignCenter();
+                            flex-direction: column;
+                            justify-content: center;
+
+                            .BackgroundImgs{
+
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+
+                                img{
+                                    position: absolute;
+                                    opacity: 0;
+                                }
+
+                            }
+
+
+                            .MiniTitle{
+                                position: relative;
+                                opacity: 0;
+                                transition: all;
+                                width: 70%;
+                                height: 100px;
+                                @include alignCenter();
+                                justify-content: center;
+                                
+                                h1{
+                                    position: absolute;
+                                    color: black;
+                                    text-align: center;
+                                    font-size: 30px;
+                                    opacity: 0;
+                                }
+                            }
+                            .MiniSubTitle{
+                                position: relative;
+                                opacity: 0;
+                                transition: all;
+                                width: 70%;
+                                height: 100px;
+                                @include alignCenter();
+                                justify-content: center;
+                                
+                                h1{
+                                    position: absolute;
+                                    color: black;
+                                    text-align: center;
+                                    font-size: 15px;
+                                    opacity: 0;
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+
+                .InitBox{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
                     @include alignCenter();
                     flex-direction: column;
                     justify-content: center;
-                    border-bottom: 1px solid white;
-                    
-                    h1{
-                        position: relative;
-                        display: inline-block;
-                        margin: 10px 0px;
-                        line-height: 1.25em;
-                        // margin-right: auto;
-                        // background-color: lightcoral;
-                        font-size: clamp(12px, 1.9vw, 60px);
+                    z-index: 1;
+                    visibility: visible;
+
+                    > * {
+
+                        overflow: hidden;
+
+                        .BrowserBar{
+
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 15px;
+                            background-color: black;
+                            @include alignCenter();
+
+                            .CirclesContainer{
+                                position: relative;
+                                width: 50px;
+                                height: 100%;
+                                @include alignCenter();
+
+                                span{
+                                    position: relative;
+                                    width: 5px;
+                                    height: 5px;
+                                    border-radius: 50%;
+                                }
+
+                                .c1{background-color: red;}
+                                .c2{background-color: yellow;}
+                                .c3{background-color: lime;}
+
+                            }
+
+                            .UrlBox{
+                                position: relative;
+                                width: 70%;
+                                height: 40%;
+                                border-radius: 1em;
+                                background-color: lightgray;
+                            }
+                        }
+
+                        .SiteContainer{
+                            position: absolute;
+                            top: 15px;
+                            left: 0;
+                            width: 100%;
+                            height: calc(100% - 15px);
+
+                            @include alignCenter();
+                            flex-direction: column;
+                            justify-content: center;
+
+                            .BackgroundImgs{
+
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+
+                                img{
+                                    position: absolute;
+                                    opacity: 0;
+                                }
+
+                            }
+
+
+                            .MiniTitle{
+                                position: relative;
+                                opacity: 0;
+                                transition: all;
+                                width: 70%;
+                                height: 100px;
+                                @include alignCenter();
+                                justify-content: center;
+                                
+                                h1{
+                                    position: absolute;
+                                    color: black;
+                                    text-align: center;
+                                    font-size: 30px;
+                                    opacity: 0;
+                                }
+                            }
+                            .MiniSubTitle{
+                                position: relative;
+                                opacity: 0;
+                                transition: all;
+                                width: 70%;
+                                height: 100px;
+                                @include alignCenter();
+                                justify-content: center;
+                                
+                                h1{
+                                    position: absolute;
+                                    color: black;
+                                    text-align: center;
+                                    font-size: 15px;
+                                    opacity: 0;
+                                }
+                            }
+                        }
+
                     }
+
+                    .TextBox1{
+                        position: absolute;
+                        top: 8em;
+                        right: 4em;
+                        width: 20em;
+                        height: 7em;
+                        background-color: rgba(51, 162, 203, 0.475);
+                        backdrop-filter: blur(5px);
+                        border-radius: 1em;
+                        @include alignCenter();
+                        justify-content: center;
+                        z-index: 2;
+                        transform-origin: center;
+                        
+                        h1{
+                            text-align: center;
+                            color: white;
+                            font-weight: bolder;
+                            position: absolute;
+                            opacity: 0;
+                        }
+                    }
+
+                    .TextBox2{
+                        @extend .TextBox1;
+                        opacity: 0;
+                    }
+
+                    .PhoneContainer{
+                        transform-origin: bottom left;
+                        position: absolute;
+                        width: 20em;
+                        height: 30em;
+                        border: 1px solid white;
+                        border-radius: 1em;
+                        z-index: 0;
+                        margin-right: 2em;
+                        margin-top: 5em;
+                        opacity: 0;
+                        
+                        .SiteContainer .BackgroundImgs{
+                            img{
+                                height: 100%;
+                                width: 100%;
+                            }
+                        }
+                        
+
+                    }   
     
-                    .ProWord{
-                        color: $PageColor;
+                    .MonitorContainer{
+                        opacity: 0;
+                        transform-origin: top right;
+                        position: absolute;
+                        width: 30em;
+                        height: 20em;
+                        border: 1px solid white;
+                        border-radius: 1em;
+                        z-index: 0;
+                        margin-top: 20em;
+                        margin-left: 5em;
+                        
+                       .SiteContainer .BackgroundImgs{
+                            img{
+                                height: auto;
+                                width: 100%;
+                            }
+                        }
+
+                        #Image1{
+                            opacity: 1;
+                        }
                     }
                 }
+
+                .SecondBox{
+                    position: absolute;
+                    opacity: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                    visibility: hidden;
+                    background-color: $BGColor;
+                    @include alignCenter();
+                    flex-direction: column;
+                    justify-content: space-evenly;
+
+                    .StyleTitle{
+                        width: 100%;
+                        height: 20%;
+                        @include alignCenter();
+                        align-items: center;
+
+                        h1{
+                            color: white;
+                            font-size: 35px;
+                        }
+
+                    }
+
+                    .StylesBox{
+                        width: 100%;
+                        height: 70%;
+                        @include alignCenter();
+
+                        .Roulette{
+                            position: relative;
+                            border-radius: 50%;
+                            width: 35em;
+                            height: 35em;
+                            @include alignCenter();
+                            justify-content: center;
+                            
+                            div{
+                                position: absolute;
+                                width: 20%;
+                                height: 20%;
+                                border-radius: 50%;
+                                background-color: transparent;
+                                @include alignCenter();
+
+                                svg{
+                                    width: 60%;
+                                    height: 60%;
+                                    opacity: .5;
+                                }
+                            }
+
+                            div:nth-child(1){
+                                margin-bottom: 22em;
+                                border: 4px solid yellow;
+                                box-shadow: 0px 0px 5px yellow;
+                                svg{
+                                    fill:yellow
+                                }
+                            }
+
+                            div:nth-child(2){
+                                margin-bottom: 13.5em;
+                                margin-right: 19.5em;
+                                border: 4px solid white;
+                                box-shadow: 0px 0px 5px white;
+                                svg{
+                                    fill:white
+                                }
     
+                            }
+                            div:nth-child(3){
+                                margin-bottom: 13.5em;
+                                margin-left: 19.5em;
+                                border: 4px solid $PageColor;
+                                box-shadow: 0px 0px 5px $PageColor;
+                                svg{
+                                    fill: $PageColor
+                                }
+    
+                            }
+                            div:nth-child(4){
+                                margin-top: 22em;
+                                border: 4px solid red;
+                                box-shadow: 0px 0px 5px red;
+                                svg{
+                                    fill:red
+                                }
+                            }
+
+                            div:nth-child(5){
+                                margin-top: 13.5em;
+                                margin-right: 19.5em;
+                                border: 4px solid purple;
+                                box-shadow: 0px 0px 5px purple;
+                                svg{
+                                    fill:purple
+                                }
+    
+                            }
+                            div:nth-child(6){
+                                margin-top: 13.5em;
+                                margin-left: 19.5em;
+                                border: 4px solid lime;
+                                box-shadow: 0px 0px 5px lime;
+                                svg{
+                                    fill:lime
+                                }
+    
+                            }
+                        }
+                    }
+                }
             }
-            .CreateButton{
-                @include LiquidButtonProperties();
-            }
+        
         }
 
     }
@@ -585,8 +1125,8 @@ $BGColor: rgb(31, 28, 28);
 
         .LeftBoxB2{
             margin-right: 30%;
-            border-top-right-radius: 150px;
-            border-bottom-right-radius: 150px;
+            border-top-right-radius: 9.3em;
+            border-bottom-right-radius: 9.3em;
             background-color: black;            
 
             h1{
@@ -654,8 +1194,8 @@ $BGColor: rgb(31, 28, 28);
         }
         .RightBoxB2{
             margin-left: 30%;
-            border-top-left-radius: 150px;
-            border-bottom-left-radius: 150px;
+            border-top-left-radius: 9.3em;
+            border-bottom-left-radius: 9.3em;
             background-color: black;
             color: white;
             // border: 10px solid black;
@@ -696,7 +1236,6 @@ $BGColor: rgb(31, 28, 28);
         flex-direction: column;
         margin-top: 100px;
         font-family: 'MuseoModerno', cursive;
-        // margin-bottom: 150px;
         overflow: hidden;
 
         .B3Title{
@@ -986,7 +1525,6 @@ $BGColor: rgb(31, 28, 28);
             }
         }   
     }
-
 
 
     .Footer{
