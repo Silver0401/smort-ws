@@ -1,29 +1,659 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useRef, Suspense, MutableRefObject } from "react";
 import anime from "animejs";
-
+import { Canvas } from "react-three-fiber";
+import { useGLTF } from "@react-three/drei/useGLTF";
+import * as THREE from 'three'
+import { useAnimations } from '@react-three/drei/useAnimations'
 
 // Images
-
-// landscapes
 import Image1 from "./../../resources/HomeLS1.jpg";
-import Image2 from "./../../resources/HomeLS2.jpg";
 import Image3 from "./../../resources/HomeLS3.jpg";
-import Image4 from "./../../resources/HomeLS4.jpg";
-import Image5 from "./../../resources/HomeLS5.jpg";
-import Image6 from "./../../resources/HomeLS6.jpg";
-import Image7 from "./../../resources/HomeLS7.jpg";
-import Image8 from "./../../resources/HomeLS8.jpg";
-
-// People
 import Person1 from "./../../resources/person1.jpg";
-import Person2 from "./../../resources/person2.jpg";
-
-// Products
 import Sales1 from "./../../resources/sales1.jpg";
-import Sales2 from "./../../resources/sales2.jpg";
+import { OrbitControls } from "@react-three/drei";
+
+
+
+function Model(props:any) {
+  const group = useRef() as React.MutableRefObject<THREE.Object3D>
+  const { nodes, materials, animations } = useGLTF("/3DModels/spider.gltf");
+  const { actions } = useAnimations(animations, group);
+
+  useEffect(() => {
+    actions["animation.amethist_walker.walk"].play();
+  },[5000])
+
+  return (
+    <group ref={group} {...props} dispose={null}>
+      <group position={[0, 0, 0]} rotation={[0,180,0]}>
+        <group position={[0, 5, 12]}>
+          <group position={[-2, 8, 3]}>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["43f496b4-2fb6-0722-6192-f0e352bc23e1"].geometry}
+              position={[2, -15, -15]}
+            />
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["be9d1a15-b2e9-31a9-eafa-67e7def9c476"].geometry}
+              position={[2, -15, -15]}
+            />
+          </group>
+          <group position={[2, 8, 6]} rotation={[0, 0, -0.26]}>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["fc3799bd-c240-8391-2060-a8157c19ad4c"].geometry}
+              position={[-2, -15, -18]}
+            />
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["0f92c03c-72f0-0b24-24b7-ba5a3ed9b8a7"].geometry}
+              position={[-2, -15, -18]}
+            />
+          </group>
+          <group position={[1, 8, 11]} rotation={[0.13, 0.03, 0.22]}>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["838f9f36-5da1-701c-7745-3f7b4d215e04"].geometry}
+              position={[-1, -15, -23]}
+            />
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["b70df474-f7c6-1fc2-2c50-5fdcbda6be89"].geometry}
+              position={[-1, -15, -23]}
+            />
+          </group>
+          <group position={[-1.93, 5.71, 14.95]} rotation={[0.3, 0.04, 0.12]}>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["4e87a742-5aef-55e9-4b5b-6bf30086ac5d"].geometry}
+              position={[1.93, -12.71, -26.95]}
+            />
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["c4a130c4-b34a-5a19-f3ef-c646cc2b0653"].geometry}
+              position={[1.93, -12.71, -26.95]}
+            />
+          </group>
+          <group position={[6, 5, 9]} rotation={[0, 0, -0.44]}>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["572c3635-c13f-9318-b25b-5df1cf98ec58"].geometry}
+              position={[-6, -12, -21]}
+            />
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["90e27439-85cc-ae1d-01d2-4ee38231cb85"].geometry}
+              position={[-6, -12, -21]}
+            />
+          </group>
+          <group position={[3.5, 5.22, 15.62]} rotation={[0.38, -0.08, -0.2]}>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["f5e6f172-0cf4-5a86-cc2b-ce06d24b8e8f"].geometry}
+              position={[-3.5, -12.22, -27.62]}
+            />
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["fd83928f-9ece-319a-6a7a-b686f7f8c17e"].geometry}
+              position={[-3.5, -12.22, -27.62]}
+            />
+          </group>
+          <group position={[-5, 6, 8]} rotation={[0, 0, 0.74]}>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["cea5cbfd-7379-0112-b52e-50a78d658986"].geometry}
+              position={[5, -13, -20]}
+            />
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["567cec1c-be16-2d08-6779-b4bea8452129"].geometry}
+              position={[5, -13, -20]}
+            />
+          </group>
+          <mesh
+            material={materials["amethist_walker.png"]}
+            geometry={nodes["57737f7a-098d-09aa-45db-b6296f109024"].geometry}
+            position={[0, -7, -12]}
+          />
+          <mesh
+            material={materials["amethist_walker.png"]}
+            geometry={nodes["6309ed38-52f7-0418-3548-a6a454592d92"].geometry}
+            position={[0, -7, -12]}
+          />
+          <mesh
+            material={materials["amethist_walker.png"]}
+            geometry={nodes["83b52029-ac48-4788-be0e-717b8a8dcad3"].geometry}
+            position={[-2, -2.5, 2]}
+            rotation={[0, -0.17, 0]}
+          />
+          <mesh
+            material={materials["amethist_walker.png"]}
+            geometry={nodes["7f0851e0-6359-c244-9cab-4e48e56f7a2b"].geometry}
+            position={[2, -2.5, 2]}
+            rotation={[0, 0.17, 0]}
+          />
+          <mesh
+            material={materials["amethist_walker.png"]}
+            geometry={nodes["0577d2bd-8f0e-cabf-731d-703341d40fd7"].geometry}
+            position={[8, 2, 1]}
+            rotation={[0, -0.09, 0]}
+          />
+          <mesh
+            material={materials["amethist_walker.png"]}
+            geometry={nodes["72742e01-26bc-08a3-8c7c-b82fbb90b4df"].geometry}
+            position={[0, -7, -12]}
+          />
+          <mesh
+            material={materials["amethist_walker.png"]}
+            geometry={nodes["a9928883-3699-a99e-c5ea-186dbd6abf7c"].geometry}
+            position={[0, -7, -12]}
+          />
+          <mesh
+            material={materials["amethist_walker.png"]}
+            geometry={nodes["483946e4-f35a-a6f4-169c-8297cd5fc7fb"].geometry}
+            position={[-8, 2, 1]}
+            rotation={[0, 0.09, 0]}
+          />
+        </group>
+        <group position={[0, 5, 0]}>
+          <group position={[-2, 6, 1]} rotation={[0.04, 0, -0.09]}>
+            <group position={[4, 1, 1]} rotation={[-0.09, 0.01, -0.13]}>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["5de2a43a-64ed-4d32-2594-75fd551711eb"].geometry
+                }
+                position={[-2, -14, -2]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["6af73e43-0e09-ca58-3bac-f301eee6c63a"].geometry
+                }
+                position={[-2, -14, -2]}
+              />
+            </group>
+            <group position={[5, 1, 0]} rotation={[0.09, 0, 0.04]}>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["67c2606a-1418-7ca4-4569-987e91a266bc"].geometry
+                }
+                position={[-3, -14, -1]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["aef0d18e-bbec-a79d-f8ec-1988e26e2bda"].geometry
+                }
+                position={[-3, -14, -1]}
+              />
+            </group>
+            <group position={[0, 1, 1]} rotation={[0, 0, 0.13]}>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["d0e3afa6-6825-2fe7-ba37-3eb6aa19b022"].geometry
+                }
+                position={[2, -14, -2]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["b3bea98a-d480-bc78-6b37-fc67bb7f9cee"].geometry
+                }
+                position={[2, -14, -2]}
+              />
+            </group>
+            <group position={[-1, 3, 0]}>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["dfc8b5f0-fb0a-147f-69c5-58ac3010b343"].geometry
+                }
+                position={[3, -16, -1]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["8511c439-b51f-fcb6-5632-f3870470993e"].geometry
+                }
+                position={[3, -16, -1]}
+              />
+            </group>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["c1776cd5-ba0c-b497-3acf-b6a9f80374fc"].geometry}
+              position={[2, -13, -1]}
+            />
+          </group>
+          <mesh
+            material={materials["amethist_walker.png"]}
+            geometry={nodes["f98e8e58-a0e9-a0e9-6acd-4e45ece9a8f0"].geometry}
+            position={[0, -7, 0]}
+          />
+        </group>
+        <group position={[0, 2, 0]}>
+          <group position={[0, 4, -6]}>
+            <group position={[4, -1, -5]} rotation={[-0.31, 0.08, 0.03]}>
+              <group position={[2, 0, -2]} rotation={[0, Math.PI / 9, 0]}>
+                <mesh
+                  material={materials["amethist_walker.png"]}
+                  geometry={
+                    nodes["3554324e-b123-c188-4550-6f345d2b67e9"].geometry
+                  }
+                  position={[-6, -7, 13]}
+                />
+                <mesh
+                  material={materials["amethist_walker.png"]}
+                  geometry={
+                    nodes["7d3f36e2-e553-b44e-22ef-c960251058a7"].geometry
+                  }
+                  position={[0, 0, -4]}
+                  rotation={[0, 0.61, 0]}
+                />
+              </group>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["da7e3235-a1bc-0077-027a-07cc3a690f9c"].geometry
+                }
+                position={[2.5, 0.5, -2]}
+                rotation={[0, -0.26, 0]}
+              />
+            </group>
+            <group position={[-4, -1, -5]} rotation={[-0.31, -0.08, -0.03]}>
+              <group
+                name="leftInnerJaw"
+                position={[-2, 0, -2]}
+                rotation={[0, -Math.PI / 9, 0]}
+              >
+                <mesh
+                  material={materials["amethist_walker.png"]}
+                  geometry={
+                    nodes["694c9dfd-f2a8-12df-cb9a-f3140ff8bcc9"].geometry
+                  }
+                  position={[6, -7, 13]}
+                />
+                <mesh
+                  material={materials["amethist_walker.png"]}
+                  geometry={
+                    nodes["60d4ebce-cb4c-e450-2558-e1ad7194a709"].geometry
+                  }
+                  position={[0, 0, -4]}
+                  rotation={[0, -0.61, 0]}
+                />
+              </group>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["a5c170e8-305b-9de6-d062-b78cc9461f94"].geometry
+                }
+                position={[-2.5, 0.5, -2]}
+                rotation={[0, 0.26, 0]}
+              />
+            </group>
+            <group position={[0, 2, -6]}>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["3a192533-5923-56ed-6998-7c4120e06da9"].geometry
+                }
+                position={[0, -10, 12]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["ea362645-6fec-8e01-e8b6-042b9f149ce7"].geometry
+                }
+                position={[0, -10, 12]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["6a543de9-fd44-0250-0daf-7c3ac9b08ba3"].geometry
+                }
+                position={[0, -10, 12]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["f9a80b3b-3b3d-8362-8944-8ed77897819f"].geometry
+                }
+                position={[0, -10, 12]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["62af165d-c5a7-9b84-7eee-4d26dd3700b2"].geometry
+                }
+                position={[0, -10, 12]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["018b9fcf-8498-25c7-ccc5-ca7b847f303b"].geometry
+                }
+                position={[0, -10, 12]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["20ca3338-517c-ea0b-1b26-a2b42ce41c5c"].geometry
+                }
+                position={[0, -10, 12]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["9b10b2e1-1995-eb44-4835-e251baf07fd0"].geometry
+                }
+                position={[0, -10, 12]}
+              />
+            </group>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["69e28c06-b196-f653-737d-9356e7aa73dd"].geometry}
+              position={[0, -8, 6]}
+            />
+          </group>
+          <mesh
+            material={materials["amethist_walker.png"]}
+            geometry={nodes["5a3cec58-d3d4-6528-5414-705dccf4c138"].geometry}
+            position={[0, -4, 0]}
+          />
+          <mesh
+            material={materials["amethist_walker.png"]}
+            geometry={nodes["3cfa6db9-63c3-208c-487b-ee1d6c2e74b2"].geometry}
+            position={[0, -4, 0]}
+          />
+        </group>
+        <group position={[-5, 5.5, -3.5]} rotation={[0, -0.61, 0]}>
+          <group rotation={[0, 0, -Math.PI / 4]}>
+            <group position={[-10, -0.5, 0]} rotation={[0, 0, 1.22]}>
+              <group position={[-10, -0.5, 0]} rotation={[0, 0, Math.PI / 3]}>
+                <mesh
+                  material={materials["amethist_walker.png"]}
+                  geometry={
+                    nodes["6e35c0b3-bf76-6f99-637d-945b51fa3284"].geometry
+                  }
+                  position={[25, -6.5, 3.5]}
+                />
+              </group>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["bc1ca646-50e3-06cb-93eb-2411bc1aeb70"].geometry
+                }
+                position={[15, -7, 3.5]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["3838f33e-837d-346f-5233-6332d27bb251"].geometry
+                }
+                position={[15, -7, 3.5]}
+              />
+            </group>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["d70bd6e0-0a63-5988-6425-8a8b8d2e271c"].geometry}
+              position={[5, -7.5, 3.5]}
+            />
+          </group>
+        </group>
+        <group position={[-5, 5.5, 0.5]} rotation={[0, -0.17, 0]}>
+          <group rotation={[0, 0, -Math.PI / 4]}>
+            <group position={[-10, -0.5, 0]} rotation={[0, 0, 1.22]}>
+              <group position={[-10, -0.5, 0]} rotation={[0, 0, Math.PI / 3]}>
+                <mesh
+                  material={materials["amethist_walker.png"]}
+                  geometry={
+                    nodes["11c1758e-40bc-ea82-9a1b-5deb5d6c0216"].geometry
+                  }
+                  position={[25, -6.5, -0.5]}
+                />
+              </group>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["8d92bbc9-be3b-a04d-4ee6-fcc1749483a9"].geometry
+                }
+                position={[15, -7, -0.5]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["313d2df4-8412-1a15-eef1-323b6053cb4a"].geometry
+                }
+                position={[15, -7, -0.5]}
+              />
+            </group>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["c223de7f-c743-42cc-6f94-959c1286383f"].geometry}
+              position={[5, -7.5, -0.5]}
+            />
+          </group>
+        </group>
+        <group position={[-5, 5.5, 4.5]} rotation={[0, 0.17, 0]}>
+          <group rotation={[0, 0, -Math.PI / 4]}>
+            <group position={[-10, -0.5, 0]} rotation={[0, 0, 1.22]}>
+              <group position={[-10, -0.5, 0]} rotation={[0, 0, Math.PI / 3]}>
+                <mesh
+                  material={materials["amethist_walker.png"]}
+                  geometry={
+                    nodes["471d6484-6455-e9c9-50e7-7fa2967c17f5"].geometry
+                  }
+                  position={[25, -6.5, -4.5]}
+                />
+              </group>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["dc5f822a-b86c-d726-d081-66884360d67a"].geometry
+                }
+                position={[15, -7, -4.5]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["59af2a27-9864-7776-99aa-38798801410b"].geometry
+                }
+                position={[15, -7, -4.5]}
+              />
+            </group>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["8689acb2-f3b5-f370-ffea-5542442d9e72"].geometry}
+              position={[5, -7.5, -4.5]}
+            />
+          </group>
+        </group>
+        <group position={[-5, 5.5, 8.5]} rotation={[0, Math.PI / 4, 0]}>
+          <group rotation={[0, 0, -Math.PI / 4]}>
+            <group position={[-10, -0.5, 0]} rotation={[0, 0, 1.22]}>
+              <group position={[-10, -0.5, 0]} rotation={[0, 0, Math.PI / 3]}>
+                <mesh
+                  material={materials["amethist_walker.png"]}
+                  geometry={
+                    nodes["61d987d8-3c57-15b3-189d-c837f5bfb446"].geometry
+                  }
+                  position={[25, -6.5, -8.5]}
+                />
+              </group>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["fc129c7b-04da-d2e5-337b-321d3cd79bd9"].geometry
+                }
+                position={[15, -7, -8.5]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["e45d22ce-685c-e94f-598d-ec6bc66293db"].geometry
+                }
+                position={[15, -7, -8.5]}
+              />
+            </group>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["a3d2dd59-be08-a565-260d-1943aedf15d7"].geometry}
+              position={[5, -7.5, -8.5]}
+            />
+          </group>
+        </group>
+        <group position={[5, 5.5, -3.5]} rotation={[0, 0.61, 0]}>
+          <group rotation={[0, 0, Math.PI / 4]}>
+            <group position={[10, -0.5, 0]} rotation={[0, 0, -1.22]}>
+              <group position={[10, -0.5, 0]} rotation={[0, 0, -Math.PI / 3]}>
+                <mesh
+                  material={materials["amethist_walker.png"]}
+                  geometry={
+                    nodes["e94b00fa-f037-0d12-f689-b3b5c73487c7"].geometry
+                  }
+                  position={[-25, -6.5, 3.5]}
+                />
+              </group>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["3e9e1b8e-6c60-8f27-bd9f-2875a09f2f65"].geometry
+                }
+                position={[-15, -7, 3.5]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["68c1c89e-478d-fc1d-9d98-273118b7e5e4"].geometry
+                }
+                position={[-15, -7, 3.5]}
+              />
+            </group>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["88d33721-ea76-5724-0130-3df5e1f2e2ca"].geometry}
+              position={[-5, -7.5, 3.5]}
+            />
+          </group>
+        </group>
+        <group position={[5, 5.5, 0.5]} rotation={[0, 0.17, 0]}>
+          <group rotation={[0, 0, Math.PI / 4]}>
+            <group position={[10, -0.5, 0]} rotation={[0, 0, -1.22]}>
+              <group position={[10, -0.5, 0]} rotation={[0, 0, -Math.PI / 3]}>
+                <mesh
+                  material={materials["amethist_walker.png"]}
+                  geometry={
+                    nodes["65035bdc-63af-c555-793b-b31eca152135"].geometry
+                  }
+                  position={[-25, -6.5, -0.5]}
+                />
+              </group>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["32353f4b-3d0e-03ca-8f48-c977f1b88fa9"].geometry
+                }
+                position={[-15, -7, -0.5]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["be80af32-9559-b314-5e2b-01418a2c4ce1"].geometry
+                }
+                position={[-15, -7, -0.5]}
+              />
+            </group>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["da59a535-4fad-fb17-c734-60671baebbbe"].geometry}
+              position={[-5, -7.5, -0.5]}
+            />
+          </group>
+        </group>
+        <group position={[5, 5.5, 4.5]} rotation={[0, -0.17, 0]}>
+          <group rotation={[0, 0, Math.PI / 4]}>
+            <group position={[10, -0.5, 0]} rotation={[0, 0, -1.22]}>
+              <group position={[10, -0.5, 0]} rotation={[0, 0, -Math.PI / 3]}>
+                <mesh
+                  material={materials["amethist_walker.png"]}
+                  geometry={
+                    nodes["4f0b0c44-2758-5fb6-13ae-bd988796c95d"].geometry
+                  }
+                  position={[-25, -6.5, -4.5]}
+                />
+              </group>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["bba685a9-e003-2d5d-c347-368f79aea388"].geometry
+                }
+                position={[-15, -7, -4.5]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["8cb58634-28d1-773d-3467-db839a9d5d28"].geometry
+                }
+                position={[-15, -7, -4.5]}
+              />
+            </group>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["6cd43c9d-ae65-ef86-ddd1-4284993c971a"].geometry}
+              position={[-5, -7.5, -4.5]}
+            />
+          </group>
+        </group>
+        <group position={[5, 5.5, 8.5]} rotation={[0, -Math.PI / 4, 0]}>
+          <group rotation={[0, 0, Math.PI / 4]}>
+            <group position={[10, -0.5, 0]} rotation={[0, 0, -1.22]}>
+              <group position={[10, -0.5, 0]} rotation={[0, 0, -Math.PI / 3]}>
+                <mesh
+                  material={materials["amethist_walker.png"]}
+                  geometry={
+                    nodes["7c105eb2-4adb-5d79-387e-468ae9fe4042"].geometry
+                  }
+                  position={[-25, -6.5, -8.5]}
+                />
+              </group>
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["0eca45bc-e7b5-c7cb-4e42-df6200f2ca57"].geometry
+                }
+                position={[-15, -7, -8.5]}
+              />
+              <mesh
+                material={materials["amethist_walker.png"]}
+                geometry={
+                  nodes["053beed8-3dd0-9c60-e027-1f90cd31dfbb"].geometry
+                }
+                position={[-15, -7, -8.5]}
+              />
+            </group>
+            <mesh
+              material={materials["amethist_walker.png"]}
+              geometry={nodes["77429e6f-f3b4-1f05-2f57-354676160db2"].geometry}
+              position={[-5, -7.5, -8.5]}
+            />
+          </group>
+        </group>
+      </group>
+    </group>
+  );
+}
+
+useGLTF.preload("/3DModels/spider.gltf");
+
+
 
 
 const RightBox = () => {
+
+  const canvasRef = useRef <HTMLDivElement>(null)
 
   const HomeWebsiteAnimation = useCallback(() => {
 
@@ -98,15 +728,6 @@ const RightBox = () => {
       },
       "+=50"
     );
-    // tl.add(
-    //   {
-    //     targets: ".Polymorph",
-    //     duration: 500,
-    //     translateY: "-50px",
-    //     easing: "spring(1,80,10,0)"
-    //   },
-    //   "-=1000"
-    // );
     tl.add(
       {
         targets: [".PhoneContainer", ".Polymorph"],
@@ -227,12 +848,13 @@ const RightBox = () => {
 
     setTimeout(() => {
       HomeWebsiteAnimation()
+
     }, 3000)
 
   },[])
 
     return (
-      <div className="RightBoxHome" onClick={() => HomeWebsiteAnimation()}>
+      <div className="RightBoxHome">
         <div className="SiteAnimationBox">
           <div className="Polymorph">
             <svg
@@ -274,13 +896,13 @@ const RightBox = () => {
                 d="M124.804 104.111C122.217 109.608 118.499 113.301 116.5 112.36C114.501 111.419 114.979 106.2 117.566 100.704C120.154 95.2071 123.871 91.514 125.87 92.455C127.869 93.3959 127.392 98.6145 124.804 104.111Z"
                 fill="black"
               />
-              <circle cx="94" cy="95" r="13" stroke="white" stroke-width="2" />
+              <circle cx="94" cy="95" r="13" stroke="white" strokeWidth="2" />
               <circle
                 cx="122"
                 cy="102"
                 r="13"
                 stroke="white"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <rect
                 x="106.49"
@@ -307,9 +929,9 @@ const RightBox = () => {
                   width="79.712"
                   height="124.208"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feColorMatrix
                     in="SourceAlpha"
                     type="matrix"
@@ -340,9 +962,9 @@ const RightBox = () => {
                   width="99.848"
                   height="54.827"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feColorMatrix
                     in="SourceAlpha"
                     type="matrix"
@@ -373,9 +995,9 @@ const RightBox = () => {
                   width="49.409"
                   height="90.947"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feColorMatrix
                     in="SourceAlpha"
                     type="matrix"
@@ -429,8 +1051,16 @@ const RightBox = () => {
 
                 <div className="UrlBox"></div>
               </div>
-              <div className="SiteContainer">
-
+              <div className="SiteContainer" ref={canvasRef}>
+                <Canvas>
+                  <ambientLight intensity={0.5} />
+                  <perspectiveCamera zoom={.1} />
+                  <spotLight intensity={0.3} position={[5,10,10]} />
+                  <Suspense fallback={null}>
+                    <Model/>
+                  </Suspense>
+                  <OrbitControls/>
+                </Canvas>
               </div>
             </div>
 
