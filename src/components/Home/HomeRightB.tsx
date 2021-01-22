@@ -1,10 +1,8 @@
-import React, { useCallback, useState, useEffect, useRef, Suspense } from "react";
+import React, { useCallback, useEffect, useRef, Suspense } from "react";
 import anime from "animejs";
 import { Canvas } from "react-three-fiber";
 import { useGLTF } from "@react-three/drei/useGLTF";
 import { OrbitControls } from "@react-three/drei";
-import useInterval from "use-interval";
-import { useSpring,a } from "@react-spring/three";
 
 
 // Images
@@ -15,18 +13,13 @@ import Sales1 from "./../../resources/sales1.jpg";
 
 function Model(props:any) {
 
-  const [modelClicked, setModelClicked] = useState(false)
   const group = useRef();
   const { nodes, materials } = useGLTF("/3DModels/BotModel/bot2.gltf");
-  const Animator = useSpring({
-    rotate: modelClicked ? [-Math.PI / 2, 0, 0] : [-Math.PI / 2, 0, 10]
-  });
+
 
   return (
-    <a.group ref={group} {...props} dispose={null} castShadow>
-      <a.group
-        onPointerOver={() => setModelClicked(true)}
-        onPointerOut={() => setModelClicked(false)}
+    <group ref={group} {...props} dispose={null} castShadow>
+      <group
         rotation={[-Math.PI / 2, 0, 0]}
         position={[0, -200, 0]}
       >
@@ -97,8 +90,8 @@ function Model(props:any) {
             />
           </group>
         </group>
-      </a.group>
-    </a.group>
+      </group>
+    </group>
   );
 }
 
