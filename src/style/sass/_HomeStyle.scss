@@ -263,7 +263,7 @@ $BGColor: rgb(31, 28, 28);
             cursor: pointer;
             left: 0px;
             top: 0px;
-            width: 200px;
+            width: #{"max(200px, 15%)"};
             height: 100%;
             @include alignCenter();
             justify-content: space-evenly;
@@ -480,12 +480,12 @@ $BGColor: rgb(31, 28, 28);
                 }
 
                 h1{
-                    font-size: clamp(40px, 4vw, 60px);
+                    font-size: clamp(40px, 4vw, 100px);
                     color: $PageColor;
                 }
 
                 h2{
-                    font-size: clamp(15px, 1.5vw, 30px);
+                    font-size: clamp(15px, 1.5vw, 100px);
                     color: white;
                     align-self: flex-start;
                 }
