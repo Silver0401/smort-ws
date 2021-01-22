@@ -1,10 +1,11 @@
-import React, { useCallback, useEffect, useRef, Suspense } from "react";
+import React, { useCallback, useState, useEffect, useRef, Suspense } from "react";
 import anime from "animejs";
 import { Canvas } from "react-three-fiber";
 import { useGLTF } from "@react-three/drei/useGLTF";
 import { OrbitControls } from "@react-three/drei";
-// import * as THREE from 'three'
-// import { useAnimations } from '@react-three/drei/useAnimations'
+import useInterval from "use-interval";
+import { useSpring,a } from "@react-spring/three";
+
 
 // Images
 import Image1 from "./../../resources/HomeLS1.jpg";
@@ -13,11 +14,22 @@ import Person1 from "./../../resources/person1.jpg";
 import Sales1 from "./../../resources/sales1.jpg";
 
 function Model(props:any) {
+
+  const [modelClicked, setModelClicked] = useState(false)
   const group = useRef();
   const { nodes, materials } = useGLTF("/3DModels/BotModel/bot2.gltf");
+  const Animator = useSpring({
+    rotate: modelClicked ? [-Math.PI / 2, 0, 0] : [-Math.PI / 2, 0, 10]
+  });
+
   return (
-    <group ref={group} {...props} dispose={null} castShadow>
-      <group rotation={[-Math.PI / 2, 0, 0]} position={[0, -200, 0]}>
+    <a.group ref={group} {...props} dispose={null} castShadow>
+      <a.group
+        onPointerOver={() => setModelClicked(true)}
+        onPointerOut={() => setModelClicked(false)}
+        rotation={[-Math.PI / 2, 0, 0]}
+        position={[0, -200, 0]}
+      >
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group
             position={[0, 0, 0]}
@@ -85,8 +97,8 @@ function Model(props:any) {
             />
           </group>
         </group>
-      </group>
-    </group>
+      </a.group>
+    </a.group>
   );
 }
 
@@ -95,8 +107,6 @@ useGLTF.preload("/3DModels/BotModel/bot2.gltf");
 
 
 const RightBox = () => {
-
-  const canvasRef = useRef <HTMLDivElement>(null)
 
   const HomeWebsiteAnimation = useCallback(() => {
 
@@ -488,7 +498,7 @@ const RightBox = () => {
 
                 <div className="UrlBox"></div>
               </div>
-              <div className="SiteContainer" ref={canvasRef}>
+              <div className="SiteContainer">
                 <Canvas
                   colorManagement
                   shadowMap

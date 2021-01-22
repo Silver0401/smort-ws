@@ -110,10 +110,8 @@ $BGColor: rgb(31, 28, 28);
 }
 
 
-@mixin LiquidButtonProperties{
+@mixin BorderFillButtonProperties{
     position: relative;
-    background: black;
-    border-radius: 3em;
     box-shadow: 0px 0px 0px $PageColor;
     padding: 1em 2em;
     font-size: clamp(18px, 1.5vw, 50px);
@@ -123,52 +121,92 @@ $BGColor: rgb(31, 28, 28);
     line-height: 1.5em;
     outline: none;
     border: none;
-
+    background-color: transparent;
+    border: 0px solid transparent;
+    border-radius: .5em;
     overflow: hidden;
-    transition: color 500ms, background-color 500ms, box-shadow 500ms;
-    p{z-index: 1; position: relative}
-    @include alignCenter();
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
+    transition: background-color 300ms, color 300ms;
 
+    box-shadow: 
+    0.62em 0.62em 1.8em black,
+    -0.62em -0.62em 1.25em rgba(255, 255, 255, 0.043);
 
-    .liquid{
-        z-index: 0;
+    p::before{
+        content: "";
         position: absolute;
-        bottom: 30%;
-        transform: translateY(-1.5%);
-
-        width: #{"max(1500px, 130%)"};
-        height: #{"max(1500px, 115%)"};
-        background-color: transparent;
-        transition: transform 500ms;
+        height: 3px;
+        width: 0%;
+        top: 0%;
+        left: 0%;
+        background-color: $PageColor;
+        transition: width 500ms;
     }
     
+    p::after{
+        content: "";
+        position: absolute;
+        height: 0%;
+        width: 3px;
+        top: 0%;
+        left: 0%;
+        background-color: $PageColor;
+        transition: height 500ms;
+    }
+
     .liquid::before{
         content: "";
         position: absolute;
-        border-radius: 40%;
-        width: 100%;
-        height: 100%;
-        animation: Zrotate 5s linear infinite;
-        background: $PageColor;
-        left: 0%;
+        height: 0%;
+        width: 3px;
         bottom: 0%;
+        right: 0%;
+        background-color: $PageColor;
+        transition: height 500ms;
     }
-    
+
+    .liquid::after{
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 3px;
+        bottom: 0%;
+        right: 0%;
+        background-color: $PageColor;
+        transition: width 500ms;
+    }
+
     &:hover{
-        .liquid{
-            transform: translateY(-20%);
-            transition: transform 1s;
+
+        background-color: rgba(51, 162, 203, 0.543);
+        color: white;
+        transition: background-color 500ms, color 500ms;
+        transition-delay: 400ms;
+
+        p::before{
+            
+            width: 100%;
+            transition: width 500ms;
+        }
+        p::after{
+        
+            height: 100%;
+            transition: height 500ms;
         }
 
-        transition: color 500ms, background-color 500ms, box-shadow 500ms;
-        color: black;
-        background-color: white;
-        box-shadow: 0px 0px 20px $PageColor;
+        .liquid::after{
+
+            width: 100%;
+            transition: width 500ms;
+        }
+
+        .liquid::before{
+
+            height: 100%;
+            transition: height 500ms;
+        }
+
     }
+
 }
 // Font Families
 
@@ -454,7 +492,7 @@ $BGColor: rgb(31, 28, 28);
             }
 
             .CreateButton{
-                @include LiquidButtonProperties();
+                @include BorderFillButtonProperties();
             }
     
             .Arrow{
@@ -807,12 +845,13 @@ $BGColor: rgb(31, 28, 28);
                         }
 
                         .SiteContainer{
-                            Canvas{
-                                width: 100%;
-                                height: 100%;
-                                background: linear-gradient(to top right, rgba(51, 162, 203, 0.591), grey);
-                            }
 
+                            background: linear-gradient(to top right, rgba(51, 162, 203, 0.591), grey);
+
+                            Canvas{
+                                height: 200px;
+                                width: 200px;
+                            }   
                         }
                         
 
@@ -1439,61 +1478,8 @@ $BGColor: rgb(31, 28, 28);
                     @include alignCenter();
 
                     .CreateButton{
-                        @include LiquidButtonProperties();
-                        // position: relative;
-                        // padding: 1.8em 3.1em;
-                        // font-size: clamp(18px, 1.5vw, 50px);
-                        // background: black;
-                        // border: 0px solid transparent;
-                        // border-radius: 3em;
-                        // box-shadow: 0px 0px 0px $PageColor;
-                        // font-family: 'Press Start 2P', cursive;
-                        // cursor: pointer;
-                        // color: white;
+                        @include BorderFillButtonProperties();
 
-                        // overflow: hidden;
-                        // transition: color 500ms, background-color 500ms, box-shadow 500ms;
-                        // p{z-index: 1; position: relative}
-                        // @include alignCenter();
-
-                        // .liquid{
-                        //     z-index: 0;
-                        //     position: absolute;
-                        //     bottom: 30%;
-                        //     // margin: 0px auto;
-                        //     // left: -65%;
-                        //     // bottom: 60%;
-                        //     transform: translateY(-1.5%);
-
-                        //     width: #{"max(1500px, 130%)"};
-                        //     height: #{"max(1500px, 115%)"};
-                        //     background-color: transparent;
-                        //     transition: transform 500ms;
-                        // }
-                        
-                        // .liquid::before{
-                        //     content: "";
-                        //     position: absolute;
-                        //     border-radius: 40%;
-                        //     width: 100%;
-                        //     height: 100%;
-                        //     animation: LiquidAnim 5s linear infinite;
-                        //     background: $PageColor;
-                        //     left: 0%;
-                        //     bottom: 0%;
-                        // }
-                        
-                        // &:hover{
-                        //     .liquid{
-                        //         transform: translateY(-20%);
-                        //         transition: transform 1s;
-                        //     }
-
-                        //     transition: color 500ms, background-color 500ms, box-shadow 500ms;
-                        //     color: black;
-                        //     background-color: white;
-                        //     box-shadow: 0px 0px 20px $PageColor;
-                        // }
                     }
                 }
             }
