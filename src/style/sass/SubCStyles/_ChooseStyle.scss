@@ -167,19 +167,18 @@ $BGColor: rgb(57, 55, 55);
                     position: relative;
                    font-family: 'MuseoModerno', cursive;
                    color: black;
-                   font-size: clamp(20px, 3vw, 90px);
+                   font-size: clamp(15px, 3vw, 90px);
                 }
 
                 button{
                     position: relative;
                     right: 1em;
                     justify-self: center;
-                    height: 70%;
                     border-radius: 5em;
                     background-color: white;
                     font-family: 'MuseoModerno', cursive;
-                    padding: 0px 1em;
-                    font-size: clamp(15px, 1.5vw, 50px);
+                    padding: .7em .5em;
+                    font-size: clamp(12px, 1.5vw, 50px);
                     cursor: pointer;
                     transition: all 500ms;
                     outline: none;
@@ -254,6 +253,9 @@ $BGColor: rgb(57, 55, 55);
                     // z-index: 1;
 
                     .ImageBox{
+
+                        z-index: 0;
+
                         .BoxesBox, .Foto{
                             position: absolute;
                             visibility: hidden;
@@ -266,6 +268,7 @@ $BGColor: rgb(57, 55, 55);
                     }
 
                     .ContactsBox, .MinGrid{
+                        z-index: 0;
                         position: absolute;
                         visibility: hidden;
                     }
@@ -294,6 +297,14 @@ $BGColor: rgb(57, 55, 55);
                             background-color: var(--ChosenColor1);
                             opacity: .25;
                         }
+                    }
+
+                    .D3Box{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        visibility: hidden;
+                        z-index: 1;
                     }
                 }
                 
@@ -770,39 +781,46 @@ $BGColor: rgb(57, 55, 55);
             }
 
             .D3-Style{
-                position: relative;
-                width: 100%;
-                height: 100%;
-                box-sizing: border-box;
-                background-color: black;
-                // @include alignCenter();
+                background: linear-gradient(to bottom right, var(--ChosenColor1) 25%,var(--ChosenColor2) 75%);
 
-                .Canvas{
-                    // box-sizing: inherit;
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                    background-color: grey;
 
-                    .htmlThingy{
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        background-color: lightblue;
+                .LeftBox{
+                    .D3Box{
+                        visibility: visible;
+                        cursor: pointer;
 
-                        .container{
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            background-color: lightgrey;
+                        Canvas{
+                            outline: none;
+                        }
+                    }
+                }
 
-                            h1{
-                                font-size: 50px;
-                                color: white;
-                            }
+                .RightBox{
+                    .TextBox{
+                        width: 70%;
+                        height: 50%;
+                        @include alignCenter();
+                        flex-direction: column;
+
+                        h1,p{
+                            margin: 0px 10px;
+                            color: var(--ChosenColor1);
                         }
 
+                        h1{
+                            font-size: clamp(20px,2vw,50px);
+                        }
+
+                        p{
+                            font-size: clamp(10px,2vw,20px);
+                        }
+                    }
+
+                    button{
+                        background-color: var(--ChosenColor2);
+                        color: var(--ChosenColor1);
+                        outline: none;
+                        border-radius: 2px solid white;
                     }
                 }
             }

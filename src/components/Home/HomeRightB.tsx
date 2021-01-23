@@ -14,7 +14,7 @@ import Sales1 from "./../../resources/sales1.jpg";
 function Model(props:any) {
 
   const group = useRef();
-  const { nodes, materials } = useGLTF("/3DModels/BotModel/bot2.gltf");
+  const { nodes, materials } = useGLTF("/3DModels/BotModel/scene.gltf");
 
 
   return (
@@ -95,7 +95,7 @@ function Model(props:any) {
   );
 }
 
-useGLTF.preload("/3DModels/BotModel/bot2.gltf");
+useGLTF.preload("/3DModels/BotModel/scene.gltf");
 
 
 

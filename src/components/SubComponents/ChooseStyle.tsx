@@ -1,11 +1,13 @@
 // Libraries
 
-import React, { useEffect, useState, Suspense, useContext } from "react";
+import React, { useEffect, useState, Suspense, useContext, useRef } from "react";
 import anime from "animejs";
 import Particles from "react-tsparticles";
 import { Canvas } from "react-three-fiber";
 import { ChosenDataContext } from "./../ChosenData";
 import { useTranslation } from "react-i18next";
+import { useGLTF } from "@react-three/drei/useGLTF";
+import { OrbitControls } from "@react-three/drei";
 
 // Resources
 import DudFoto from "./../../resources/dud.jpg"; 
@@ -17,7 +19,7 @@ const ChooseStyle = (props:any) => {
   const [PageNumbertoDisplay, setPageNumberToDisplay] = useState(0)
   let PagesList:any[] = []
   const [Data, setData] = useContext(ChosenDataContext)
-
+  // useGLTF.preload("/3DModels/ComputerModel/scene.gltf");
 
   // Functions
   const ChangePageTo = (direction:string) => {
@@ -40,6 +42,781 @@ const ChooseStyle = (props:any) => {
     return(PagesList[PageNumber])
   }
 
+  const Model = () => {
+    const group = useRef();
+    const { nodes, materials } = useGLTF("/3DModels/ComputerModel/scene.gltf");
+    return (
+      <group ref={group} {...props} dispose={null}>
+        <group rotation={[-Math.PI / 2, 0, 0]} position={[0,-0.1,0]}>
+          <group scale={[0.01, 0.01, 0.01]}>
+            <group rotation={[Math.PI / 2, 0, 0]}>
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh1_paint_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh2_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh3_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh4_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh5_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh6_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh7_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh8_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh9_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh10_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh11_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh12_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh13_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh14_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh15_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh16_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh17_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh18_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh19_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh20_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh21_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh22_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh23_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh24_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh25_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh26_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh27_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh28_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh29_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh30_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh31_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh32_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh33_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh34_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh35_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh36_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh37_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh38_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh39_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh40_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh41_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh42_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh43_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh44_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh45_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh46_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh47_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh48_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh49_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh50_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh51_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh52_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh53_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh54_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh55_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh56_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEYBOARD_1_A}
+                geometry={nodes.Mesh57_KEYBOARD_1_A_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh58_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh59_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh60_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh61_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh62_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh63_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh64_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh65_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh66_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh67_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh68_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh69_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh70_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1_1}
+                geometry={nodes.Mesh70_KEY_DECAL1_1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1_2}
+                geometry={nodes.Mesh70_KEY_DECAL1_2_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1_3}
+                geometry={nodes.Mesh70_KEY_DECAL1_3_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1_4}
+                geometry={nodes.Mesh70_KEY_DECAL1_4_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh71_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh72_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh73_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh74_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh75_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh76_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh77_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh78_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh79_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh80_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh81_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh82_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh83_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh84_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh85_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh86_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh87_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh88_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh89_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh90_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh91_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh92_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh93_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh94_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1_5}
+                geometry={nodes.Mesh94_KEY_DECAL1_5_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh95_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh96_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh97_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh98_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh99_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh100_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh101_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh102_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh103_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.KEY_DECAL1}
+                geometry={nodes.Mesh104_KEY_DECAL1_0.geometry}
+              />
+              <mesh
+                material={materials.material}
+                geometry={nodes.Mesh105_cap_0.geometry}
+              />
+              <mesh
+                material={materials.material}
+                geometry={nodes.Mesh106_cap_0.geometry}
+              />
+              <mesh
+                material={materials.material}
+                geometry={nodes.Mesh107_cap_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh108_paint_0.geometry}
+              />
+              <mesh
+                material={materials.caps_lock_1}
+                geometry={nodes.Mesh109_caps_lock_1_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh110_paint_0.geometry}
+              />
+              <mesh
+                material={materials.metal}
+                geometry={nodes.Mesh111_metal_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh112_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh112_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.material}
+                geometry={nodes.Mesh113_cap_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh114_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh115_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh116_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh117_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh118_paint_0.geometry}
+              />
+              <mesh
+                material={materials.metal}
+                geometry={nodes.Mesh119_metal_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh120_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh121_paint_0.geometry}
+              />
+              <mesh
+                material={materials.lcd_decal}
+                geometry={nodes.Mesh122_lcd_decal_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh123_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh123_paint_0.geometry}
+              />
+              <mesh
+                material={materials.lcd_screen}
+                geometry={nodes.Mesh123_lcd_screen_0.geometry}
+              />
+              <mesh
+                material={materials.metal}
+                geometry={nodes.Mesh123_metal_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh124_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh125_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh125_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh126_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh127_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.material}
+                geometry={nodes.Mesh128_cap_0.geometry}
+              />
+              <mesh
+                material={materials.red_button}
+                geometry={nodes.Mesh129_red_button_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh130_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh131_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh132_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.material}
+                geometry={nodes.Mesh133_cap_0.geometry}
+              />
+              <mesh
+                material={materials.red_button}
+                geometry={nodes.Mesh134_red_button_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh135_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh136_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh137_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh138_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh138_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh139_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh140_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh141_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh142_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh143_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh144_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh145_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh146_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh147_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh148_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh149_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh150_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint_2}
+                geometry={nodes.Mesh151_paint_2_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh152_paint_0.geometry}
+              />
+              <mesh
+                material={materials.olivetti}
+                geometry={nodes.Mesh153_olivetti_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh154_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh155_paint_0.geometry}
+              />
+              <mesh
+                material={materials.black_plastic}
+                geometry={nodes.Mesh155_black_plastic_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh156_paint_0.geometry}
+              />
+              <mesh
+                material={materials.metal}
+                geometry={nodes.Mesh157_metal_0.geometry}
+              />
+              <mesh
+                material={materials.metal}
+                geometry={nodes.Mesh158_metal_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh159_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh160_paint_0.geometry}
+              />
+              <mesh
+                material={materials.metal}
+                geometry={nodes.Mesh161_metal_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh162_paint_0.geometry}
+              />
+              <mesh
+                material={materials.black_plastic}
+                geometry={nodes.Mesh162_black_plastic_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh163_paint_0.geometry}
+              />
+              <mesh
+                material={materials.metal}
+                geometry={nodes.Mesh164_metal_0.geometry}
+              />
+              <mesh
+                material={materials.metal}
+                geometry={nodes.Mesh165_metal_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh166_paint_0.geometry}
+              />
+              <mesh
+                material={materials.paint}
+                geometry={nodes.Mesh167_paint_0.geometry}
+              />
+              <mesh
+                material={materials.metal}
+                geometry={nodes.Mesh168_metal_0.geometry}
+              />
+              <mesh
+                material={materials.black_plastic}
+                geometry={nodes.Mesh169_black_plastic_0.geometry}
+              />
+              <mesh
+                material={materials.red_button}
+                geometry={nodes.Mesh170_red_button_0.geometry}
+              />
+              <mesh
+                material={materials.black_plastic}
+                geometry={nodes.Mesh171_black_plastic_0.geometry}
+              />
+              <mesh
+                material={materials.red_button}
+                geometry={nodes.Mesh171_red_button_0.geometry}
+              />
+              <mesh
+                material={materials.metal_220}
+                geometry={nodes.Mesh172_metal_220_0.geometry}
+              />
+              <mesh
+                material={materials.metal_220}
+                geometry={nodes.Mesh173_metal_220_0.geometry}
+              />
+              <mesh
+                material={materials.black_plastic}
+                geometry={nodes.Mesh174_black_plastic_0.geometry}
+              />
+              <mesh
+                material={materials.metal_220}
+                geometry={nodes.Mesh175_metal_220_0.geometry}
+              />
+              <mesh
+                material={materials.olivetti}
+                geometry={nodes.Mesh176_olivetti_0.geometry}
+              />
+            </group>
+          </group>
+        </group>
+      </group>
+    );
+  }
+
   const CreatePageStyle = (StyleName:string) => {
 
     let showWaves = {
@@ -52,9 +829,7 @@ const ChooseStyle = (props:any) => {
     let Page = (
       <div className="Page">
         <span className="StyleName">
-
           <div className="ArrowsBox">
-
             <div onClick={() => ChangePageTo("Left")} className="ArrowBoxLeft">
               <svg
                 width="24"
@@ -68,7 +843,10 @@ const ChooseStyle = (props:any) => {
               </svg>
             </div>
 
-            <div onClick={() => ChangePageTo("Right")} className="ArrowBoxRight">
+            <div
+              onClick={() => ChangePageTo("Right")}
+              className="ArrowBoxRight"
+            >
               <svg
                 width="24"
                 height="24"
@@ -80,24 +858,23 @@ const ChooseStyle = (props:any) => {
                 <path d="M4 .755l14.374 11.245-14.374 11.219.619.781 15.381-12-15.391-12-.609.755z" />
               </svg>
             </div>
-              
           </div>
 
           <h1>{StyleName}</h1>
 
-          <button onClick={() => {
-            
-            setData({...Data, PageStyle:StyleName})
-            setTimeout(() => {
-              props.changeFunction(
-                "NavBar Style",
-                2,
-                t("BuilderRoot.Builder.Step2.Title")
-              );
-              props.ScrollToSectionFunction("Instructions")
-            },500)
-
-          }}>
+          <button
+            onClick={() => {
+              setData({ ...Data, PageStyle: StyleName });
+              setTimeout(() => {
+                props.changeFunction(
+                  "NavBar Style",
+                  2,
+                  t("BuilderRoot.Builder.Step2.Title")
+                );
+                props.ScrollToSectionFunction("Instructions");
+              }, 500);
+            }}
+          >
             {t("Choose.button")}
           </button>
         </span>
@@ -403,67 +1180,126 @@ const ChooseStyle = (props:any) => {
               </span>
 
               <div className="MinGrid">
-                {/*1*/}<span className="GridBox" />
-                {/*2*/}<span className="GridBox" />
-                {/*3*/}<span className="GridBox" />
-                {/*4*/}<span className="GridBox" />
-                {/*5*/}<span className="GridBox" />
-                {/*6*/}<span className="GridBox" />
-                {/*7*/}<span className="GridBox" />
-                {/*8*/}<span className="GridBox" />
-                {/*9*/}<span className="GridBox" />
-                {/*10*/}<span className="GridBox" />
-                {/*11*/}<span className="GridBox" />
-                {/*12*/}<span className="GridBox" />
-                {/*13*/}<span className="GridBox" />
-                {/*14*/}<span className="GridBox" />
-                {/*15*/}<span className="GridBox" />
-                {/*16*/}<span className="GridBox" />
-                {/*17*/}<span className="GridBox" />
-                {/*18*/}<span className="GridBox" />
-                {/*19*/}<span className="GridBox" />
-                {/*20*/}<span className="GridBox" />
-                {/*21*/}<span className="GridBox" />
-                {/*22*/}<span className="GridBox" />
-                {/*23*/}<span className="GridBox" />
-                {/*24*/}<span className="GridBox" />
-                {/*25*/}<span className="GridBox" />
-                {/*26*/}<span className="GridBox" />
-                {/*27*/}<span className="GridBox" />
-                {/*28*/}<span className="GridBox" />
-                {/*29*/}<span className="GridBox" />
-                {/*30*/}<span className="GridBox" />
-                {/*31*/}<span className="GridBox" />
-                {/*32*/}<span className="GridBox" />
-                {/*33*/}<span className="GridBox" />
-                {/*34*/}<span className="GridBox" />
-                {/*35*/}<span className="GridBox" />
-                {/*36*/}<span className="GridBox" />
-                {/*37*/}<span className="GridBox" />
-                {/*38*/}<span className="GridBox" />
-                {/*39*/}<span className="GridBox" />
-                {/*41*/}<span className="GridBox" />
-                {/*42*/}<span className="GridBox" />
-                {/*43*/}<span className="GridBox" />
-                {/*44*/}<span className="GridBox" />
-                {/*45*/}<span className="GridBox" />
-                {/*46*/}<span className="GridBox" />
-                {/*47*/}<span className="GridBox" />
-                {/*48*/}<span className="GridBox" />
-                {/*49*/}<span className="GridBox" />
-                {/*50*/}<span className="GridBox" />
-                {/*51*/}<span className="GridBox" />
-                {/*52*/}<span className="GridBox" />
-                {/*53*/}<span className="GridBox" />
-                {/*54*/}<span className="GridBox" />
-                {/*55*/}<span className="GridBox" />
-                {/*56*/}<span className="GridBox" />
-                {/*57*/}<span className="GridBox" />
-                {/*58*/}<span className="GridBox" />
-                {/*59*/}<span className="GridBox" />
-                {/*60*/}<span className="GridBox" />
-                {/*61*/}<span className="GridBox" />
-
+                {/*1*/}
+                <span className="GridBox" />
+                {/*2*/}
+                <span className="GridBox" />
+                {/*3*/}
+                <span className="GridBox" />
+                {/*4*/}
+                <span className="GridBox" />
+                {/*5*/}
+                <span className="GridBox" />
+                {/*6*/}
+                <span className="GridBox" />
+                {/*7*/}
+                <span className="GridBox" />
+                {/*8*/}
+                <span className="GridBox" />
+                {/*9*/}
+                <span className="GridBox" />
+                {/*10*/}
+                <span className="GridBox" />
+                {/*11*/}
+                <span className="GridBox" />
+                {/*12*/}
+                <span className="GridBox" />
+                {/*13*/}
+                <span className="GridBox" />
+                {/*14*/}
+                <span className="GridBox" />
+                {/*15*/}
+                <span className="GridBox" />
+                {/*16*/}
+                <span className="GridBox" />
+                {/*17*/}
+                <span className="GridBox" />
+                {/*18*/}
+                <span className="GridBox" />
+                {/*19*/}
+                <span className="GridBox" />
+                {/*20*/}
+                <span className="GridBox" />
+                {/*21*/}
+                <span className="GridBox" />
+                {/*22*/}
+                <span className="GridBox" />
+                {/*23*/}
+                <span className="GridBox" />
+                {/*24*/}
+                <span className="GridBox" />
+                {/*25*/}
+                <span className="GridBox" />
+                {/*26*/}
+                <span className="GridBox" />
+                {/*27*/}
+                <span className="GridBox" />
+                {/*28*/}
+                <span className="GridBox" />
+                {/*29*/}
+                <span className="GridBox" />
+                {/*30*/}
+                <span className="GridBox" />
+                {/*31*/}
+                <span className="GridBox" />
+                {/*32*/}
+                <span className="GridBox" />
+                {/*33*/}
+                <span className="GridBox" />
+                {/*34*/}
+                <span className="GridBox" />
+                {/*35*/}
+                <span className="GridBox" />
+                {/*36*/}
+                <span className="GridBox" />
+                {/*37*/}
+                <span className="GridBox" />
+                {/*38*/}
+                <span className="GridBox" />
+                {/*39*/}
+                <span className="GridBox" />
+                {/*41*/}
+                <span className="GridBox" />
+                {/*42*/}
+                <span className="GridBox" />
+                {/*43*/}
+                <span className="GridBox" />
+                {/*44*/}
+                <span className="GridBox" />
+                {/*45*/}
+                <span className="GridBox" />
+                {/*46*/}
+                <span className="GridBox" />
+                {/*47*/}
+                <span className="GridBox" />
+                {/*48*/}
+                <span className="GridBox" />
+                {/*49*/}
+                <span className="GridBox" />
+                {/*50*/}
+                <span className="GridBox" />
+                {/*51*/}
+                <span className="GridBox" />
+                {/*52*/}
+                <span className="GridBox" />
+                {/*53*/}
+                <span className="GridBox" />
+                {/*54*/}
+                <span className="GridBox" />
+                {/*55*/}
+                <span className="GridBox" />
+                {/*56*/}
+                <span className="GridBox" />
+                {/*57*/}
+                <span className="GridBox" />
+                {/*58*/}
+                <span className="GridBox" />
+                {/*59*/}
+                <span className="GridBox" />
+                {/*60*/}
+                <span className="GridBox" />
+                {/*61*/}
+                <span className="GridBox" />
               </div>
 
               <h2 className="TechChip2">Tu Título</h2>
@@ -526,6 +1362,26 @@ const ChooseStyle = (props:any) => {
                   <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z" />
                 </svg>
               </span>
+            </div>
+
+            <div className="D3Box">
+              <Canvas
+                colorManagement
+                shadowMap
+                camera={{ position: [-0.5, 0.5, 0.5], fov: 50}}
+              >
+                <ambientLight intensity={0.5} />
+                <pointLight position={[300, 500, 0]} intensity={2} />
+                <directionalLight
+                  castShadow
+                  position={[300, 500, 0]}
+                  shadow-camera-far={50}
+                />
+                <OrbitControls />
+                <Suspense fallback={null}>
+                  <Model />
+                </Suspense>
+              </Canvas>
             </div>
           </span>
 
@@ -628,35 +1484,6 @@ const ChooseStyle = (props:any) => {
         </span>
       </div>
     );
-
-    if (StyleName === "3D-Style"){
-      Page = (
-        <div className="Page">
-          <span className="StyleName">
-            <h1>{StyleName}</h1>
-          </span>
-
-          <section className="D3-Style">
-
-            <Suspense fallback={null}>
-              <Canvas
-              colorManagement
-              className="Canvas"
-              camera={{position:[0,0,120], fov: 70}}
-              >
-                <mesh>
-
-                  <boxBufferGeometry attach="geometry" args={[5,5,5]}/>
-                  <meshStandardMaterial attach="material" />
-
-                </mesh>
-
-              </Canvas>
-            </Suspense>
-          </section>
-        </div>  
-      )
-    }
 
     PagesList.push(Page)
   }
@@ -790,8 +1617,8 @@ const ChooseStyle = (props:any) => {
 
 // PageStyles Created
 
+  CreatePageStyle("D3-Style")
   CreatePageStyle("Glassmorphic")
-  // CreatePageStyle("3D-Style")
   CreatePageStyle("Minimalist")
   CreatePageStyle("Animated")
   CreatePageStyle("Parallax")

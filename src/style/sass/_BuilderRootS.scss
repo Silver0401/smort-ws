@@ -67,7 +67,7 @@ $BackgroundColor: rgb(57, 55, 55);
         height: 100%;
         width: 100%;
         display: grid;
-        grid-template-columns: 40% 1fr;
+        grid-template-columns: 35% 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: 
         "InsBox BuildBox";
@@ -94,7 +94,7 @@ $BackgroundColor: rgb(57, 55, 55);
 
                 h1{
                     font-family: 'MuseoModerno', cursive;
-                    font-size: clamp(30px, 3vw, 95px);
+                    font-size: clamp(25px, 2.5vw, 95px);
                     text-align: center;
                     color: white;
                     // text-shadow: 2px 2px 2px black;
