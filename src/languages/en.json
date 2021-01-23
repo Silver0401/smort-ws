@@ -1,114 +1,131 @@
 {
+  "Lang.en": "English",
+  "Lang.sp": "Español",
 
-    "Lang.en":"English",
-    "Lang.sp":"Español",
+  "NavBar.Home": "Smort",
+  "NavBar.About": "About Us",
+  "NavBar.Begin": "Begin",
+  "NavBar.ContactUs": "Contact Us",
 
-    "NavBar.Home": "Smort",
-    "NavBar.About": "About Us",
-    "NavBar.Begin": "Begin",
-    "NavBar.ContactUs": "Contact Us",
+  "HomeLeft.Header1": "We make all sorts of websites, except ordinary ones.",
+  "HomeLeft.Header2": "Sites that capture your essence.",
+  "HomeLeft.Header3": "for only 90$ usd",
 
-    "HomeLeft.SitesText":"Sites for only",
-    "HomeLeft.SitesPrice":"90$usd",
+  "Begin.button": "Get my site",
+  "Choose.button": "Choose",
+  "Root.Start.button": "Start",
 
-    "HomeRight.line1":"Looking for a site that is",
-    "HomeRight.line1.word":"professional?",
-    "HomeRight.line2":"Leave it to the",
-    "HomeRight.line2.word":"professionals",
-    "HomeRight.line3":"Obtain yours now!",
-    "Begin.button":"Get my site",
-    
-    "Block1.phrase":"Invest in yourself, invest in your future. Invest Smortly",
-    "Block1.Question":"Why Smort and not any other Website Software?",
+  "Block1.phrase": "Invest in yourself, invest in your future. Invest Smortly",
+  "Block1.Question": "Why Smort and not any other Website Software?",
 
-    "Block1.Box1.title":"Amazing Prices",
-    "Block1.Box1.par":"The lowest prices in the market",
+  "Block1.Box1.title": "Amazing Prices",
+  "Block1.Box1.par": "The lowest prices in the market",
 
-    "Block1.Box2.title":"Unmeasurable quality",
-    "Block1.Box2.par":"Websites with more than excelent quality",
+  "Block1.Box2.title": "Unmeasurable quality",
+  "Block1.Box2.par": "Websites with more than excelent quality",
 
-    "Block1.Box3.title":"Alucinating designs",
-    "Block1.Box3.par":"Pages with sublime and extravagant styles and designs",
+  "Block1.Box3.title": "Alucinating designs",
+  "Block1.Box3.par": "Pages with sublime and extravagant styles and designs",
 
-    "Block1.Box4.title":"Extraordinary Animations",
-    "Block1.Box4.par":"Sites with animations, movement and interactivity",
+  "Block1.Box4.title": "Extraordinary Animations",
+  "Block1.Box4.par": "Sites with animations, movement and interactivity",
 
-    "Block1.Box5.title":"Personalization",
-    "Block1.Box5.par":"Websites that capture your essence",
+  "Block1.Box5.title": "Personalization",
+  "Block1.Box5.par": "Websites that capture your essence",
 
-    "Block1.Box6.title":"Client Attention",
-    "Block1.Box6.par":"Contact us at any time and through different platforms",
+  "Block1.Box6.title": "Client Attention",
+  "Block1.Box6.par": "Contact us at any time and through different platforms",
 
-    "Block1.Box7.title":"Super Optimized",
-    "Block1.Box7.par":"Fast and responsive Websites for any device",
+  "Block1.Box7.title": "Super Optimized",
+  "Block1.Box7.par": "Fast and responsive Websites for any device",
 
-    "Block1.Box8.title":"Fast Deliveries",
-    "Block1.Box8.par":"You'll have your website in just a matter of days",
-    
-    
-    "Block2.LeftBox.title":"Creating a truly professional website is complicated",
-    "Block2.LeftBox.mover":"You require of",
+  "Block1.Box8.title": "Fast Deliveries",
+  "Block1.Box8.par": "You'll have your website in just a matter of days",
 
-    "Block2.LeftBox.Svg1":"Quality Images",
-    "Block2.LeftBox.Svg2":"Data Bases",
-    "Block2.LeftBox.Svg3":"A design process",
-    "Block2.LeftBox.Svg4":"Resources Optimization",
-    "Block2.LeftBox.Svg5":"Constant Updates",
-    "Block2.LeftBox.Svg6":"A personalized logo",
+  "Block2.LeftBox.title": "Creating a truly professional website is complicated",
+  "Block2.LeftBox.mover": "You require of",
 
-    "Block2.RightBox.sentence1.1":"Don't waste your time, we do ",
-    "Block2.RightBox.word":"Everything ",
-    "Block2.RightBox.sentence1.2":"for you.",
+  "Block2.LeftBox.Svg1": "Quality Images",
+  "Block2.LeftBox.Svg2": "Data Bases",
+  "Block2.LeftBox.Svg3": "A design process",
+  "Block2.LeftBox.Svg4": "Resources Optimization",
+  "Block2.LeftBox.Svg5": "Constant Updates",
+  "Block2.LeftBox.Svg6": "A personalized logo",
 
-    "Block3.title":"How does it work?",
-    "Block3.line1":"Choose your favorite styles and designs",
-    "Block3.line2":"Write us your site especifications and details",
-    "Block3.line3":"Wait a few days for your Website to be finished",
-    "Block3.line4":"Enjoy your page from any device",
+  "Block2.RightBox.sentence1.1": "Don't waste your time, we do ",
+  "Block2.RightBox.word": "Everything ",
+  "Block2.RightBox.sentence1.2": "for you.",
 
-    "Footer.title": "Contact and Follow Us",
-    "Footer.About.title": "About Smort",
-    "Footer.About.Domains": "Domains",
-    "Footer.About.Dates&Payments": "Payments and Dates",
-    "Footer.About.Terms&Conditions": "Terms and Conditions",
+  "Block3.title": "How does it work?",
+  "Block3.line1": "Choose your favorite styles and designs",
+  "Block3.line2": "Write us your site especifications and details",
+  "Block3.line3": "Wait a few days for your Website to be finished",
+  "Block3.line4": "Enjoy your page from any device",
 
-    "Footer.Support.title": "Support",
-    "Footer.Support.ClientSupport": "Client Support",
-    "Footer.Support.StyleChange": "Style and Design Change",
-    "Footer.Support.SiteUpgrade": "Site Update or Upgrade",
-    
-    "Footer.Footer": "©Smort 2020 - all rights reserved",
+  "Footer.title": "Contact and Follow Us",
+  "Footer.About.title": "About Smort",
+  "Footer.About.Domains": "Domains",
+  "Footer.About.Dates&Payments": "Payments and Dates",
+  "Footer.About.Terms&Conditions": "Terms and Conditions",
 
+  "Footer.Support.title": "Support",
+  "Footer.Support.ClientSupport": "Client Support",
+  "Footer.Support.StyleChange": "Style and Design Change",
+  "Footer.Support.SiteUpgrade": "Site Update or Upgrade",
 
-    "DC.About.Domains.title": "Domains",
-    "DC.About.Domains.P1": "After buying a website with Smort, you provide us with 3 possible options, to name your site. We take care of checking the availability of each option, as well as of the administration of the domiain itself. Depending of the chosen domain extension (.com, .tech, .net, etc) prices may vary.",
-    "DC.About.Domains.P2": "The first stime you buy a website with us you'll receive a personalized web designed and its domain. The design of the website consists of a unique initial payment with no other charges, however, the domain must be renewed every year, which is why to mantain the website up and running, there will be yearly charges made, so that we can keep administering both the site and the domain.",
-    
-    "DC.About.D&P.title": "Dates & Payments",
-    "DC.About.D&P.P1": "The inicial payment after buying a website with us, will guarantee you a design, domain and site administration for a complete year, with no other extra charges (with a few exceptions), such initial payment can vary due to a number of factors (like site type, site extension, developmente resources, amongst others).",
-    "DC.About.D&P.P2": "The day we deliver your website, we will also send you en email, as a receipt of the date and payment. Once a year has passed from the date in the receipt, we'll once again care to send you another email a few days earlier as a reminder of the yearly payment (so that we can keep on administrating the site's domain and data). In cases, where the buyer fails to pay the anual charge on, the site will stop being publicly available, unmanaged and with no domain. The buyer can contact us at any time to fullfill the delayed payment, so that we can reactivate the website (warning: if too much time passes, the domain may have to be changed to a new one).",
-    
-    "DC.About.T&C.title": "Terms and Conditions",
-    "DC.About.T&C.P1": "Whenever you buy a website with us, you agree to us administrating the website in every aspect, respecting the dates and payments established.",
-    "DC.About.T&C.P2": "If at any point, your website starts obtaining a highly eleveated number of daily views (thousands), it will be necessary to start realizing monthly charges, due to the fact that as administrators, we would be dealing with more information and data storages (this usually only applies to sales sites).",
-    
-    
-    "DC.Support.CS.title": "Client Support",
-    "DC.Support.CS.P1": "If you ever need to contact us about a problem, doubt or clarification of any king, you can contact us without any hesitation either through email at smortmc2@gmail.com, send us a whatsapp of call us to the number +52 771 411 6235 or write us through here, by filling the spaces below.",
-    
-    "DC.Support.Label.Name": "Name",
-    "DC.Support.Label.Email": "Email",
-    "DC.Support.Label.Message": "Message",
-    
-    "DC.Support.StyleChanges.title": "Style and Design Changes",
-    "DC.Support.StyleChanges.P1": "If you bought a website with us, you can contact us at any time if you've found or consider your website has a mistake; we'll solve the error in 24 hours or less with no cost. However if, on the other hand you merely wish to move or change a feature of the website as a client of us, you'll have the right to two cost-free changes, after these two any other change we'll be considered as an update/upgrade of your site, which implies a payment. Read the next section to understand more about website updates and upgrades.",    
+  "Footer.Footer": "©Smort 2020 - all rights reserved",
 
-    "DC.Support.SiteUpdates.title": "Site Update or Upgrade",
-    "DC.Support.SiteUpdates.P1": "Whenever you desire for us to add, update or implement a change to your website in any way (after your free style changes), you can contact us through your favorite digital media. It is, depending on the size and resources needed (3d-models, animations, etc.) for the wished upgrade to be developed, that the total cost will be determined (prices may vary significanty).",
-    
-    "Support.TitleWord" : "Support",
-    "About.TitleWord" : "About",
+  "DC.About.Domains.title": "Domains",
+  "DC.About.Domains.P1": "After buying a website with Smort, you provide us with 3 possible options, to name your site. We take care of checking the availability of each option, as well as of the administration of the domiain itself. Depending of the chosen domain extension (.com, .tech, .net, etc) prices may vary.",
+  "DC.About.Domains.P2": "The first stime you buy a website with us you'll receive a personalized web designed and its domain. The design of the website consists of a unique initial payment with no other charges, however, the domain must be renewed every year, which is why to mantain the website up and running, there will be yearly charges made, so that we can keep administering both the site and the domain.",
 
+  "DC.About.D&P.title": "Dates & Payments",
+  "DC.About.D&P.P1": "The inicial payment after buying a website with us, will guarantee you a design, domain and site administration for a complete year, with no other extra charges (with a few exceptions), such initial payment can vary due to a number of factors (like site type, site extension, developmente resources, amongst others).",
+  "DC.About.D&P.P2": "The day we deliver your website, we will also send you en email, as a receipt of the date and payment. Once a year has passed from the date in the receipt, we'll once again care to send you another email a few days earlier as a reminder of the yearly payment (so that we can keep on administrating the site's domain and data). In cases, where the buyer fails to pay the anual charge on, the site will stop being publicly available, unmanaged and with no domain. The buyer can contact us at any time to fullfill the delayed payment, so that we can reactivate the website (warning: if too much time passes, the domain may have to be changed to a new one).",
 
-    "Default":""
+  "DC.About.T&C.title": "Terms and Conditions",
+  "DC.About.T&C.P1": "Whenever you buy a website with us, you agree to us administrating the website in every aspect, respecting the dates and payments established.",
+  "DC.About.T&C.P2": "If at any point, your website starts obtaining a highly eleveated number of daily views (thousands), it will be necessary to start realizing monthly charges, due to the fact that as administrators, we would be dealing with more information and data storages (this usually only applies to sales sites).",
+
+  "DC.Support.CS.title": "Client Support",
+  "DC.Support.CS.P1": "If you ever need to contact us about a problem, doubt or clarification of any king, you can contact us without any hesitation either through email at smortmc2@gmail.com, send us a whatsapp of call us to the number +52 771 411 6235 or write us through here, by filling the spaces below.",
+
+  "DC.Support.Label.Name": "Name",
+  "DC.Support.Label.Email": "Email",
+  "DC.Support.Label.Message": "Message",
+
+  "DC.Support.StyleChanges.title": "Style and Design Changes",
+  "DC.Support.StyleChanges.P1": "If you bought a website with us, you can contact us at any time if you've found or consider your website has a mistake; we'll solve the error in 24 hours or less with no cost. However if, on the other hand you merely wish to move or change a feature of the website as a client of us, you'll have the right to two cost-free changes, after these two any other change we'll be considered as an update/upgrade of your site, which implies a payment. Read the next section to understand more about website updates and upgrades.",
+
+  "DC.Support.SiteUpdates.title": "Site Update or Upgrade",
+  "DC.Support.SiteUpdates.P1": "Whenever you desire for us to add, update or implement a change to your website in any way (after your free style changes), you can contact us through your favorite digital media. It is, depending on the size and resources needed (3d-models, animations, etc.) for the wished upgrade to be developed, that the total cost will be determined (prices may vary significanty).",
+
+  "Support.TitleWord": "Support",
+  "About.TitleWord": "About",
+
+  "BuilderInit.Title": "What kind of website are you looking for?",
+  "BuilderInit.ClickMe.SubTitle": "Click me to learn more",
+
+  "BuilderInit.Personal.Title": "Personal",
+  "BuilderInit.Personal.content": "Any person has a written curriculum. Make yourself outstand from the pile by having a global digital curriculum, anyone can access at any time and any place. A personal website is the curriculum of the future, invest in yourself, invest in your future.",
+
+  "BuilderInit.Marketing.Title": "Marketing",
+  "BuilderInit.Marketing.content": "Searching to promote a team, product or brand? Invest a little and create a website of its own, which will make you look a lot more professional and of superior quality. Leaving competition behind.",
+
+  "BuilderInit.Sales.Title": "Sales",
+  "BuilderInit.Sales.content": "Always wanted to start a business of your own? Now's the time! Get yourself a professional quality website, in order to have space to promote and sell your products.",
+
+  "BuilderInit.Blog.Title": "Blog",
+  "BuilderInit.Blog.content": "You enjoy writing and spreading your ideas; Create a website that captures your own colors, a place where you'll be able to write and share everything think of, with no boundaries or limits.",
+
+  "BuilderRoot.Welcome.Title": "Welcome to our style selector",
+  "BuilderRoot.Welcome.SubTitle": "Simply click the start button and choose your favorite colors and designs you'd like your website to have.",
+
+  "BuilderRoot.Builder.All.Title": "Pick a design ",
+  "BuilderRoot.Builder.Step1.Title": "for your site ",
+  "BuilderRoot.Builder.Step2.Title": "for your navigation",
+  "BuilderRoot.Builder.Step3.Title": "for your buttons",
+  "BuilderRoot.Builder.Step4.Title": "for your loader",
+
+  "Default": ""
 }

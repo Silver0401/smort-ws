@@ -480,7 +480,7 @@ $BGColor: rgb(31, 28, 28);
                 }
 
                 h1{
-                    font-size: clamp(40px, 4vw, 100px);
+                    font-size: clamp(33px, 4vw, 100px);
                     color: $PageColor;
                 }
 
@@ -848,10 +848,7 @@ $BGColor: rgb(31, 28, 28);
 
                             background: linear-gradient(to top right, rgba(51, 162, 203, 0.591), grey);
 
-                            Canvas{
-                                height: 200px;
-                                width: 200px;
-                            }   
+                            
                         }
                         
 

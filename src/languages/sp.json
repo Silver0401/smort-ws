@@ -1,112 +1,131 @@
 {
+  "Lang.en": "English",
+  "Lang.sp": "Español",
 
-    "Lang.en":"English",
-    "Lang.sp":"Español",
+  "NavBar.Home": "Smort",
+  "NavBar.About": "Acerca de",
+  "NavBar.Begin": "Comenzar",
+  "NavBar.ContactUs": "Contáctanos",
 
-    "NavBar.Home": "Smort",
-    "NavBar.About": "Acerca de",
-    "NavBar.Begin": "Comenzar",
-    "NavBar.ContactUs": "Contáctanos",
+  "HomeLeft.Header1": "Hacemos páginas web de todo tipo menos ordinarias",
+  "HomeLeft.Header2": "Sitios que capturan tu esencia",
+  "HomeLeft.Header3": "Desde 1500$ mxn",
 
-    "HomeLeft.SitesText":"Sitios desde",
-    "HomeLeft.SitesPrice":"1500$mx",
+  "Begin.button": "Conseguir mi sitio",
+  "Choose.button": "Seleccionar",
+  "Root.Start.button": "Empezar",
 
-    "HomeRight.line1":"¿Buscas un sitio web",
-    "HomeRight.line1.word":"profesional?",
-    "HomeRight.line2":"Déjaselo a los",
-    "HomeRight.line2.word":"profesionales",
-    "HomeRight.line3":"!Consigue el tuyo ya!",
-    "Begin.button":"Conseguir mi sitio",
+  "Block1.phrase": "Invierte en ti, invierte en tu futuro. Invierte Smortly",
+  "Block1.Question": "¿Porqué smort y no otros Softwares de Páginas Web?",
 
-    "Block1.phrase":"Invierte en ti, invierte en tu futuro. Invierte Smortly",
-    "Block1.Question":"¿Porqué smort y no otros Softwares de Páginas Web?",
+  "Block1.Box1.title": "Precios Increibles",
+  "Block1.Box1.par": "Los precios más bajos del mercado",
 
-    "Block1.Box1.title":"Precios Increibles",
-    "Block1.Box1.par":"Los precios más bajos del mercado",
+  "Block1.Box2.title": "Calidad Inmensurable",
+  "Block1.Box2.par": "Página de calidad excelente",
 
-    "Block1.Box2.title":"Calidad Inmensurable",
-    "Block1.Box2.par":"Página de calidad excelente",
+  "Block1.Box3.title": "Diseños Alucinantes",
+  "Block1.Box3.par": "Página con diseños y estilos sublimes y extravagantes",
 
-    "Block1.Box3.title":"Diseños Alucinantes",
-    "Block1.Box3.par":"Página con diseños y estilos sublimes y extravagantes",
+  "Block1.Box4.title": "Animaciones Extraordinarias",
+  "Block1.Box4.par": "Sitios con animaciones, movimiento e interactividad",
 
-    "Block1.Box4.title":"Animaciones Extraordinarias",
-    "Block1.Box4.par":"Sitios con animaciones, movimiento e interactividad",
+  "Block1.Box5.title": "Personalización",
+  "Block1.Box5.par": "Sitios Web que capturan tu esencia",
 
-    "Block1.Box5.title":"Personalización",
-    "Block1.Box5.par":"Sitios Web que capturan tu esencia",
+  "Block1.Box6.title": "Atención al Cliente",
+  "Block1.Box6.par": "Contactanos en cualquier momento a través de diferentes plataformas",
 
-    "Block1.Box6.title":"Atención al Cliente",
-    "Block1.Box6.par":"Contactanos en cualquier momento a través de diferentes plataformas",
+  "Block1.Box7.title": "Super Optimizado",
+  "Block1.Box7.par": "Sitio web rápidos y responsivos en cualquier dispositivo",
 
-    "Block1.Box7.title":"Super Optimizado",
-    "Block1.Box7.par":"Sitio web rápidos y responsivos en cualquier dispositivo",
+  "Block1.Box8.title": "Entregas Rápidas",
+  "Block1.Box8.par": "Tendras tu sitio en tan solo unos cuantos días",
 
-    "Block1.Box8.title":"Entregas Rápidas",
-    "Block1.Box8.par":"Tendras tu sitio en tan solo unos cuantos días",
-    
-    
-    "Block2.LeftBox.title":"Crear un sitio web Realmente Profesional es Complicado",
-    "Block2.LeftBox.mover":"Se necesita de",
-    "Block2.LeftBox.Svg1":"Imágenes de Calidad",
-    "Block2.LeftBox.Svg2":"Bases de Datos",
-    "Block2.LeftBox.Svg3":"Un Proceso de Diseño",
-    "Block2.LeftBox.Svg4":"Optmización de Recursos",
-    "Block2.LeftBox.Svg5":"Actualizaciones Constantes",
-    "Block2.LeftBox.Svg6":"Un Logo Personalizado",
+  "Block2.LeftBox.title": "Crear un sitio web Realmente Profesional es Complicado",
+  "Block2.LeftBox.mover": "Se necesita de",
+  "Block2.LeftBox.Svg1": "Imágenes de Calidad",
+  "Block2.LeftBox.Svg2": "Bases de Datos",
+  "Block2.LeftBox.Svg3": "Un Proceso de Diseño",
+  "Block2.LeftBox.Svg4": "Optmización de Recursos",
+  "Block2.LeftBox.Svg5": "Actualizaciones Constantes",
+  "Block2.LeftBox.Svg6": "Un Logo Personalizado",
 
-    "Block2.RightBox.sentence1.1":"No pierdas tu tiempo, nosotros lo hacemos ",
-    "Block2.RightBox.word":"Todo ",
-    "Block2.RightBox.sentence1.2":"por tí.",
+  "Block2.RightBox.sentence1.1": "No pierdas tu tiempo, nosotros lo hacemos ",
+  "Block2.RightBox.word": "Todo ",
+  "Block2.RightBox.sentence1.2": "por tí.",
 
-    "Block3.title":"¿Cómo Funciona?",
-    "Block3.line1":"Escoge tus diseños y estilos favoritos",
-    "Block3.line2":"Escríbenos tus especificaciones y detalles",
-    "Block3.line3":"Espera unos cuantos días a que la terminemos",
-    "Block3.line4":"Disfruta tu página en cualquier dispositivo",
+  "Block3.title": "¿Cómo Funciona?",
+  "Block3.line1": "Escoge tus diseños y estilos favoritos",
+  "Block3.line2": "Escríbenos tus especificaciones y detalles",
+  "Block3.line3": "Espera unos cuantos días a que la terminemos",
+  "Block3.line4": "Disfruta tu página en cualquier dispositivo",
 
-    "Footer.title": "Contáctanos y Síguenos",
-    "Footer.About.title": "Acerca de Smort",
-    "Footer.About.Domains": "Dominios",
-    "Footer.About.Dates&Payments": "Fechas y Pagos",
-    "Footer.About.Terms&Conditions": "Términos y Condiciones",
+  "Footer.title": "Contáctanos y Síguenos",
+  "Footer.About.title": "Acerca de Smort",
+  "Footer.About.Domains": "Dominios",
+  "Footer.About.Dates&Payments": "Fechas y Pagos",
+  "Footer.About.Terms&Conditions": "Términos y Condiciones",
 
-    "Footer.Support.title": "Soporte",
-    "Footer.Support.ClientSupport": "Ayuda al Cliente",
-    "Footer.Support.StyleChange": "Cambio de Diseño y Estilo",
-    "Footer.Support.SiteUpgrade": "Actualización o Mejora de tu Página",
-    
-    "Footer.Footer": "©Smort 2020 - todos los derechos reservados",
-    
-    
-    "DC.About.Domains.title": "Dominios",
-    "DC.About.Domains.P1": "Al comprar una página con Smort, usted nos provee 3 opciones o posibles nombres que le pudieramos dar a su página. Nosotros nos encargamos de checar la disponibiliad de cada uno, así como de administrar el mismo dominio; dependiendo del nombre y la extensión (.com, .tech, .net, etc) que usted escoga los precios pueden variar.",
-    "DC.About.Domains.P2": "La primera vez que usted compre una página web con nosotros obtendrá su diseño web y su dominio. El diseño es de un único pago inicial, sin embargo, el dominio es algo que se tiene que renovar cada año, por lo cual para mantenerlo, es necesario hacer pagos anuales, para que sigamos administrando tanto el dominio como el mismo sitio web.",
-    
-    "DC.About.D&P.title": "Fechas y Pagos",
-    "DC.About.D&P.P1": "El pago inicial al comprar un sitio comprende el diseño permanente y un dominio de un año. Dicho pago inicial puede variar dependiendo de varios factores, como: tipo de sitio web (de ventas, de portafiolio, de producto, etc.), extensión del sitio web (.com, .tech, .net, etc), tipo de diseño y recursos utilizados para el desarrollo del sitio web, entre otros.",
-    "DC.About.D&P.P2": "El día que te entreguemos tu sitio web, también nos encargaremos de mandarte un correo como comprobante de la fecha de entrega y pago. Una vez que haya pasado un año desde esta fecha, te enviaremos nuevamente un correo algunos días antes, para recordarte sobre los pagos anuales de administración y gestión de la página y el dominio. En caso de que haya un atraso en dichos pagos anuales, se perderá la posesión del dominio y ya no será posible acceder al sitio web. En caso de haya un atraso y usted quiera recuperar la página, contará con 2 semanas hábiles para contactarnos y volver a activar el sitio web.",
-    
-    "DC.About.T&C.title": "Términos y Condiciones",
-    "DC.About.T&C.P1": "Al comprar un sitio en Smort, usted accede a que nosotros administremos la página en todos sus aspectos, respetando las fechas y pagos establecidos.",
-    "DC.About.T&C.P2": "Si en algun punto su página empieza a recibir un elevado número de visitas diarias (miles) será necesario empezar a realizar cargos mensuales, puesto que estaríamos administrando mucha información y datos (lo cual, usualmente solo ocurriría en sitios de ventas).",
-    
-    
-    "DC.Support.CS.title": "Ayuda al Cliente",
-    "DC.Support.CS.P1": "Si necesita contactarnos para cualquier problema, duda o aclaración puede enviarnos un correo al email: smortmc2@gmail.com, enviarnos un whatsapp o llamrnos al número 771 411 6235 o también escribirnos por aquí mismo, llenando la información requerida.",
-    
-    "DC.Support.Label.Name": "Nombre",
-    "DC.Support.Label.Email": "Correo",
-    "DC.Support.Label.Message": "Mensaje",
-    
-    "DC.Support.StyleChanges.title": "Cambios del diseño y estilo de la página",
-    "DC.Support.StyleChanges.P1": "Al comprar un sitio web con nosotros puede contactarnos en cualquier momento si encuentra o considera que su página posee algún error o falla. Nosotros nos encargaremos de arreglar el error en menos de 24 horas sin costo alguno. Si por otro lado, busca que le cambiemos o removamos algo del diseño inicial, como cliente tendrá derecho a 2 cambios en su sitio totalmente gratis, cualquier cambio que se quiera después de los dos gratuitos, se considerará como una actualización o mejora de la página, lo cual implica un cargo. Lea la siguiente sección para entender más sobre las mejoras y/o actualizaciones de tu página.",    
+  "Footer.Support.title": "Soporte",
+  "Footer.Support.ClientSupport": "Ayuda al Cliente",
+  "Footer.Support.StyleChange": "Cambio de Diseño y Estilo",
+  "Footer.Support.SiteUpgrade": "Actualización o Mejora de tu Página",
 
-    "DC.Support.SiteUpdates.title": "Actualización o Mejora de tu Página",
-    "DC.Support.SiteUpdates.P1": "Si en algun punto busca que le agreguemos, actualizemos o mejoremos la página de cualquier manera, puede ponerse en contacto con nosotros por el medio digital de su preferencia. Acorde al tamaño de la nueva implementación deseada, será el costo. Los precios pueden variar significativamente dependiendo de los recursos necesarios (modelos, animaciones, etc.) para la creación, adición o actualización de la sección de la página que se quiera cambiar. ",
-    
-    "Support.TitleWord" : "Soporte",
-    "About.TitleWord" : "Acerca de",
+  "Footer.Footer": "©Smort 2020 - todos los derechos reservados",
 
-    "Default":""
+  "DC.About.Domains.title": "Dominios",
+  "DC.About.Domains.P1": "Al comprar una página con Smort, usted nos provee 3 opciones o posibles nombres que le pudieramos dar a su página. Nosotros nos encargamos de checar la disponibiliad de cada uno, así como de administrar el mismo dominio; dependiendo del nombre y la extensión (.com, .tech, .net, etc) que usted escoga los precios pueden variar.",
+  "DC.About.Domains.P2": "La primera vez que usted compre una página web con nosotros obtendrá su diseño web y su dominio. El diseño es de un único pago inicial, sin embargo, el dominio es algo que se tiene que renovar cada año, por lo cual para mantenerlo, es necesario hacer pagos anuales, para que sigamos administrando tanto el dominio como el mismo sitio web.",
+
+  "DC.About.D&P.title": "Fechas y Pagos",
+  "DC.About.D&P.P1": "El pago inicial al comprar un sitio comprende el diseño permanente y un dominio de un año. Dicho pago inicial puede variar dependiendo de varios factores, como: tipo de sitio web (de ventas, de portafiolio, de producto, etc.), extensión del sitio web (.com, .tech, .net, etc), tipo de diseño y recursos utilizados para el desarrollo del sitio web, entre otros.",
+  "DC.About.D&P.P2": "El día que te entreguemos tu sitio web, también nos encargaremos de mandarte un correo como comprobante de la fecha de entrega y pago. Una vez que haya pasado un año desde esta fecha, te enviaremos nuevamente un correo algunos días antes, para recordarte sobre los pagos anuales de administración y gestión de la página y el dominio. En caso de que haya un atraso en dichos pagos anuales, se perderá la posesión del dominio y ya no será posible acceder al sitio web. En caso de haya un atraso y usted quiera recuperar la página, contará con 2 semanas hábiles para contactarnos y volver a activar el sitio web.",
+
+  "DC.About.T&C.title": "Términos y Condiciones",
+  "DC.About.T&C.P1": "Al comprar un sitio en Smort, usted accede a que nosotros administremos la página en todos sus aspectos, respetando las fechas y pagos establecidos.",
+  "DC.About.T&C.P2": "Si en algun punto su página empieza a recibir un elevado número de visitas diarias (miles) será necesario empezar a realizar cargos mensuales, puesto que estaríamos administrando mucha información y datos (lo cual, usualmente solo ocurriría en sitios de ventas).",
+
+  "DC.Support.CS.title": "Ayuda al Cliente",
+  "DC.Support.CS.P1": "Si necesita contactarnos para cualquier problema, duda o aclaración puede enviarnos un correo al email: smortmc2@gmail.com, enviarnos un whatsapp o llamrnos al número 771 411 6235 o también escribirnos por aquí mismo, llenando la información requerida.",
+
+  "DC.Support.Label.Name": "Nombre",
+  "DC.Support.Label.Email": "Correo",
+  "DC.Support.Label.Message": "Mensaje",
+
+  "DC.Support.StyleChanges.title": "Cambios del diseño y estilo de la página",
+  "DC.Support.StyleChanges.P1": "Al comprar un sitio web con nosotros puede contactarnos en cualquier momento si encuentra o considera que su página posee algún error o falla. Nosotros nos encargaremos de arreglar el error en menos de 24 horas sin costo alguno. Si por otro lado, busca que le cambiemos o removamos algo del diseño inicial, como cliente tendrá derecho a 2 cambios en su sitio totalmente gratis, cualquier cambio que se quiera después de los dos gratuitos, se considerará como una actualización o mejora de la página, lo cual implica un cargo. Lea la siguiente sección para entender más sobre las mejoras y/o actualizaciones de tu página.",
+
+  "DC.Support.SiteUpdates.title": "Actualización o Mejora de tu Página",
+  "DC.Support.SiteUpdates.P1": "Si en algun punto busca que le agreguemos, actualizemos o mejoremos la página de cualquier manera, puede ponerse en contacto con nosotros por el medio digital de su preferencia. Acorde al tamaño de la nueva implementación deseada, será el costo. Los precios pueden variar significativamente dependiendo de los recursos necesarios (modelos, animaciones, etc.) para la creación, adición o actualización de la sección de la página que se quiera cambiar. ",
+
+  "Support.TitleWord": "Soporte",
+  "About.TitleWord": "Acerca de",
+
+  "BuilderInit.Title": "¿Qué tipo de sitio estas buscando?",
+  "BuilderInit.ClickMe.SubTitle": "Haz click para ver más",
+
+  "BuilderInit.Personal.Title": "Personal",
+  "BuilderInit.Personal.content": "Cualquier persona tiene un curriculum escrito. Hazte destacar y lleva un currículum global, al cual cualquiera pueda accesar con un link. Una página Web personal es el curriculum del futuro, date a conocer, invierte en ti, invierte en tu futuro.",
+
+  "BuilderInit.Marketing.Title": "Merca",
+  "BuilderInit.Marketing.content": "¿Estas buscando promocionar un equipo? ¿alguna marca o producto? Invierte un poco y crea su propia página web, ésta, hace que se vea mucho mas profesional y de una calidad superior, dejando atrás a la competencia.",
+
+  "BuilderInit.Sales.Title": "Ventas",
+  "BuilderInit.Sales.content": "¿Siempre has querido tener tu negocio propio? ¡Es momento de intentarlo! Crea una pagina web de calidad profesional y de diseño sublime, donde puedas anunciar y vender tus productos.",
+
+  "BuilderInit.Blog.Title": "Blog",
+  "BuilderInit.Blog.content": "Te gusta escribir y dar a conocer tus ideas, crea una pagina con un diseño que capture quien eres y te dé un lugar personal donde puedas escribir y compartir todo lo que quieras sin límites",
+  
+  "BuilderRoot.Welcome.Title": "Bienvenid@ a nuestro selector de estilos",
+  "BuilderRoot.Welcome.SubTitle": "Simplemente haz click en el botón de empezar, y escoge los diseños y colores que más te gusten para tu página",
+  
+  "BuilderRoot.Builder.All.Title": "Elige un diseño ",
+  "BuilderRoot.Builder.Step1.Title": "para tu sitio",
+  "BuilderRoot.Builder.Step2.Title": "para tu navegación",
+  "BuilderRoot.Builder.Step3.Title": "para tus botónes",
+  "BuilderRoot.Builder.Step4.Title": "para tu cargador",
+
+
+  "Default": ""
 }

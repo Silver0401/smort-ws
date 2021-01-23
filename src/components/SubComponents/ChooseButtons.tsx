@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { ChosenDataContext } from "./../ChosenData";
 
 const ChooseButtons = (props:any) => {
 
   let [Data, setData] = useContext(ChosenDataContext)
+  const { t } = useTranslation()
 
   const CreateButton = (ButtonName:string) => {
 
@@ -21,14 +23,17 @@ const ChooseButtons = (props:any) => {
               setData({ ...Data, ButtonStyle: ButtonName });
 
               setTimeout(() => {
-                props.changeFunction("Loader Style", 4, "diseño para tu cargador");
-                props.ScrollToSectionFunction("Instructions")
-              }, 500)
-
+                props.changeFunction(
+                  "Loader Style",
+                  4,
+                  t("BuilderRoot.Builder.Step4.Title")
+                );
+                props.ScrollToSectionFunction("Instructions");
+              }, 500);
             }}
             className="ChooseButton"
           >
-            Escoger
+            {t("Choose.button")}
           </button>
           <p>{ButtonName}</p>
         </div>

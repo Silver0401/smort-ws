@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import anime from "animejs";
 import { ChosenDataContext } from "./../components/ChosenData";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 // Builder Sections (SubComponents)
 import NavSection from "./../components/SubComponents/ChooseNav";
@@ -11,13 +12,14 @@ import LoadersSection from "../components/SubComponents/ChooseLoader";
 import StyleSection from "./../components/SubComponents/ChooseStyle";
 
 const BuilderRoot = () => {
+  
   // Variables
-
+  const { t } = useTranslation()
   const [Data, setData] = useContext(ChosenDataContext);
 
   const [sectionDisplayed, changeSection] = useState<string>("Page Style");
   const [sectionTitle, setSectionTitle] = useState<string>(
-    "Diseño para tu sitio"
+    t("BuilderRoot.Builder.Step1.Title")
   );
   const [sectionId, setSectionId] = useState<number>(1);
 
@@ -212,12 +214,12 @@ const BuilderRoot = () => {
       initial={{ opacity: 0, y: "-100vh" }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: "-100vh" }}
-      style={ pageYFlow ? {overflowY: "scroll"} : {overflowY:"hidden"} }
+      style={pageYFlow ? { overflowY: "scroll" } : { overflowY: "hidden" }}
     >
       <div className="RootBox">
         <div className="InstructionsBox" ref={InstructionsRef}>
           <span className="Header">
-            <h1>{`Escoge un ${sectionTitle}`}</h1>
+            <h1>{`${t("BuilderRoot.Builder.All.Title")} ${sectionTitle}`}</h1>
           </span>
 
           <span className="Middler">
@@ -246,7 +248,7 @@ const BuilderRoot = () => {
             <div
               onClick={() => {
                 changeSection("Page Style");
-                setSectionTitle("diseño para tu Sitio");
+                setSectionTitle(t("BuilderRoot.Builder.Step1.Title"));
                 setSectionId(1);
               }}
               className={
@@ -258,7 +260,7 @@ const BuilderRoot = () => {
             <div
               onClick={() => {
                 changeSection("NavBar Style");
-                setSectionTitle("diseño para tu navegación");
+                setSectionTitle(t("BuilderRoot.Builder.Step2.Title"));
                 setSectionId(2);
               }}
               className={
@@ -270,7 +272,7 @@ const BuilderRoot = () => {
             <div
               onClick={() => {
                 changeSection("Button Style");
-                setSectionTitle("diseño para tus botones");
+                setSectionTitle(t("BuilderRoot.Builder.Step3.Title"));
                 setSectionId(3);
               }}
               className={
@@ -282,7 +284,7 @@ const BuilderRoot = () => {
             <div
               onClick={() => {
                 changeSection("Loader Style");
-                setSectionTitle("diseño para tu cargador");
+                setSectionTitle(t("BuilderRoot.Builder.Step4.Title"));
                 setSectionId(4);
               }}
               className={
@@ -344,11 +346,8 @@ const BuilderRoot = () => {
 
       <div className="WelcomeBox">
         <div className="WelcomeText">
-          <h1>Bienvenid@ a nuestro selector de estilos</h1>
-          <h2>
-            Simplemente haz click en el botón de empezar, y escoge los diseños y
-            colores que más te gusten para tu página
-          </h2>
+          <h1>{t("BuilderRoot.Welcome.Title")}</h1>
+          <h2>{t("BuilderRoot.Welcome.SubTitle")}</h2>
         </div>
 
         <div className="ButtonsBox">
@@ -356,13 +355,13 @@ const BuilderRoot = () => {
             className="StartButton"
             onClick={() => {
               RemoveWelcomeBox();
-              setPageYFlow(true)
+              setPageYFlow(true);
               setTimeout(() => {
-                ScrollToSection("Builder")
-              }, 1000)
+                ScrollToSection("Builder");
+              }, 1000);
             }}
           >
-            Empezar
+            {t("Root.Start.button")}
           </button>
         </div>
       </div>

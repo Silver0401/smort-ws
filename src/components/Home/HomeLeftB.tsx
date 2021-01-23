@@ -12,11 +12,10 @@ const LeftBox = () => {
 
     return (
       <div className="LeftBoxHome">
-
         <div className="Slogan">
-          <h1>Hacemos páginas web de todo tipo, menos ordinarias.</h1>
-          <h2>Sitios que capturan tu esencia</h2>
-          <p>Desde 1500$ mxn</p>
+          <h1>{t("HomeLeft.Header1")}</h1>
+          <h2>{t("HomeLeft.Header2")}</h2>
+          <p>{t("HomeLeft.Header3")}</p>
         </div>
 
         <button

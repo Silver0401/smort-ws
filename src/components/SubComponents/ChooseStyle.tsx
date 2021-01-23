@@ -5,21 +5,18 @@ import anime from "animejs";
 import Particles from "react-tsparticles";
 import { Canvas } from "react-three-fiber";
 import { ChosenDataContext } from "./../ChosenData";
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-// import { useGLTF } from "@react-three/drei"
+import { useTranslation } from "react-i18next";
 
 // Resources
-
 import DudFoto from "./../../resources/dud.jpg"; 
 
 
 const ChooseStyle = (props:any) => {
 
-  // Variables
+  const { t } = useTranslation()
   const [PageNumbertoDisplay, setPageNumberToDisplay] = useState(0)
   let PagesList:any[] = []
   const [Data, setData] = useContext(ChosenDataContext)
-  // const GetCanvas = useRef<HTMLDivElement>(null)
 
 
   // Functions
@@ -92,12 +89,16 @@ const ChooseStyle = (props:any) => {
             
             setData({...Data, PageStyle:StyleName})
             setTimeout(() => {
-              props.changeFunction("NavBar Style", 2, "diseño para tu navegación");
+              props.changeFunction(
+                "NavBar Style",
+                2,
+                t("BuilderRoot.Builder.Step2.Title")
+              );
               props.ScrollToSectionFunction("Instructions")
             },500)
 
           }}>
-            Escoger
+            {t("Choose.button")}
           </button>
         </span>
 
@@ -662,54 +663,6 @@ const ChooseStyle = (props:any) => {
 
 
   // Use Effects (for Animations)
-
-  useEffect(() => {
-
-    // const D3Animation = () => {
-      
-    //   const Scene = new THREE.Scene();
-  
-    //   const Camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-      
-    //   const Renderer = new THREE.WebGLRenderer({antialias: true})
-      
-    //   // const Loader = new GLTFLoader()
-    //   const Loader = new GLTFLoader()
-  
-    //   Renderer.setClearColor("#e5e5e5")
-      
-    //   if (GetCanvas.current && GetCanvas){
-        
-    //     Renderer.setSize(window.innerWidth, window.innerHeight, false)
-        
-    //     GetCanvas.current.appendChild(Renderer.domElement)
-    //   }
-    
-
-    //   Loader.load("/burguer.glb", (gltf) => {
-
-    //     Scene.add(gltf.scene)
-
-    //   }, undefined, function (error){
-
-    //     console.log("caught error")
-    //     console.error(error)
-
-    //   })
-      
-    //   const render = () => {
-
-    //     requestAnimationFrame(render)
-
-    //     Renderer.render(Scene, Camera)
-    //   }
-
-    //   render()
-
-    // }
-
-    // D3Animation()
-  })
 
   useEffect(() => {
 

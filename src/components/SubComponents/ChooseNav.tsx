@@ -1,7 +1,11 @@
 import React, { useState, useContext } from "react";
 import { ChosenDataContext } from "./../ChosenData";
+import { useTranslation } from "react-i18next";
+
 
 const ChooseNav = (props:any) => {
+
+  const { t } = useTranslation()
 
   const [XCircleNavBar, setXCircleNavBar] = useState(false)
   const [SimpleCircleNavBar, setSimpleCircleNavBar] = useState(true)
@@ -140,15 +144,18 @@ const ChooseNav = (props:any) => {
             <button
               className="ChooseButton"
               onClick={() => {
-                setData({ ...Data, NavBarStyle: NavBarName })
+                setData({ ...Data, NavBarStyle: NavBarName });
                 setTimeout(() => {
-                  props.changeFunction("Button Style", 3, "diseño para tus botones");
+                  props.changeFunction(
+                    "Button Style",
+                    3,
+                    t("BuilderRoot.Builder.Step3.Title")
+                  );
                   props.ScrollToSectionFunction("Instructions");
-                },500)
-
+                }, 500);
               }}
             >
-              Escoger
+              {t("Choose.button")}
             </button>
             <p>{NavBarName}</p>
           </div>

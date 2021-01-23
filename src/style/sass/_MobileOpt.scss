@@ -279,12 +279,26 @@ $BGColor: rgb(31, 28, 28);
 
         .HomeInit{
 
-            height: 160vh;
+            height: 150vh;
             grid-template-rows: 100vh 1fr;
 
             .RightBoxHome{
                 .SiteAnimationBox{
-                    transform: scale(.5);
+                    transform: scale(.4);
+
+                    .InitBox{
+                        .PhoneContainer{
+                            .SiteContainer{
+                                Canvas{
+                                    transform: scale(3);
+                                    position: absolute;
+                                    left: 90px;
+                                    top: 130px;
+                                    height: 100%;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
