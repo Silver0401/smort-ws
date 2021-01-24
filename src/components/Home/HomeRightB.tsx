@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, Suspense } from "react";
+import React, { useEffect, useRef, Suspense } from "react";
 import anime from "animejs";
 import { Canvas } from "react-three-fiber";
 import { useGLTF } from "@react-three/drei/useGLTF";
