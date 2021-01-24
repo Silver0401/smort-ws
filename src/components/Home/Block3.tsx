@@ -446,7 +446,7 @@ const Block3 = (props:any) => {
     useEffect(() => {
       if (props.animInit) {
         InstructionsAnimation();
-        console.log("on thingy");
+        console.log("on block 3, buffering animation");
       }
     }, [props.animInit, InstructionsAnimation]);
 

@@ -158,7 +158,7 @@ function App() {
 
 					<Route key="Home" exact path="/" component={HomePage} />
 							
-					<Route key="DataCenter" exact path="/DataCenter" component={DataCenter} />
+					<Route key="SupportCenter" exact path="/SupportCenter" component={DataCenter} />
 
 					<Route key="BuilderInit" exact path="/PageBuilder/Init" component={BuilderInit} />
 

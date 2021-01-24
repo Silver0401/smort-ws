@@ -100,198 +100,198 @@ useGLTF.preload("/3DModels/BotModel/scene.gltf");
 
 
 const RightBox = () => {
-
-  const HomeWebsiteAnimation = useCallback(() => {
-
-    const ImageChanger = anime.timeline({
-      duration: 1000,
-      easing: "easeInOutQuad",
-      loop: true,
-    })
-
-    ImageChanger.add({
-      targets: "#Person1",
-      opacity: 1
-    }, "+=1000")
-    ImageChanger.add({
-      targets: "#Sales1",
-      opacity: 1
-    }, "+=1000")
-    ImageChanger.add({
-      targets: "#Image3",
-      opacity: 1
-    }, "+=1000")
-    ImageChanger.add({
-      targets: ["#Image3", "#Person1", "#Sales1"],
-      opacity: 0
-    }, "+=1000")
-
-    const tl = anime.timeline({
-      easing: "linear",
-      duration: 1000,
-      // loop: true,
-    })
-
-    tl.add({
-      targets:"#SmortSvgLogo",
-      duration: 2000,
-      rotateZ: "720deg",
-    })
-    tl.add({
-      targets:"#SmortSvgLogo",
-      duration: 1000,
-      opacity: 0
-    },"-=1000")
-    tl.add({
-      targets:"#ShapeShifter",
-      duration: 1000,
-      opacity: 1
-    },"-=1000")
-    tl.add(
-      {
-        targets: "#ShapeShifterPath",
-        easing: "easeInOutElastic(1, .6)",
-        d: [
-          {
-            value: [
-              "M195.821 92C112.821 104.5 153.96 184 102.321 184C126.821 115 -39.3818 108.068 8.82097 92C109.321 58.5 50.6824 0 102.321 0C94.8209 72.5 278.82 79.5 195.821 92Z",
-            ],
-            duration: 800,
-          },
-          {
-            value: [
-              "M202 99.9999C239 168.5 160.139 192 108.5 192C56.8613 192 -35 151 14.9999 99.9999C54.904 59.2977 45.5 -26.0001 108.5 7.99991C272 2.5 202 49.1897 202 99.9999Z",
-            ],
-            duration: 800,
-          },
-          {
-            value: [
-              "M171 121.5C171 253 183 242 85.9999 242C-11 242 0.999924 254 0.999924 121.5C0.999924 -11 -7.50003 0.999986 85.9999 0.999986C179.5 0.999986 171 -10 171 121.5Z",
-            ],
-            duration: 1000,
-          },
-        ],
-      },
-      "+=50"
-    );
-    tl.add(
-      {
-        targets: [".PhoneContainer", ".Polymorph"],
-        translateX: "-150px",
-        translateY: "-100px",
-        easing: "easeOutElastic(1, 1)",
-      },
-      "-=1000"
-    );
-    tl.add(
-      {
-        targets: ".PhoneContainer",
-        opacity: 1,
-        duration: 500
-      },
-      "-=500"
-    );
-    tl.add(
-      {
-        targets: ".Polymorph",
-        translateX: "-50px",
-        translateY: "170px",
-        easing: "easeOutElastic(1, 1)",
-      },
-      "+=100"
-    );
-
-    tl.add(
-      {
-        targets: "#ShapeShifterPath",
-        easing: "easeInOutElastic(1, .6)",
-        d: [
-          {
-            value:
-              "M78 92C78 142.81 241.5 -51.5 137.5 191.5C85.8614 191.5 0 142.81 0 92C0 35 41.8614 0 93.5 0C279.5 98 78 41.1898 78 92Z",
-            duration: 800,
-          },
-          {
-            value:
-              "M175.5 88C125.22 127.063 336.967 140.497 130.5 184C-19.0001 215.5 171.646 141.326 74 99C-57.5 42 3.99996 18.5 130.5 0C182.138 0 240.5 37.5 175.5 88Z",
-            duration: 800,
-          },
-          {
-            value:
-              "M269 84C269 183 284 166 135 166C-18 166 1.0002 186 1.00019 84C1.00019 -18 -20 2.00003 135 2C290 1.99996 269 -15 269 84Z",
-            duration: 1000,
-          },
-        ],
-      },
-      "-=1200"
-    );
-
-    tl.add(
-      {
-        targets: ".MonitorContainer",
-        opacity: 1,
-      },
-      "-=100"
-    );
-
-    tl.add(
-      {
-        targets: "#ShapeShifterPath",
-        d: [
-          {
-            value:
-              "M187 92C187 142.81 145.139 184 93.5 184C41.8614 184 0 142.81 0 92C0 35 41.8614 0 93.5 0C145.139 0 187 41.1898 187 92Z",
-          },
-        ],
-      },
-      "+=100"
-    );
-    
-    tl.add(
-      {
-        targets: ".Polymorph",
-        width: "25em",
-        height: "25em",
-        translateX: "5em",
-        translateY: "-5em",
-        easing: "easeOutElastic(1, .6)",
-        duration: 2000
-      },
-      "-=1000"
-    );
-
-    tl.add(
-      {
-        targets: ".Polymorph",
-        rotateY: "360deg",
-        duration: 1000,
-        easing: "easeOutElastic(1, .6)",
-      },
-      "-=500"
-    );
-
-    tl.add(
-      {
-        targets: "#SmortSvgLogo",
-        opacity: .2,
-        duration: 500
-      },
-      "-=500"
-    );
-
-    tl.add(
-      {
-        targets: "#ShapeShifter",
-        opacity: 0,
-        duration: 500
-      },
-      "-=1000"
-    );
-
-  }, [])
-
+  
   useEffect(() => {
-
+    
+    const HomeWebsiteAnimation = () => {
+  
+      const ImageChanger = anime.timeline({
+        duration: 1000,
+        easing: "easeInOutQuad",
+        loop: true,
+      })
+  
+      ImageChanger.add({
+        targets: "#Person1",
+        opacity: 1
+      }, "+=1000")
+      ImageChanger.add({
+        targets: "#Sales1",
+        opacity: 1
+      }, "+=1000")
+      ImageChanger.add({
+        targets: "#Image3",
+        opacity: 1
+      }, "+=1000")
+      ImageChanger.add({
+        targets: ["#Image3", "#Person1", "#Sales1"],
+        opacity: 0
+      }, "+=1000")
+  
+      const tl = anime.timeline({
+        easing: "linear",
+        duration: 1000,
+        // loop: true,
+      })
+  
+      tl.add({
+        targets:"#SmortSvgLogo",
+        duration: 2000,
+        rotateZ: "720deg",
+      })
+      tl.add({
+        targets:"#SmortSvgLogo",
+        duration: 1000,
+        opacity: 0
+      },"-=1000")
+      tl.add({
+        targets:"#ShapeShifter",
+        duration: 1000,
+        opacity: 1
+      },"-=1000")
+      tl.add(
+        {
+          targets: "#ShapeShifterPath",
+          easing: "easeInOutElastic(1, .6)",
+          d: [
+            {
+              value: [
+                "M195.821 92C112.821 104.5 153.96 184 102.321 184C126.821 115 -39.3818 108.068 8.82097 92C109.321 58.5 50.6824 0 102.321 0C94.8209 72.5 278.82 79.5 195.821 92Z",
+              ],
+              duration: 800,
+            },
+            {
+              value: [
+                "M202 99.9999C239 168.5 160.139 192 108.5 192C56.8613 192 -35 151 14.9999 99.9999C54.904 59.2977 45.5 -26.0001 108.5 7.99991C272 2.5 202 49.1897 202 99.9999Z",
+              ],
+              duration: 800,
+            },
+            {
+              value: [
+                "M171 121.5C171 253 183 242 85.9999 242C-11 242 0.999924 254 0.999924 121.5C0.999924 -11 -7.50003 0.999986 85.9999 0.999986C179.5 0.999986 171 -10 171 121.5Z",
+              ],
+              duration: 1000,
+            },
+          ],
+        },
+        "+=50"
+      );
+      tl.add(
+        {
+          targets: [".PhoneContainer", ".Polymorph"],
+          translateX: "-150px",
+          translateY: "-100px",
+          easing: "easeOutElastic(1, 1)",
+        },
+        "-=1000"
+      );
+      tl.add(
+        {
+          targets: ".PhoneContainer",
+          opacity: 1,
+          duration: 500
+        },
+        "-=500"
+      );
+      tl.add(
+        {
+          targets: ".Polymorph",
+          translateX: "-50px",
+          translateY: "170px",
+          easing: "easeOutElastic(1, 1)",
+        },
+        "+=100"
+      );
+  
+      tl.add(
+        {
+          targets: "#ShapeShifterPath",
+          easing: "easeInOutElastic(1, .6)",
+          d: [
+            {
+              value:
+                "M78 92C78 142.81 241.5 -51.5 137.5 191.5C85.8614 191.5 0 142.81 0 92C0 35 41.8614 0 93.5 0C279.5 98 78 41.1898 78 92Z",
+              duration: 800,
+            },
+            {
+              value:
+                "M175.5 88C125.22 127.063 336.967 140.497 130.5 184C-19.0001 215.5 171.646 141.326 74 99C-57.5 42 3.99996 18.5 130.5 0C182.138 0 240.5 37.5 175.5 88Z",
+              duration: 800,
+            },
+            {
+              value:
+                "M269 84C269 183 284 166 135 166C-18 166 1.0002 186 1.00019 84C1.00019 -18 -20 2.00003 135 2C290 1.99996 269 -15 269 84Z",
+              duration: 1000,
+            },
+          ],
+        },
+        "-=1200"
+      );
+  
+      tl.add(
+        {
+          targets: ".MonitorContainer",
+          opacity: 1,
+        },
+        "-=100"
+      );
+  
+      tl.add(
+        {
+          targets: "#ShapeShifterPath",
+          d: [
+            {
+              value:
+                "M187 92C187 142.81 145.139 184 93.5 184C41.8614 184 0 142.81 0 92C0 35 41.8614 0 93.5 0C145.139 0 187 41.1898 187 92Z",
+            },
+          ],
+        },
+        "+=100"
+      );
+      
+      tl.add(
+        {
+          targets: ".Polymorph",
+          width: "25em",
+          height: "25em",
+          translateX: "5em",
+          translateY: "-5em",
+          easing: "easeOutElastic(1, .6)",
+          duration: 2000
+        },
+        "-=1000"
+      );
+  
+      tl.add(
+        {
+          targets: ".Polymorph",
+          rotateY: "360deg",
+          duration: 1000,
+          easing: "easeOutElastic(1, .6)",
+        },
+        "-=500"
+      );
+  
+      tl.add(
+        {
+          targets: "#SmortSvgLogo",
+          opacity: .2,
+          duration: 500
+        },
+        "-=500"
+      );
+  
+      tl.add(
+        {
+          targets: "#ShapeShifter",
+          opacity: 0,
+          duration: 500
+        },
+        "-=1000"
+      );
+  
+    }
+    
     setTimeout(() => {
       HomeWebsiteAnimation()
 

@@ -21,7 +21,7 @@ const Footer = (props:any) => {
 
     await setPath()
 
-    History.push("/DataCenter")
+    History.push("/SupportCenter")
 
   }
 

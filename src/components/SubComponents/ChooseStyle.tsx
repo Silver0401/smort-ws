@@ -19,7 +19,6 @@ const ChooseStyle = (props:any) => {
   const [PageNumbertoDisplay, setPageNumberToDisplay] = useState(0)
   let PagesList:any[] = []
   const [Data, setData] = useContext(ChosenDataContext)
-  // useGLTF.preload("/3DModels/ComputerModel/scene.gltf");
 
   // Functions
   const ChangePageTo = (direction:string) => {
@@ -816,6 +815,8 @@ const ChooseStyle = (props:any) => {
       </group>
     );
   }
+
+  useGLTF.preload("/3DModels/ComputerModel/scene.gltf");
 
   const CreatePageStyle = (StyleName:string) => {
 
@@ -1617,10 +1618,10 @@ const ChooseStyle = (props:any) => {
 
 // PageStyles Created
 
+  CreatePageStyle("Animated")
   CreatePageStyle("D3-Style")
   CreatePageStyle("Glassmorphic")
   CreatePageStyle("Minimalist")
-  CreatePageStyle("Animated")
   CreatePageStyle("Parallax")
   CreatePageStyle("Neumorphic")
 

@@ -258,6 +258,28 @@ const BuilderFinal: React.FC = () => {
       }
     };
 
+    const chosenDate = () => {
+      
+      let numWeeks = 0
+      let today = new Date();
+
+      if (Data.SiteType === "Personal" || Data.SiteType === "Merca" ){
+        numWeeks = 1
+      } else if (Data.SiteType === "Ventas" || Data.SiteType === "Blog") {
+        numWeeks = 2;
+      } else {
+        numWeeks = 0;
+      }
+        
+      today.setDate(today.getDate() + numWeeks * 7);
+      let dd = String(today.getDate()).padStart(2, "0");
+      let mm = String(today.getMonth() + 1).padStart(2, "0");
+      let yyyy = today.getFullYear();
+      const DeliveryDate = `${mm} / ${dd} / ${yyyy}`;
+
+      return DeliveryDate
+    }
+
     const AnimateCardPayOptions = (direction:string) => {
 
       if (direction === "forward"){
@@ -379,9 +401,9 @@ const BuilderFinal: React.FC = () => {
       })
 
       if (ErrorsCatched.length >= 1) {
-        ErrorsCatched?.forEach((error: string) => {
-          toast.error(`Error en ${error}, información no válida `);
-        });
+        // ErrorsCatched?.forEach((error: string) => {
+        //   toast.error(`Error en ${error}, información no válida `);
+        // });
         return "error";
       }
       else return "All correct";
@@ -779,9 +801,10 @@ const BuilderFinal: React.FC = () => {
             <h2
               className={stepSelected === 2 ? "toggled" : "notToggled"}
               onClick={() => {
-
-                if (DataScan() === "All correct"){
+                if (DataScan() === "All correct") {
                   setStepSelected(2);
+                } else {
+                  toast("Llena todos los espacios antes de continuar");
                 }
                 PriceDecider();
               }}
@@ -793,6 +816,8 @@ const BuilderFinal: React.FC = () => {
               onClick={() => {
                 if (DataScan() === "All correct") {
                   setStepSelected(3);
+                } else {
+                  toast("Llena todos los espacios antes de continuar");
                 }
                 PriceDecider();
               }}
@@ -802,8 +827,13 @@ const BuilderFinal: React.FC = () => {
           </div>
 
           <div className="StepsBody">
-            <div
+            <form
               className="Step1Style"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setStepSelected(2);
+                PriceDecider();
+              }}
               style={
                 stepSelected === 1
                   ? {
@@ -831,6 +861,7 @@ const BuilderFinal: React.FC = () => {
                     type="text"
                     placeholder="Portafiolio Personal de Pepe"
                     ref={MainThemeRef}
+                    required
                     name="MainTheme"
                   />
                   <div className="BottomBox" />
@@ -842,6 +873,7 @@ const BuilderFinal: React.FC = () => {
                     type="text"
                     placeholder="Pepe Contreras"
                     name="Name"
+                    required
                     ref={NameRef}
                   />
                   <div className="BottomBox" />
@@ -852,7 +884,9 @@ const BuilderFinal: React.FC = () => {
                   <input
                     type="email"
                     placeholder="smortmc2@gmail.com"
-                    name="Email"
+                    name="email"
+                    id="email"
+                    required
                     ref={EmailRef}
                   />
                   <div className="BottomBox" />
@@ -861,9 +895,11 @@ const BuilderFinal: React.FC = () => {
                 <span>
                   <label>Tu teléfono</label>
                   <input
-                    type="number"
+                    type="tel"
                     placeholder="723 834 1231"
                     name="Phone"
+                    pattern="\d*"
+                    required
                     ref={PhoneRef}
                   />
                   <div className="BottomBox" />
@@ -874,22 +910,25 @@ const BuilderFinal: React.FC = () => {
                 <label>Detllaes y Especificaciones</label>
                 <textarea
                   placeholder="Quiero que mi página tenga esto, quiero que mí sitio muestre
-                estas cualidades de mi o de mi producto, etc."
+                  estas cualidades de mi o de mi producto, etc."
                   name="Detalles"
+                  required
                   ref={DetailsRef}
                 />
               </span>
 
               <span className="InputBox3">
-                <label id="IB3title" >Nombre para el Dominio de tu Sitio</label>
+                <label id="IB3title">Nombre para el Dominio de tu Sitio</label>
 
                 <span>
                   <label>Opción #1</label>
                   <input
-                    ref={DomainOpt1} 
+                    ref={DomainOpt1}
                     name="DomainOpt #1"
-                    type="text" 
-                    placeholder="www.smort" />
+                    type="text"
+                    required
+                    placeholder="www.smort"
+                  />
                   <div className="BottomBox" />
                 </span>
 
@@ -899,6 +938,7 @@ const BuilderFinal: React.FC = () => {
                     ref={DomainOpt2}
                     name="DomainOpt #2"
                     type="text"
+                    required
                     placeholder="www.smorter"
                   />
                   <div className="BottomBox" />
@@ -910,6 +950,7 @@ const BuilderFinal: React.FC = () => {
                     ref={DomainOpt3}
                     name="DomainOpt #3"
                     type="text"
+                    required
                     placeholder="www.smortpages"
                   />
                   <div className="BottomBox" />
@@ -936,15 +977,7 @@ const BuilderFinal: React.FC = () => {
                 <p>
                   Nota: El precio varia dependiendo de la extensión escogida
                 </p>
-                <button
-                  className="SubmitInfo"
-                  onClick={() => {
-                    if (DataScan() === "All correct") {
-                      setStepSelected(2);
-                      PriceDecider()
-                    }
-                  }}
-                >
+                <button className="SubmitInfo" type="submit">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -955,7 +988,7 @@ const BuilderFinal: React.FC = () => {
                   </svg>
                 </button>
               </span>
-            </div>
+            </form>
 
             <div
               className="Step2Style"
@@ -978,9 +1011,10 @@ const BuilderFinal: React.FC = () => {
                   <h2>{Data.SiteType}</h2>
                   <p>
                     Para las Sitios Web de tipo "{Data.SiteType}", ofrecemos una
-                    estructura que consta de los siguientes componentes: {NumberOfPagesDecider("Names")} .Los
-                    cuales pueden ser puestos en una sola página, o en varias
-                    páginas. Escoga la opción que más le guste.
+                    estructura que consta de los siguientes componentes:{" "}
+                    {NumberOfPagesDecider("Names")} .Los cuales pueden ser
+                    puestos en una sola página, o en varias páginas. Escoga la
+                    opción que más le guste.
                   </p>
                 </div>
                 <div className="NumberOfPages">
@@ -1082,7 +1116,7 @@ const BuilderFinal: React.FC = () => {
                         "LoaderStyle",
                         "Color1",
                         "Color2",
-                        "SiteStructure"
+                        "SiteStructure",
                       ];
 
                       return ChosenItemsList.includes(property);
@@ -1100,6 +1134,7 @@ const BuilderFinal: React.FC = () => {
                 <div className="Price">
                   <h1>{`$${Price}`}</h1>
                   <h2>Pesos Mexicanos</h2>
+                  <h3>Fecha de Entrega: { chosenDate() }</h3>
                 </div>
 
                 <div className="ButtonsBox">

@@ -43,18 +43,11 @@ const HomePage = () => {
 
     const userPosition = e.target.scrollTop;
     const block3Position = Block3Ref.current?.offsetTop;
-    const HomeSectionPosition = HomePageRef.current?.offsetTop;
 
-    if (block3Position && HomeSectionPosition) {
+    if (block3Position) {
       if (userPosition > block3Position - 100) {
         setOnBlock3(true)
       }
-
-      // if (userPosition > (HomeSectionPosition)) {
-      //   toggleNavColor(true);
-      // } else if (userPosition < HomeSectionPosition) {
-      //   toggleNavColor(false);
-      // }
 
     }
   }
