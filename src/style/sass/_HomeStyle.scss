@@ -818,7 +818,6 @@ $BGColor: rgb(31, 28, 28);
                     }
 
                     .PhoneContainer{
-                        transform-origin: bottom left;
                         position: absolute;
                         width: 20em;
                         height: 30em;
@@ -848,14 +847,14 @@ $BGColor: rgb(31, 28, 28);
     
                     .MonitorContainer{
                         opacity: 0;
-                        transform-origin: top right;
                         position: absolute;
                         width: 30em;
                         height: 20em;
                         border: 1px solid white;
                         border-radius: 1em;
                         z-index: 0;
-                        margin-top: 45%;
+                        margin-top: 20em;
+                        margin-bottom: auto;
                         margin-left: 5em;
                         
                        .SiteContainer .BackgroundImgs{
