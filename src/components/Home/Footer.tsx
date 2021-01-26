@@ -22,8 +22,18 @@ const Footer = (props:any) => {
     await setPath()
 
     History.push("/SupportCenter")
-
   }
+
+  
+  const CurrentYear = () => {
+
+    let today = new Date();
+    today.setDate(today.getDate());
+    let yyyy = today.getFullYear();
+
+    return yyyy
+
+  };
 
   return (
     <section className="Footer" id="Contacts" ref={props.refData}>
@@ -132,7 +142,7 @@ const Footer = (props:any) => {
       </div>
 
       <div className="Right">
-        <h2>{t("Footer.Footer")}</h2>
+        <h2>{`©Smort ${CurrentYear()} - ${t("Footer.Footer")}`}</h2>
       </div>
     </section>
   );

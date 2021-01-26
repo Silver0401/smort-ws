@@ -16,9 +16,9 @@ const SideBar = () => {
           className="DataCenterBurguer"
           onClick={() => setDCBurguer((prevState) => !prevState)}
         >
-          <div></div>
-          <div></div>
-          <div></div>
+          <div id="l1"></div>
+          <div id="l2"></div>
+          <div id="l3"></div>
         </div>
 
         <span className="LinkBox">

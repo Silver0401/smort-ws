@@ -10,7 +10,6 @@ $BGColor: rgb(31, 28, 28);
     }
 
     #l2{
-        // transform: translateX(5px);
         width: 0px;
         transition: width 100ms;
     }
@@ -37,6 +36,7 @@ $BGColor: rgb(31, 28, 28);
         .Toggled{
             transform: translateX(0px);
             transition: transform 500ms;
+            @include XBurger();
         }
         
         .notToggled{

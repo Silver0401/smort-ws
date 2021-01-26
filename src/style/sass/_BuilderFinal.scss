@@ -151,12 +151,13 @@ $BGColor: rgb(31, 28, 28);
                     background-color: transparent;   
                     @include alignCenter();
                     flex-direction: column;
-                    justify-content: center;
+                    justify-content: space-evenly;
                     overflow: hidden;
 
                     .Price{
                         width: 100%;
-                        height: 40%;
+                        height: 45%;
+                        // background-color: lightcoral;
                         @include alignCenter();
                         h1{
                             font-size: clamp(60px ,6vw ,200px);
@@ -168,17 +169,49 @@ $BGColor: rgb(31, 28, 28);
                         h3{
                             font-size: clamp(20px ,1vw ,130px);
                             text-decoration: underline $PageColor;
+                            text-align: center;
+                            margin: 0px 2em;
+                        }
+                        h4{
+                            font-size: clamp(15px ,1vw ,130px);
+                            text-align: center;
                         }
 
                     }
 
+                    .TandCCheckBox{
+                        width: 100%;
+                        @include alignCenter();
+                        flex-direction: row;
+                        a{
+                            font-size: clamp(15px, 1.5vw, 30px);
+                            text-align: center;
+                            padding: 1em;
+                            color: $PageColor;
+                            transition: color 500ms, text-decoration 500ms;
+                            cursor: pointer;
+
+                            &:hover{
+                                color: rgb(77, 228, 127);
+                                text-decoration: underline rgb(77, 228, 127);
+                                transition: color 500ms, text-decoration 500ms;
+                            }
+                        }
+
+                        input{
+                            width: 2em;
+                            height: 2em;
+                        }
+                    }
+
                     .ButtonsBox{
                         position: relative;
-                        width: 100%;
-                        height: 40%;                        
+                        width: 80%;
+                        height: 25%;                        
                         @include alignCenter();
                         flex-direction: row;
                         justify-content: space-around;
+                        // background-color: black;
 
                         button{
                             position: relative;
@@ -296,9 +329,9 @@ $BGColor: rgb(31, 28, 28);
             
                     }
 
-                    p{
-                        height: 20%;
-                        font-size: clamp( 20px, 1.5vw, 30px);
+                    .ImportantP{
+                        // height: 20%;
+                        font-size: clamp( 10px, 1.5vw, 30px);
                         z-index: 0;
                         text-align: center;
                     }
@@ -315,15 +348,15 @@ $BGColor: rgb(31, 28, 28);
                         opacity: 0;
                         visibility: hidden;
                         @include alignCenter();
-                        overflow: visible;
+                        overflow: hidden;
                         transform: rotateY(180deg);
 
-                        img{
-                            width: auto;
-                            height: 170%;
+                        #BgTransSmortLogo{
                             position: absolute;
-                            left: -150px;
-                            top: -50px;
+                            width: 100%;
+                            height: auto;
+                            left: 0px;
+                            top: 0px;
                             opacity: .05;
                             z-index: -1;
                         }
@@ -338,7 +371,6 @@ $BGColor: rgb(31, 28, 28);
                             .CardLine{
                                 width: 80%;
                                 height: 100%;
-                                // background-color: lightcoral;
                                 position: relative;
 
                                 form{
@@ -358,17 +390,15 @@ $BGColor: rgb(31, 28, 28);
 
                                     .PayButton{
                                         position: relative;
-                                        padding: 10px 30px;
-                                        width: 150px;
-                                        height: 70px;
                                         background-color: $PageColor;
-                                        font-size: 25px;
+                                        // font-size: 25px;
                                         border-radius: 1em;
                                         font-family: 'MuseoModerno', cursive;
                                         transition: all 500ms;
                                         cursor: pointer;
                                         outline: none;
                                         @include alignCenter();
+                                        flex-direction: row;
 
                                         svg{
                                             width: 100%;

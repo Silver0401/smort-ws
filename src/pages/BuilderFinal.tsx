@@ -6,6 +6,7 @@ import axios from "axios";
 import SmortLogo from "./../resources/SmortImage.png"
 import {ToastContainer, toast} from "react-toastify";
 import anime from "animejs";
+import { ChakraProvider, Button } from "@chakra-ui/react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   CardElement,
@@ -37,13 +38,28 @@ const stripePromise = loadStripe(
 
 const StripeForm : React.FC = () => {
 
+  const [cardButtonLoading, setCardButtonLoading] = useState(false)
+  const [Data, setData] = useContext(ChosenDataContext)
+
   const stripe = useStripe();
   const elements = useElements();
-  const [Data, setData] = useContext(ChosenDataContext)
   const History = useHistory()
 
+  const SendPlaneIcon = () => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path d="M23 0l-4.5 16.5-6.097-5.43 5.852-6.175-7.844 5.421-5.411-1.316 18-9zm-11 12.501v5.499l2.193-3.323-2.193-2.176zm-8.698 6.825l-1.439-.507 5.701-5.215 1.436.396-5.698 5.326zm3.262 4.287l-1.323-.565 4.439-4.503 1.32.455-4.436 4.613zm-4.083.387l-1.481-.507 8-7.89 1.437.397-7.956 8z" />
+      </svg>
+    );
+  };
+
   const HandlePayRequest = async () => {
-    toast("Procesando...");
+    setCardButtonLoading(true)
 
     if (stripe) {
       const {
@@ -108,6 +124,7 @@ const StripeForm : React.FC = () => {
                     toast.success(
                       "Operación Realizada con Éxito, redireccionando..."
                     );
+                    setCardButtonLoading(false);
                     setData({ ...Data, MongoDBOrderId: res.data._id });
 
                     setTimeout(() => {
@@ -117,6 +134,7 @@ const StripeForm : React.FC = () => {
                   .catch((err) => {
                     console.error(`FrontEnd Order Error: ${err}`);
                     toast.error("Hubo un error en la operación");
+                    setCardButtonLoading(false);
                   });
               } else {
                 console.log("error placing in database");
@@ -125,12 +143,15 @@ const StripeForm : React.FC = () => {
             .catch((err) => {
               console.error(`FrontEnd Payment Error: ${err}`);
               toast.error("Hubo un error en la operación  :(");
+              setCardButtonLoading(false);
             });
           
         }
 
       } else {
         console.error(error)
+        toast.error("error")
+        setCardButtonLoading(false)
       }
     }
   };
@@ -155,12 +176,17 @@ const StripeForm : React.FC = () => {
           }}
         />
       </div>
-      <button
-        onClick={(e) => {e.preventDefault();HandlePayRequest()}}
-        className="PayButton"
-      >
-        Pagar
-      </button>
+      <ChakraProvider>
+        <Button
+          onClick={(e) => {e.preventDefault();HandlePayRequest()}}
+          className="PayButton"
+          size="lg"
+          leftIcon={<SendPlaneIcon/>}
+          isLoading={cardButtonLoading}
+        >
+          Pagar
+        </Button>
+      </ChakraProvider>
     </form>
   );
 };
@@ -168,10 +194,13 @@ const StripeForm : React.FC = () => {
 
 const BuilderFinal: React.FC = () => {
     
+    const History = useHistory()
+
     const [Data,setData] = useContext(ChosenDataContext)
-    const [stepSelected, setStepSelected] = useState(1)
+    const [stepSelected, setStepSelected] = useState(3)
     const [Price, setPrice] = useState <number>(0)
     const [pageStructure, setPageStructure] = useState <string>("vertical")
+    const [tcbChecked, setTcbChecked] = useState(false)
 
     const NameRef = useRef<HTMLInputElement>(null)
     const EmailRef = useRef<HTMLInputElement>(null)
@@ -275,7 +304,7 @@ const BuilderFinal: React.FC = () => {
       let dd = String(today.getDate()).padStart(2, "0");
       let mm = String(today.getMonth() + 1).padStart(2, "0");
       let yyyy = today.getFullYear();
-      const DeliveryDate = `${mm} / ${dd} / ${yyyy}`;
+      const DeliveryDate = `${dd} / ${mm} / ${yyyy}`;
 
       return DeliveryDate
     }
@@ -294,11 +323,14 @@ const BuilderFinal: React.FC = () => {
           rotateY: "180deg",
         })
   
-        Ftl.add({
-          targets: [".Price", ".ButtonsBox", "#ImportantP"],
-          duration: 500,
-          opacity: 0
-        },"-=1000")
+        Ftl.add(
+          {
+            targets: [".Price", ".ButtonsBox", "#ImportantP", ".TandCCheckBox"],
+            duration: 500,
+            opacity: 0,
+          },
+          "-=1000"
+        );
   
         Ftl.add({
           targets:".PaymentBox",
@@ -321,7 +353,7 @@ const BuilderFinal: React.FC = () => {
 
         Btl.add(
           {
-            targets: [".Price", ".ButtonsBox", "#ImportantP"],
+            targets: [".Price", ".ButtonsBox", "#ImportantP", ".TandCCheckBox"],
             duration: 500,
             opacity: 1,
           },
@@ -340,6 +372,10 @@ const BuilderFinal: React.FC = () => {
 
       }
 
+    }
+
+    const AnimatePayPalOptions = () => {
+      console.log("animating paypal options")
     }
 
     const Checker = (DataType: string) => {
@@ -1134,13 +1170,18 @@ const BuilderFinal: React.FC = () => {
                 <div className="Price">
                   <h1>{`$${Price}`}</h1>
                   <h2>Pesos Mexicanos</h2>
-                  <h3>Fecha de Entrega: { chosenDate() }</h3>
+                  <h3>Fecha estimada de Entrega: {chosenDate()}</h3>
+                  <h4>dd/mm/aaaa</h4>
                 </div>
 
                 <div className="ButtonsBox">
                   <button
                     onClick={() => {
-                      AnimateCardPayOptions("forward");
+                      if (tcbChecked) {
+                        AnimateCardPayOptions("forward");
+                      } else {
+                        toast.error("Debes aceptar los términos y condiciones");
+                      }
                     }}
                   >
                     <p>Tarjeta</p>
@@ -1154,7 +1195,16 @@ const BuilderFinal: React.FC = () => {
                       <path d="M19.662 11.156l.375 1.716h-1.344l.645-1.661.215-.567.109.512zm4.338-5.156v12c0 1.104-.896 2-2 2h-20c-1.104 0-2-.896-2-2v-12c0-1.104.896-2 2-2h20c1.104 0 2 .896 2 2zm-17.146 8.971l2.549-5.929h-1.715l-1.585 4.051-.169-.823-.568-2.73c-.098-.377-.383-.489-.734-.502h-2.611l-.021.123c.635.154 1.203.376 1.701.651l1.44 5.16 1.713-.001zm4.823-5.934h-1.619l-1.012 5.941h1.619l1.012-5.941zm4.625 3.999c.006-.676-.425-1.19-1.359-1.614-.566-.275-.913-.458-.909-.736 0-.247.293-.511.927-.511.53-.008.913.107 1.212.228l.145.068.219-1.287c-.321-.121-.824-.25-1.451-.25-1.6 0-2.727.806-2.737 1.961-.009.854.805 1.33 1.419 1.614.63.291.842.477.839.737-.004.398-.503.58-.969.58-.648 0-.992-.09-1.524-.312l-.209-.095-.227 1.33c.378.166 1.078.31 1.804.317 1.702 0 2.807-.797 2.82-2.03zm5.698 1.944l-1.311-5.937h-1.251c-.388 0-.678.106-.848.493l-2.405 5.444h1.7l.341-.893 2.074.003.197.89h1.503z" />
                     </svg>
                   </button>
-                  <button id="b2p">
+                  <button
+                    id="b2p"
+                    onClick={() => {
+                      if (tcbChecked) {
+                        AnimatePayPalOptions();
+                      } else {
+                        toast.error("Debes aceptar los términos y condiciones");
+                      }
+                    }}
+                  >
                     <p>PayPal</p>
                     <div className="liquid"></div>
                     <svg
@@ -1168,7 +1218,23 @@ const BuilderFinal: React.FC = () => {
                   </button>
                 </div>
 
+                <div className="TandCCheckBox">
+                  <a
+                    onClick={() =>
+                      window.open("/SupportCenter#TandC", "_newtab")
+                    }
+                  >
+                    Acepto los términos y condiciones{" "}
+                  </a>
+                  <input
+                    onClick={() => setTcbChecked(!tcbChecked)}
+                    required
+                    type="checkbox"
+                  />
+                </div>
+
                 <p id="ImportantP">¿Con que deseas comprar tu sitio?</p>
+
                 <div
                   className="PaymentBox"
                   style={
@@ -1177,7 +1243,7 @@ const BuilderFinal: React.FC = () => {
                       : { visibility: "hidden" }
                   }
                 >
-                  <img alt="SmortLogo" src={SmortLogo} />
+                  <img alt="SmortLogo" id="BgTransSmortLogo" src={SmortLogo} />
 
                   <div
                     className="FlipButton"
