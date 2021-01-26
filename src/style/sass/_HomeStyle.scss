@@ -825,7 +825,7 @@ $BGColor: rgb(31, 28, 28);
                         border-radius: 1em;
                         z-index: 0;
                         margin-right: 2em;
-                        margin-top: 5em;
+                        margin-top: 10em;
                         opacity: 0;
                         
                         .SiteContainer .BackgroundImgs{
@@ -848,13 +848,12 @@ $BGColor: rgb(31, 28, 28);
                     .MonitorContainer{
                         opacity: 0;
                         position: absolute;
-                        width: 30em;
-                        height: 20em;
+                        width: 28em;
+                        height: 18em;
                         border: 1px solid white;
                         border-radius: 1em;
                         z-index: 0;
-                        margin-top: 20em;
-                        margin-bottom: auto;
+                        top: 22em;
                         margin-left: 5em;
                         
                        .SiteContainer .BackgroundImgs{
