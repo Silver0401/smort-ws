@@ -7,6 +7,7 @@ import SmortLogo from "./../resources/SmortImage.png"
 import {ToastContainer, toast} from "react-toastify";
 import anime from "animejs";
 import { ChakraProvider, Button } from "@chakra-ui/react";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   CardElement,
@@ -30,13 +31,20 @@ const stripePromise = loadStripe(
 );
 
 // Test Stripe Code
-// const stripePromise = loadStripe(
-//   "pk_test_51I4BzFIcDQemC5B8qzbZqMHpExN0NLlapc8NleVrmAn5dU9QYGrycfTRk2qJ0vQxaZky4l1S9NEyQG7nfQJkaGet00RLky3jdi"
-// );
+const stripeTestPromise = loadStripe(
+  "pk_test_51I4BzFIcDQemC5B8qzbZqMHpExN0NLlapc8NleVrmAn5dU9QYGrycfTRk2qJ0vQxaZky4l1S9NEyQG7nfQJkaGet00RLky3jdi"
+);
+
+// PayPal Id
+const PayPalOptions = {
+  "client-id":
+    "ASjqQBWMi6NS8stVQOeWtSzdhqCNV6Il6IMPIInc1t_z24D6bLCLhuGu6Lc2_gWju2vQkp04xH2dP1V0&currency=MXN",
+};
 
 
 
-const StripeForm : React.FC = () => {
+
+const StripeForm = (props:any) => {
 
   const [cardButtonLoading, setCardButtonLoading] = useState(false)
   const [Data, setData] = useContext(ChosenDataContext)
@@ -77,75 +85,147 @@ const StripeForm : React.FC = () => {
         if (paymentMethod){
 
           const { id } = paymentMethod
-          
-          axios.post(
-              `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PaymentProcedure`,
-              {
-                id: id,
-                amount: parseInt(`${Data.SiteChosenPrice}00`),
-                Name: Data.Name,
-                Email: Data.Email,
-              }
-            )
-            .then((res) => {
-              if (res.data === "Payment Successfull") {
-                console.log("placing in data base...");
 
-                axios.post(`${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PlaceOrder`,
-                    {
-                      Name: Data.Name,
-                      Email: Data.Email,
-                      Phone: Data.Phone,
+          if (props.masterIsTesting){
 
-                      SiteEspecifications: {
-                        MainTheme: Data.MainTheme,
-                        Details: Data.Details,
-                        DomainOptions: Data.DomainOptions,
-                        DomainExtension: Data.DomainExtension,
-                      },
-                      PageStyleDetails: {
-                        SiteType: Data.SiteType,
-                        PageStyle: Data.PageStyle,
-                        ButtonStyle: Data.ButtonStyle,
-                        NavBarStyle: Data.NavBarStyle,
-                        LoaderStyle: Data.LoaderStyle,
-                        Color1: Data.Color1,
-                        Color2: Data.Color2,
-                        SiteStructure: Data.SiteStructure,
-                      },
-                      PaymentInfo: {
-                        SiteChosenPrice: Data.SiteChosenPrice,
-                        PaymentMethod: Data.PaymentMethod,
-                        TransactionId: id,
-                      },
-                    }
-                  )
-                  .then((res) => {
-                    toast.success(
-                      "Operación Realizada con Éxito, redireccionando..."
-                    );
-                    setCardButtonLoading(false);
-                    setData({ ...Data, MongoDBOrderId: res.data._id });
-
-                    setTimeout(() => {
-                      History.push("/PageBuilder/Success");
-                    }, 3500);
-                  })
-                  .catch((err) => {
-                    console.error(`FrontEnd Order Error: ${err}`);
-                    toast.error("Hubo un error en la operación");
-                    setCardButtonLoading(false);
-                  });
-              } else {
-                console.log("error placing in database");
-              }
-            })
-            .catch((err) => {
-              console.error(`FrontEnd Payment Error: ${err}`);
-              toast.error("Hubo un error en la operación  :(");
-              setCardButtonLoading(false);
-            });
-          
+            axios.post(
+                `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PaymentProcedureTesting`,
+                {
+                  id: id,
+                  amount: parseInt(`${Data.SiteChosenPrice}00`),
+                  Name: Data.Name,
+                  Email: Data.Email,
+                }
+              )
+              .then((res) => {
+                if (res.data === "Payment Successfull") {
+                  console.log("placing in data base...");
+  
+                  axios.post(`${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PlaceOrder`,
+                      {
+                        Name: Data.Name,
+                        Email: Data.Email,
+                        Phone: Data.Phone,
+  
+                        SiteEspecifications: {
+                          MainTheme: Data.MainTheme,
+                          Details: Data.Details,
+                          DomainOptions: Data.DomainOptions,
+                          DomainExtension: Data.DomainExtension,
+                        },
+                        PageStyleDetails: {
+                          SiteType: Data.SiteType,
+                          PageStyle: Data.PageStyle,
+                          ButtonStyle: Data.ButtonStyle,
+                          NavBarStyle: Data.NavBarStyle,
+                          LoaderStyle: Data.LoaderStyle,
+                          Color1: Data.Color1,
+                          Color2: Data.Color2,
+                          SiteStructure: Data.SiteStructure,
+                        },
+                        PaymentInfo: {
+                          SiteChosenPrice: Data.SiteChosenPrice,
+                          PaymentMethod: "Card",
+                          TransactionId: id,
+                        },
+                      }
+                    )
+                    .then((res) => {
+                      toast.success(
+                        "Operación Realizada con Éxito, redireccionando..."
+                      );
+                      setCardButtonLoading(false);
+                      setData({ ...Data, MongoDBOrderId: res.data._id });
+  
+                      setTimeout(() => {
+                        History.push("/PageBuilder/Success");
+                      }, 3500);
+                    })
+                    .catch((err) => {
+                      console.error(`FrontEnd Order Error: ${err}`);
+                      toast.error("Hubo un error en la operación");
+                      setCardButtonLoading(false);
+                    });
+                } else {
+                  console.log("error placing in database");
+                }
+              })
+              .catch((err) => {
+                console.error(`FrontEnd Payment Error: ${err}`);
+                toast.error("Hubo un error en la operación  :(");
+                setCardButtonLoading(false);
+              });          
+            
+          } else {
+            
+            axios.post(
+                `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PaymentProcedure`,
+                {
+                  id: id,
+                  amount: parseInt(`${Data.SiteChosenPrice}00`),
+                  Name: Data.Name,
+                  Email: Data.Email,
+                }
+              )
+              .then((res) => {
+                if (res.data === "Payment Successfull") {
+                  console.log("placing in data base...");
+  
+                  axios.post(`${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PlaceOrder`,
+                      {
+                        Name: Data.Name,
+                        Email: Data.Email,
+                        Phone: Data.Phone,
+  
+                        SiteEspecifications: {
+                          MainTheme: Data.MainTheme,
+                          Details: Data.Details,
+                          DomainOptions: Data.DomainOptions,
+                          DomainExtension: Data.DomainExtension,
+                        },
+                        PageStyleDetails: {
+                          SiteType: Data.SiteType,
+                          PageStyle: Data.PageStyle,
+                          ButtonStyle: Data.ButtonStyle,
+                          NavBarStyle: Data.NavBarStyle,
+                          LoaderStyle: Data.LoaderStyle,
+                          Color1: Data.Color1,
+                          Color2: Data.Color2,
+                          SiteStructure: Data.SiteStructure,
+                        },
+                        PaymentInfo: {
+                          SiteChosenPrice: Data.SiteChosenPrice,
+                          PaymentMethod: "Card",
+                          TransactionId: id,
+                        },
+                      }
+                    )
+                    .then((res) => {
+                      toast.success(
+                        "Operación Realizada con Éxito, redireccionando..."
+                      );
+                      setCardButtonLoading(false);
+                      setData({ ...Data, MongoDBOrderId: res.data._id });
+  
+                      setTimeout(() => {
+                        History.push("/PageBuilder/Success");
+                      }, 3500);
+                    })
+                    .catch((err) => {
+                      console.error(`FrontEnd Order Error: ${err}`);
+                      toast.error("Hubo un error en la operación");
+                      setCardButtonLoading(false);
+                    });
+                } else {
+                  console.log("error placing in database");
+                }
+              })
+              .catch((err) => {
+                console.error(`FrontEnd Payment Error: ${err}`);
+                toast.error("Hubo un error en la operación  :(");
+                setCardButtonLoading(false);
+              });
+          }          
         }
 
       } else {
@@ -192,6 +272,122 @@ const StripeForm : React.FC = () => {
 };
 
 
+const PayPalForm = (props:any) => {
+
+  const [Data, setData] = useContext(ChosenDataContext);
+  const [onProcessingPay, setOnProcessingPay] = useState(false)
+  const History = useHistory();
+
+  const PlacePayPalOrder = () => {
+
+    setOnProcessingPay(true)
+
+    axios
+      .post(
+        `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PlaceOrder`,
+        {
+          Name: Data.Name,
+          Email: Data.Email,
+          Phone: Data.Phone,
+
+          SiteEspecifications: {
+            MainTheme: Data.MainTheme,
+            Details: Data.Details,
+            DomainOptions: Data.DomainOptions,
+            DomainExtension: Data.DomainExtension,
+          },
+          PageStyleDetails: {
+            SiteType: Data.SiteType,
+            PageStyle: Data.PageStyle,
+            ButtonStyle: Data.ButtonStyle,
+            NavBarStyle: Data.NavBarStyle,
+            LoaderStyle: Data.LoaderStyle,
+            Color1: Data.Color1,
+            Color2: Data.Color2,
+            SiteStructure: Data.SiteStructure,
+          },
+          PaymentInfo: {
+            SiteChosenPrice: Data.SiteChosenPrice,
+            PaymentMethod: Data.PaymentMethod,
+            TransactionId: "coso",
+          },
+        }
+      )
+      .then((res) => {
+        toast.success("Operación Realizada con Éxito, redireccionando...");
+        setData({ ...Data, MongoDBOrderId: res.data._id });
+        setOnProcessingPay(false)
+
+        setTimeout(() => {
+          History.push("/PageBuilder/Success");
+        }, 3500);
+      })
+      .catch((err) => {
+        console.error(`FrontEnd Order Error: ${err}`);
+        toast.error("Hubo un error en la operación");
+        setOnProcessingPay(false);
+      });
+  };
+
+  const CreateOrder = (data: Record<string, unknown>, actions: any) => {
+    return actions.order.create({
+      intent: "CAPTURE",
+      purchase_units: [
+        {
+          description: "smort website",
+          amount: {
+            currency_code: "MXN",
+            value: Data.SiteChosenPrice,
+          },
+        },
+      ],
+    });
+  }
+
+
+  return (
+
+    <div className="PayPalInnerBox" >
+
+      { onProcessingPay ? 
+      <Button
+        className="PayPalLoader"
+        isLoading={true}
+        isFullWidth={true}
+        loadingText="Procesando"
+      > 
+
+      </Button> 
+      : null}
+
+      <div className="PayPalButton">
+        <PayPalButtons
+          forceReRender={Data.SiteChosenPrice}
+          onClick={() => props.onButtonClicked(true)}
+          style={{
+            layout: "horizontal",
+            color: "gold",
+            height: 50,
+            tagline: false,
+          }}
+          createOrder={CreateOrder}
+          onApprove={async (data: any, actions: any) => {
+            const order = await actions.order.capture();
+            Data.PaymentMethod = "PayPal";
+            Data.TransactionId = order.id;
+            PlacePayPalOrder();
+          }}
+          onError={() => {
+            console.error("error");
+            toast.error("Error en el pago");
+          }}
+        />
+      </div>
+    </div>
+
+  );
+}
+
 const BuilderFinal: React.FC = () => {
     
     const [Data,setData] = useContext(ChosenDataContext)
@@ -199,6 +395,7 @@ const BuilderFinal: React.FC = () => {
     const [Price, setPrice] = useState <number>(0)
     const [pageStructure, setPageStructure] = useState <string>("vertical")
     const [tcbChecked, setTcbChecked] = useState(false)
+    const [masterTesting, setMasterTesting] = useState(false)
 
     const NameRef = useRef<HTMLInputElement>(null)
     const EmailRef = useRef<HTMLInputElement>(null)
@@ -210,6 +407,7 @@ const BuilderFinal: React.FC = () => {
     const DomainOpt2 = useRef<HTMLInputElement>(null)
     const DomainOpt3 = useRef<HTMLInputElement>(null)
     const DomainExtension = useRef<HTMLSelectElement>(null)
+    
 
     const ContainerAlignHorizontaly = {
 
@@ -231,27 +429,13 @@ const BuilderFinal: React.FC = () => {
     } as React.CSSProperties;
 
 
+    const SearchForMasterKeyWord = () => {
 
-
-    const SaveDataReceived = useCallback(() => {
-
-      setData({
-        ...Data,
-          Name: NameRef.current?.value || "awaiting..",
-          Email: EmailRef.current?.value || "awaiting..",
-          Phone: PhoneRef.current?.value || 0,
-          MainTheme: MainThemeRef.current?.value || "awaiting..",
-          Details: DetailsRef.current?.value || "awaiting..",
-          DomainOptions: [
-            DomainOpt1.current?.value || "awaiting..",
-            DomainOpt2.current?.value || "awaiting..",
-            DomainOpt3.current?.value || "awaiting..",
-          ],
-          SiteChosenPrice: Price,
-          DomainExtension: DomainExtension.current?.value || "awaiting..",
-          SiteStructure: pageStructure
-      });
-    },[])
+      if (Data.Name === "ShelasFriasTesting") {
+        toast("On testing mode master")
+        setMasterTesting(true)
+      } 
+    }
 
     const PriceDecider = () => {
       switch (Data.SiteType) {
@@ -372,10 +556,6 @@ const BuilderFinal: React.FC = () => {
 
     }
 
-    const AnimatePayPalOptions = () => {
-      console.log("animating paypal options")
-    }
-
     const Checker = (DataType: string) => {
       let translation = "none";
 
@@ -435,9 +615,6 @@ const BuilderFinal: React.FC = () => {
       })
 
       if (ErrorsCatched.length >= 1) {
-        // ErrorsCatched?.forEach((error: string) => {
-        //   toast.error(`Error en ${error}, información no válida `);
-        // });
         return "error";
       }
       else return "All correct";
@@ -810,10 +987,28 @@ const BuilderFinal: React.FC = () => {
 
     useEffect(() => {
 
+      const SaveDataReceived = () => {
+        setData({
+          ...Data,
+          Name: NameRef.current?.value || "awaiting..",
+          Email: EmailRef.current?.value || "awaiting..",
+          Phone: PhoneRef.current?.value || 0,
+          MainTheme: MainThemeRef.current?.value || "awaiting..",
+          Details: DetailsRef.current?.value || "awaiting..",
+          DomainOptions: [
+            DomainOpt1.current?.value || "awaiting..",
+            DomainOpt2.current?.value || "awaiting..",
+            DomainOpt3.current?.value || "awaiting..",
+          ],
+          SiteChosenPrice: Price,
+          DomainExtension: DomainExtension.current?.value || "awaiting..",
+          SiteStructure: pageStructure,
+        });
+      };
+
       SaveDataReceived();
 
-    }, [stepSelected, SaveDataReceived])
-
+    }, [stepSelected])
 
     return (
       <motion.div
@@ -838,7 +1033,7 @@ const BuilderFinal: React.FC = () => {
                 if (DataScan() === "All correct") {
                   setStepSelected(2);
                 } else {
-                  toast("Llena todos los espacios antes de continuar");
+                  toast.error("Llena todos los espacios antes de continuar");
                 }
                 PriceDecider();
               }}
@@ -851,9 +1046,10 @@ const BuilderFinal: React.FC = () => {
                 if (DataScan() === "All correct") {
                   setStepSelected(3);
                 } else {
-                  toast("Llena todos los espacios antes de continuar");
+                  toast.error("Llena todos los espacios antes de continuar");
                 }
                 PriceDecider();
+                SearchForMasterKeyWord();
               }}
             >
               <p>3</p> Resumen & Pago
@@ -1093,6 +1289,8 @@ const BuilderFinal: React.FC = () => {
                       if (DataScan() === "All correct") {
                         setStepSelected(3);
                       }
+                      PriceDecider();
+                      SearchForMasterKeyWord();
                     }}
                   >
                     <svg
@@ -1170,6 +1368,8 @@ const BuilderFinal: React.FC = () => {
                   <h2>Pesos Mexicanos</h2>
                   <h3>Fecha estimada de Entrega: {chosenDate()}</h3>
                   <h4>dd/mm/aaaa</h4>
+
+                  <p>¿Con que deseas comprar tu sitio?</p>
                 </div>
 
                 <div className="ButtonsBox">
@@ -1193,27 +1393,16 @@ const BuilderFinal: React.FC = () => {
                       <path d="M19.662 11.156l.375 1.716h-1.344l.645-1.661.215-.567.109.512zm4.338-5.156v12c0 1.104-.896 2-2 2h-20c-1.104 0-2-.896-2-2v-12c0-1.104.896-2 2-2h20c1.104 0 2 .896 2 2zm-17.146 8.971l2.549-5.929h-1.715l-1.585 4.051-.169-.823-.568-2.73c-.098-.377-.383-.489-.734-.502h-2.611l-.021.123c.635.154 1.203.376 1.701.651l1.44 5.16 1.713-.001zm4.823-5.934h-1.619l-1.012 5.941h1.619l1.012-5.941zm4.625 3.999c.006-.676-.425-1.19-1.359-1.614-.566-.275-.913-.458-.909-.736 0-.247.293-.511.927-.511.53-.008.913.107 1.212.228l.145.068.219-1.287c-.321-.121-.824-.25-1.451-.25-1.6 0-2.727.806-2.737 1.961-.009.854.805 1.33 1.419 1.614.63.291.842.477.839.737-.004.398-.503.58-.969.58-.648 0-.992-.09-1.524-.312l-.209-.095-.227 1.33c.378.166 1.078.31 1.804.317 1.702 0 2.807-.797 2.82-2.03zm5.698 1.944l-1.311-5.937h-1.251c-.388 0-.678.106-.848.493l-2.405 5.444h1.7l.341-.893 2.074.003.197.89h1.503z" />
                     </svg>
                   </button>
-                  <button
-                    id="b2p"
-                    onClick={() => {
-                      if (tcbChecked) {
-                        AnimatePayPalOptions();
-                      } else {
-                        toast.error("Debes aceptar los términos y condiciones");
-                      }
-                    }}
-                  >
-                    <p>PayPal</p>
-                    <div className="liquid"></div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22 3h-20c-1.104 0-2 .896-2 2v14c0 1.104.896 2 2 2h20c1.104 0 2-.896 2-2v-14c0-1.104-.896-2-2-2zm-11.292 12.11h-1.33c-.122 0-.219-.103-.212-.224.024-.383.246-1.641 1.014-6.586.026-.173.173-.3.346-.3h2.448c1.31 0 2.277.769 2.01 2.147-.275 1.433-1.15 2.13-2.674 2.13l-.753.001c-.309.001-.423.118-.462.393l-.387 2.439zm5.069-3.314c-.282 1.473-1.249 1.982-2.483 1.982h-.191c-.151 0-.279.111-.303.263l-.268 1.697c-.023.151-.151.262-.302.262h-.912c-.13 0-.229-.116-.209-.244l.462-2.96.021-.019h.718c1.745 0 2.836-.873 3.158-2.523.271.272.366.626.366 1-.001.178-.022.361-.057.542z" />
-                    </svg>
-                  </button>
+
+                  <div className="PayPalButtonBox">
+                    <PayPalScriptProvider options={PayPalOptions}>
+                      <PayPalForm
+                        onButtonClicked={(b: boolean) => {
+                          setTcbChecked(b);
+                        }}
+                      />
+                    </PayPalScriptProvider>
+                  </div>
                 </div>
 
                 <div className="TandCCheckBox">
@@ -1225,13 +1414,11 @@ const BuilderFinal: React.FC = () => {
                     Acepto los términos y condiciones{" "}
                   </a>
                   <input
-                    onClick={() => setTcbChecked(!tcbChecked)}
-                    required
+                    checked={tcbChecked}
+                    onChange={() => setTcbChecked(!tcbChecked)}
                     type="checkbox"
                   />
                 </div>
-
-                <p id="ImportantP">¿Con que deseas comprar tu sitio?</p>
 
                 <div
                   className="PaymentBox"
@@ -1259,9 +1446,20 @@ const BuilderFinal: React.FC = () => {
 
                   <div className="CardBox">
                     <span className="CardLine">
-                      <Elements stripe={stripePromise}>
-                        <StripeForm />
-                      </Elements>
+                      <div className="ProElements Elmts" style={masterTesting ? {visibility: "hidden"} : {visibility:"visible"}}>
+                        <Elements
+                          stripe={stripePromise}
+                        >
+                          <StripeForm masterIsTesting={masterTesting} />
+                        </Elements>
+                      </div>
+                      <div className="TestingElements Elmts" style={masterTesting ? {visibility: "visible"} : {visibility:"hidden"}}>
+                        <Elements
+                          stripe={stripeTestPromise}
+                        >
+                          <StripeForm masterIsTesting={masterTesting} />
+                        </Elements>
+                      </div>
                     </span>
                   </div>
                 </div>

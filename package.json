@@ -6,6 +6,7 @@
     "@chakra-ui/react": "^1.1.4",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
+    "@paypal/react-paypal-js": "^4.0.2",
     "@react-spring/three": "^9.0.0-rc.3",
     "@react-three/drei": "^2.2.18",
     "@stripe/react-stripe-js": "^1.1.2",

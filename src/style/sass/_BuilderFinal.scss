@@ -177,6 +177,13 @@ $BGColor: rgb(31, 28, 28);
                             text-align: center;
                         }
 
+
+                        p{
+                            font-size: clamp(20px ,1vw ,130px);
+                            text-align: center;
+                            // text-decoration: underline $PageColor;
+                        }
+
                     }
 
                     .TandCCheckBox{
@@ -187,7 +194,7 @@ $BGColor: rgb(31, 28, 28);
                             font-size: clamp(15px, 1.5vw, 30px);
                             text-align: center;
                             padding: 1em;
-                            color: $PageColor;
+                            color: white;
                             transition: color 500ms, text-decoration 500ms;
                             cursor: pointer;
 
@@ -321,19 +328,42 @@ $BGColor: rgb(31, 28, 28);
                             }
                         }
 
-                        #b2p{
-                            .liquid::before{
-                                content: "PayPal";
+                        .PayPalButtonBox{
+                            position: relative;
+                            height: 40%;
+                            width: 40%;
+                            border-radius: .5em;
+                            overflow: hidden;
+                            
+                            .PayPalInnerBox{
+                                position: relative;
+                                width: 100%;
+                                height: 100%;
+                                background-color: $PageColor;
+
+                                .PayPalLoader{
+                                    position: absolute;
+                                    z-index: 1;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: $PageColor;
+                                    border-radius: 0px;
+                                    color: black;
+                                    @include alignCenter();
+                                    flex-direction: row;
+                                    justify-content: space-around;
+                                }
+
+                                .PayPalButton{
+                                    position: absolute;
+                                    z-index: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: #f9c338;
+                                }
                             }
                         }
             
-                    }
-
-                    .ImportantP{
-                        // height: 20%;
-                        font-size: clamp( 10px, 1.5vw, 30px);
-                        z-index: 0;
-                        text-align: center;
                     }
 
                     .PaymentBox{
@@ -373,50 +403,57 @@ $BGColor: rgb(31, 28, 28);
                                 height: 100%;
                                 position: relative;
 
-                                form{
+                                .Elmts{
+                                    position: absolute;
                                     width: 100%;
                                     height: 100%;
-                                    @include alignCenter();
-                                    flex-direction: column;
-                                    justify-content: space-around;
-                                    position: relative;
 
-                                    .PayLine{
-                                        position: relative;
+                                    form{
                                         width: 100%;
-                                        height: 30px;
-                                        border-bottom: 1px solid $PageColor;
-                                    }
-
-                                    .PayButton{
-                                        position: relative;
-                                        background-color: $PageColor;
-                                        // font-size: 25px;
-                                        border-radius: 1em;
-                                        font-family: 'MuseoModerno', cursive;
-                                        transition: all 500ms;
-                                        cursor: pointer;
-                                        outline: none;
+                                        height: 100%;
                                         @include alignCenter();
-                                        flex-direction: row;
-
-                                        svg{
-                                            fill: white;
+                                        flex-direction: column;
+                                        justify-content: space-around;
+                                        position: absolute;
+    
+                                        .PayLine{
+                                            position: relative;
+                                            width: 100%;
+                                            height: 30px;
+                                            border-bottom: 1px solid $PageColor;
                                         }
-
-
-                                        &:hover{
-                                            background-color: black;
-                                            color: $PageColor;
+    
+                                        .PayButton{
+                                            position: relative;
+                                            background-color: $PageColor;
+                                            // font-size: 25px;
+                                            border-radius: 1em;
+                                            font-family: 'MuseoModerno', cursive;
                                             transition: all 500ms;
-                                            
+                                            cursor: pointer;
+                                            outline: none;
+                                            @include alignCenter();
+                                            flex-direction: row;
+    
                                             svg{
-                                                fill: $PageColor;
+                                                fill: white;
+                                            }
+    
+    
+                                            &:hover{
+                                                background-color: black;
+                                                color: $PageColor;
                                                 transition: all 500ms;
+                                                
+                                                svg{
+                                                    fill: $PageColor;
+                                                    transition: all 500ms;
+                                                }
                                             }
                                         }
                                     }
                                 }
+
                             }
 
 
