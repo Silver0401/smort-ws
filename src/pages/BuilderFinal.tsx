@@ -474,9 +474,6 @@ const BuilderFinal: React.FC = () => {
       ) {
         setPrice((prevPrice) => prevPrice + 100);
       }
-
-      setPrice(10)
-
     };
 
     const chosenDate = () => {
@@ -1405,7 +1402,7 @@ const BuilderFinal: React.FC = () => {
                   </button>
 
                   <div className="PayPalButtonBox">
-                    <PayPalScriptProvider options={ PayPalOptions }>
+                    <PayPalScriptProvider options={ PayPalTestOptions }>
                       <PayPalForm
                         onButtonClicked={(b: boolean) => {
                           setTcbChecked(b);

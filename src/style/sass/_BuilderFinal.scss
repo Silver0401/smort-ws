@@ -160,26 +160,26 @@ $BGColor: rgb(31, 28, 28);
                         // background-color: lightcoral;
                         @include alignCenter();
                         h1{
-                            font-size: clamp(60px ,6vw ,200px);
+                            font-size: clamp(50px ,6vw ,200px);
                             color: $PageColor;
                         }
                         h2{
-                            font-size: clamp(25px ,2vw ,150px);
+                            font-size: clamp(15px ,2vw ,150px);
                         }
                         h3{
-                            font-size: clamp(20px ,1vw ,130px);
+                            font-size: clamp(12px ,1vw ,130px);
                             text-decoration: underline $PageColor;
                             text-align: center;
                             margin: 0px 2em;
                         }
                         h4{
-                            font-size: clamp(15px ,1vw ,130px);
+                            font-size: clamp(12px ,1vw ,130px);
                             text-align: center;
                         }
 
 
                         p{
-                            font-size: clamp(20px ,1vw ,130px);
+                            font-size: clamp(12px ,1vw ,130px);
                             text-align: center;
                             // text-decoration: underline $PageColor;
                         }
@@ -389,6 +389,7 @@ $BGColor: rgb(31, 28, 28);
                             top: 0px;
                             opacity: .05;
                             z-index: -1;
+                            top: 10%;
                         }
 
                         .CardBox{
