@@ -1402,7 +1402,7 @@ const BuilderFinal: React.FC = () => {
                   </button>
 
                   <div className="PayPalButtonBox">
-                    <PayPalScriptProvider options={ PayPalTestOptions }>
+                    <PayPalScriptProvider options={ PayPalOptions }>
                       <PayPalForm
                         onButtonClicked={(b: boolean) => {
                           setTcbChecked(b);
