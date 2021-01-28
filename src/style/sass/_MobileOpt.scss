@@ -527,11 +527,8 @@ $BGColor: rgb(31, 28, 28);
             .Step3Style {
                 display: grid;
                 grid-template-columns: 1fr ;
-                grid-template-rows: 70vh 70vh;
+                grid-template-rows: 70vh 100vh;
 
-                .RightBoxS3Final{
-                    margin-top: 5em;
-                }
             }
         }
     }
@@ -567,6 +564,26 @@ $BGColor: rgb(31, 28, 28);
             .RightBoxB2{
                 .TextBox{
                     margin-bottom: 5rem;
+                }
+            }
+        }
+    }
+
+    .BuilderFinalPage{
+        .Steps .StepsBody {
+            .Step3Style {
+                .RightBoxS3Final{
+                    .ButtonsBox{
+                        flex-direction: column;
+
+                        button{
+                            width: 100%;
+                        }
+
+                        .PayPalButtonBox{
+                            width: 100%;
+                        }
+                    }
                 }
             }
         }

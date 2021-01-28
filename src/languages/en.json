@@ -112,20 +112,111 @@
   "BuilderInit.Marketing.Title": "Marketing",
   "BuilderInit.Marketing.content": "Searching to promote a team, product or brand? Invest a little and create a website of its own, which will make you look a lot more professional and of superior quality. Leaving competition behind.",
 
-  "BuilderInit.Sales.Title": "Sales",
+  "BuilderInit.Sales.Title": "Sales Catalogue",
   "BuilderInit.Sales.content": "Always wanted to start a business of your own? Now's the time! Get yourself a professional quality website, in order to have space to promote and sell your products.",
 
   "BuilderInit.Blog.Title": "Blog",
   "BuilderInit.Blog.content": "You enjoy writing and spreading your ideas; Create a website that captures your own colors, a place where you'll be able to write and share everything think of, with no boundaries or limits.",
 
   "BuilderRoot.Welcome.Title": "Welcome to our style selector",
-  "BuilderRoot.Welcome.SubTitle": "Simply click the start button and choose your favorite colors and designs you'd like your website to have.",
+  "BuilderRoot.Welcome.SubTitle": "Simply click the start button and choose your favorite colors and designs for your website.",
 
   "BuilderRoot.Builder.All.Title": "Pick a design ",
   "BuilderRoot.Builder.Step1.Title": "for your site ",
   "BuilderRoot.Builder.Step2.Title": "for your navigation",
   "BuilderRoot.Builder.Step3.Title": "for your buttons",
   "BuilderRoot.Builder.Step4.Title": "for your loader",
+
+  "BuilderRoot.Builder.LogoText": "Your Logo",
+  "BuilderRoot.Builder.StyleTitle": "Your Title",
+
+  "BuilderRoot.Builder.Style.Animated": "Animated",
+  "BuilderRoot.Builder.Style.3D": "3D-Style",
+  "BuilderRoot.Builder.Style.Glassmorphic": "Glassmorphic",
+  "BuilderRoot.Builder.Style.Minimalist": "Minimalist",
+  "BuilderRoot.Builder.Style.Parallax": "Parallax",
+  "BuilderRoot.Builder.Style.Neumorphic": "Neumorphic",
+
+  "BuilderFinal.MainTitle": "Final Steps",
+  "BuilderFinal.Tab1.Title": "Especifications",
+  "BuilderFinal.Tab2.Title": "Site Structure",
+  "BuilderFinal.Tab3.Title": "Summary & Payment",
+  
+  "BuilderFinal.Tab1.InitialText": "Fill in the next fields, and remember, the more specific and detailed your answers are, the better and more accurate your site will be.",
+  "BuilderFinal.Tab1.Form.MainTheme.Label": "Site's Main Theme",
+  "BuilderFinal.Tab1.Form.MainTheme.Input": "Mike's Personal Portafiolio",
+  
+  "BuilderFinal.Tab1.Form.Name.Label": "Your Name",
+  "BuilderFinal.Tab1.Form.Name.Input": "Mike Ross",
+
+  "BuilderFinal.Tab1.Form.Mail.Label": "Your Email",
+
+  "BuilderFinal.Tab1.Form.Phone.Label": "Your Phone Number",
+
+  "BuilderFinal.Tab1.Form.TextArea.Label": "Details and Especifications",
+  "BuilderFinal.Tab1.Form.TextArea.Input": "I want my page tu have such... , to show certain qualities about... , etc.",
+
+  "BuilderFinal.Tab1.Form.Domain.Title": "Name for your Site's Domain",
+  "BuilderFinal.Tab1.Form.Domain.Opt1.Label": "Option #1",
+  "BuilderFinal.Tab1.Form.Domain.Opt2.Label": "Option #2",
+  "BuilderFinal.Tab1.Form.Domain.Opt3.Label": "Option #3",
+
+  "BuilderFinal.Tab1.Form.Domain.Opt1.Input": "www.smort",
+  "BuilderFinal.Tab1.Form.Domain.Opt2.Input": "www.smorter",
+  "BuilderFinal.Tab1.Form.Domain.Opt3.Input": "wwww.smortpages",
+
+  "BuilderFinal.Tab1.Form.Select.Label": "Domain Extension",
+  "BuilderFinal.Tab1.Form.FooterText": "Note: The price may vary depending on the chosen extension.",
+
+
+  "BuilderFinal.Tab2.Components.Description.1.1": "For websites of type: ",
+  "BuilderFinal.Tab2.Components.Description.1.2": ", we offer a structure that contains the following sections: ",
+  "BuilderFinal.Tab2.Components.Description.1.3": ". Which can all be placed into a single page, or split up into different pages. Pick the option you'd like the most.",
+
+  "BuilderFinal.Tab2.Tags.Home": "Home Section",
+  "BuilderFinal.Tab2.Tags.About": "About Section",
+  "BuilderFinal.Tab2.Tags.Contact": "Contacts Section",
+  "BuilderFinal.Tab2.Tags.Sales": "Sales Section",
+  "BuilderFinal.Tab2.Tags.Blog": "Blog Section",
+
+  "BuilderFinal.Tab2.Names.Personal/Merca": "\"Home\", \"About\" and \"Contacts\"",
+  "BuilderFinal.Tab2.Names.Sales": "\"Home\", \"About\", \"Sales\" and \"Contacts\"",
+  "BuilderFinal.Tab2.Names.Blog": "\"Home\", \"About\", \"Blog\" and \"Contacts\"",
+
+  "BuilderFinal.Tab2.Components.Button1": "A page with all sections",
+  "BuilderFinal.Tab2.Components.Button2": "A page for each section",
+
+  
+  "BuilderFinal.Tab3.Bars.SiteType": "Site Type",
+  "BuilderFinal.Tab3.Bars.SiteStyle": "Site Style",
+  "BuilderFinal.Tab3.Bars.ButtonStyle": "Button Style",
+  "BuilderFinal.Tab3.Bars.NavigationStyle": "Navigation Style",
+  "BuilderFinal.Tab3.Bars.LoaderStyle": "Loader Style",
+  "BuilderFinal.Tab3.Bars.Structure": "Structure",
+
+  "BuilderFinal.Tab3.Price.Currency": "US Dollars",
+  "BuilderFinal.Tab3.Price.Date": "Estimated delivery date: ",
+  "BuilderFinal.Tab3.Price.Year": "yyyy",
+  "BuilderFinal.Tab3.Price.Question": "what do you wish to buy your site with?",
+  "BuilderFinal.Tab3.Price.TermsAndConditions": "I accept the terms and conditions",
+
+  "BuilderFinal.Tab3.Buttons.Card": "Card",
+  "BuilderFinal.Tab3.Buttons.Pay": "Pay",
+  "BuilderFinal.Tab3.Buttons.PaypalLoader": "Processing",
+
+
+  "BuilderSuccess.Title": "Everything Done!",
+  "BuilderSuccess.Paragraph": "We've just sent you an email as a receipt of your purchase. We have successfully received your information, and we'll start developing your website as soon as posible. You'll be hearing from us in a couple of days, when you're site is up and running.",
+  "BuilderSuccess.Footer": "- The smort team",
+
+
+  "Toaster.Error.TermsAndConditions": "You must accept the terms and conditions",
+  "Toaster.Error.Generic": "Ther was an error in the operation",
+  "Toaster.Error.Forms": "Fill in all of the fields before you continue",
+
+  "Toaster.Success.PayCorrectMessage": "Operation successfully completed, redirecting...",
+  "Toaster.Success.HelpRequest": "Help Request Sent!",
+
 
   "Default": ""
 }

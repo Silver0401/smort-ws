@@ -9,6 +9,7 @@ import anime from "animejs";
 import { ChakraProvider, Button } from "@chakra-ui/react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { useTranslation } from "react-i18next";
 import {
   CardElement,
   Elements,
@@ -54,6 +55,7 @@ const StripeForm = (props:any) => {
 
   const [cardButtonLoading, setCardButtonLoading] = useState(false)
   const [Data, setData] = useContext(ChosenDataContext)
+  const { t } = useTranslation();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -137,9 +139,7 @@ const StripeForm = (props:any) => {
                       }
                     )
                     .then((res) => {
-                      toast.success(
-                        "Operación Realizada con Éxito, redireccionando..."
-                      );
+                      toast.success(t("Toaster.Success.PayCorrectMessage"));
                       setCardButtonLoading(false);
                       setData({ ...Data, MongoDBOrderId: res.data._id });
   
@@ -149,7 +149,7 @@ const StripeForm = (props:any) => {
                     })
                     .catch((err) => {
                       console.error(`FrontEnd Order Error: ${err}`);
-                      toast.error("Hubo un error en la operación");
+                      toast.error(t("Toaster.Error.Generic"));
                       setCardButtonLoading(false);
                     });
                 } else {
@@ -158,7 +158,7 @@ const StripeForm = (props:any) => {
               })
               .catch((err) => {
                 console.error(`FrontEnd Payment Error: ${err}`);
-                toast.error("Hubo un error en la operación  :(");
+                toast.error(t("Toaster.Error.Generic"));
                 setCardButtonLoading(false);
               });          
             
@@ -207,9 +207,7 @@ const StripeForm = (props:any) => {
                       }
                     )
                     .then((res) => {
-                      toast.success(
-                        "Operación Realizada con Éxito, redireccionando..."
-                      );
+                      toast.success(t("Toaster.Success.PayCorrectMessage"));
                       setCardButtonLoading(false);
                       setData({ ...Data, MongoDBOrderId: res.data._id });
   
@@ -219,7 +217,7 @@ const StripeForm = (props:any) => {
                     })
                     .catch((err) => {
                       console.error(`FrontEnd Order Error: ${err}`);
-                      toast.error("Hubo un error en la operación");
+                      toast.error(t("Toaster.Error.Generic"));
                       setCardButtonLoading(false);
                     });
                 } else {
@@ -228,7 +226,7 @@ const StripeForm = (props:any) => {
               })
               .catch((err) => {
                 console.error(`FrontEnd Payment Error: ${err}`);
-                toast.error("Hubo un error en la operación  :(");
+                toast.error(t("Toaster.Error.Generic"));
                 setCardButtonLoading(false);
               });
           }          
@@ -264,13 +262,16 @@ const StripeForm = (props:any) => {
       </div>
       <ChakraProvider>
         <Button
-          onClick={(e) => {e.preventDefault();HandlePayRequest()}}
+          onClick={(e) => {
+            e.preventDefault();
+            HandlePayRequest();
+          }}
           className="PayButton"
           size="lg"
-          leftIcon={<MoneyIcon/>}
+          leftIcon={<MoneyIcon />}
           isLoading={cardButtonLoading}
         >
-          Pagar
+          {t("BuilderFinal.Tab3.Buttons.Pay")}
         </Button>
       </ChakraProvider>
     </form>
@@ -282,6 +283,7 @@ const PayPalForm = (props:any) => {
   const [Data, setData] = useContext(ChosenDataContext);
   const [onProcessingPay, setOnProcessingPay] = useState(false)
   const History = useHistory();
+  const { t } = useTranslation();
 
   const PlacePayPalOrder = () => {
     axios
@@ -316,7 +318,7 @@ const PayPalForm = (props:any) => {
         }
       )
       .then((res) => {
-        toast.success("Operación Realizada con Éxito, redireccionando...");
+        toast.success(t("Toaster.Success.PayCorrectMessage"));
         setData({ ...Data, MongoDBOrderId: res.data._id });
         setOnProcessingPay(false)
 
@@ -326,7 +328,7 @@ const PayPalForm = (props:any) => {
       })
       .catch((err) => {
         console.error(`FrontEnd Order Error: ${err}`);
-        toast.error("Hubo un error en la operación");
+        toast.error(t("Toaster.Error.Generic"));
         setOnProcessingPay(false);
       });
   };
@@ -351,19 +353,15 @@ const PayPalForm = (props:any) => {
   }
 
   return (
-
-    <div className="PayPalInnerBox" >
-
-      { onProcessingPay ? 
-      <Button
-        className="PayPalLoader"
-        isLoading={true}
-        isFullWidth={true}
-        loadingText="Procesando"
-      > 
-
-      </Button> 
-      : null}
+    <div className="PayPalInnerBox">
+      {onProcessingPay ? (
+        <Button
+          className="PayPalLoader"
+          isLoading={true}
+          isFullWidth={true}
+          loadingText={t("BuilderFinal.Tab3.Buttons.PaypalLoader")}
+        ></Button>
+      ) : null}
 
       <div className="PayPalButton">
         <PayPalButtons
@@ -385,18 +383,18 @@ const PayPalForm = (props:any) => {
           }}
           onError={() => {
             console.error("error");
-            toast.error("Error en el pago");
+            toast.error(t("Toaster.Error.Generic"));
             setOnProcessingPay(true);
           }}
         />
       </div>
     </div>
-
   );
 }
 
 const BuilderFinal: React.FC = () => {
     
+    const { t } = useTranslation()
     const [Data,setData] = useContext(ChosenDataContext)
     const [stepSelected, setStepSelected] = useState(1)
     const [Price, setPrice] = useState <number>(0)
@@ -568,19 +566,19 @@ const BuilderFinal: React.FC = () => {
 
       switch (DataType) {
         case "SiteType":
-          translation = "Tipo de Sitio";
+          translation = t("BuilderFinal.Tab3.Bars.SiteType");
           break;
         case "PageStyle":
-          translation = "Estilo del Sitio";
+          translation = t("BuilderFinal.Tab3.Bars.SiteStyle");
           break;
         case "ButtonStyle":
-          translation = "Estilo de Botones";
+          translation = t("BuilderFinal.Tab3.Bars.ButtonStyle");
           break;
         case "NavBarStyle":
-          translation = "Estilo de la Navegación";
+          translation = t("BuilderFinal.Tab3.Bars.NavigationStyle");
           break;
         case "LoaderStyle":
-          translation = "Estilo de Cargador";
+          translation = t("BuilderFinal.Tab3.Bars.LoaderStyle");
           break;
         case "Color1":
           translation = "Color #1";
@@ -589,7 +587,7 @@ const BuilderFinal: React.FC = () => {
           translation = "Color #2";
           break;
         case "SiteStructure":
-          translation = "Estructura";
+          translation = t("BuilderFinal.Tab3.Bars.Structure");
           break;
         default:
           translation = "error";
@@ -734,7 +732,7 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement HomeSvg">Home Component</p>
+                  <p className="TagPelement HomeSvg">{t("BuilderFinal.Tab2.Tags.Home")}</p>
                 </div>
                 <div
                   className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
@@ -748,7 +746,7 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement AboutSvg">About Component</p>
+                  <p className="TagPelement AboutSvg">{t("BuilderFinal.Tab2.Tags.About")}</p>
                 </div>
                 <div
                   className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
@@ -762,7 +760,7 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement ContactsSvg">Contacts Component</p>
+                  <p className="TagPelement ContactsSvg">{t("BuilderFinal.Tab2.Tags.Contact")}</p>
                 </div>
               </div>
             );
@@ -789,7 +787,7 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement HomeSvg">Home Component</p>
+                  <p className="TagPelement HomeSvg">{t("BuilderFinal.Tab2.Tags.Home")}</p>
                 </div>
                 <div
                   className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
@@ -803,7 +801,7 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement AboutSvg">About Component</p>
+                  <p className="TagPelement AboutSvg">{t("BuilderFinal.Tab2.Tags.About")}</p>
                 </div>
                 <div
                   className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
@@ -817,7 +815,7 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement ContactsSvg">Contacts Component</p>
+                  <p className="TagPelement ContactsSvg">{t("BuilderFinal.Tab2.Tags.Contact")}</p>
                 </div>
               </div>
             );
@@ -833,7 +831,11 @@ const BuilderFinal: React.FC = () => {
                 }
               >
                 <div
-                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
+                  className={
+                    pageStructure === "vertical"
+                      ? "Tag AlignVertically"
+                      : "Tag AlignHorizontally"
+                  }
                 >
                   <img
                     alt="bracket"
@@ -844,10 +846,16 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement HomeSvg">Home Component</p>
+                  <p className="TagPelement HomeSvg">
+                    {t("BuilderFinal.Tab2.Tags.Home")}
+                  </p>
                 </div>
                 <div
-                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
+                  className={
+                    pageStructure === "vertical"
+                      ? "Tag AlignVertically"
+                      : "Tag AlignHorizontally"
+                  }
                 >
                   <img
                     alt="bracket"
@@ -858,10 +866,16 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement AboutSvg">About Component</p>
+                  <p className="TagPelement AboutSvg">
+                    {t("BuilderFinal.Tab2.Tags.About")}
+                  </p>
                 </div>
                 <div
-                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
+                  className={
+                    pageStructure === "vertical"
+                      ? "Tag AlignVertically"
+                      : "Tag AlignHorizontally"
+                  }
                 >
                   <img
                     alt="bracket"
@@ -872,10 +886,16 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement BlogSvg">Sales Component</p>
+                  <p className="TagPelement BlogSvg">
+                    {t("BuilderFinal.Tab2.Tags.Sales")}
+                  </p>
                 </div>
                 <div
-                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
+                  className={
+                    pageStructure === "vertical"
+                      ? "Tag AlignVertically"
+                      : "Tag AlignHorizontally"
+                  }
                 >
                   <img
                     alt="bracket"
@@ -886,7 +906,9 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement ContactsSvg">Contacts Component</p>
+                  <p className="TagPelement ContactsSvg">
+                    {t("BuilderFinal.Tab2.Tags.Contact")}
+                  </p>
                 </div>
               </div>
             );
@@ -902,7 +924,11 @@ const BuilderFinal: React.FC = () => {
                 }
               >
                 <div
-                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
+                  className={
+                    pageStructure === "vertical"
+                      ? "Tag AlignVertically"
+                      : "Tag AlignHorizontally"
+                  }
                 >
                   <img
                     alt="bracket"
@@ -913,10 +939,16 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement HomeSvg">Home Component</p>
+                  <p className="TagPelement HomeSvg">
+                    {t("BuilderFinal.Tab2.Tags.Home")}
+                  </p>
                 </div>
                 <div
-                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
+                  className={
+                    pageStructure === "vertical"
+                      ? "Tag AlignVertically"
+                      : "Tag AlignHorizontally"
+                  }
                 >
                   <img
                     alt="bracket"
@@ -927,10 +959,16 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement AboutSvg">About Component</p>
+                  <p className="TagPelement AboutSvg">
+                    {t("BuilderFinal.Tab2.Tags.About")}
+                  </p>
                 </div>
                 <div
-                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
+                  className={
+                    pageStructure === "vertical"
+                      ? "Tag AlignVertically"
+                      : "Tag AlignHorizontally"
+                  }
                 >
                   <img
                     alt="bracket"
@@ -941,10 +979,16 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement BlogSvg">Blog Component</p>
+                  <p className="TagPelement BlogSvg">
+                    {t("BuilderFinal.Tab2.Tags.Blog")}
+                  </p>
                 </div>
                 <div
-                  className={pageStructure === "vertical" ? "Tag AlignVertically" : "Tag AlignHorizontally"}
+                  className={
+                    pageStructure === "vertical"
+                      ? "Tag AlignVertically"
+                      : "Tag AlignHorizontally"
+                  }
                 >
                   <img
                     alt="bracket"
@@ -955,7 +999,9 @@ const BuilderFinal: React.FC = () => {
                         : { transform: "rotateZ(180deg)" }
                     }
                   />
-                  <p className="TagPelement ContactsSvg">Contacts Component</p>
+                  <p className="TagPelement ContactsSvg">
+                    {t("BuilderFinal.Tab2.Tags.Contact")}
+                  </p>
                 </div>
               </div>
             );
@@ -974,19 +1020,19 @@ const BuilderFinal: React.FC = () => {
 
         switch (Data.SiteType){
           case "Personal":
-            return '"Inicio", "Acerca De" y "Contactos"'
+            return t("BuilderFinal.Tab2.Names.Personal/Merca")
 
           case "Merca":
-            return '"Inicio", "Acerca De" y "Contactos"'
+            return t("BuilderFinal.Tab2.Names.Personal/Merca")
 
           case "Ventas":
-            return '"Inicio", "Acerca De", "Ventas" y "Contactos"'
+            return t("BuilderFinal.Tab2.Names.Sales");
 
           case "Blog":
-            return '"Inicio", "Acerca De", "Blog" y "Contactos"'
+            return t("BuilderFinal.Tab2.Names.Blog");
 
           default:
-            return '"Inicio", "Acerca De" y "Contactos"';
+            return t("BuilderFinal.Tab2.Names.Personal/Merca");
         }
 
       }
@@ -1024,7 +1070,7 @@ const BuilderFinal: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: "-100vh" }}
       >
-        <h1 className="Header">Pasos Finales...</h1>
+        <h1 className="Header">{t("BuilderFinal.MainTitle")}...</h1>
 
         <section className="Steps">
           <div className="StepsHeader">
@@ -1032,7 +1078,7 @@ const BuilderFinal: React.FC = () => {
               className={stepSelected === 1 ? "toggled" : "notToggled"}
               onClick={() => setStepSelected(1)}
             >
-              <p>1</p> Especificaciones
+              <p>1</p> {t("BuilderFinal.Tab1.Title")}
             </h2>
             <h2
               className={stepSelected === 2 ? "toggled" : "notToggled"}
@@ -1040,12 +1086,12 @@ const BuilderFinal: React.FC = () => {
                 if (DataScan() === "All correct") {
                   setStepSelected(2);
                 } else {
-                  toast.error("Llena todos los espacios antes de continuar");
+                  toast.error(t("Toaster.Error.Forms"));
                 }
                 PriceDecider();
               }}
             >
-              <p>2</p> Estructura del Sitio
+              <p>2</p> {t("BuilderFinal.Tab2.Title")}
             </h2>
             <h2
               className={stepSelected === 3 ? "toggled" : "notToggled"}
@@ -1053,13 +1099,13 @@ const BuilderFinal: React.FC = () => {
                 if (DataScan() === "All correct") {
                   setStepSelected(3);
                 } else {
-                  toast.error("Llena todos los espacios antes de continuar");
+                  toast.error(t("Toaster.Error.Forms"));
                 }
                 PriceDecider();
                 SearchForMasterKeyWord();
               }}
             >
-              <p>3</p> Resumen & Pago
+              <p>3</p> {t("BuilderFinal.Tab3.Title")}
             </h2>
           </div>
 
@@ -1085,18 +1131,14 @@ const BuilderFinal: React.FC = () => {
                     }
               }
             >
-              <p>
-                LLena los siguientes espacios y recuerda que mientras más
-                especifico y detallado seas en tus respuestas e información,
-                mejor nos quedará tu sitio web.
-              </p>
+              <p>{t("BuilderFinal.Tab1.InitialText")}</p>
 
               <span className="InputBox1">
                 <span>
-                  <label>Tema Principal de la Página</label>
+                  <label>{t("BuilderFinal.Tab1.Form.MainTheme.Label")}</label>
                   <input
                     type="text"
-                    placeholder="Portafiolio Personal de Pepe"
+                    placeholder={t("BuilderFinal.Tab1.Form.MainTheme.Input")}
                     ref={MainThemeRef}
                     required
                     name="MainTheme"
@@ -1105,10 +1147,10 @@ const BuilderFinal: React.FC = () => {
                 </span>
 
                 <span>
-                  <label>Tu Nombre</label>
+                  <label>{t("BuilderFinal.Tab1.Form.Name.Label")}</label>
                   <input
                     type="text"
-                    placeholder="Pepe Contreras"
+                    placeholder={t("BuilderFinal.Tab1.Form.Name.Input")}
                     name="Name"
                     required
                     ref={NameRef}
@@ -1117,7 +1159,7 @@ const BuilderFinal: React.FC = () => {
                 </span>
 
                 <span>
-                  <label>Tu Correo</label>
+                  <label>{t("BuilderFinal.Tab1.Form.Mail.Label")}</label>
                   <input
                     type="email"
                     placeholder="smortmc2@gmail.com"
@@ -1130,10 +1172,10 @@ const BuilderFinal: React.FC = () => {
                 </span>
 
                 <span>
-                  <label>Tu teléfono</label>
+                  <label>{t("BuilderFinal.Tab1.Form.Phone.Label")}</label>
                   <input
                     type="tel"
-                    placeholder="723 834 1231"
+                    placeholder="723-834-1231"
                     name="Phone"
                     pattern="\d*"
                     required
@@ -1144,10 +1186,9 @@ const BuilderFinal: React.FC = () => {
               </span>
 
               <span className="InputBox2">
-                <label>Detalles y Especificaciones</label>
+                <label>{t("BuilderFinal.Tab1.Form.TextArea.Label")}</label>
                 <textarea
-                  placeholder="Quiero que mi página tenga esto, quiero que mí sitio muestre
-                  estas cualidades de mi o de mi producto, etc."
+                  placeholder={t("BuilderFinal.Tab1.Form.TextArea.Input")}
                   name="Detalles"
                   required
                   ref={DetailsRef}
@@ -1155,10 +1196,12 @@ const BuilderFinal: React.FC = () => {
               </span>
 
               <span className="InputBox3">
-                <label id="IB3title">Nombre para el Dominio de tu Sitio</label>
+                <label id="IB3title">
+                  {t("BuilderFinal.Tab1.Form.Domain.Title")}
+                </label>
 
                 <span>
-                  <label>Opción #1</label>
+                  <label>{t("BuilderFinal.Tab1.Form.Domain.Opt1.Label")}</label>
                   <input
                     ref={DomainOpt1}
                     name="DomainOpt #1"
@@ -1170,7 +1213,7 @@ const BuilderFinal: React.FC = () => {
                 </span>
 
                 <span>
-                  <label>Opción #2</label>
+                  <label>{t("BuilderFinal.Tab1.Form.Domain.Opt2.Label")}</label>
                   <input
                     ref={DomainOpt2}
                     name="DomainOpt #2"
@@ -1182,7 +1225,7 @@ const BuilderFinal: React.FC = () => {
                 </span>
 
                 <span>
-                  <label>Opción #3</label>
+                  <label>{t("BuilderFinal.Tab1.Form.Domain.Opt3.Label")}</label>
                   <input
                     ref={DomainOpt3}
                     name="DomainOpt #3"
@@ -1194,7 +1237,7 @@ const BuilderFinal: React.FC = () => {
                 </span>
 
                 <span>
-                  <label>Extensión del Dominio</label>
+                  <label>{t("BuilderFinal.Tab1.Form.Select.Label")}</label>
                   <select ref={DomainExtension}>
                     <option value=".com">.com</option>
                     <option value=".tech">.tech</option>
@@ -1211,9 +1254,7 @@ const BuilderFinal: React.FC = () => {
               </span>
 
               <span className="FooterBox">
-                <p>
-                  Nota: El precio varia dependiendo de la extensión escogida
-                </p>
+                <p>{t("BuilderFinal.Tab1.Form.FooterText")}</p>
                 <button className="SubmitInfo" type="submit">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1247,11 +1288,11 @@ const BuilderFinal: React.FC = () => {
                 <div className="Explanation">
                   <h2>{Data.SiteType}</h2>
                   <p>
-                    Para las Sitios Web de tipo "{Data.SiteType}", ofrecemos una
-                    estructura que consta de los siguientes componentes:{" "}
-                    {NumberOfPagesDecider("Names")} .Los cuales pueden ser
-                    puestos en una sola página, o en varias páginas. Escoga la
-                    opción que más le guste.
+                    {t("BuilderFinal.Tab2.Components.Description.1.1")}"
+                    {Data.SiteType}"
+                    {t("BuilderFinal.Tab2.Components.Description.1.2")}
+                    {NumberOfPagesDecider("Names")}
+                    {t("BuilderFinal.Tab2.Components.Description.1.3")}
                   </p>
                 </div>
                 <div className="NumberOfPages">
@@ -1271,7 +1312,7 @@ const BuilderFinal: React.FC = () => {
                     >
                       <path d="M24 0v24h-24v-24h24zm-2 22v-16h-20v16h20zm-1-15v14h-11v-14h11zm-14 13v1h-4v-1h4zm2-2v1h-6v-1h6zm8.633-2.615c-.148.049-.308-.031-.357-.179 0 0-1.047-.352-2.291.062l.818 1.269c.085.125.025.295-.116.342l-.555.185-.117.019c-.105 0-.206-.044-.278-.125l-1.123-1.238c-.611.192-1.302-.031-1.534-.606-.053-.133-.08-.273-.08-.415 0-.41.229-.829.727-1.073 2.491-1.223 2.889-2.587 2.889-2.587-.06-.184.077-.372.269-.372.118 0 .228.075.267.193l1.66 4.167c.049.149-.031.308-.179.358zm-8.633.615v1h-6v-1h6zm-2-2.902v1h-4v-1h4zm11.814.856l-.429-.183c.187-.443.205-.959.01-1.44-.196-.482-.566-.839-1.009-1.026l.181-.431c.887.375 1.433 1.24 1.433 2.164 0 .317-.064.629-.186.916zm-.744-.315l-.419-.178c.108-.256.119-.552.005-.83-.111-.277-.326-.483-.581-.59l.178-.421c.362.153.666.445.825.84.16.394.146.815-.008 1.179zm-9.07-2.639v1h-6v-1h6zm0-1.903v1h-6v-1h6zm0-1.097h-6v-1h6v1z" />
                     </svg>
-                    Una página con todos los componentes
+                    {t("BuilderFinal.Tab2.Components.Button1")}
                   </button>
                   <button
                     onClick={() => setPageStructure("horizontal")}
@@ -1287,7 +1328,7 @@ const BuilderFinal: React.FC = () => {
                     >
                       <path d="M24 9.844l-3.583 6.781-1.084-2.625c-4.05 2.278-5.11 5.961-5.333 10h-4c.189-5.147 1.358-10.246 7.75-13.875l-1.041-2.625 7.291 2.344zm-13.242 3.975c-1.098-1.341-2.558-2.586-4.508-3.694l1.041-2.625-7.291 2.344 3.583 6.781 1.084-2.625c2.018 1.135 3.293 2.62 4.093 4.323.412-1.533 1.046-3.052 1.998-4.504zm1.242-13.819l-5 5h3v5.267c.764.621 1.428 1.268 2.011 1.936.582-.666 1.227-1.316 1.989-1.936v-5.267h3l-5-5z" />
                     </svg>
-                    Una página por cada componente
+                    {t("BuilderFinal.Tab2.Components.Button2")}
                   </button>
 
                   <button
@@ -1372,11 +1413,14 @@ const BuilderFinal: React.FC = () => {
               <div className="RightBoxS3Final">
                 <div className="Price">
                   <h1>{`$${Price}`}</h1>
-                  <h2>Pesos Mexicanos</h2>
-                  <h3>Fecha estimada de Entrega: {chosenDate()}</h3>
-                  <h4>dd/mm/aaaa</h4>
+                  <h2>{t("BuilderFinal.Tab3.Price.Currency")}</h2>
+                  <h3>
+                    {t("BuilderFinal.Tab3.Price.Date")}
+                    {chosenDate()}
+                  </h3>
+                  <h4>dd/mm/{t("BuilderFinal.Tab3.Price.Year")}</h4>
 
-                  <p>¿Con que deseas comprar tu sitio?</p>
+                  <p>{t("BuilderFinal.Tab3.Price.Question")}</p>
                 </div>
 
                 <div className="ButtonsBox">
@@ -1385,11 +1429,11 @@ const BuilderFinal: React.FC = () => {
                       if (tcbChecked) {
                         AnimateCardPayOptions("forward");
                       } else {
-                        toast.error("Debes aceptar los términos y condiciones");
+                        toast.error(t("Toaster.Error.TermsAndConditions"));
                       }
                     }}
                   >
-                    <p>Tarjeta</p>
+                    <p>{t("BuilderFinal.Tab3.Buttons.Card")}</p>
                     <div className="liquid"></div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1402,7 +1446,7 @@ const BuilderFinal: React.FC = () => {
                   </button>
 
                   <div className="PayPalButtonBox">
-                    <PayPalScriptProvider options={ PayPalOptions }>
+                    <PayPalScriptProvider options={PayPalOptions}>
                       <PayPalForm
                         onButtonClicked={(b: boolean) => {
                           setTcbChecked(b);
@@ -1418,7 +1462,7 @@ const BuilderFinal: React.FC = () => {
                       window.open("/SupportCenter#TandC", "_newtab")
                     }
                   >
-                    Acepto los términos y condiciones{" "}
+                    {t("BuilderFinal.Tab3.Price.TermsAndConditions")}
                   </a>
                   <input
                     checked={tcbChecked}
@@ -1453,17 +1497,27 @@ const BuilderFinal: React.FC = () => {
 
                   <div className="CardBox">
                     <span className="CardLine">
-                      <div className="ProElements Elmts" style={masterTesting ? {visibility: "hidden"} : {visibility:"visible"}}>
-                        <Elements
-                          stripe={stripePromise}
-                        >
+                      <div
+                        className="ProElements Elmts"
+                        style={
+                          masterTesting
+                            ? { visibility: "hidden" }
+                            : { visibility: "visible" }
+                        }
+                      >
+                        <Elements stripe={stripePromise}>
                           <StripeForm masterIsTesting={masterTesting} />
                         </Elements>
                       </div>
-                      <div className="TestingElements Elmts" style={masterTesting ? {visibility: "visible"} : {visibility:"hidden"}}>
-                        <Elements
-                          stripe={stripeTestPromise}
-                        >
+                      <div
+                        className="TestingElements Elmts"
+                        style={
+                          masterTesting
+                            ? { visibility: "visible" }
+                            : { visibility: "hidden" }
+                        }
+                      >
+                        <Elements stripe={stripeTestPromise}>
                           <StripeForm masterIsTesting={masterTesting} />
                         </Elements>
                       </div>

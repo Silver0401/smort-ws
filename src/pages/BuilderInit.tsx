@@ -123,7 +123,7 @@ const BuilderInit = () => {
               GlobalCard ? { visibility: "visible" } : { visibility: "hidden" }
             }
             onClick={() => {
-              setData({ ...Data, SiteType: name });
+              setData({ ...Data, SiteType: Translation });
               History.push("/PageBuilder/Root");
             }}
           >

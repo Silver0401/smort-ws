@@ -72,7 +72,7 @@ const Support = (props:any) => {
           HelpRequestData.Email,
           HelpRequestData.Message
         );
-        toast.success("¡Solicitud de Ayuda Enviada!");
+        toast.success(t("Toaster.Success.HelpRequest"));
         setCurrentMessageData("");
         setCurrentNameData("");
         setCurrentEmailData("");
@@ -80,7 +80,7 @@ const Support = (props:any) => {
       })
       .catch((err) => {
         console.log(`FE error: ${err}`);
-        toast.error("Error, checa tus datos e inténtalo de nuevo");
+        toast.error(t("Toaster.Error.Forms"));
         setButtonLoading(false);
       });
   }

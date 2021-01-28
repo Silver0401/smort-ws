@@ -818,7 +818,7 @@ const ChooseStyle = (props:any) => {
 
   useGLTF.preload("/3DModels/ComputerModel/scene.gltf");
 
-  const CreatePageStyle = (StyleName:string) => {
+  const CreatePageStyle = (StyleName:string, TitleToDisplay:string) => {
 
     let showWaves = {
       visibility:"hidden",
@@ -861,7 +861,7 @@ const ChooseStyle = (props:any) => {
             </div>
           </div>
 
-          <h1>{StyleName}</h1>
+          <h1>{TitleToDisplay}</h1>
 
           <button
             onClick={() => {
@@ -1388,7 +1388,7 @@ const ChooseStyle = (props:any) => {
 
           <span className="RightBox">
             <div className="TextBox">
-              <h1>Tu Título</h1>
+              <h1>{t("BuilderRoot.Builder.StyleTitle")}</h1>
               <p>
                 Lorep ipsum dolor sit amet Lorep ipsum dolor sit amet Lorep
                 ipsum dolor sit amet Lorep ipsum dolor sit amet{" "}
@@ -1618,12 +1618,12 @@ const ChooseStyle = (props:any) => {
 
 // PageStyles Created
 
-  CreatePageStyle("Animated")
-  CreatePageStyle("D3-Style")
-  CreatePageStyle("Glassmorphic")
-  CreatePageStyle("Minimalist")
-  CreatePageStyle("Parallax")
-  CreatePageStyle("Neumorphic")
+  CreatePageStyle("Animated", t("BuilderRoot.Builder.Style.Animated"))
+  CreatePageStyle("D3-Style", t("BuilderRoot.Builder.Style.3D"))
+  CreatePageStyle("Glassmorphic", t("BuilderRoot.Builder.Style.Glassmorphic"))
+  CreatePageStyle("Minimalist", t("BuilderRoot.Builder.Style.Minimalist"))
+  CreatePageStyle("Parallax", t("BuilderRoot.Builder.Style.Parallax"));
+  CreatePageStyle("Neumorphic", t("BuilderRoot.Builder.Style.Neumorphic"));
 
 
   return (

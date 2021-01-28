@@ -111,7 +111,7 @@
   "BuilderInit.Marketing.Title": "Merca",
   "BuilderInit.Marketing.content": "¿Estas buscando promocionar un equipo? ¿alguna marca o producto? Invierte un poco y crea su propia página web, ésta, hace que se vea mucho mas profesional y de una calidad superior, dejando atrás a la competencia.",
 
-  "BuilderInit.Sales.Title": "Ventas",
+  "BuilderInit.Sales.Title": "Catálogo de Ventas",
   "BuilderInit.Sales.content": "¿Siempre has querido tener tu negocio propio? ¡Es momento de intentarlo! Crea una pagina web de calidad profesional y de diseño sublime, donde puedas anunciar y vender tus productos.",
 
   "BuilderInit.Blog.Title": "Blog",
@@ -125,6 +125,96 @@
   "BuilderRoot.Builder.Step2.Title": "para tu navegación",
   "BuilderRoot.Builder.Step3.Title": "para tus botónes",
   "BuilderRoot.Builder.Step4.Title": "para tu cargador",
+
+  "BuilderRoot.Builder.LogoText": "Tu Logo",
+  "BuilderRoot.Builder.StyleTitle": "Tu Título",
+
+  "BuilderRoot.Builder.Style.Animated": "Animado",
+  "BuilderRoot.Builder.Style.3D": "Estilo-3D",
+  "BuilderRoot.Builder.Style.Glassmorphic": "Vidriomórfico",
+  "BuilderRoot.Builder.Style.Minimalist": "Minimalista",
+  "BuilderRoot.Builder.Style.Parallax": "Paralaje",
+  "BuilderRoot.Builder.Style.Neumorphic": "Neumórfico",
+  
+  "BuilderFinal.MainTitle": "Pasos Finales",
+  "BuilderFinal.Tab1.Title": "Especificaciones",
+  "BuilderFinal.Tab2.Title": "Estructura del Sitio",
+  "BuilderFinal.Tab3.Title": "Resumen & Pago",
+  
+  "BuilderFinal.Tab1.InitialText": "LLena los siguientes espacios y recuerda que mientras más especifico y detallado seas en tus respuestas e información, mejor nos quedará tu sitio web.",
+  "BuilderFinal.Tab1.Form.MainTheme.Label": "Tema Principal de la Página",
+  "BuilderFinal.Tab1.Form.MainTheme.Input": "Portafolio Personal de Jime",
+  
+  "BuilderFinal.Tab1.Form.Name.Label": "Tu Nombre",
+  "BuilderFinal.Tab1.Form.Name.Input": "Mario Gonzáles",
+
+  "BuilderFinal.Tab1.Form.Mail.Label": "Tu Correo",
+
+  "BuilderFinal.Tab1.Form.Phone.Label": "Tu Teléfono",
+
+  "BuilderFinal.Tab1.Form.TextArea.Label": "Detalles y Especificaciones",
+  "BuilderFinal.Tab1.Form.TextArea.Input": "Quiero que mi página tenga tal... , que muestre estas cualidades de mi producto... , etc.",
+
+  "BuilderFinal.Tab1.Form.Domain.Title": "Nombre para el Dominitio de tu sitio",
+  "BuilderFinal.Tab1.Form.Domain.Opt1.Label": "Opción #1",
+  "BuilderFinal.Tab1.Form.Domain.Opt2.Label": "Opción #2",
+  "BuilderFinal.Tab1.Form.Domain.Opt3.Label": "Opción #3",
+
+  "BuilderFinal.Tab1.Form.Domain.Opt1.Input": "www.smort",
+  "BuilderFinal.Tab1.Form.Domain.Opt2.Input": "www.smorter",
+  "BuilderFinal.Tab1.Form.Domain.Opt3.Input": "wwww.smortpages",
+
+  "BuilderFinal.Tab1.Form.Select.Label": "Extensión del Dominio",
+  "BuilderFinal.Tab1.Form.FooterText": "Nota: El precio varia dependiendo de la extensión elegida.",
+
+
+  "BuilderFinal.Tab2.Components.Description.1.1": "Para las Sitios Web de tipo ",
+  "BuilderFinal.Tab2.Components.Description.1.2": ", ofrecemos una estructura que consta de las siguientes secciones: ",
+  "BuilderFinal.Tab2.Components.Description.1.3": ". Las cuales pueden ser puestas en una sola página, o en varias páginas. Escoga la opción que más le guste.",
+
+  "BuilderFinal.Tab2.Tags.Home": "Sección de Inicio",
+  "BuilderFinal.Tab2.Tags.About": "Sección de Acerca",
+  "BuilderFinal.Tab2.Tags.Contact": "Sección de Contactos",
+  "BuilderFinal.Tab2.Tags.Sales": "Sección de Ventas",
+  "BuilderFinal.Tab2.Tags.Blog": "Sección de Blog",
+
+  "BuilderFinal.Tab2.Names.Personal/Merca": "\"Inicio\", \"Acerca De\" y \"Contactos\"",
+  "BuilderFinal.Tab2.Names.Sales": "\"Inicio\", \"Acerca De\", \"Ventas\" y \"Contactos\"",
+  "BuilderFinal.Tab2.Names.Blog": "\"Inicio\", \"Acerca De\", \"Blog\" y \"Contactos\"",
+
+  "BuilderFinal.Tab2.Components.Button1": "Una página con todas las secciones",
+  "BuilderFinal.Tab2.Components.Button2": "Una página por cada sección",
+
+  
+  "BuilderFinal.Tab3.Bars.SiteType": "Tipo de Sitio",
+  "BuilderFinal.Tab3.Bars.SiteStyle": "Estilo de Sitio",
+  "BuilderFinal.Tab3.Bars.ButtonStyle": "Estilo de Botónes",
+  "BuilderFinal.Tab3.Bars.NavigationStyle": "Estilo de la Navegación",
+  "BuilderFinal.Tab3.Bars.LoaderStyle": "Estilo de Cargador",
+  "BuilderFinal.Tab3.Bars.Structure": "Estructura",
+
+  "BuilderFinal.Tab3.Price.Currency": "Pesos Mexicanos",
+  "BuilderFinal.Tab3.Price.Date": "Fecha estimada de entrega: ",
+  "BuilderFinal.Tab3.Price.Year": "aaaa",
+  "BuilderFinal.Tab3.Price.Question": "¿Con que deseas comprar tu sitio?",
+  "BuilderFinal.Tab3.Price.TermsAndConditions": "Acepto los términos y condiciones",
+
+  "BuilderFinal.Tab3.Buttons.Card": "Tarjeta",
+  "BuilderFinal.Tab3.Buttons.Pay": "Pagar",
+  "BuilderFinal.Tab3.Buttons.PaypalLoader": "Procesando",
+
+
+  "BuilderSuccess.Title": "¡Todo Listo!",
+  "BuilderSuccess.Paragraph": "Te acabamos de mandar un correo como comprobante de la fecha y del pago que acabas de realizar. Hemos recibido tu información y empezaremos a desarrollar tu sitio lo más pronto posible. Escucharas de nosotros en algunos días cuando hayamos terminado tu sitio.",
+  "BuilderSuccess.Footer": "- El Equipo de Smort",
+
+
+  "Toaster.Error.TermsAndConditions": "Debes aceptar los términos y condiciones",
+  "Toaster.Error.Generic": "Hubo un error en la operación",
+  "Toaster.Error.Forms": "Llena todos los espacios antes de continuar",
+
+  "Toaster.Success.PayCorrectMessage": "Operación Realizada con Éxito, redireccionando...",
+  "Toaster.Success.HelpRequest": "¡Solicitud de Ayuda Enviada!",
 
 
   "Default": ""
