@@ -38,6 +38,12 @@ const stripeTestPromise = loadStripe(
 // PayPal Id
 const PayPalOptions = {
   "client-id":
+    "Ae5wkLC1rJDKFRhA6orSFRlPHQ6FctDennrS2XBCyyCgliqkRIbhQ6SOwWDzMHSlQbREVFLI-ok4hU8h&currency=MXN",
+};
+
+// PayPal Test Id
+const PayPalTestOptions = {
+  "client-id":
     "ASjqQBWMi6NS8stVQOeWtSzdhqCNV6Il6IMPIInc1t_z24D6bLCLhuGu6Lc2_gWju2vQkp04xH2dP1V0&currency=MXN",
 };
 
@@ -271,7 +277,6 @@ const StripeForm = (props:any) => {
   );
 };
 
-
 const PayPalForm = (props:any) => {
 
   const [Data, setData] = useContext(ChosenDataContext);
@@ -279,9 +284,6 @@ const PayPalForm = (props:any) => {
   const History = useHistory();
 
   const PlacePayPalOrder = () => {
-
-    setOnProcessingPay(true)
-
     axios
       .post(
         `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PlaceOrder`,
@@ -309,7 +311,7 @@ const PayPalForm = (props:any) => {
           PaymentInfo: {
             SiteChosenPrice: Data.SiteChosenPrice,
             PaymentMethod: Data.PaymentMethod,
-            TransactionId: "coso",
+            TransactionId: Data.TransactionId,
           },
         }
       )
@@ -330,20 +332,23 @@ const PayPalForm = (props:any) => {
   };
 
   const CreateOrder = (data: Record<string, unknown>, actions: any) => {
-    return actions.order.create({
-      intent: "CAPTURE",
-      purchase_units: [
-        {
-          description: "smort website",
-          amount: {
-            currency_code: "MXN",
-            value: Data.SiteChosenPrice,
-          },
-        },
-      ],
-    });
-  }
 
+    setOnProcessingPay(true);
+
+    return actions.order
+      .create({
+        intent: "CAPTURE",
+        purchase_units: [
+          {
+            description: "smort website",
+            amount: {
+              currency_code: "MXN",
+              value: Data.SiteChosenPrice,
+            },
+          },
+        ],
+      })
+  }
 
   return (
 
@@ -371,6 +376,7 @@ const PayPalForm = (props:any) => {
             tagline: false,
           }}
           createOrder={CreateOrder}
+          onCancel={() => setOnProcessingPay(false)}
           onApprove={async (data: any, actions: any) => {
             const order = await actions.order.capture();
             Data.PaymentMethod = "PayPal";
@@ -380,6 +386,7 @@ const PayPalForm = (props:any) => {
           onError={() => {
             console.error("error");
             toast.error("Error en el pago");
+            setOnProcessingPay(true);
           }}
         />
       </div>
@@ -467,6 +474,9 @@ const BuilderFinal: React.FC = () => {
       ) {
         setPrice((prevPrice) => prevPrice + 100);
       }
+
+      setPrice(10)
+
     };
 
     const chosenDate = () => {
@@ -1395,7 +1405,7 @@ const BuilderFinal: React.FC = () => {
                   </button>
 
                   <div className="PayPalButtonBox">
-                    <PayPalScriptProvider options={PayPalOptions}>
+                    <PayPalScriptProvider options={ PayPalOptions }>
                       <PayPalForm
                         onButtonClicked={(b: boolean) => {
                           setTcbChecked(b);

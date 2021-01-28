@@ -334,24 +334,24 @@ $BGColor: rgb(31, 28, 28);
                             width: 40%;
                             border-radius: .5em;
                             overflow: hidden;
-                            
+                            background-color: #f9c338;
+
                             .PayPalInnerBox{
                                 position: relative;
                                 width: 100%;
                                 height: 100%;
-                                background-color: $PageColor;
 
                                 .PayPalLoader{
                                     position: absolute;
                                     z-index: 1;
                                     width: 100%;
                                     height: 100%;
-                                    background-color: $PageColor;
                                     border-radius: 0px;
                                     color: black;
                                     @include alignCenter();
                                     flex-direction: row;
                                     justify-content: space-around;
+                                    background-color: #f9c338;
                                 }
 
                                 .PayPalButton{
@@ -359,9 +359,9 @@ $BGColor: rgb(31, 28, 28);
                                     z-index: 0;
                                     width: 100%;
                                     height: 100%;
-                                    background-color: #f9c338;
                                 }
                             }
+                            
                         }
             
                     }
