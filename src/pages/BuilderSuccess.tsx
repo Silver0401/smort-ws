@@ -4,9 +4,11 @@ import { ChosenDataContext } from "./../components/ChosenData"
 import axios from "axios";
 import lottie from "lottie-web";
 import { motion } from "framer-motion";
+import { useHistory } from "react-router-dom";
 
 export default function BuilderSuccess() {
 
+    const History = useHistory()
     const [Data] = useContext(ChosenDataContext)
     const container = useRef <HTMLDivElement> (null)
 
@@ -84,6 +86,16 @@ export default function BuilderSuccess() {
           </p>
         </div>
         <div className="lottieContainer" ref={container}></div>
+        <button className="HomeButton" onClick={() => History.push("/")}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M24 12.148l-1.361 1.465-10.639-9.883-10.639 9.868-1.361-1.465 12-11.133 12 11.148zm-4 1.749l-2 10.103h-12l-2-10.103 8-7.444 8 7.444zm-7 6.103c0-.552-.448-1-1-1s-1 .448-1 1 .448 1 1 1 1-.448 1-1zm1-5c0-1.105-.896-2-2-2s-2 .895-2 2 .896 2 2 2 2-.895 2-2z" />
+          </svg>
+        </button>
       </motion.div>
     );
 }

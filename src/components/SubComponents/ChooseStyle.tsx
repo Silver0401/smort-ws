@@ -861,7 +861,7 @@ const ChooseStyle = (props:any) => {
             </div>
           </div>
 
-          <h1>{TitleToDisplay}</h1>
+          <h1 unselectable="on" >{TitleToDisplay}</h1>
 
           <button
             onClick={() => {

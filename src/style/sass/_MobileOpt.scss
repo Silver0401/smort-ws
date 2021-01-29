@@ -527,7 +527,7 @@ $BGColor: rgb(31, 28, 28);
             .Step3Style {
                 display: grid;
                 grid-template-columns: 1fr ;
-                grid-template-rows: 70vh 100vh;
+                grid-template-rows: 70vh 70vh;
 
             }
         }
@@ -575,14 +575,6 @@ $BGColor: rgb(31, 28, 28);
                 .RightBoxS3Final{
                     .ButtonsBox{
                         flex-direction: column;
-
-                        button{
-                            width: 100%;
-                        }
-
-                        .PayPalButtonBox{
-                            width: 100%;
-                        }
                     }
                 }
             }

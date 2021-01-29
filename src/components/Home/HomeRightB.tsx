@@ -178,8 +178,8 @@ const RightBox = () => {
       );
       tl.add(
         {
-          targets: [".PhoneContainer", ".Polymorph"],
-          translateX: "-150px",
+          targets: ".Polymorph",
+          translateX: "-140px",
           translateY: "-100px",
           easing: "easeOutElastic(1, 1)",
         },

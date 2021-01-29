@@ -168,6 +168,10 @@ $BGColor: rgb(57, 55, 55);
                    font-family: 'MuseoModerno', cursive;
                    color: black;
                    font-size: clamp(15px, 3vw, 90px);
+                    -webkit-user-select: none; /* Safari */        
+                    -moz-user-select: none; /* Firefox */
+                    -ms-user-select: none; /* IE10+/Edge */
+                    user-select: none;
                 }
 
                 button{

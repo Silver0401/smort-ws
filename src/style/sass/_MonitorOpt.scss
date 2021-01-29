@@ -12,6 +12,18 @@
             .RightBoxHome{
                 .SiteAnimationBox{
                     transform: scale(2);
+
+                    .InitBox .PhoneContainer{
+                        .SiteContainer{
+                            Canvas{
+                                transform: scale(.6);
+                                position: absolute;
+                                left: -150px;
+                                top: -200px;
+                                height: 100%;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -110,7 +122,7 @@
         }
 
         .NavBar{
-            height: 90px;
+            height: 150px;
         }
 
         .Footer{
