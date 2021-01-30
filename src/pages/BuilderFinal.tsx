@@ -396,7 +396,7 @@ const BuilderFinal: React.FC = () => {
     
     const { t } = useTranslation()
     const [Data,setData] = useContext(ChosenDataContext)
-    const [stepSelected, setStepSelected] = useState(2)
+    const [stepSelected, setStepSelected] = useState(1)
     const [Price, setPrice] = useState <number>(0)
     const [pageStructure, setPageStructure] = useState <string>("vertical")
     const [tcbChecked, setTcbChecked] = useState(false)
