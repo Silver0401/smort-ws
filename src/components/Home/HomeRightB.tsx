@@ -2,7 +2,8 @@ import React, { useEffect, useRef, Suspense } from "react";
 import anime from "animejs";
 import { Canvas } from "react-three-fiber";
 import { useGLTF } from "@react-three/drei/useGLTF";
-import { OrbitControls } from "@react-three/drei";
+import { useTranslation } from "react-i18next";
+// import { OrbitControls } from "@react-three/drei";
 
 
 // Images
@@ -101,6 +102,8 @@ useGLTF.preload("/3DModels/BotModel/scene.gltf");
 
 const RightBox = () => {
   
+  const { t } = useTranslation()
+
   useEffect(() => {
     
     const HomeWebsiteAnimation = () => {
@@ -110,23 +113,87 @@ const RightBox = () => {
         easing: "easeInOutQuad",
         loop: true,
       })
+      ImageChanger.add(
+        {
+          targets: "#w3",
+          opacity: 1,
+          duration: 10
+        },
+        "+=0"
+      );
   
       ImageChanger.add({
         targets: "#Person1",
         opacity: 1
       }, "+=1000")
       ImageChanger.add({
+        targets: "#w3",
+        opacity: [1,0]
+      }, "-=1000")
+      ImageChanger.add({
+        targets: "#w1",
+        opacity: 1,
+        translateX: ["200px", "0px"],
+        easing: "easeInOutElastic"
+      }, "-=1000")
+
+
+
+      ImageChanger.add({
         targets: "#Sales1",
         opacity: 1
       }, "+=1000")
+      ImageChanger.add(
+        {
+          targets: "#w1",
+          opacity: 0,
+        },
+        "-=1000"
+      );
+      ImageChanger.add(
+        {
+          targets: "#w2",
+          opacity: 1,
+          translateX: ["200px", "0px"],
+          easing: "easeInOutElastic"
+        },
+        "-=1000"
+      );
+
+
+
       ImageChanger.add({
         targets: "#Image3",
         opacity: 1
       }, "+=1000")
+      ImageChanger.add(
+        {
+          targets: "#w2",
+          opacity: 0,
+        },
+        "-=1000"
+      );
+      ImageChanger.add(
+        {
+          targets: "#w3",
+          opacity: 1,
+          translateX: ["200px", "0px"],
+          easing: "easeInOutElastic"
+        },
+        "-=1000"
+        
+      );
+
+
+
       ImageChanger.add({
-        targets: ["#Image3", "#Person1", "#Sales1"],
+        targets: ["#Image3", "#Person1", "#Sales1","#w1", "#w2"],
         opacity: 0
       }, "+=1000")
+
+
+
+
   
       const tl = anime.timeline({
         easing: "linear",
@@ -507,8 +574,12 @@ const RightBox = () => {
                   <Suspense fallback={null}>
                     <Model />
                   </Suspense>
-                  <OrbitControls />
+                  {/* <OrbitControls /> */}
                 </Canvas>
+
+                <div className="SiteComponents">
+                  <h1>NanoTech</h1>
+                </div>
               </div>
             </div>
 
@@ -530,90 +601,25 @@ const RightBox = () => {
                   <img alt="Bg3" src={Image3} id="Image3" />
                 </div>
 
-                <div className="MiniTitle">
-                  <h1 id="title1">Travel Blog</h1>
-                  <h1 id="title2">My Portafolio</h1>
-                  <h1 id="title3">Online Shop</h1>
-                  <h1 id="title4">Team Website</h1>
-                </div>
-                <div className="MiniSubTitle">
-                  <h1 id="subTitle1">Around the world website</h1>
-                  <h1 id="subTitle2">Everything about me</h1>
-                  <h1 id="subTitle3">My products out in the world</h1>
-                  <h1 id="subTitle4">This is our team</h1>
+                <div className="SiteComponents">
+                  <nav>
+                    <h2>My Site</h2>
+                    <ul className="Links">
+                      <li>Home</li>
+                      <li>About</li>
+                      <li>Contact</li>
+                      <li>Blog</li>
+                    </ul>
+                  </nav>
+
+                  <div className="TitlesBox">
+                    <h1 id="w1">Portafolios</h1>
+                    <h1 id="w2">{t("Home.RightBox.Anim.Sales")}</h1>
+                    <h1 id="w3">Blogs</h1>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="SecondBox">
-            <span className="StylesBox">
-              <div className="Roulette">
-                <div className="animated">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M13 2.004c5.046.504 9 4.783 9 9.97 0 1.467-.324 2.856-.892 4.113l1.738 1.005c.732-1.553 1.154-3.284 1.154-5.117 0-6.304-4.842-11.464-11-11.975v2.004zm-10.109 14.083c-.568-1.257-.891-2.646-.891-4.112 0-5.188 3.954-9.466 9-9.97v-2.005c-6.158.511-11 5.671-11 11.975 0 1.833.421 3.563 1.153 5.118l1.738-1.006zm17.213 1.734c-1.817 2.523-4.769 4.174-8.104 4.174s-6.288-1.651-8.105-4.175l-1.746 1.01c2.167 3.123 5.768 5.17 9.851 5.17 4.082 0 7.683-2.047 9.851-5.168l-1.747-1.011zm-8.104-13.863c-4.419 0-8 3.589-8 8.017s3.581 8.017 8 8.017 8-3.589 8-8.017-3.581-8.017-8-8.017zm-2 11.023v-6.013l6 3.152-6 2.861z" />
-                  </svg>
-                </div>
-                <div className="minimalist">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8 16h-3v2h3v-2zm14.554-.317c-.902-.456-1.536-.104-2.432-.542l-.308-.15.281-.136c.896-.436 1.528-.083 2.433-.536.904-.455 1.451-1.329 1.451-2.208 0-1.168-.963-2.111-2.248-2.111-.377 0-.768.084-1.141.263-1.08.52-1.645 1.663-1.394 2.693.142.588-.166.667-.64.895l-.547.263-.011-.005v-3.494c.002-2.392-6.646-9.615-9.809-9.615h-8.189v22h18v-6.058l-2-.942h-3v2h3v3h-14v-18h5.362c4.156 0 2.638 6 2.638 6s6-1.65 6 2.457v1.683l-3.329-1.609c-1.026-.496-1.971.798-1.971.798l7.882 3.814c.472.229.781.309.637.896-.252 1.029.309 2.173 1.388 2.696.372.18.765.265 1.146.265 1.282 0 2.247-.94 2.247-2.111 0-.877-.545-1.75-1.446-2.206zm-1.487-4.423c.676-.325 1.447-.127 1.719.442.271.568-.059 1.294-.733 1.619-.677.325-1.447.127-1.719-.441-.272-.568.058-1.295.733-1.62zm-3.173 4.051c-.229 0-.417-.187-.417-.417 0-.23.188-.417.417-.417s.416.187.416.417c0 .23-.187.417-.416.417zm4.91 2.99c-.272.568-1.043.764-1.719.437-.675-.326-1.002-1.054-.73-1.622.273-.567 1.045-.763 1.721-.437.674.327 1 1.054.728 1.622zm-13.804-2.301h3v2h-3v-2z" />
-                  </svg>
-                </div>
-                <div className="technological">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M21 4c0-1.104-.896-2-2-2h-15c-1.104 0-2 .896-2 2v15c0 1.104.896 2 2 2h15c1.104 0 2-.896 2-2v-15zm-2 14.25c0 .414-.336.75-.75.75h-13.5c-.414 0-.75-.336-.75-.75v-13.5c0-.414.336-.75.75-.75h13.5c.414 0 .75.336.75.75v13.5zm-9 3.75v1h-1v-1h1zm2 0v1h-1v-1h1zm-4 0v1h-1v-1h1zm6 0v1h-1v-1h1zm2 0v1h-1v-1h1zm-6-22v1h-1v-1h1zm2 0v1h-1v-1h1zm-4 0v1h-1v-1h1zm6 0v1h-1v-1h1zm2 0v1h-1v-1h1zm6 13h1v1h-1v-1zm0-4h1v1h-1v-1zm0-2h1v1h-1v-1zm0 4h1v1h-1v-1zm0 4h1v1h-1v-1zm-22-2h1v1h-1v-1zm0-4h1v1h-1v-1zm0-2h1v1h-1v-1zm0 4h1v1h-1v-1zm0 4h1v1h-1v-1zm11-4h-5v-5h5v5zm6 0h-5v-5h5v5zm-6 6h-5v-5h5v5zm6 0h-5v-5h5v5z" />
-                  </svg>
-                </div>
-                <div className="3D">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 0l-11 6v12.131l11 5.869 11-5.869v-12.066l-11-6.065zm8.063 6.73l-2.267 1.165-5.796-3.098-5.705 3.018-2.245-1.2 7.945-4.333 8.068 4.448zm-13.063 3.73l4 2.139v3.807l-4-2.052v-3.894zm5.01.411l-3.588-1.918 3.573-1.891 3.64 1.945-3.625 1.864zm4.99-.317v3.8l-4 2.052v-3.796l4-2.056zm-14-2.233l2 1.07v6.185l6 3.077v2.547l-8-4.268v-8.611zm10 12.879v-2.546l6-3.077v-6.052l2-1.028v8.435l-8 4.268z" />
-                  </svg>
-                </div>
-                <div className="modern">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M18.513 7.119c.958-1.143 1.487-2.577 1.487-4.036v-3.083h-16v3.083c0 1.459.528 2.892 1.487 4.035l3.087 3.68c.566.677.57 1.625.009 2.306l-3.13 3.794c-.937 1.136-1.453 2.555-1.453 3.995v3.107h16v-3.107c0-1.44-.517-2.858-1.453-3.994l-3.13-3.794c-.562-.681-.558-1.629.009-2.306l3.087-3.68zm-.513-4.12c0 1.101-.363 2.05-1.02 2.834l-.978 1.167h-8.004l-.978-1.167c-.66-.785-1.02-1.736-1.02-2.834h12zm-.996 15.172c.652.791.996 1.725.996 2.829h-1.061c-1.939-2-4.939-2-4.939-2s-3 0-4.939 2h-1.061c0-1.104.344-2.039.996-2.829l3.129-3.793c.342-.415.571-.886.711-1.377h.164v1h2v-1h.163c.141.491.369.962.711 1.376l3.13 3.794zm-6.004-1.171h2v1h-2v-1zm0-2h2v1h-2v-1z" />
-                  </svg>
-                </div>
-                <div className="retro-pixel">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M13 7h-2v6h2v-6zm2-7v3h-6v-3h-7v24h7v-7h6v7h7v-24h-7zm-11 22v-2h3v2h-3zm3-7v3h-3v-16h3v3h10v-3h3v16h-3v-3h-10zm10 7v-2h3v2h-3z" />
-                  </svg>
-                </div>
-              </div>
-            </span>
-            <span className="StyleTitle">
-              <h1>¿Cuál es tu estilo favorito?</h1>
-            </span>
           </div>
         </div>
       </div>

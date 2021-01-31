@@ -20,7 +20,7 @@ const Block1 = (props:any) => {
           <div className="Title">
             <h1>{t("Block1.Question")}</h1>
           </div>
-          <span className="Reasons" id="About">
+          <span className="Reasons">
             <div className="Box1">
               <span className="SvgBox">
                 <svg

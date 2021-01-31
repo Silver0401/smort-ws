@@ -15,11 +15,14 @@ import Footer from "./../components/Home/Footer";
 const HomePage = () => {
 
   const [onBlock3, setOnBlock3] = useState <boolean>(false)
+  const [onBlock2, setOnBlock2] = useState <boolean>(false)
+  const [animCounter, setAnimCounter] = useState <number>(0)
   // const [navColor, toggleNavColor] = useState <boolean>(false)
 
   const HomePageRef = useRef <HTMLDivElement> (null)
 
   const Block1Ref = useRef <HTMLTableSectionElement> (null)
+  const Block2Ref = useRef <HTMLTableSectionElement> (null)
   const Block3Ref = useRef <HTMLTableSectionElement | null>(null)
   const FooterRef = useRef <HTMLTableSectionElement | null>(null)
 
@@ -43,12 +46,22 @@ const HomePage = () => {
 
     const userPosition = e.target.scrollTop;
     const block3Position = Block3Ref.current?.offsetTop;
+    const block2Position = Block2Ref.current?.offsetTop;
 
     if (block3Position) {
       if (userPosition > block3Position - 100) {
         setOnBlock3(true)
       }
 
+    }
+
+    if (block2Position) {
+      if (userPosition > block2Position - 100) {
+
+        setTimeout(() => {
+          setOnBlock2(true)
+        }, 2000)
+      }
     }
   }
 
@@ -72,7 +85,7 @@ const HomePage = () => {
 
       <Block1 refData={Block1Ref} />
 
-      <Block2 />
+      <Block2 refData={Block2Ref} animInit={onBlock2} animCounter={animCounter} setAnimCounter={(num:number) => setAnimCounter(num)}/>
 
       <Block3 refData={Block3Ref} animInit={onBlock3} />
 

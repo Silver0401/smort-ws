@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 // animation="slide-left" easing="ease-out-back" once={true} duration={1000}
 
 
-const Block2 = () => {
+const Block2 = (props:any) => {
 
     const { t } = useTranslation()
     const [ReasonCounter, setReasonCounter] = useState(0)
@@ -80,48 +80,60 @@ const Block2 = () => {
         </svg>,
       ],
     };
-
-
+    
     useInterval(() => {
 
+      if (props.animInit){
+
         const tl = anime.timeline({
-            targets: ".AnimBoxB2",
-            easing: "easeInOutQuad",
-            delay: 0,
-            // loop:true
+          targets: ".AnimBoxB2",
+          easing: "easeInOutQuad",
         });
 
-        tl.add(
-            {
-            duration: 1000,
-            width: ["0%", "50%"],
-            }
+        if (props.animCounter === 0){
 
-            
-        );
-
-        tl.add({
+          tl.add({
             duration: 1000,
             width: ["50%", "0%"],
-        });
+          });
 
-        let changeSvg = setTimeout(() => {
-            if (ReasonCounter === ComplicatedReasons.Reason.length - 1 || ReasonCounter >= 6)
-                setReasonCounter(0);
-            else setReasonCounter((prevCounter) => prevCounter + 1);
+          props.setAnimCounter(1);
 
-        }, 1000)
+        } else {
+
+          tl.add({
+            duration: 1000,
+            width: ["0%", "50%"],
+          });
   
-        return(() => {
-          clearTimeout(changeSvg)
-        })
+          tl.add({
+            duration: 1000,
+            width: ["50%", "0%"],
+          });
+  
+          let changeSvg = setTimeout(() => {
+            if (
+              ReasonCounter === ComplicatedReasons.Reason.length - 1 ||
+              ReasonCounter >= 6
+            )
+              setReasonCounter(0);
+            else setReasonCounter((prevCounter) => prevCounter + 1);
+          }, 1300);
+    
+          return () => {
+            clearTimeout(changeSvg);
+          };
 
-    }, 3000)
+        }
+
+      }
+
+    }, 4000)
 
 
 
     return (
-      <section className="Block2">
+      <section className="Block2" ref={props.refData}>
         <span className="LeftBoxB2">
           <h1>{t("Block2.LeftBox.title")}</h1>
 
