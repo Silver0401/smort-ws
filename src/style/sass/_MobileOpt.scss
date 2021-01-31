@@ -181,8 +181,8 @@ $BGColor: rgb(31, 28, 28);
 
             .WhyBox{
                 flex-direction: column;
-                height: 80%;
-                width: 100%;
+                height: 60%;
+                width: 90%;
 
                 .Title{
                     width: 100%;
@@ -191,11 +191,12 @@ $BGColor: rgb(31, 28, 28);
 
                 .Reasons{
                     width: 100%;
-                    height: 70%;
-
-                    // div{
-                    //     width: 100%;
-                    // }
+                    height: 50%;
+                    gap: 0px;
+                    
+                    div{
+                        height: 100%;
+                    }
                 }
             }
         }

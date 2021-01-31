@@ -70,7 +70,7 @@ const HomePage = () => {
         <RightBox />
       </section>
 
-      <Block1 Block1Ref={Block1Ref} />
+      <Block1 refData={Block1Ref} />
 
       <Block2 />
 

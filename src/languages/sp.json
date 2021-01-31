@@ -83,8 +83,8 @@
   "DC.About.D&P.P2": "El día que te entreguemos tu sitio web, también nos encargaremos de mandarte un correo como comprobante de la fecha de entrega y pago. Una vez que haya pasado un año desde esta fecha, te enviaremos nuevamente un correo algunos días antes, para recordarte sobre los pagos anuales de administración y gestión de la página y el dominio. En caso de que haya un atraso en dichos pagos anuales, se perderá la posesión del dominio y ya no será posible acceder al sitio web. En caso de haya un atraso y usted quiera recuperar la página, contará con 2 semanas hábiles para contactarnos y volver a activar el sitio web.",
 
   "DC.About.T&C.title": "Términos y Condiciones",
-  "DC.About.T&C.P1": "Al comprar un sitio en Smort, usted accede a que nosotros administremos la página en todos sus aspectos, respetando las fechas y pagos establecidos.",
-  "DC.About.T&C.P2": "Si en algun punto su página empieza a recibir un elevado número de visitas diarias (miles) será necesario empezar a realizar cargos mensuales, puesto que estaríamos administrando mucha información y datos (lo cual, usualmente solo ocurriría en sitios de ventas).",
+  "DC.About.T&C.P1": "Al comprar un sitio en Smort, usted accede a que nosotros administremos la página en todos sus aspectos, respetando las fechas y pagos establecidos (reglas descritas en la sección de dominios y fechas y pagos). ",
+  "DC.About.T&C.P2": "Se entiende que el diseño del sitio es propiedad de Smort, no obstante, la información y datos que puedan estar presentes en ella son completamente privados y de la propiedad del comprador. Adicionado a esto, cualquier cambio o mejora que se busque implementar para el sitio, sera guiada por las normas descritas en las secciónes de 'cambios al diseño o estilo de la página' y 'actualización o mejora de tu página'",
 
   "DC.Support.CS.title": "Ayuda al Cliente",
   "DC.Support.CS.P1": "Si necesita contactarnos para cualquier problema, duda o aclaración puede enviarnos un correo al email: smortmc2@gmail.com, enviarnos un whatsapp o llamrnos al número 771 411 6235 o también escribirnos por aquí mismo, llenando la información requerida.",
@@ -112,7 +112,7 @@
   "BuilderInit.Marketing.content": "¿Estas buscando promocionar un equipo? ¿alguna marca o producto? Invierte un poco y crea su propia página web, ésta, hace que se vea mucho mas profesional y de una calidad superior, dejando atrás a la competencia.",
 
   "BuilderInit.Sales.Title": "Catálogo de Ventas",
-  "BuilderInit.Sales.content": "¿Siempre has querido tener tu negocio propio? ¡Es momento de intentarlo! Crea una pagina web de calidad profesional y de diseño sublime, donde puedas anunciar y vender tus productos.",
+  "BuilderInit.Sales.content": "Buscas empezar un negocio o ya posees uno? Promociona tus productos en línea a través de un catálogo de ventas digital. Un lugar cualquiera puede visitar y visualizar todo lo que tu negocio tiene para ofrecer. (Nota: No es una tienda en línea)",
 
   "BuilderInit.Blog.Title": "Blog",
   "BuilderInit.Blog.content": "Te gusta escribir y dar a conocer tus ideas, crea una pagina con un diseño que capture quien eres y te dé un lugar personal donde puedas escribir y compartir todo lo que quieras sin límites",
