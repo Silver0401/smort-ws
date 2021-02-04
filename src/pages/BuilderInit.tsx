@@ -4,23 +4,27 @@ import { ChosenDataContext } from "./../components/ChosenData";
 import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { DataCenterContext } from "./../components/DataCenterPath";
 
 // Svg's
 import PersonalImg from "./../resources/person.svg";
 import MercaImg from "./../resources/marketing.svg";
 import VentasImg from "./../resources/sales.svg";
 import BlogImg from "./../resources/type.svg";
-// import EmpresarialImg from "./../resources/company.svg"
+import ContactImg from "./../resources/Bulb.svg";
 
 const BuilderInit = () => {
+
   const { t } = useTranslation();
-  const [Data, setData] = useContext(ChosenDataContext);
   let History = useHistory();
+  
+  const [chosenPath, setChosenPath] = useContext(DataCenterContext)
+  const [Data, setData] = useContext(ChosenDataContext);
 
   const [PCard, setPCard] = useState(false);
   const [MCard, setMCard] = useState(false);
   const [VCard, setVCard] = useState(false);
-  const [ECard, setECard] = useState(false);
+  const [CCard, setCCard] = useState(false);
   const [BCard, setBCard] = useState(false);
 
   // Info
@@ -28,7 +32,7 @@ const BuilderInit = () => {
   const MercaInfo = t("BuilderInit.Marketing.content");
   const VentasInfo = t("BuilderInit.Sales.content");
   const BlogInfo = t("BuilderInit.Blog.content");
-  // const EmpresarialInfo = "¿Eres propietario de alguna institución, escuela o empresa, y necesitas modernizar la forma en que esta organizada? Inverte en un sistema web capaz de almacenar información, datos, perfiles, etc. De manera segura y con un diseño ergonómico."
+  const ContactInfo = t("BuilderInit.Contact.content")
 
   const MakeSiteBox = (
     name: string,
@@ -51,8 +55,8 @@ const BuilderInit = () => {
         case "Ventas":
           setVCard(!VCard);
           break;
-        case "Empresarial":
-          setECard(!ECard);
+        case "Contact":
+          setCCard(!CCard);
           break;
         case "Blog":
           setBCard(!BCard);
@@ -71,8 +75,8 @@ const BuilderInit = () => {
       case "Ventas":
         GlobalCard = VCard;
         break;
-      case "Empresarial":
-        GlobalCard = ECard;
+      case "Contact":
+        GlobalCard = CCard;
         break;
       case "Blog":
         GlobalCard = BCard;
@@ -123,8 +127,17 @@ const BuilderInit = () => {
               GlobalCard ? { visibility: "visible" } : { visibility: "hidden" }
             }
             onClick={() => {
-              setData({ ...Data, SiteType: Translation });
-              History.push("/PageBuilder/Root");
+
+              if (name === "Contact"){
+
+                setChosenPath("ClientSupport")
+
+                History.push("/SupportCenter");
+                
+              } else {
+                setData({ ...Data, SiteType: Translation });
+                History.push("/PageBuilder/Root");
+              }
             }}
           >
             {t("Choose.button")}
@@ -181,13 +194,14 @@ const BuilderInit = () => {
             "04"
           )}
 
-          {/* {MakeSiteBox(
-            "Empresarial",
-            EmpresarialImg,
-            EmpresarialInfo,
-            "'Julius Sans One', sans-serif",
-            "04"
-          )} */}
+          {MakeSiteBox(
+            "Contact",
+            t("BuilderInit.Contact.Title"),
+            ContactImg,
+            ContactInfo,
+            "'MuseoModerno', cursive",
+            "05"
+          )}
         </div>
       </div>
     </motion.div>

@@ -90,7 +90,7 @@
   "DC.About.T&C.P2": "It is also understood that the site's design is property of Smort, nevertheless, the information and data that may be present in it, are completely private and in possession of the buyer. Aditionaly, any change or improvement wished to be done to the website we'll be done according to the norms described in the sections 'Style and Design Changes' and 'Site Update or Upgrade'",
 
   "DC.Support.CS.title": "Client Support",
-  "DC.Support.CS.P1": "If you ever need to contact us about a problem, doubt or clarification of any king, you can contact us without any hesitation either through email at smortmc2@gmail.com, send us a whatsapp of call us to the number +52 771 411 6235 or write us through here, by filling the spaces below.",
+  "DC.Support.CS.P1": "If you ever need to contact us about a problem, doubt or request of any kind, you can do it without any hesitation, either through email at smortmc2@gmail.com, send us a whatsapp of call us to the number +52 771 411 6235 or write us through here, by filling the spaces below.",
 
   "DC.Support.Label.Name": "Name",
   "DC.Support.Label.Email": "Email",
@@ -119,6 +119,9 @@
 
   "BuilderInit.Blog.Title": "Blog",
   "BuilderInit.Blog.content": "You enjoy writing and spreading your ideas; Create a website that captures your own colors, a place where you'll be able to write and share everything think of, with no boundaries or limits.",
+
+  "BuilderInit.Contact.Title": "No idea?",
+  "BuilderInit.Contact.content": "No problem, click the button to contact us, so that we can decide what is the best option, for whatever you're looking for",
 
   "BuilderRoot.Welcome.Title": "Welcome to our style selector",
   "BuilderRoot.Welcome.SubTitle": "Simply click the start button and choose your favorite colors and designs for your website.",
