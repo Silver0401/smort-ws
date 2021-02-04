@@ -4,6 +4,7 @@ interface Data {
     Name: string,
     Email: string,
     Phone: number,
+    Adress: string,
 
     SiteType: string,
     PageStyle: string,
@@ -14,7 +15,6 @@ interface Data {
     Color2: string,
     SiteStructure: string,
 
-    MainTheme: string,
     Details: string,
     DomainOptions: string[],
     DomainExtension: string,
@@ -34,6 +34,7 @@ export const ChosenDataProvider: React.FC = (props) => {
     const [Data, setData] = useState<Data>({
       Name: "awaiting...",
       Email: "awaiting...",
+      Adress: "awaiting...",
       Phone: 0,
 
       SiteType: "awaiting...",
@@ -45,7 +46,6 @@ export const ChosenDataProvider: React.FC = (props) => {
       Color2: "awaiting...",
       SiteStructure: "awaiting...",
 
-      MainTheme: "awaiting...",
       Details: "awaiting...",
       DomainOptions: ["awaiting...", "awaiting...", "awaiting..."],
       DomainExtension: "awaiting...",
@@ -53,7 +53,6 @@ export const ChosenDataProvider: React.FC = (props) => {
       SiteChosenPrice: 0,
       PaymentMethod: "awaiting...",
       TransactionId: 0,
-
       MongoDBOrderId: 0,
     });
 

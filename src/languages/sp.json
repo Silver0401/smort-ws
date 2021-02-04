@@ -144,8 +144,8 @@
   "BuilderFinal.Tab3.Title": "Resumen & Pago",
   
   "BuilderFinal.Tab1.InitialText": "LLena los siguientes espacios y recuerda que mientras más especifico y detallado seas en tus respuestas e información, mejor nos quedará tu sitio web.",
-  "BuilderFinal.Tab1.Form.MainTheme.Label": "Tema Principal de la Página",
-  "BuilderFinal.Tab1.Form.MainTheme.Input": "Portafolio Personal de Jime",
+  "BuilderFinal.Tab1.Form.Adress.Label": "Dirección",
+  "BuilderFinal.Tab1.Form.Adress.Input": "Calle, colonia, ciudad, estado",
   
   "BuilderFinal.Tab1.Form.Name.Label": "Tu Nombre",
   "BuilderFinal.Tab1.Form.Name.Input": "Mario Gonzáles",
@@ -207,7 +207,7 @@
 
 
   "BuilderSuccess.Title": "¡Todo Listo!",
-  "BuilderSuccess.Paragraph": "Te acabamos de mandar un correo como comprobante de la fecha y del pago que acabas de realizar. Hemos recibido tu información y empezaremos a desarrollar tu sitio lo más pronto posible. Escucharas de nosotros en algunos días cuando hayamos terminado tu sitio.",
+  "BuilderSuccess.Paragraph": "En algunos segundos te empezaremos a descargar un contrato, como comprobante del pago que acabas de realizar. Hemos recibido tu información y empezaremos a desarrollar tu sitio lo más pronto posible. Escucharas de nosotros en algunos días cuando hayamos terminado tu sitio.",
   "BuilderSuccess.Footer": "- El Equipo de Smort",
 
 

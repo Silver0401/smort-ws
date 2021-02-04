@@ -30,6 +30,7 @@
     "file-loader": "^6.2.0",
     "framer-motion": "^3.1.1",
     "i18next": "^19.8.4",
+    "jspdf": "^2.3.0",
     "lottie-web": "^5.7.5",
     "mongoose": "^5.10.15",
     "react": "^17.0.1",
@@ -66,6 +67,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {}
+  }
 }

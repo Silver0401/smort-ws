@@ -1,6 +1,7 @@
 $PageColor: rgb(51, 162, 203);
 $BGColor: rgb(57, 55, 55);
 
+@import url('https://fonts.googleapis.com/css2?family=Barrio&family=La+Belle+Aurore&family=Megrim&display=swap');
 
 @mixin alignCenter {
     display: flex;
@@ -92,6 +93,32 @@ $BGColor: rgb(57, 55, 55);
         transform: rotateX(100deg)
     }
 }
+
+@keyframes levitate1{
+    0%{
+        transform: rotate(8deg);
+    }
+    100%{
+        transform: rotate(-20deg);
+    }
+}
+@keyframes levitate2{
+    0%{
+        transform: rotate(30deg);
+    }
+    100%{
+        transform: rotate(-5deg);
+    }
+}
+@keyframes levitate3{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
 
 .PageStylesSection{
     background-color: transparent;
@@ -320,6 +347,22 @@ $BGColor: rgb(57, 55, 55);
                     overflow: hidden;
                     background-color: transparent;
                     @include alignCenter();
+
+                    .ParallaxScene{
+                        position: absolute;
+                        visibility: hidden;
+
+                        .Moon{
+                            visibility: hidden;
+                            position: absolute;
+                        }
+    
+                        .RocksBg{
+                            position: absolute;
+                            visibility: hidden;
+                        }
+                    }
+
 
                     button{
                         font-size: clamp(10px, 1.2vw, 40px);
@@ -649,6 +692,7 @@ $BGColor: rgb(57, 55, 55);
 
                         p{
                             font-size: clamp(10px, 1.5vw, 90px);
+                            text-shadow: 0px 0px 10px black;
                         }
 
                     }
@@ -664,50 +708,137 @@ $BGColor: rgb(57, 55, 55);
 
             .Parallax{
 
-                background-image: url(./../../resources/foto2.jpg);
-                background-color: black;
-                background-size: cover;
                 grid-template-columns: 1fr;
                 grid-template-rows: 1fr;
                 grid-template-areas: 
                 "RightBox";
 
                 nav{
+                    width: 100%;
                     background-color: var(--ChosenColor1);
-                    border-radius: 10px;
+                    top: 0;
+                    left: 0;
                 }
 
                 .RightBox{
                     @include alignCenter();
 
+                    .ParallaxScene{
+                        visibility: visible;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+
+                        // background-image: url();
+                        // background-color: black;
+                        // background-size: cover;
+                        // background-position: center;
+                        // background-repeat: no-repeat;
+                        @include alignCenter();
+
+                        #ParallaxBg, #RocksBg{
+                            position: absolute;
+                            
+                            height: 100%;
+                            width: auto;
+                        }
+
+                        #ParallaxBg{
+                            z-index: 0;
+                        }
+
+                        #RocksBg{
+                            z-index: 2;
+                        }
+
+
+                        #Moon{
+                            visibility: visible;
+                            width: 300px;
+                            height: 300px;
+                            z-index: 1;
+                            border-radius: 50%;
+                            @include alignCenter();
+
+                            img{
+                                width: 105%;
+                                height: 105%;
+                            }                            
+                        }
+
+                        .RocksBg{
+                            position: absolute;
+                            visibility: visible;
+                            width: 100%;
+                            height: 100%;
+                            z-index: 2;
+
+                            div{
+                                position: absolute;
+                                width: 100px;
+                                height: 100px;
+                                
+
+                                img{    
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+
+                            #Rock1{
+                                left: 6em;
+                                top: 15em;
+
+                                img{ animation: levitate1 2s linear infinite alternate; }
+                            }
+                            #Rock2{
+                                right: 5em;
+                                top: 10em;
+
+                                img{ animation: levitate2 7s linear infinite alternate; }
+                            }
+                            #Rock3{
+                                left: 15em;
+                                bottom: 6em;
+
+                                img{ animation: levitate3 10s linear infinite alternate; }
+                            }
+
+                        }
+                    }
+                    
+
                     .TextBox{
                         @include alignCenter();
                         width: 60%;
-                        height: 45%;
+                        height: 0%;
+                        z-index: 2;
                         text-align: center;
-                        color: black;
-                        // font-weight: bolder;
 
                         h1{
-                            font-size: clamp(40px, 5vw, 150px);
+                            font-size: clamp(40px, 6vw, 150px);
+                            // font-family: 'La Belle Aurore', cursive;
+                            // font-family: 'Dancing Script', cursive;
                             font-family: 'Julius Sans One', sans-serif;
+                            // font-family: 'Monoton', cursive;
+                            // font-family: 'Press Start 2P', cursive;
+                            // font-family: 'Righteous', cursive;    
+                            font-family: 'Righteous', cursive;
+                            // font-family: 'Courgette', cursive;
+                            font-family: 'MuseoModerno', cursive;
                             font-weight: 900;
+                            color: var(--ChosenColor1);
                         }
 
                         p{
-                            font-size: clamp(10px, 1.5vw, 90px);
-                            padding: 10px 30px;
-                            font-weight: bolder;
-                            @include Glassmorphic();
+                            display: none;
                         }
                     }
 
+
                     button{
-                        color: var(--ChosenColor1);
-                        background-color: var(--ChosenColor2);
-                        font-family: 'MuseoModerno', cursive;
-                        font-weight: bolder;
-                        border-radius: 10px;
+                        display: none;
                     }
                 }
 

@@ -145,8 +145,8 @@
   "BuilderFinal.Tab3.Title": "Summary & Payment",
   
   "BuilderFinal.Tab1.InitialText": "Fill in the next fields, and remember, the more specific and detailed your answers are, the better and more accurate your site will be.",
-  "BuilderFinal.Tab1.Form.MainTheme.Label": "Site's Main Theme",
-  "BuilderFinal.Tab1.Form.MainTheme.Input": "Mike's Personal Portafiolio",
+  "BuilderFinal.Tab1.Form.Adress.Label": "Adress",
+  "BuilderFinal.Tab1.Form.Adress.Input": "Street, suburb, city, state",
   
   "BuilderFinal.Tab1.Form.Name.Label": "Your Name",
   "BuilderFinal.Tab1.Form.Name.Input": "Mike Ross",
@@ -208,8 +208,8 @@
 
 
   "BuilderSuccess.Title": "Everything Done!",
-  "BuilderSuccess.Paragraph": "We've just sent you an email as a receipt of your purchase. We have successfully received your information, and we'll start developing your website as soon as posible. You'll be hearing from us in a couple of days, when you're site is up and running.",
-  "BuilderSuccess.Footer": "- The smort team",
+  "BuilderSuccess.Paragraph": "In a few seconds, we'll start downloading you a contract, as a receipt of your purchase. We have successfully received your information, and we'll start developing your website as soon as posible. You'll be hearing from us in a couple of days, when you're site is up and running.",
+  "BuilderSuccess.Footer": "- The Smort team",
 
 
   "Toaster.Error.TermsAndConditions": "You must accept the terms and conditions",

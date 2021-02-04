@@ -1,5 +1,5 @@
-// Libraries
 
+// Libraries
 import React, { useEffect, useState, Suspense, useContext, useRef } from "react";
 import anime from "animejs";
 import Particles from "react-tsparticles";
@@ -11,6 +11,12 @@ import { OrbitControls } from "@react-three/drei";
 
 // Resources
 import DudFoto from "./../../resources/dud.jpg"; 
+import ParallaxBg from "./../../resources/AnimSpaceBG2.jpg";
+import RocksBg from "./../../resources/rocks-bg.png";
+import Moon from "./../../resources/planeta.png"
+import Rock1 from "./../../resources/rock1.png"
+import Rock2 from "./../../resources/rock2.png"
+import Rock3 from "./../../resources/rock3.png"
 
 
 const ChooseStyle = (props:any) => {
@@ -19,6 +25,16 @@ const ChooseStyle = (props:any) => {
   const [PageNumbertoDisplay, setPageNumberToDisplay] = useState(0)
   let PagesList:any[] = []
   const [Data, setData] = useContext(ChosenDataContext)
+
+  const ParallaxSceneRef = useRef <HTMLDivElement> (null)
+  const ParallaxBgRef = useRef <HTMLImageElement> (null)
+  const RocksBgRef = useRef <HTMLImageElement> (null)
+  const Rock1Ref = useRef <HTMLDivElement> (null)
+  const Rock2Ref = useRef <HTMLDivElement> (null)
+  const Rock3Ref = useRef <HTMLDivElement> (null)
+  const MoonRef = useRef <HTMLDivElement> (null)
+  const RockList = [Rock1Ref, Rock2Ref, Rock3Ref, MoonRef, ParallaxBgRef, RocksBgRef]
+
 
   // Functions
   const ChangePageTo = (direction:string) => {
@@ -40,6 +56,46 @@ const ChooseStyle = (props:any) => {
 
     return(PagesList[PageNumber])
   }
+
+  const ParallaxAnimation = (data:any) => {
+
+    RockList.forEach((rock) => {
+      
+      if (ParallaxSceneRef && ParallaxSceneRef.current){
+        
+        let speed = rock.current?.getAttribute("data-speed")
+
+        if (speed){
+
+          let x
+          let y
+
+          if (rock.current?.id === "ParallaxBg" || rock.current?.id === "RocksBg"){
+            
+            x = (ParallaxSceneRef.current?.offsetWidth - data.pageX * parseInt(speed)) / 100
+            y = (data.pageY * parseInt(speed)) / 200
+
+          } else {
+
+            x = (ParallaxSceneRef.current?.offsetWidth - data.pageX * parseInt(speed)) / 100
+            y = (ParallaxSceneRef.current?.offsetWidth - data.pageY * parseInt(speed)) / 100
+
+          }
+
+
+          anime({
+            targets: `#${rock.current?.id}`,
+            translateX: x,
+            translateY: y,
+            duration: 10,
+            easing: "linear"
+          })
+        }
+      }
+    })
+  }
+
+  
 
   const Model = () => {
     const group = useRef();
@@ -818,6 +874,8 @@ const ChooseStyle = (props:any) => {
 
   useGLTF.preload("/3DModels/ComputerModel/scene.gltf");
 
+
+
   const CreatePageStyle = (StyleName:string, TitleToDisplay:string) => {
 
     let showWaves = {
@@ -861,7 +919,7 @@ const ChooseStyle = (props:any) => {
             </div>
           </div>
 
-          <h1 unselectable="on" >{TitleToDisplay}</h1>
+          <h1 unselectable="on">{TitleToDisplay}</h1>
 
           <button
             onClick={() => {
@@ -1369,7 +1427,7 @@ const ChooseStyle = (props:any) => {
               <Canvas
                 colorManagement
                 shadowMap
-                camera={{ position: [-0.5, 0.5, 0.5], fov: 50}}
+                camera={{ position: [-0.5, 0.5, 0.5], fov: 50 }}
               >
                 <ambientLight intensity={0.5} />
                 <pointLight position={[300, 500, 0]} intensity={2} />
@@ -1387,6 +1445,45 @@ const ChooseStyle = (props:any) => {
           </span>
 
           <span className="RightBox">
+            <div
+              className="ParallaxScene"
+              onMouseMove={(e: any) => ParallaxAnimation(e)}
+              ref={ParallaxSceneRef}
+              id="ParallaxScene"
+            >
+              <img
+                id="ParallaxBg"
+                src={ParallaxBg}
+                alt="Parallax Bg"
+                data-speed={12}
+                ref={ParallaxBgRef}
+              />
+
+              <img
+                id="RocksBg"
+                src={RocksBg}
+                alt="Rocks Bg"
+                data-speed={12}
+                ref={RocksBgRef}
+              />
+
+              <div className="rock" id="Moon" ref={MoonRef} data-speed={1}>
+                <img src={Moon} alt="Moon" />
+              </div>
+
+              <div className="RocksBg">
+                <div ref={Rock1Ref} className="rock" id="Rock1" data-speed={7}>
+                  <img src={Rock1} alt="Rock1" />
+                </div>
+                <div ref={Rock2Ref} className="rock" id="Rock2" data-speed={-5}>
+                  <img src={Rock2} alt="Rock2" />
+                </div>
+                <div ref={Rock3Ref} className="rock" id="Rock3" data-speed={6}>
+                  <img src={Rock3} alt="Rock3" />
+                </div>
+              </div>
+            </div>
+
             <div className="TextBox">
               <h1>{t("BuilderRoot.Builder.StyleTitle")}</h1>
               <p>
@@ -1618,12 +1715,12 @@ const ChooseStyle = (props:any) => {
 
 // PageStyles Created
 
-  CreatePageStyle("Animated", t("BuilderRoot.Builder.Style.Animated"))
-  CreatePageStyle("D3-Style", t("BuilderRoot.Builder.Style.3D"))
-  CreatePageStyle("Glassmorphic", t("BuilderRoot.Builder.Style.Glassmorphic"))
-  CreatePageStyle("Minimalist", t("BuilderRoot.Builder.Style.Minimalist"))
-  CreatePageStyle("Parallax", t("BuilderRoot.Builder.Style.Parallax"));
-  CreatePageStyle("Neumorphic", t("BuilderRoot.Builder.Style.Neumorphic"));
+CreatePageStyle("D3-Style", t("BuilderRoot.Builder.Style.3D"))
+CreatePageStyle("Minimalist", t("BuilderRoot.Builder.Style.Minimalist"))
+CreatePageStyle("Parallax", t("BuilderRoot.Builder.Style.Parallax"));
+CreatePageStyle("Glassmorphic", t("BuilderRoot.Builder.Style.Glassmorphic"))
+CreatePageStyle("Animated", t("BuilderRoot.Builder.Style.Animated"))
+CreatePageStyle("Neumorphic", t("BuilderRoot.Builder.Style.Neumorphic"));
 
 
   return (

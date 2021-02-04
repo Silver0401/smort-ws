@@ -114,9 +114,9 @@ const StripeForm = (props:any) => {
                         Name: Data.Name,
                         Email: Data.Email,
                         Phone: Data.Phone,
+                        Adress: Data.Adress,
   
                         SiteEspecifications: {
-                          MainTheme: Data.MainTheme,
                           Details: Data.Details,
                           DomainOptions: Data.DomainOptions,
                           DomainExtension: Data.DomainExtension,
@@ -182,9 +182,9 @@ const StripeForm = (props:any) => {
                         Name: Data.Name,
                         Email: Data.Email,
                         Phone: Data.Phone,
+                        Adress: Data.Adress,
   
                         SiteEspecifications: {
-                          MainTheme: Data.MainTheme,
                           Details: Data.Details,
                           DomainOptions: Data.DomainOptions,
                           DomainExtension: Data.DomainExtension,
@@ -293,9 +293,9 @@ const PayPalForm = (props:any) => {
           Name: Data.Name,
           Email: Data.Email,
           Phone: Data.Phone,
+          Adress: Data.Adress,
 
           SiteEspecifications: {
-            MainTheme: Data.MainTheme,
             Details: Data.Details,
             DomainOptions: Data.DomainOptions,
             DomainExtension: Data.DomainExtension,
@@ -406,7 +406,7 @@ const BuilderFinal: React.FC = () => {
     const EmailRef = useRef<HTMLInputElement>(null)
     const PhoneRef = useRef<HTMLInputElement>(null)
 
-    const MainThemeRef = useRef<HTMLInputElement>(null)
+    const AdressRef = useRef<HTMLInputElement>(null)
     const DetailsRef = useRef<HTMLTextAreaElement>(null)
     const DomainOpt1 = useRef<HTMLInputElement>(null)
     const DomainOpt2 = useRef<HTMLInputElement>(null)
@@ -622,7 +622,7 @@ const BuilderFinal: React.FC = () => {
         NameRef.current,
         EmailRef.current,
         PhoneRef.current,
-        MainThemeRef.current,
+        AdressRef.current,
         DetailsRef.current,
         DomainOpt1.current,
         DomainOpt2.current,
@@ -1065,7 +1065,7 @@ const BuilderFinal: React.FC = () => {
           Name: NameRef.current?.value || "awaiting..",
           Email: EmailRef.current?.value || "awaiting..",
           Phone: PhoneRef.current?.value || 0,
-          MainTheme: MainThemeRef.current?.value || "awaiting..",
+          Adress: AdressRef.current?.value || "awaiting..",
           Details: DetailsRef.current?.value || "awaiting..",
           DomainOptions: [
             DomainOpt1.current?.value || "awaiting..",
@@ -1162,13 +1162,13 @@ const BuilderFinal: React.FC = () => {
 
               <span className="InputBox1">
                 <span>
-                  <label>{t("BuilderFinal.Tab1.Form.MainTheme.Label")}</label>
+                  <label>{t("BuilderFinal.Tab1.Form.Adress.Label")}</label>
                   <input
                     type="text"
-                    placeholder={t("BuilderFinal.Tab1.Form.MainTheme.Input")}
-                    ref={MainThemeRef}
+                    placeholder={t("BuilderFinal.Tab1.Form.Adress.Input")}
+                    ref={AdressRef}
                     required
-                    name="MainTheme"
+                    name="Adress"
                   />
                   <div className="BottomBox" />
                 </span>
@@ -1480,7 +1480,7 @@ const BuilderFinal: React.FC = () => {
                   </button>
 
                   <div className="PayPalButtonBox">
-                    <PayPalScriptProvider options={PayPalOptions}>
+                    <PayPalScriptProvider options={PayPalTestOptions}>
                       <PayPalForm
                         onButtonClicked={(b: boolean) => {
                           setTcbChecked(b);

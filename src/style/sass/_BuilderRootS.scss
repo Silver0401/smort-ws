@@ -67,7 +67,7 @@ $BackgroundColor: rgb(57, 55, 55);
         height: 100%;
         width: 100%;
         display: grid;
-        grid-template-columns: 35% 1fr;
+        grid-template-columns: 30% 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: 
         "InsBox BuildBox";
@@ -108,8 +108,8 @@ $BackgroundColor: rgb(57, 55, 55);
                 @include alignCenter();
 
                 .Circle{
-                    height: clamp(300px, 25vw, 2000px);
-                    width: clamp(300px, 25vw, 2000px);
+                    height: clamp(300px, 20vw, 1500px);
+                    width: clamp(300px, 20vw, 1500px);
                     background-color: white;
                     opacity: .35;
                     border-radius: 50%;
