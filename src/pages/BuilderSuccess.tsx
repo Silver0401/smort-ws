@@ -279,17 +279,18 @@ ${Data.Details}
       
       
       
-            doc.save("CreatedContract.pdf")
+            doc.save("Contract.pdf")
             
-      
-            var element = document.createElement("a");
-      
-            element.setAttribute(
-              "href", "./CreatedContract.pdf")
-            element.setAttribute("download", "Contract.pdf");
-            element.style.display = "none";
-            element.click();
             setHomeButtonVisibility(true);
+      
+            // var element = document.createElement("a");
+      
+            // element.setAttribute(
+            //   "href", "./CreatedContract.pdf")
+            // element.setAttribute("download", "Contract.pdf");
+            // element.style.display = "none";
+            // element.click();
+            
           };
         
           setTimeout(() => {
@@ -297,74 +298,6 @@ ${Data.Details}
         }, 4000);
       }
 
-
-      const DownloadContract = () => {
-        var doc = new jsPDF({
-          format: [250, 300],
-        });
-
-        doc.text(ContractP1, 20, 20, {
-          align: "left",
-          maxWidth: 200,
-        });
-        doc.addPage();
-        doc.text(ContractP2, 20, 20, {
-          align: "left",
-          maxWidth: 200,
-        });
-        doc.addPage();
-        doc.text(ContractP3, 20, 20, {
-          align: "left",
-          maxWidth: 200,
-        });
-        doc.addPage();
-        doc.text(ContractP4, 20, 20, {
-          align: "left",
-          maxWidth: 200,
-        });
-        doc.addPage();
-        doc.text(ContractP5, 20, 20, {
-          align: "left",
-          maxWidth: 200,
-        });
-        doc.addPage();
-        doc.text(ContractP6, 20, 20, {
-          align: "left",
-          maxWidth: 200,
-        });
-        doc.addPage();
-        doc.text(ContractP7, 20, 20, {
-          align: "left",
-          maxWidth: 200,
-        });
-        doc.addPage();
-        doc.text(ContractP8, 20, 20, {
-          align: "left",
-          maxWidth: 200,
-        });
-        doc.addPage();
-        doc.text(ContractP9, 20, 20, {
-          align: "left",
-          maxWidth: 200,
-        });
-        doc.addPage();
-        doc.text(ContractP10, 20, 20, {
-          align: "left",
-          maxWidth: 200,
-        });
-
-        doc.save(`${Data.Name}'s Contract.pdf`);
-        setHomeButtonVisibility(true);
-
-        // var element = document.createElement("a");
-
-        // element.setAttribute("download", "Contract.pdf");
-        // element.setAttribute("href", "./CreatedContract.pdf");
-        // element.style.display = "none";
-        // element.click();
-      };
-
-      DownloadContract()
 
     }, [Data.MongoDBOrderId])
     
