@@ -196,128 +196,128 @@ ${Data.Details}
 
   `;
 
-    const sendEmail = useCallback(() => {
+  const sendEmail = useCallback(() => {
 
-      if (Data.MongoDBOrderId !== 0){
-              
-        emailjs
-        .send(
-            "service_h86ldsp",
-            "template_6p0vh3t",
-            {
-                Name: Data.Name,
-                Email: Data.Email,
-                Phone: Data.Phone 
+    if (Data.MongoDBOrderId !== 0){
+            
+      emailjs
+      .send(
+          "service_h86ldsp",
+          "template_6p0vh3t",
+          {
+              Name: Data.Name,
+              Email: Data.Email,
+              Phone: Data.Phone 
 
-            },
-            "user_TpS9YP6Fwr4okNaN6XOOH"
-        )
-        .then(
-            (response) => {
-            console.log("SUCCESS!", response.status, response.text);
-            },
-            (err) => {
-              console.log("FAILED...", err);
-            }
-            );
-        
-          const DownloadContract = () => {
+          },
+          "user_TpS9YP6Fwr4okNaN6XOOH"
+      )
+      .then(
+          (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          },
+          (err) => {
+            console.log("FAILED...", err);
+          }
+          );
       
-            var doc = new jsPDF({
-              format: [250,300]
-            })
+        const DownloadContract = () => {
+    
+          var doc = new jsPDF({
+            format: [250,300]
+          })
+    
+          doc.text(ContractP1, 20,20, {
+            align: "left",
+            maxWidth: 200
+          })
+          doc.addPage()
+          doc.text(ContractP2, 20, 20, {
+            align: "left",
+            maxWidth: 200,
+          });
+          doc.addPage()
+          doc.text(ContractP3, 20, 20, {
+            align: "left",
+            maxWidth: 200,
+          });
+          doc.addPage()
+          doc.text(ContractP4, 20, 20, {
+            align: "left",
+            maxWidth: 200,
+          });
+          doc.addPage()
+          doc.text(ContractP5, 20, 20, {
+            align: "left",
+            maxWidth: 200,
+          });
+          doc.addPage()
+          doc.text(ContractP6, 20, 20, {
+            align: "left",
+            maxWidth: 200,
+          });
+          doc.addPage()
+          doc.text(ContractP7, 20, 20, {
+            align: "left",
+            maxWidth: 200,
+          });
+          doc.addPage()
+          doc.text(ContractP8, 20, 20, {
+            align: "left",
+            maxWidth: 200,
+          });
+          doc.addPage()
+          doc.text(ContractP9, 20, 20, {
+            align: "left",
+            maxWidth: 200,
+          });
+          doc.addPage()
+          doc.text(ContractP10, 20, 20, {
+            align: "left",
+            maxWidth: 200,
+          });
+    
+    
+    
+          doc.save("Contract.pdf")
+          
+          setHomeButtonVisibility(true);
+    
+          // var element = document.createElement("a");
+    
+          // element.setAttribute(
+          //   "href", "./CreatedContract.pdf")
+          // element.setAttribute("download", "Contract.pdf");
+          // element.style.display = "none";
+          // element.click();
+          
+        };
       
-            doc.text(ContractP1, 20,20, {
-              align: "left",
-              maxWidth: 200
-            })
-            doc.addPage()
-            doc.text(ContractP2, 20, 20, {
-              align: "left",
-              maxWidth: 200,
-            });
-            doc.addPage()
-            doc.text(ContractP3, 20, 20, {
-              align: "left",
-              maxWidth: 200,
-            });
-            doc.addPage()
-            doc.text(ContractP4, 20, 20, {
-              align: "left",
-              maxWidth: 200,
-            });
-            doc.addPage()
-            doc.text(ContractP5, 20, 20, {
-              align: "left",
-              maxWidth: 200,
-            });
-            doc.addPage()
-            doc.text(ContractP6, 20, 20, {
-              align: "left",
-              maxWidth: 200,
-            });
-            doc.addPage()
-            doc.text(ContractP7, 20, 20, {
-              align: "left",
-              maxWidth: 200,
-            });
-            doc.addPage()
-            doc.text(ContractP8, 20, 20, {
-              align: "left",
-              maxWidth: 200,
-            });
-            doc.addPage()
-            doc.text(ContractP9, 20, 20, {
-              align: "left",
-              maxWidth: 200,
-            });
-            doc.addPage()
-            doc.text(ContractP10, 20, 20, {
-              align: "left",
-              maxWidth: 200,
-            });
-      
-      
-      
-            doc.save("Contract.pdf")
-            
-            setHomeButtonVisibility(true);
-      
-            // var element = document.createElement("a");
-      
-            // element.setAttribute(
-            //   "href", "./CreatedContract.pdf")
-            // element.setAttribute("download", "Contract.pdf");
-            // element.style.display = "none";
-            // element.click();
-            
-          };
-        
-          setTimeout(() => {
-          DownloadContract();
-        }, 4000);
+        setTimeout(() => {
+        DownloadContract();
+      }, 4000);
+    }
+
+
+  }, [Data.MongoDBOrderId])
+  
+  useEffect(() => {
+      sendEmail()
+  },[sendEmail])
+
+  useEffect(() => {
+
+      if (container && container.current){
+          lottie.loadAnimation({
+              container: container.current,
+              renderer: "svg",
+              loop: true,
+              autoplay: true,
+              animationData: require("./../resources/Working.json"),
+          })
       }
 
-
-    }, [Data.MongoDBOrderId])
-    
-    useEffect(() => {
-        sendEmail()
-    },[sendEmail])
-
-    useEffect(() => {
-
-        if (container && container.current){
-            lottie.loadAnimation({
-                container: container.current,
-                renderer: "svg",
-                loop: true,
-                autoplay: true,
-                animationData: require("./../resources/Working.json"),
-            })
-        }
-
-    },[])
+  },[])
 
 
     return (

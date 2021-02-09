@@ -196,7 +196,7 @@ const NavBar = (props:any) => {
         </div>
 
         <ul className={NavBarOpened ? "toggled" : "notToggled"}>
-          <li onClick={() => {props.scrollTo(props.refs.About); setNavBar(true)} }>
+          <li onClick={() => {props.scrollTo(props.refs.About); setNavBar(false)} }>
             <div className="SvgContainer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -211,7 +211,7 @@ const NavBar = (props:any) => {
               {t("NavBar.About")}
             </p>
           </li>
-          <li onClick={() => {props.scrollTo(props.refs.Begin); setNavBar(true)} }>
+          <li onClick={() => {props.scrollTo(props.refs.Begin); setNavBar(false)} }>
             <div className="SvgContainer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -226,7 +226,7 @@ const NavBar = (props:any) => {
               {t("NavBar.Begin")}
             </p>
           </li>
-          <li onClick={() => {props.scrollTo(props.refs.Contacts); setNavBar(true)} }>
+          <li onClick={() => {props.scrollTo(props.refs.Contacts); setNavBar(false)} }>
             <div className="SvgContainer">
               <svg
                 width="24"
