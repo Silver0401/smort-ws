@@ -43,16 +43,16 @@ function App() {
               "-=1700"
             );
 
-            Loader.add(
-              {
-                targets: ".LeftBoxHome",
-                duration: 500,
-                easing: "spring(1,80,10,0)",
-                opacity: [0, 1],
-                translateX: ["-100%", "0%"],
-              },
-              "-=1000"
-            );
+            // Loader.add(
+            //   {
+            //     targets: ".LeftBoxHome",
+            //     duration: 500,
+            //     easing: "spring(1,80,10,0)",
+            //     opacity: [0, 1],
+            //     translateX: ["-100%", "0%"],
+            //   },
+            //   "-=1000"
+            // );
 
             Loader.add(
               {
@@ -62,52 +62,19 @@ function App() {
                 opacity: [0, 1],
                 translateX: ["100%", "0%"],
               },
-              "-=1100"
+              "-=1000"
             );
 
-            Loader.add(
-              {
-                targets: ".NavBar",
-                duration: 2500,
-                easing: "easeInOutElastic",
-                opacity: [0, 1],
-                translateY: ["-100px", "0px"],
-              },
-              "-=2500"
-            );
-		}
-
-		function HomeAnimations() {
-		const AnimTLletters = anime.timeline({
-			easing: "easeInOutQuad",
-			duration: 1000,
-			delay: 400
-		});
-
-		AnimTLletters.add({
-			targets: ".text1",
-			translateY: ["300px", "0px"],
-			opacity: [0, 1],
-		});
-		AnimTLletters.add({
-			targets: ".text2",
-			translateY: ["300px", "0px"],
-			opacity: [0, 1],
-		});
-		AnimTLletters.add({
-			targets: ".text3",
-			translateY: ["300px", "0px"],
-			opacity: [0, 1],
-		});
-
-
-		anime({
-			targets: ".line",
-			width: ["10%", "80%"],
-			duration: 2200,
-			direction: "alternate",
-			loop: true,
-		});
+            // Loader.add(
+            //   {
+            //     targets: ".NavBar",
+            //     duration: 2500,
+            //     easing: "easeInOutElastic",
+            //     opacity: [0, 1],
+            //     translateY: ["-100px", "0px"],
+            //   },
+            //   "-=2500"
+            // );
 		}
 
 		function CheckBrowser() {
@@ -126,10 +93,6 @@ function App() {
 			MoveLoader()
 
 			CheckBrowser()
-
-			setTimeout(() => {
-				HomeAnimations()
-			}, 2000)
 
 		}
 

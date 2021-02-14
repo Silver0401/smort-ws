@@ -137,7 +137,6 @@ $BGColor: rgb(31, 28, 28);
 
         .HomeInit{
 
-            height: 200vh;
             grid-template-rows: 1fr 1fr;
             grid-template-columns: 1fr;
             grid-template-areas: 
@@ -145,25 +144,24 @@ $BGColor: rgb(31, 28, 28);
             "RightBox";
     
             .LeftBoxHome{
-
     
+                // background-color: lightskyblue;
+
                 .Arrow{
-                    position: absolute;
-                    left: auto;
-                    right: auto;
-                    bottom: 20px;
+                    visibility: hidden;
                 }
             }
     
             .RightBoxHome{
-                // margin-bottom: 50px;
+
+                // background-color: lightcoral;
 
                 .CreateButton{
                     width: 80%;
                 }
 
                 .SiteAnimationBox{
-                    transform: scale(.9);
+                    transform: scale(.6);
                     margin-left: 1.5em;
                 }
             }
@@ -269,8 +267,12 @@ $BGColor: rgb(31, 28, 28);
 
         .HomeInit{
 
-            height: 180vh;
-            grid-template-rows: 100vh 1fr;
+            .LeftBoxHome{
+
+                .CreateButton{
+                    margin-bottom: 0px;
+                }
+            }
 
             .RightBoxHome{
                 .SiteAnimationBox{
@@ -561,6 +563,31 @@ $BGColor: rgb(31, 28, 28);
 
 @media (max-width: 400px){
     .HomePage{
+
+        .HomeInit{
+
+            .RightBoxHome{
+                .SiteAnimationBox{
+                    transform: scale(.4);
+                    margin-left: 1.5em;
+
+                    .InitBox{
+                        .PhoneContainer{
+                            .SiteContainer{
+                                Canvas{
+                                    transform: scale(2.5);
+                                    position: absolute;
+                                    left: 90px;
+                                    top: 130px;
+                                    height: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         .Block2{
             .RightBoxB2{
                 .TextBox{

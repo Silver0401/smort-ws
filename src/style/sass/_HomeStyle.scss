@@ -116,7 +116,7 @@ $BGColor: rgb(31, 28, 28);
     position: relative;
     box-shadow: 0px 0px 0px $PageColor;
     padding: 1em 2em;
-    font-size: clamp(18px, 1.5vw, 50px);
+    font-size: clamp(14px, 1.5vw, 50px);
     font-family: 'MuseoModerno', cursive;
     cursor: pointer;
     color: white;
@@ -440,21 +440,21 @@ $BGColor: rgb(31, 28, 28);
         "LeftBox RightBox";
         overflow: hidden;
         font-family: 'MuseoModerno', cursive;
+        margin-top: 70px;
+        height: calc(100vh - 70px);
+        // background-color: lightcoral;
 
         .LeftBoxHome{
             grid-area: LeftBox;
             position: relative;
             @include alignCenter();
             flex-direction: column;
-            justify-content: space-evenly;
-
-
+            justify-content: space-around;
                 
             .Slogan{
                 width: 100%;
                 height: 50%;
                 position: relative;
-                // background-color: black;
                 @include alignCenter();
                 justify-content: space-evenly;
                 flex-direction: column;
@@ -466,7 +466,7 @@ $BGColor: rgb(31, 28, 28);
                 }
 
                 p{
-                    font-size: clamp(15px, 1.2vw, 30px);
+                    font-size: clamp(11px, 1.2vw, 30px);
                     align-self: flex-start;
                     color: $PageColor;
                     font-weight: bolder;
@@ -474,12 +474,12 @@ $BGColor: rgb(31, 28, 28);
                 }
 
                 h1{
-                    font-size: clamp(30px, 3.5vw, 100px);
+                    font-size: clamp(20px, 3.5vw, 100px);
                     color: $PageColor;
                 }
 
                 h2{
-                    font-size: clamp(15px, 1.5vw, 100px);
+                    font-size: clamp(13px, 1.5vw, 100px);
                     color: white;
                     align-self: flex-start;
                 }
@@ -487,6 +487,7 @@ $BGColor: rgb(31, 28, 28);
 
             .CreateButton{
                 @include BorderFillButtonProperties();
+                margin-bottom: 50px;
             }
     
             .Arrow{
@@ -518,6 +519,8 @@ $BGColor: rgb(31, 28, 28);
     
             @include alignCenter();
             flex-direction: column;
+            // justify-content: flex-start;
+            // background-color: lightskyblue;
     
             .SiteAnimationBox{
                 position: absolute;
@@ -526,6 +529,7 @@ $BGColor: rgb(31, 28, 28);
                 overflow: hidden;
                 @include alignCenter();
                 justify-content: center;
+                // background-color: lightcoral;
 
                 .Polymorph{
                     position: relative;
