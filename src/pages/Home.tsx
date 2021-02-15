@@ -78,18 +78,21 @@ const HomePage = () => {
 
       <NavBar scrollTo = {(loc:any) => ScrollTo(loc)} refs={HomeBlockRefs} />
 
-      <section className="HomeInit" id="Home" ref={HomePageRef}>
-        <LeftBox />
-        <RightBox />
-      </section>
+      <div className="HomeContainer">
+        <section className="HomeInit" id="Home" ref={HomePageRef}>
+          <LeftBox />
+          <RightBox />
+        </section>
 
-      <Block1 refData={Block1Ref} />
+        <Block1 refData={Block1Ref} />
 
-      <Block2 refData={Block2Ref} animInit={onBlock2} animCounter={animCounter} setAnimCounter={(num:number) => setAnimCounter(num)}/>
+        <Block2 refData={Block2Ref} animInit={onBlock2} animCounter={animCounter} setAnimCounter={(num:number) => setAnimCounter(num)}/>
 
-      <Block3 refData={Block3Ref} animInit={onBlock3} />
+        <Block3 refData={Block3Ref} animInit={onBlock3} />
 
-      <Footer refData={FooterRef} />
+        <Footer refData={FooterRef} />
+      </div>
+
     </motion.div>
   );
 }

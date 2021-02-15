@@ -1,158 +1,162 @@
 @media (min-width: 2000px){
     .HomePage{
 
-        .HomeInit{
-            .LeftBoxHome{
+        .NavBar{
+            height: 150px;
+        }
 
-                .Arrow{
-                    width: 50px;
-                    height: 50px;
+        .HomeContainer{
+    
+            .HomeInit{
+                .LeftBoxHome{
+    
+                    .Arrow{
+                        width: 50px;
+                        height: 50px;
+                    }
                 }
-            }
-            .RightBoxHome{
-                .SiteAnimationBox{
-                    transform: scale(2);
-
-                    .InitBox .PhoneContainer{
-                        .SiteContainer{
-                            Canvas{
-                                transform: scale(.6);
-                                position: absolute;
-                                left: -150px;
-                                top: -200px;
-                                height: 100%;
+                .RightBoxHome{
+                    .SiteAnimationBox{
+                        transform: scale(2);
+    
+                        .InitBox .PhoneContainer{
+                            .SiteContainer{
+                                Canvas{
+                                    transform: scale(.6);
+                                    position: absolute;
+                                    left: -150px;
+                                    top: -200px;
+                                    height: 100%;
+                                }
                             }
                         }
                     }
                 }
             }
-        }
-
-        .Block1{
-            height: 100vh;
-
-            .Phrase{
-                font-size: 55px;
+    
+            .Block1{
+                height: 100vh;
+    
+                .Phrase{
+                    font-size: 55px;
+                }
+                .WhyBox{
+                    .Title{
+                        h1{
+                            font-size: 80px;
+                        }
+                    }
+    
+                    .Reasons{
+                        div{
+                            min-width: 500px;
+                        }
+                    }
+                }
             }
-            .WhyBox{
-                .Title{
+    
+            .Block2{
+                height: 100vh;
+    
+                .LeftBoxB2{
+                    border-top-right-radius: 300px;
+                    border-bottom-right-radius: 300px;
+    
+                    h1{
+                        font-size: 70px;
+                    }
+    
+                    .AnimBoxB2{
+                        h4{
+                            font-size: 60px;
+                        }
+                    }
+    
+                    .TextAnimBox{
+                        h2{
+                            font-size: 45px;
+                        }
+                        svg{
+                            width: 300px;
+                            height: 300px;
+                        }
+                    }
+                }
+                
+                .RightBoxB2{
+    
+                    border-top-left-radius: 300px;
+                    border-bottom-left-radius: 300px;
+    
+                    .TextBox{
+                        h1{
+                            font-size: 100px;
+                        }
+                        h2{
+                            font-size: 130px;
+                        }
+                    }
+                }
+            }
+    
+            .Block3{
+                .B3Title{
                     h1{
                         font-size: 80px;
                     }
                 }
-
-                .Reasons{
-                    div{
-                        min-width: 500px;
-                    }
-                }
-            }
-        }
-
-        .Block2{
-            height: 100vh;
-
-            .LeftBoxB2{
-                border-top-right-radius: 300px;
-                border-bottom-right-radius: 300px;
-
-                h1{
-                    font-size: 70px;
-                }
-
-                .AnimBoxB2{
-                    h4{
-                        font-size: 60px;
-                    }
-                }
-
-                .TextAnimBox{
-                    h2{
-                        font-size: 45px;
-                    }
-                    svg{
-                        width: 300px;
-                        height: 300px;
-                    }
-                }
-            }
-            
-            .RightBoxB2{
-
-                border-top-left-radius: 300px;
-                border-bottom-left-radius: 300px;
-
-                .TextBox{
-                    h1{
-                        font-size: 100px;
-                    }
-                    h2{
-                        font-size: 130px;
-                    }
-                }
-            }
-        }
-
-        .Block3{
-            .B3Title{
-                h1{
-                    font-size: 80px;
-                }
-            }
-            .Instructions{
-             
-                .B3AnimSection{
-
-                    .B3AnimationBox{
-
-                        // .Screen, .keyboard, .RandomRectangle{
-                        transform: scale(1.7);
+                .Instructions{
+                    
+                    .B3AnimSection{
+    
+                        .B3AnimationBox{
+    
+                            // .Screen, .keyboard, .RandomRectangle{
+                            transform: scale(1.7);
+                            // }
+    
+                        }
+    
+                        // .CreateButtonBox{
+                        //     .CreateButton{
+                        //         font-size: 45px;
+                        //         padding: 60px;
+                        //     }
                         // }
-
                     }
-
-                    // .CreateButtonBox{
-                    //     .CreateButton{
-                    //         font-size: 45px;
-                    //         padding: 60px;
-                    //     }
-                    // }
                 }
             }
-        }
-
-        .NavBar{
-            height: 150px;
-        }
-
-        .Footer{
-
-            .ContactUsTitle{
-                h1{
-                    font-size: 50px;
-                    margin-left: 100px;
+    
+            .Footer{
+    
+                .ContactUsTitle{
+                    h1{
+                        font-size: 50px;
+                        margin-left: 100px;
+                    }
                 }
-            }
-
-            .MediaBar{
-                span{
-                    width: 200px;
-                    height: 200px;
-                    border: 10px solid rgb(31, 28, 28);
+    
+                .MediaBar{
+                    span{
+                        width: 200px;
+                        height: 200px;
+                        border: 10px solid rgb(31, 28, 28);
+                    }
                 }
-            }
-
-            .Right{
-                h2{
-                    font-size: 50px;
+    
+                .Right{
+                    h2{
+                        font-size: 50px;
+                    }
+                }
+    
+                .Questioner{
+                    .BoxyBox{
+                        width: 80%;
+                    }
                 }
             }
 
-            .Questioner{
-                .BoxyBox{
-                    width: 80%;
-                }
-            }
         }
     }
 

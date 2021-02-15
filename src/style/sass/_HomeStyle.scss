@@ -47,6 +47,14 @@ $BGColor: rgb(31, 28, 28);
     }
 
 }
+@keyframes moveLeftRight{
+    0%{
+        transform: translateX(-1em);
+    }
+    100%{
+        transform: translateX(1em);
+    }
+}
 
 
 @keyframes ArrowMov{
@@ -226,27 +234,26 @@ $BGColor: rgb(31, 28, 28);
     
     position: absolute;
     width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    scroll-behavior: smooth;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px 1fr;
+    grid-template-areas: 
+    "Nav"
+    "Home";
 
-
-    section{
-        width: 100%;
-        height: 100vh;
-        scroll-snap-align: end;
-    }
 
     .NavBar{
+        grid-area: Nav;
         @include alignCenter(); 
         justify-content: space-between;
         overflow: visible;
         z-index: 5;
-        position: fixed;
+        position: relative;
         background-color: transparent;
         top: 0px;
         width: 100%;
-        height: 70px;
+        height: 100%;
         backdrop-filter: blur(20px);
         overflow: visible;
 
@@ -277,7 +284,7 @@ $BGColor: rgb(31, 28, 28);
             &:hover{
 
                 .MainLogoBox{
-                    animation: Yrotate 500ms linear;
+                    animation: Zrotate 500ms linear;
                 }
             }
 
@@ -430,1143 +437,1167 @@ $BGColor: rgb(31, 28, 28);
         }
     }
 
-
-    .HomeInit{
+    .HomeContainer{
         position: relative;
-        display: grid;
-        grid-template-columns: 45% 55%;
-        grid-template-rows: 1fr;
-        grid-template-areas:
-        "LeftBox RightBox";
-        overflow: hidden;
-        font-family: 'MuseoModerno', cursive;
-        margin-top: 70px;
-        height: calc(100vh - 70px);
-        // background-color: lightcoral;
+        grid-area: Home;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        scroll-behavior: smooth;
 
-        .LeftBoxHome{
-            grid-area: LeftBox;
+        section{
+            width: 100%;
+            height: calc(100vh - 70px);
+            scroll-snap-align: end;
+        }
+    
+        .HomeInit{
             position: relative;
-            @include alignCenter();
-            flex-direction: column;
-            justify-content: space-around;
-                
-            .Slogan{
-                width: 100%;
-                height: 50%;
+            display: grid;
+            grid-template-columns: 45% 55%;
+            grid-template-rows: 1fr;
+            grid-template-areas:
+            "LeftBox RightBox";
+            overflow: hidden;
+            font-family: 'MuseoModerno', cursive;
+    
+            .LeftBoxHome{
+                grid-area: LeftBox;
                 position: relative;
                 @include alignCenter();
-                justify-content: space-evenly;
                 flex-direction: column;
-                align-items: flex-start;
-
-                > * {
-                    margin-left: clamp(1rem, 5vw, 5rem);
-                    margin-right: clamp(.5rem, 2.5vw, 3rem);
-                }
-
-                p{
-                    font-size: clamp(11px, 1.2vw, 30px);
-                    align-self: flex-start;
-                    color: $PageColor;
-                    font-weight: bolder;
-                    text-decoration: underline black;
-                }
-
-                h1{
-                    font-size: clamp(20px, 3.5vw, 100px);
-                    color: $PageColor;
-                }
-
-                h2{
-                    font-size: clamp(13px, 1.5vw, 100px);
-                    color: white;
-                    align-self: flex-start;
-                }
-            }
-
-            .CreateButton{
-                @include BorderFillButtonProperties();
-                margin-bottom: 50px;
-            }
-    
-            .Arrow{
-                position: absolute;
-                bottom: 5%;
-                right: -70px;
-                width: 25px;
-                height: 25px;
-                background-color: transparent;
-                border-radius: 50%;
-    
-                svg{
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-30%, -25%);
+                justify-content: space-around;
+                    
+                .Slogan{
                     width: 100%;
-                    height: 100%;
-                    fill: white;
-                    filter: drop-shadow(0px 0px 10px white);
-                }
-            }
-        }   
-    
-        .RightBoxHome{
-            grid-area: RightBox;
-            position: relative;
-            font-size: 15px;
-    
-            @include alignCenter();
-            flex-direction: column;
-            // justify-content: flex-start;
-            // background-color: lightskyblue;
-    
-            .SiteAnimationBox{
-                position: absolute;
-                width: 45em;
-                height: 45em;
-                overflow: hidden;
-                @include alignCenter();
-                justify-content: center;
-                // background-color: lightcoral;
-
-                .Polymorph{
+                    height: 50%;
                     position: relative;
-                    z-index: 0;
-                    width: 70%;
-                    height: 70%;
-                    opacity: 1;
-                    overflow: visible;
                     @include alignCenter();
-                    justify-content: center;
-
+                    justify-content: space-evenly;
+                    flex-direction: column;
+                    align-items: flex-start;
+    
+                    > * {
+                        margin-left: clamp(1rem, 5vw, 5rem);
+                        margin-right: clamp(.5rem, 2.5vw, 3rem);
+                    }
+    
+                    p{
+                        font-size: clamp(11px, 1.2vw, 30px);
+                        align-self: flex-start;
+                        color: $PageColor;
+                        font-weight: bolder;
+                        text-decoration: underline black;
+                    }
+    
+                    h1{
+                        font-size: clamp(20px, 3.5vw, 100px);
+                        color: $PageColor;
+                    }
+    
+                    h2{
+                        font-size: clamp(13px, 1.5vw, 100px);
+                        color: white;
+                        align-self: flex-start;
+                    }
+                }
+    
+                .CreateButton{
+                    @include BorderFillButtonProperties();
+                    margin-bottom: 50px;
+                }
+        
+                .Arrow{
+                    position: absolute;
+                    bottom: 5%;
+                    right: -70px;
+                    width: 25px;
+                    height: 25px;
+                    background-color: transparent;
+                    border-radius: 50%;
+        
                     svg{
                         position: absolute;
-                        overflow: visible;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-30%, -25%);
                         width: 100%;
                         height: 100%;
+                        fill: white;
+                        filter: drop-shadow(0px 0px 10px white);
                     }
-
-                    #ShapeShifter{
-                        opacity: 0;
-                        width: 80%;
-                        height: 80%;
-                    }
-
-
-                    .PhoneContainer{
-                        top: 0;
-                        left: 0;
-                        overflow: hidden;
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        border: 1px solid white;
-                        border-radius: 1em;
-                        z-index: 0;
-                        margin-right: auto;
-                        opacity: 0;
-                        margin-left: 1em;
-                        margin-bottom: -2.5em;
-                        
-                        .SiteContainer .BackgroundImgs{
-                            img{
-                                height: 100%;
-                                width: 100%;
-                            }
-                        }
-
-                        .BrowserBar{
-
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 15px;
-                            background-color: black;
-                            @include alignCenter();
-
-                            .CirclesContainer{
-                                position: relative;
-                                width: 50px;
-                                height: 100%;
-                                @include alignCenter();
-
-                                span{
-                                    position: relative;
-                                    width: 5px;
-                                    height: 5px;
-                                    border-radius: 50%;
-                                }
-
-                                .c1{background-color: red;}
-                                .c2{background-color: yellow;}
-                                .c3{background-color: lime;}
-
-                            }
-
-                            .UrlBox{
-                                position: relative;
-                                width: 70%;
-                                height: 40%;
-                                border-radius: 1em;
-                                background-color: lightgray;
-                            }
-                        }
-
-                        .SiteContainer{
-                            position: absolute;
-                            top: 15px;
-                            left: 0;
-                            width: 100%;
-                            height: calc(100% - 15px);
-
-                            @include alignCenter();
-                            flex-direction: column;
-                            justify-content: center;
-
-                            .BackgroundImgs{
-
-                                position: absolute;
-                                width: 100%;
-                                height: 100%;
-
-                                img{
-                                    position: absolute;
-                                    opacity: 0;
-                                }
-
-                            }
-
-
-                            .MiniTitle{
-                                position: relative;
-                                opacity: 0;
-                                transition: all;
-                                width: 70%;
-                                height: 100px;
-                                @include alignCenter();
-                                justify-content: center;
-                                
-                                h1{
-                                    position: absolute;
-                                    color: black;
-                                    text-align: center;
-                                    font-size: 30px;
-                                    opacity: 0;
-                                }
-                            }
-                            .MiniSubTitle{
-                                position: relative;
-                                opacity: 0;
-                                transition: all;
-                                width: 70%;
-                                height: 100px;
-                                @include alignCenter();
-                                justify-content: center;
-                                
-                                h1{
-                                    position: absolute;
-                                    color: black;
-                                    text-align: center;
-                                    font-size: 15px;
-                                    opacity: 0;
-                                }
-                            }
-                        }
-
-                    }
-
                 }
-
-                .InitBox{
+            }   
+        
+            .RightBoxHome{
+                grid-area: RightBox;
+                position: relative;
+                font-size: 15px;
+        
+                @include alignCenter();
+                flex-direction: column;
+                // justify-content: flex-start;
+                // background-color: lightskyblue;
+        
+                .SiteAnimationBox{
                     position: absolute;
-                    width: 100%;
-                    height: 100%;
+                    width: 45em;
+                    height: 45em;
+                    overflow: hidden;
                     @include alignCenter();
-                    flex-direction: column;
                     justify-content: center;
-                    z-index: 1;
-                    visibility: visible;
-
-                    > * {
-
-                        overflow: hidden;
-
-                        .BrowserBar{
-
-                            position: absolute;
-                            z-index: 1;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 15px;
-                            background-color: black;
-                            @include alignCenter();
-
-                            .CirclesContainer{
-                                position: relative;
-                                width: 50px;
-                                height: 100%;
-                                @include alignCenter();
-
-                                span{
-                                    position: relative;
-                                    width: 5px;
-                                    height: 5px;
-                                    border-radius: 50%;
-                                }
-
-                                .c1{background-color: red;}
-                                .c2{background-color: yellow;}
-                                .c3{background-color: lime;}
-
-                            }
-
-                            .UrlBox{
-                                position: relative;
-                                width: 70%;
-                                height: 40%;
-                                border-radius: 1em;
-                                background-color: lightgray;
-                            }
-                        }
-
-                        .SiteContainer{
-                            position: absolute;
-                            top: 15px;
-                            left: 0;
-                            width: 100%;
-                            height: calc(100% - 15px);
-                            z-index: 0;
-
-                            @include alignCenter();
-                            flex-direction: column;
-                            justify-content: center;
-
-                            .BackgroundImgs{
-
-                                position: absolute;
-                                width: 100%;
-                                height: 100%;
-
-                                img{
-                                    position: absolute;
-                                    opacity: 0;
-                                }
-
-                            }
-
-
-                            .MiniTitle{
-                                position: relative;
-                                opacity: 0;
-                                transition: all;
-                                width: 70%;
-                                height: 100px;
-                                @include alignCenter();
-                                justify-content: center;
-                                
-                                h1{
-                                    position: absolute;
-                                    color: black;
-                                    text-align: center;
-                                    font-size: 30px;
-                                    opacity: 0;
-                                }
-                            }
-                            .MiniSubTitle{
-                                position: relative;
-                                opacity: 0;
-                                transition: all;
-                                width: 70%;
-                                height: 100px;
-                                @include alignCenter();
-                                justify-content: center;
-                                
-                                h1{
-                                    position: absolute;
-                                    color: black;
-                                    text-align: center;
-                                    font-size: 15px;
-                                    opacity: 0;
-                                }
-                            }
-                        }
-
-                    }
-
-                    .PhoneContainer{
-                        position: absolute;
-                        width: 20em;
-                        height: 30em;
-                        border: 1px solid white;
-                        border-radius: 1em;
-                        z-index: 0;
-                        top: 5em;
-                        left: 2em;
-                        opacity: 0;
-                        
-                        .SiteContainer .BackgroundImgs{
-                            img{
-                                height: 100%;
-                                width: 100%;
-                            }
-                        }
-
-                        .SiteContainer{
-
-                            background: linear-gradient(to top right, rgba(51, 162, 203, 0.591), grey);
-
-
-                        }
-                        
-                        .SiteComponents{
-
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 30%;
-
-                            font-family: 'Orbitron', sans-serif;
-
-                            h1{
-                                position: absolute;
-                                top: 1em;
-                                left: 1em;
-                            }
-                        }
-
-                    }   
+                    // background-color: lightcoral;
     
-                    .MonitorContainer{
-                        opacity: 0;
-                        position: absolute;
-                        width: 28em;
-                        height: 18em;
-                        border: 1px solid white;
-                        border-radius: 1em;
+                    .Polymorph{
+                        position: relative;
                         z-index: 0;
-                        top: 23em;
-                        left: 12em;
-                        
-                       .SiteContainer .BackgroundImgs{
-                            img{
-                                height: auto;
-                                width: 100%;
-                            }
+                        width: 70%;
+                        height: 70%;
+                        opacity: 1;
+                        overflow: visible;
+                        @include alignCenter();
+                        justify-content: center;
+    
+                        svg{
+                            position: absolute;
+                            overflow: visible;
+                            width: 100%;
+                            height: 100%;
                         }
-
-                        .SiteComponents{
-
+    
+                        #ShapeShifter{
+                            opacity: 0;
+                            width: 80%;
+                            height: 80%;
+                        }
+    
+    
+                        .PhoneContainer{
+                            top: 0;
+                            left: 0;
+                            overflow: hidden;
                             position: absolute;
                             width: 100%;
                             height: 100%;
-
-                            nav{
-                                position: absolute;
-                                width: 100%;
-                                height: 10%;
-                                background-color: white;
-                                @include alignCenter();
-                                justify-content: space-between;
-                                overflow: hidden;
-                                color: black;
-
-                                h2{
-                                    margin: 20px;
-                                    font-size: 15px;
+                            border: 1px solid white;
+                            border-radius: 1em;
+                            z-index: 0;
+                            margin-right: auto;
+                            opacity: 0;
+                            margin-left: 1em;
+                            margin-bottom: -2.5em;
+                            
+                            .SiteContainer .BackgroundImgs{
+                                img{
+                                    height: 100%;
+                                    width: 100%;
                                 }
-
-                                ul{
+                            }
+    
+                            .BrowserBar{
+    
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 15px;
+                                background-color: black;
+                                @include alignCenter();
+    
+                                .CirclesContainer{
                                     position: relative;
-                                    width: 60%;
+                                    width: 50px;
                                     height: 100%;
                                     @include alignCenter();
-
-                                    li{
-                                        font-size: 10px;
-                                        list-style: none;
+    
+                                    span{
+                                        position: relative;
+                                        width: 5px;
+                                        height: 5px;
+                                        border-radius: 50%;
+                                    }
+    
+                                    .c1{background-color: red;}
+                                    .c2{background-color: yellow;}
+                                    .c3{background-color: lime;}
+    
+                                }
+    
+                                .UrlBox{
+                                    position: relative;
+                                    width: 70%;
+                                    height: 40%;
+                                    border-radius: 1em;
+                                    background-color: lightgray;
+                                }
+                            }
+    
+                            .SiteContainer{
+                                position: absolute;
+                                top: 15px;
+                                left: 0;
+                                width: 100%;
+                                height: calc(100% - 15px);
+    
+                                @include alignCenter();
+                                flex-direction: column;
+                                justify-content: center;
+    
+                                .BackgroundImgs{
+    
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 100%;
+    
+                                    img{
+                                        position: absolute;
+                                        opacity: 0;
+                                    }
+    
+                                }
+    
+    
+                                .MiniTitle{
+                                    position: relative;
+                                    opacity: 0;
+                                    transition: all;
+                                    width: 70%;
+                                    height: 100px;
+                                    @include alignCenter();
+                                    justify-content: center;
+                                    
+                                    h1{
+                                        position: absolute;
+                                        color: black;
+                                        text-align: center;
+                                        font-size: 30px;
+                                        opacity: 0;
+                                    }
+                                }
+                                .MiniSubTitle{
+                                    position: relative;
+                                    opacity: 0;
+                                    transition: all;
+                                    width: 70%;
+                                    height: 100px;
+                                    @include alignCenter();
+                                    justify-content: center;
+                                    
+                                    h1{
+                                        position: absolute;
+                                        color: black;
+                                        text-align: center;
+                                        font-size: 15px;
+                                        opacity: 0;
                                     }
                                 }
                             }
-
-
-                            .TitlesBox{
-
+    
+                        }
+    
+                    }
+    
+                    .InitBox{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        @include alignCenter();
+                        flex-direction: column;
+                        justify-content: center;
+                        z-index: 1;
+                        visibility: visible;
+    
+                        > * {
+    
+                            overflow: hidden;
+    
+                            .BrowserBar{
+    
                                 position: absolute;
-                                bottom: 0px;
-                                right: 0px;
-                                width: 50%;
-                                height: 20%;
+                                z-index: 1;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 15px;
+                                background-color: black;
                                 @include alignCenter();
+    
+                                .CirclesContainer{
+                                    position: relative;
+                                    width: 50px;
+                                    height: 100%;
+                                    @include alignCenter();
+    
+                                    span{
+                                        position: relative;
+                                        width: 5px;
+                                        height: 5px;
+                                        border-radius: 50%;
+                                    }
+    
+                                    .c1{background-color: red;}
+                                    .c2{background-color: yellow;}
+                                    .c3{background-color: lime;}
+    
+                                }
+    
+                                .UrlBox{
+                                    position: relative;
+                                    width: 70%;
+                                    height: 40%;
+                                    border-radius: 1em;
+                                    background-color: lightgray;
+                                }
+                            }
+    
+                            .SiteContainer{
+                                position: absolute;
+                                top: 15px;
+                                left: 0;
+                                width: 100%;
+                                height: calc(100% - 15px);
+                                z-index: 0;
+    
+                                @include alignCenter();
+                                flex-direction: column;
                                 justify-content: center;
-                                background-color: white;
-                                border-radius: 10px;
-
+    
+                                .BackgroundImgs{
+    
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 100%;
+    
+                                    img{
+                                        position: absolute;
+                                        opacity: 0;
+                                    }
+    
+                                }
+    
+    
+                                .MiniTitle{
+                                    position: relative;
+                                    opacity: 0;
+                                    transition: all;
+                                    width: 70%;
+                                    height: 100px;
+                                    @include alignCenter();
+                                    justify-content: center;
+                                    
+                                    h1{
+                                        position: absolute;
+                                        color: black;
+                                        text-align: center;
+                                        font-size: 30px;
+                                        opacity: 0;
+                                    }
+                                }
+                                .MiniSubTitle{
+                                    position: relative;
+                                    opacity: 0;
+                                    transition: all;
+                                    width: 70%;
+                                    height: 100px;
+                                    @include alignCenter();
+                                    justify-content: center;
+                                    
+                                    h1{
+                                        position: absolute;
+                                        color: black;
+                                        text-align: center;
+                                        font-size: 15px;
+                                        opacity: 0;
+                                    }
+                                }
+                            }
+    
+                        }
+    
+                        .PhoneContainer{
+                            position: absolute;
+                            width: 20em;
+                            height: 30em;
+                            border: 1px solid white;
+                            border-radius: 1em;
+                            z-index: 0;
+                            top: 5em;
+                            left: 2em;
+                            opacity: 0;
+                            
+                            .SiteContainer .BackgroundImgs{
+                                img{
+                                    height: 100%;
+                                    width: 100%;
+                                }
+                            }
+    
+                            .SiteContainer{
+    
+                                background: linear-gradient(to top right, rgba(51, 162, 203, 0.591), grey);
+    
+    
+                            }
+                            
+                            .SiteComponents{
+    
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 30%;
+    
+                                font-family: 'Orbitron', sans-serif;
+    
                                 h1{
                                     position: absolute;
-                                    color: black;
-                                    opacity: 0;
-                                    font-size: 20px;
-                                }
-
-                                #w3{
-                                    opacity: 1;
+                                    top: 1em;
+                                    left: 1em;
                                 }
                             }
 
-                        }
+                            .cursor{
+                                position: absolute;
+                                bottom: 2em;
+                                left: 2em;
+                                width: 3em;
+                                height: 3em;
 
-                        #Image1{
-                            opacity: 1;
-                        }
-                    }
-                }
-
-            }
+                                svg{
+                                    width: 100%;
+                                    height: 100%;
+                                    fill: white;
+                                    filter: drop-shadow(5px 0px 0px black);
+                                    animation: moveLeftRight 1s linear infinite alternate;
+                                }
+                            }
+    
+                        }   
         
-        }
-
-    }
-
-
-    .Block1{
-        width: 100%;
-        // height: 150vh;
-        position: relative;
-        grid-area: Block1;
-        @include alignCenter();
-        flex-direction: column;
-
-        .Phrase{
-            margin-top: 2.5%;
-            height: 15%;
-            width: 100%;
-            background-color: white;
-
-            @include alignCenter();
-            text-align: center;
-            letter-spacing: 3px;
-            color: black;
-            text-shadow: 0px 1px 5px $PageColor;
-            font-family: 'Dancing Script', cursive;
-            
-            h1{
-                font-size: clamp(1.5rem, 3vw, 70px);
-                padding: 0px #{"min(1em, 10px)"};
-            }
-            // font-family: 'Julius Sans One', sans-serif;
-            // font-family: 'Monoton', cursive;
-            // font-family: 'Press Start 2P', cursive;
-            // font-family: 'Righteous', cursive;    
-            // font-family: 'Courgette', cursive;
-            // font-family: 'MuseoModerno', cursive;
-        }
-        .WhyBox{
-            position: relative;
-            width: 100%;
-            height: 75%;
-            @include alignCenter();
-
-            .Title{
-                height: 50%;
-                width: 30%;
-                position: relative;
-                text-align: center;
-                @include alignCenter();
-
-                h1{
-                    font-family: 'MuseoModerno', cursive;
-                    font-size: clamp(20px, 3.5vw, 100px);
-                }
-            }
-            .Reasons{
-                position: relative;
-                width: 55%;
-                height: 65%;
-                display: flex;
-                flex-wrap: wrap;
-                overflow-y: scroll;
-                overflow-x: hidden;
-                border-radius: 1em;
-                @include NeumorphType2();
-                transform: rotateZ(5deg);
-                gap: 1em;
-                border: 5px solid $BGColor;
-                
-                div{
-                    position: relative;
-                    min-width: 300px;
-                    min-height: 200px;
-                    font-family: 'MuseoModerno', cursive;
-                    flex: 1 1 300px;
-                    @include alignCenter();
-                    justify-content: center;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    text-align: left;
-                    // border-radius: 1em;
-                    color: white;
-                    overflow: hidden;
-                    transition: all 500ms;
-
-                    > * {
-                        padding: .5em 1em;
-                    }
-
-                    h2{
-                        font-size: clamp(20px, 2vw, 45px);
-                        text-decoration: underline $PageColor;
-                    }
-
-                    p{
-                        margin: 0px 10px;
-                        font-size: clamp(10px, 1vw, 40px);
-                    }
-
-                    .SvgBox{
-                        width: clamp(40px, 3vw, 100px);
-                        height: clamp(40px, 3vw, 100px);
-                        @include alignCenter();
-                        svg{
-                            width: 100%;
-                            height: 100%;
-                            fill: $PageColor;
-                            filter: drop-shadow(5px 0px 2px black);
-                            transition: fill 500ms, filter 500ms;
+                        .MonitorContainer{
+                            opacity: 0;
+                            position: absolute;
+                            width: 28em;
+                            height: 18em;
+                            border: 1px solid white;
+                            border-radius: 1em;
+                            z-index: 0;
+                            top: 23em;
+                            left: 12em;
+                            
+                           .SiteContainer .BackgroundImgs{
+                                img{
+                                    height: auto;
+                                    width: 100%;
+                                }
+                            }
+    
+                            .SiteComponents{
+    
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+    
+                                nav{
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 10%;
+                                    background-color: white;
+                                    @include alignCenter();
+                                    justify-content: space-between;
+                                    overflow: hidden;
+                                    color: black;
+    
+                                    h2{
+                                        margin: 20px;
+                                        font-size: 15px;
+                                    }
+    
+                                    ul{
+                                        position: relative;
+                                        width: 60%;
+                                        height: 100%;
+                                        @include alignCenter();
+    
+                                        li{
+                                            font-size: 10px;
+                                            list-style: none;
+                                        }
+                                    }
+                                }
+    
+    
+                                .TitlesBox{
+    
+                                    position: absolute;
+                                    bottom: 0px;
+                                    right: 0px;
+                                    width: 50%;
+                                    height: 20%;
+                                    @include alignCenter();
+                                    justify-content: center;
+                                    background-color: white;
+                                    border-radius: 10px;
+    
+                                    h1{
+                                        position: absolute;
+                                        color: black;
+                                        opacity: 0;
+                                        font-size: 15px;
+                                    }
+    
+                                    #w3{
+                                        opacity: 1;
+                                    }
+                                }
+    
+                            }
+    
+                            #Image1{
+                                opacity: 1;
+                            }
                         }
                     }
-
-                    .SvgBox::after{
-                        content: "";
-                        position: absolute;
-                        width: 15px;
-                        height: 15px;
-                        background-color: black;
-                        border-radius: 50%;
-                        top: 20px;
-                        right: 20px;
-                        background-image: url("./../../resources/pin.svg");
-                        background-size: 70%;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                    }
-
-                    &:hover{
-                        @include NeumorphType2();
-                        border: 0px solid transparent;
-                    }
-
+    
                 }
-
-                .Box5{
-                    .SvgBox{
-                        width: 30%;
-                    }
-                }
-            }
             
+            }
+    
         }
-    }
-
-    .Block2{
-        width: 100%;
-        height: 100vh;
-        position: relative;
-        grid-area: Block2;
-        @include alignCenter();
-        flex-direction: column;
-        scroll-snap-align: center;
-
-        .LeftBoxB2, .RightBoxB2{
+    
+    
+        .Block1{
+            width: 100%;
             position: relative;
-            background-color: white;
-            color: black;
             @include alignCenter();
-            font-family: 'MuseoModerno', cursive;
-            overflow: hidden;
-            width: 70%;
-            height: 40%;
-            // height: 350px;
-        }
-
-        .LeftBoxB2{
-            margin-right: 30%;
-            border-top-right-radius: 9.3em;
-            border-bottom-right-radius: 9.3em;
-            background-color: black;            
-
-            h1{
-                width: 50%;
-                height: 100%;
-                font-size: clamp(1rem, 2vw, 10rem);
+            flex-direction: column;
+    
+            .Phrase{
+                margin-top: 2.5%;
+                height: 15%;
+                width: 100%;
+                background-color: white;
+    
                 @include alignCenter();
-                padding: 5%;
+                text-align: center;
+                letter-spacing: 3px;
+                color: black;
+                text-shadow: 0px 1px 5px $PageColor;
+                font-family: 'Dancing Script', cursive;
+                
+                h1{
+                    font-size: clamp(1.5rem, 3vw, 70px);
+                    padding: 0px #{"min(1em, 10px)"};
+                }
+                // font-family: 'Julius Sans One', sans-serif;
+                // font-family: 'Monoton', cursive;
+                // font-family: 'Press Start 2P', cursive;
+                // font-family: 'Righteous', cursive;    
+                // font-family: 'Courgette', cursive;
+                // font-family: 'MuseoModerno', cursive;
+            }
+            .WhyBox{
+                position: relative;
+                width: 100%;
+                height: 75%;
+                @include alignCenter();
+    
+                .Title{
+                    height: 50%;
+                    width: 30%;
+                    position: relative;
+                    text-align: center;
+                    @include alignCenter();
+    
+                    h1{
+                        font-family: 'MuseoModerno', cursive;
+                        font-size: clamp(20px, 3.5vw, 100px);
+                    }
+                }
+                .Reasons{
+                    position: relative;
+                    width: 55%;
+                    height: 65%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    border-radius: 1em;
+                    @include NeumorphType2();
+                    transform: rotateZ(5deg);
+                    gap: 1em;
+                    border: 5px solid $BGColor;
+                    
+                    div{
+                        position: relative;
+                        min-width: 300px;
+                        min-height: 200px;
+                        font-family: 'MuseoModerno', cursive;
+                        flex: 1 1 300px;
+                        @include alignCenter();
+                        justify-content: center;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        text-align: left;
+                        // border-radius: 1em;
+                        color: white;
+                        overflow: hidden;
+                        transition: all 500ms;
+    
+                        > * {
+                            padding: .5em 1em;
+                        }
+    
+                        h2{
+                            font-size: clamp(20px, 2vw, 45px);
+                            text-decoration: underline $PageColor;
+                        }
+    
+                        p{
+                            margin: 0px 10px;
+                            font-size: clamp(10px, 1vw, 40px);
+                        }
+    
+                        .SvgBox{
+                            width: clamp(40px, 3vw, 100px);
+                            height: clamp(40px, 3vw, 100px);
+                            @include alignCenter();
+                            svg{
+                                width: 100%;
+                                height: 100%;
+                                fill: $PageColor;
+                                filter: drop-shadow(5px 0px 2px black);
+                                transition: fill 500ms, filter 500ms;
+                            }
+                        }
+    
+                        .SvgBox::after{
+                            content: "";
+                            position: absolute;
+                            width: 15px;
+                            height: 15px;
+                            background-color: black;
+                            border-radius: 50%;
+                            top: 20px;
+                            right: 20px;
+                            background-image: url("./../../resources/pin.svg");
+                            background-size: 70%;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        }
+    
+                        &:hover{
+                            @include NeumorphType2();
+                            border: 0px solid transparent;
+                        }
+    
+                    }
+    
+                    .Box5{
+                        .SvgBox{
+                            width: 30%;
+                        }
+                    }
+                }
+                
+            }
+        }
+    
+        .Block2{
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            grid-area: Block2;
+            @include alignCenter();
+            flex-direction: column;
+            scroll-snap-align: center;
+    
+            .LeftBoxB2, .RightBoxB2{
+                position: relative;
                 background-color: white;
                 color: black;
-            }
-
-            .AnimBoxB2{
-                height: 100%;
-                width: 50%;
-                left: 50%;
-                background-color: white;
-                position: absolute;
-                transform-origin: left;
                 @include alignCenter();
+                font-family: 'MuseoModerno', cursive;
                 overflow: hidden;
-                flex-direction: column;
-                
-                svg{
-                    position: relative;
-                    width: 60px;
-                    height: 60px;
-                    margin-left: 10px;
-                    // background-color: black;
-                }
-
-                h4{
-                    width: 5px;
-                    font-size: clamp(1rem, 2vw, 10rem);
-                    text-align: center;
-                }
-
+                width: 70%;
+                height: 40%;
+                // height: 350px;
             }
-
-            .TextAnimBox{
-                width: 50%;
-                height: 100%;
-                @include alignCenter();
-                flex-direction: column;
+    
+            .LeftBoxB2{
+                margin-right: 30%;
+                border-top-right-radius: 9.3em;
+                border-bottom-right-radius: 9.3em;
+                background-color: black;            
+    
+                h1{
+                    width: 50%;
+                    height: 100%;
+                    font-size: clamp(1rem, 2vw, 10rem);
+                    @include alignCenter();
+                    padding: 5%;
+                    background-color: white;
+                    color: black;
+                }
+    
+                .AnimBoxB2{
+                    height: 100%;
+                    width: 50%;
+                    left: 50%;
+                    background-color: white;
+                    position: absolute;
+                    transform-origin: left;
+                    @include alignCenter();
+                    overflow: hidden;
+                    flex-direction: column;
+                    
+                    svg{
+                        position: relative;
+                        width: 60px;
+                        height: 60px;
+                        margin-left: 10px;
+                        // background-color: black;
+                    }
+    
+                    h4{
+                        width: 5px;
+                        font-size: clamp(1rem, 2vw, 10rem);
+                        text-align: center;
+                    }
+    
+                }
+    
+                .TextAnimBox{
+                    width: 50%;
+                    height: 100%;
+                    @include alignCenter();
+                    flex-direction: column;
+                    background-color: black;
+                    color: white;
+                    text-align: center;
+    
+    
+                    svg{
+                        fill: $PageColor;
+                        width: 150px;
+                        height: 150px;
+                        filter: drop-shadow(0px 0px 5px $PageColor);
+                    }
+    
+                    h2{
+                        font-size: clamp(.8rem, 2vw, 10rem);
+                        margin: 0px 40px;
+                    }
+                }
+                
+            }
+            .RightBoxB2{
+                margin-left: 30%;
+                border-top-left-radius: 9.3em;
+                border-bottom-left-radius: 9.3em;
                 background-color: black;
                 color: white;
                 text-align: center;
-
-
-                svg{
-                    fill: $PageColor;
-                    width: 150px;
-                    height: 150px;
-                    filter: drop-shadow(0px 0px 5px $PageColor);
-                }
-
-                h2{
-                    font-size: clamp(.8rem, 2vw, 10rem);
-                    margin: 0px 40px;
-                }
-            }
-            
-        }
-        .RightBoxB2{
-            margin-left: 30%;
-            border-top-left-radius: 9.3em;
-            border-bottom-left-radius: 9.3em;
-            background-color: black;
-            color: white;
-            text-align: center;
-            font-family: 'MuseoModerno', cursive;
-            font-size: 30px;
-            overflow: hidden;
-            @include alignCenter();
-            justify-content: center;
-            overflow: hidden;
-            
-            .TextBox{
-                position: relative;
-                display: inline;
-                width: 90%;
-                height: 40%;
-                
-                h1,h2{
-                    display: inline;
-                }
-
-                h1{
-                    font-size: clamp(30px, 3.5vw, 200px);
-                }
-                
-                h2{
-                    font-family: 'Dancing Script', cursive;
-                    font-size: clamp(40px, 5vw, 200px);
-                    text-shadow: 0px 5px 10px $PageColor;
-                }
-            }
-        }
-    }
-
-    .Block3{
-        position: relative;
-        grid-area: Block3;
-        @include alignCenter();
-        flex-direction: column;
-        margin-top: 100px;
-        font-family: 'MuseoModerno', cursive;
-        overflow: hidden;
-
-        .B3Title{
-
-            position: relative;
-            width: 100%;
-            height: 10%;
-            
-            h1{
-                position: absolute;
+                font-family: 'MuseoModerno', cursive;
+                font-size: 30px;
+                overflow: hidden;
                 @include alignCenter();
-                font-size: clamp(30px, 3vw, 60px);
-                text-shadow: 0px 5px 10px black;
-                box-shadow: 0px 5px 10px black;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgb(0, 0, 0);
-                color: $PageColor;
-                text-align: center;
+                justify-content: center;
+                overflow: hidden;
+                
+                .TextBox{
+                    position: relative;
+                    display: inline;
+                    width: 90%;
+                    height: 40%;
+                    
+                    h1,h2{
+                        display: inline;
+                    }
+    
+                    h1{
+                        font-size: clamp(30px, 3.5vw, 200px);
+                    }
+                    
+                    h2{
+                        font-family: 'Dancing Script', cursive;
+                        font-size: clamp(40px, 5vw, 200px);
+                        text-shadow: 0px 5px 10px $PageColor;
+                    }
+                }
             }
         }
-
-        .Instructions{
+    
+        .Block3{
             position: relative;
-            width: 100%;
-            height: 70%;
-            // background-color: white;
+            grid-area: Block3;
             @include alignCenter();
-
-            .B3TextSection{
+            flex-direction: column;
+            margin-top: 100px;
+            font-family: 'MuseoModerno', cursive;
+            overflow: hidden;
+    
+            .B3Title{
+    
                 position: relative;
-                height: 100%;
-                width: 45%;
-                // background-color: lightcoral;
-
-                ol{
-                    position: relative;
+                width: 100%;
+                height: 10%;
+                
+                h1{
+                    position: absolute;
+                    @include alignCenter();
+                    font-size: clamp(30px, 3vw, 60px);
+                    text-shadow: 0px 5px 10px black;
+                    box-shadow: 0px 5px 10px black;
+                    left: 0;
                     width: 100%;
                     height: 100%;
-                    @include alignCenter();
-                    flex-direction: column;
-
-                    li{
-                        position: relative;
-                        @include alignCenter();
-                        justify-content: flex-start;
-                        margin:0px 50px;
-                        font-size: clamp(.5rem, 1.2vw, 2rem);
-                        color: white;
-                        text-align: left;
-                        position: relative;
-                        width: 100%;
-                        height: 25%;
-                    }
-
-                    li::before{
-                        content: "";
-                        position: absolute;
-                        left: 0;
-                        bottom: 0;
-                        width: 100%;
-                        height: 2px;
-                        background-color: white;
-                        box-shadow: 0px 1px 20px $PageColor;
-                    }
+                    background-color: rgb(0, 0, 0);
+                    color: $PageColor;
+                    text-align: center;
                 }
             }
-            .B3AnimSection{
-                position: relative;
-                height: 100%;
-                width: 45%;
-                // background-color: lightgreen;
-                @include alignCenter();
-                justify-content: space-around;
-                flex-direction: column;
-                // background-color: black;
-                border-radius: 20px;
-
-                .B3AnimationBox{
-                    @include alignCenter();
-                    flex-direction: column;
-                    width: 40em;
-                    height: 30em;
-                    position: relative;
-                    overflow: hidden;
-                    // background-color: lightcoral;
-
-                    .Screen{
     
+            .Instructions{
+                position: relative;
+                width: 100%;
+                height: 70%;
+                // background-color: white;
+                @include alignCenter();
+    
+                .B3TextSection{
+                    position: relative;
+                    height: 100%;
+                    width: 45%;
+                    // background-color: lightcoral;
+    
+                    ol{
                         position: relative;
-                        overflow: hidden;
-                        width: 21.8em;
-                        height: 12.5em;
-                        border: .16em solid white;
-                        border-radius: 10px;
+                        width: 100%;
+                        height: 100%;
                         @include alignCenter();
-                        margin-top: 10%;
                         flex-direction: column;
     
-                        img{
-                            width: 6.25em;
-                            height: 6.25em;
-                            border-radius: 0.3em;
-                        }
-    
-                        span{
-                            width: 100%;
-                            height: 40%;
-                            // background-color: black;
+                        li{
+                            position: relative;
                             @include alignCenter();
-                        }
-    
-                        .LogoContainer{
-                            #svg1{
-                                background-color: lightcoral;
-        
-                            }
-                            #svg2{
-                                background-color: lightskyblue;
-                                
-                            }
-                            #svg3{
-                                background-color: lightgreen;
-                                
-                            }
-                        }
-    
-                        .ArrowContainer{
-                            transform: rotate(-90deg);
-                            
-                            svg{
-                                width: 2.5em;
-                                height: 2.5em;
-                                fill: white;
-                            }
-                        }
-    
-                        .LinesBox{
-                            position: absolute;
-                            top:0;
-                            right: 0;
-                            width: 50%;
-                            height: 100%;
-                            @include alignCenter();
-                            flex-direction: column;
-                            opacity: 0;
-                            // background-color: black;
-                            
-                            div{
-                                background-color: white;
-                                width: 0%;
-                                height: 6px;
-                                transform-origin: left;
-                            }
-                        }
-    
-                        .DayNightBox{
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            @include alignCenter();
-                            opacity: 0;
-    
-                            svg{
-                                position: absolute;
-                                width: 50px;
-                                height: 50px;
-                                fill: white;
-                            }
-
-                            #Moon{
-                                fill: rgb(46, 60, 255);
-                                filter: drop-shadow(0px 0px 5px rgb(46, 60, 255));
-                            }
-                            
-                            #Sun{
-                                fill: rgb(255, 255, 85);
-                                filter: drop-shadow(0px 0px 5px rgb(255, 255, 85));
-                            }
-    
-                        }
-    
-                        .PhoneLine{
-                            position: absolute;
-                            left: 1.8em;
-                            background-color: white;
-                            height: 3.1em;
-                            width: 0.3em;
-                            border-radius: 1.25em;
-                            opacity: 0;
-                        }
-    
-                    }
-    
-                    .keyboard{
-                        position: relative;
-                        // width: 350px;
-                        background-color: transparent;
-                        // height: 150px;
-                        // transform: rotateX(50deg);
-                        // transition: transform 500ms;
-                        border-bottom: 6.25em solid white;
-                        border-left: 3.12em solid transparent;
-                        border-right: 3.12em solid transparent;
-                        height: 0;
-                        width: 21.8em;
-                        margin-bottom: 10%;
-                        border-radius: 0.6em;
-                    }
-    
-                    .RandomRectangle{
-                        position: absolute;
-                        width: 3.75em;
-                        height: 1.8em;
-                        margin-top: 9.3em;
-                        background-color: white;
-                        border-top-right-radius: 1.25em;
-                        border-top-left-radius: 1.25em;
-                        opacity: 0;
-                    }
-                }
-
-                .CreateButtonBox{
-                    width: 80%;
-                    height: 15%;
-                    @include alignCenter();
-
-                    .CreateButton{
-                        @include BorderFillButtonProperties();
-
-                    }
-                }
-            }
-        }   
-    }
-
-
-    .Footer{
-        grid-area: Footer;
-        background-color: transparent;        
-        color: $PageColor;
-        @include alignCenter();
-        flex-direction: column;
-        font-family: 'MuseoModerno', cursive;
-        // margin-top: 100px;
-        position: relative;
-
-        .Questioner{
-            position: relative;
-            width: 100%;
-            height: 35%;
-            // background-color: white;
-            @include alignCenter();
-            justify-content: flex-start;
-            // animation: Zrotate 5s linear infinite;
-            
-            .BoxyBox{
-                
-                width: 70%;
-                height: 100%;
-                @include alignCenter();
-                // background-color: white;
-
-                ul{
-                    @include alignCenter();
-                    flex-direction: column;
-                    align-items: flex-start;
-                    height: 100%;
-                    width: 30%;
-                    // background-color: lightcoral;
-                    
-                    p{
-                        font-size: clamp(15px, 1.5vw, 50px);
-                    }
-
-                    li{
-                        list-style: none;
-                        
-                        h4,a{
-                            font-size: clamp(12px, 1.2vw, 40px);
-                            text-decoration: none;
+                            justify-content: flex-start;
+                            margin:0px 50px;
+                            font-size: clamp(.5rem, 1.2vw, 2rem);
                             color: white;
-                            transition: color 500ms;
-                            cursor: pointer;
-
-                            &:hover{
-                                color: rgb(77, 228, 127);
-                                text-decoration: underline;
-
+                            text-align: left;
+                            position: relative;
+                            width: 100%;
+                            height: 25%;
+                        }
+    
+                        li::before{
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            width: 100%;
+                            height: 2px;
+                            background-color: white;
+                            box-shadow: 0px 1px 20px $PageColor;
+                        }
+                    }
+                }
+                .B3AnimSection{
+                    position: relative;
+                    height: 100%;
+                    width: 45%;
+                    // background-color: lightgreen;
+                    @include alignCenter();
+                    justify-content: space-around;
+                    flex-direction: column;
+                    // background-color: black;
+                    border-radius: 20px;
+    
+                    .B3AnimationBox{
+                        @include alignCenter();
+                        flex-direction: column;
+                        width: 40em;
+                        height: 30em;
+                        position: relative;
+                        overflow: hidden;
+                        // background-color: lightcoral;
+    
+                        .Screen{
+        
+                            position: relative;
+                            overflow: hidden;
+                            width: 21.8em;
+                            height: 12.5em;
+                            border: .16em solid white;
+                            border-radius: 10px;
+                            @include alignCenter();
+                            margin-top: 10%;
+                            flex-direction: column;
+        
+                            img{
+                                width: 6.25em;
+                                height: 6.25em;
+                                border-radius: 0.3em;
+                            }
+        
+                            span{
+                                width: 100%;
+                                height: 40%;
+                                // background-color: black;
+                                @include alignCenter();
+                            }
+        
+                            .LogoContainer{
+                                #svg1{
+                                    background-color: lightcoral;
+            
+                                }
+                                #svg2{
+                                    background-color: lightskyblue;
+                                    
+                                }
+                                #svg3{
+                                    background-color: lightgreen;
+                                    
+                                }
+                            }
+        
+                            .ArrowContainer{
+                                transform: rotate(-90deg);
+                                
+                                svg{
+                                    width: 2.5em;
+                                    height: 2.5em;
+                                    fill: white;
+                                }
+                            }
+        
+                            .LinesBox{
+                                position: absolute;
+                                top:0;
+                                right: 0;
+                                width: 50%;
+                                height: 100%;
+                                @include alignCenter();
+                                flex-direction: column;
+                                opacity: 0;
+                                // background-color: black;
+                                
+                                div{
+                                    background-color: white;
+                                    width: 0%;
+                                    height: 6px;
+                                    transform-origin: left;
+                                }
+                            }
+        
+                            .DayNightBox{
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                @include alignCenter();
+                                opacity: 0;
+        
+                                svg{
+                                    position: absolute;
+                                    width: 50px;
+                                    height: 50px;
+                                    fill: white;
+                                }
+    
+                                #Moon{
+                                    fill: rgb(46, 60, 255);
+                                    filter: drop-shadow(0px 0px 5px rgb(46, 60, 255));
+                                }
+                                
+                                #Sun{
+                                    fill: rgb(255, 255, 85);
+                                    filter: drop-shadow(0px 0px 5px rgb(255, 255, 85));
+                                }
+        
+                            }
+        
+                            .PhoneLine{
+                                position: absolute;
+                                left: 1.8em;
+                                background-color: white;
+                                height: 3.1em;
+                                width: 0.3em;
+                                border-radius: 1.25em;
+                                opacity: 0;
+                            }
+        
+                        }
+        
+                        .keyboard{
+                            position: relative;
+                            // width: 350px;
+                            background-color: transparent;
+                            // height: 150px;
+                            // transform: rotateX(50deg);
+                            // transition: transform 500ms;
+                            border-bottom: 6.25em solid white;
+                            border-left: 3.12em solid transparent;
+                            border-right: 3.12em solid transparent;
+                            height: 0;
+                            width: 21.8em;
+                            margin-bottom: 10%;
+                            border-radius: 0.6em;
+                        }
+        
+                        .RandomRectangle{
+                            position: absolute;
+                            width: 3.75em;
+                            height: 1.8em;
+                            margin-top: 9.3em;
+                            background-color: white;
+                            border-top-right-radius: 1.25em;
+                            border-top-left-radius: 1.25em;
+                            opacity: 0;
+                        }
+                    }
+    
+                    .CreateButtonBox{
+                        width: 80%;
+                        height: 15%;
+                        @include alignCenter();
+    
+                        .CreateButton{
+                            @include BorderFillButtonProperties();
+    
+                        }
+                    }
+                }
+            }   
+        }
+    
+    
+        .Footer{
+            grid-area: Footer;
+            background-color: transparent;        
+            color: $PageColor;
+            @include alignCenter();
+            flex-direction: column;
+            font-family: 'MuseoModerno', cursive;
+            // margin-top: 100px;
+            position: relative;
+    
+            .Questioner{
+                position: relative;
+                width: 100%;
+                height: 35%;
+                // background-color: white;
+                @include alignCenter();
+                justify-content: flex-start;
+                // animation: Zrotate 5s linear infinite;
+                
+                .BoxyBox{
+                    
+                    width: 70%;
+                    height: 100%;
+                    @include alignCenter();
+                    // background-color: white;
+    
+                    ul{
+                        @include alignCenter();
+                        flex-direction: column;
+                        align-items: flex-start;
+                        height: 100%;
+                        width: 30%;
+                        // background-color: lightcoral;
+                        
+                        p{
+                            font-size: clamp(15px, 1.5vw, 50px);
+                        }
+    
+                        li{
+                            list-style: none;
+                            
+                            h4,a{
+                                font-size: clamp(12px, 1.2vw, 40px);
+                                text-decoration: none;
+                                color: white;
                                 transition: color 500ms;
+                                cursor: pointer;
+    
+                                &:hover{
+                                    color: rgb(77, 228, 127);
+                                    text-decoration: underline;
+    
+                                    transition: color 500ms;
+                                }
                             }
                         }
                     }
                 }
+    
             }
-
-        }
-        .ContactUsTitle{
-            // background-color: lightskyblue;
-            width: 100%;
-            height: 15%;
-            @include alignCenter();
-            justify-content: flex-start;
-
-            h1{
-                font-size: clamp(25px, 2.5vw, 100px);
-                letter-spacing: 3px;
-                margin: 0px 50px;
-            }
-        }
-        .MediaBar{
-            background-color: $BGColor;
-            width: 100%;
-            height: 20%;
-            @include alignCenter();
-
-            span{
-                position: relative;
-                width: 100px;
-                height: 100px;
-                background-color: $BGColor;
-                border-radius: 50%;
+            .ContactUsTitle{
+                // background-color: lightskyblue;
+                width: 100%;
+                height: 15%;
                 @include alignCenter();
-                @include NeumorphType1();
-                cursor: pointer;
-                
-                svg{
-                    width:95%;
-                    height: 95%;
-                    fill: white;
-                    opacity: .1;
-                    transform: scale(.85);
-                    transition: fill 600ms, opacity 600ms, transform 600ms;
-                }
-                
-                &:hover{
-                    @include NeumorphType2();
-                    
-                    .Insta{ transform: scale(1); opacity: 1;fill: rgb(208, 39, 92); transition: fill 600ms, opacity 600ms, transform 500ms;}
-                    .Face{ transform: scale(1); opacity: 1;fill: rgb(17, 101, 255); transition: fill 600ms, opacity 600ms, transform 500ms;}
-                    .Whats{ transform: scale(1); opacity: 1;fill: rgb(106, 252, 99); transition: fill 600ms, opacity 600ms, transform 500ms;}
-                    .Twit{ transform: scale(1); opacity: 1;fill: rgb(252, 255, 46); transition: fill 600ms, opacity 600ms, transform 500ms;}
+                justify-content: flex-start;
+    
+                h1{
+                    font-size: clamp(25px, 2.5vw, 100px);
+                    letter-spacing: 3px;
+                    margin: 0px 50px;
                 }
             }
-        }
-        .Right{
-            width: 100%;
-            height: 5%;
-            @include alignCenter();
-            justify-content: flex-end;
-        
-            h2{
-                padding: 0px clamp(1em, 1vw, 3em);
-                text-align: center;
-                text-shadow: 0px 1px 5px $PageColor;
-                color: white;
-                font-family: 'Dancing Script', cursive;
-                font-size: clamp(15px, 2vw, 50px);
+            .MediaBar{
+                background-color: $BGColor;
+                width: 100%;
+                height: 20%;
+                @include alignCenter();
+    
+                span{
+                    position: relative;
+                    width: 100px;
+                    height: 100px;
+                    background-color: $BGColor;
+                    border-radius: 50%;
+                    @include alignCenter();
+                    @include NeumorphType1();
+                    cursor: pointer;
+                    
+                    svg{
+                        width:95%;
+                        height: 95%;
+                        fill: white;
+                        opacity: .1;
+                        transform: scale(.85);
+                        transition: fill 600ms, opacity 600ms, transform 600ms;
+                    }
+                    
+                    &:hover{
+                        @include NeumorphType2();
+                        
+                        .Insta{ transform: scale(1); opacity: 1;fill: rgb(208, 39, 92); transition: fill 600ms, opacity 600ms, transform 500ms;}
+                        .Face{ transform: scale(1); opacity: 1;fill: rgb(17, 101, 255); transition: fill 600ms, opacity 600ms, transform 500ms;}
+                        .Whats{ transform: scale(1); opacity: 1;fill: rgb(106, 252, 99); transition: fill 600ms, opacity 600ms, transform 500ms;}
+                        .Twit{ transform: scale(1); opacity: 1;fill: rgb(252, 255, 46); transition: fill 600ms, opacity 600ms, transform 500ms;}
+                    }
+                }
+            }
+            .Right{
+                width: 100%;
+                height: 5%;
+                @include alignCenter();
+                justify-content: flex-end;
+            
+                h2{
+                    padding: 0px clamp(1em, 1vw, 3em);
+                    text-align: center;
+                    text-shadow: 0px 1px 5px $PageColor;
+                    color: white;
+                    font-family: 'Dancing Script', cursive;
+                    font-size: clamp(15px, 2vw, 50px);
+                }
             }
         }
     }
-
 }
 
 

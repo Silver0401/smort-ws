@@ -32,7 +32,7 @@ const NavBar = (props:any) => {
           <span id="l3"></span>
         </div>
 
-        <div className="LogoBox" onClick={() => {props.scrollTo(props.refs.Home); setNavBar(true)} }>
+        <div className="LogoBox" onClick={() => {props.scrollTo(props.refs.Home); setNavBar(false)} }>
           <div className="MainLogoBox">
             <svg
               viewBox="0 0 199 237"

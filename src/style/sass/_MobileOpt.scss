@@ -135,95 +135,99 @@ $BGColor: rgb(31, 28, 28);
             }
         }
 
-        .HomeInit{
-
-            grid-template-rows: 1fr 1fr;
-            grid-template-columns: 1fr;
-            grid-template-areas: 
-            "LeftBox"
-            "RightBox";
+        .HomeContainer{
     
-            .LeftBoxHome{
+            .HomeInit{
     
-                // background-color: lightskyblue;
-
-                .Arrow{
-                    visibility: hidden;
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                "LeftBox"
+                "RightBox";
+        
+                .LeftBoxHome{
+        
+                    // background-color: lightskyblue;
+    
+                    .Arrow{
+                        visibility: hidden;
+                    }
                 }
+        
+                .RightBoxHome{
+    
+                    // background-color: lightcoral;
+    
+                    .CreateButton{
+                        width: 80%;
+                    }
+    
+                    .SiteAnimationBox{
+                        transform: scale(.6);
+                        margin-left: 1.5em;
+                    }
+                }
+    
             }
     
-            .RightBoxHome{
-
-                // background-color: lightcoral;
-
-                .CreateButton{
-                    width: 80%;
-                }
-
-                .SiteAnimationBox{
-                    transform: scale(.6);
-                    margin-left: 1.5em;
-                }
-            }
-
-        }
-
-        .Block1{
-
-
-            .Phrase{
-                width: 100%;
-                height: 15%;
-                letter-spacing: 2px;
-            }
-
-            .WhyBox{
-                flex-direction: column;
-                height: 60%;
-                width: 90%;
-
-                .Title{
+            .Block1{
+    
+    
+                .Phrase{
                     width: 100%;
-                    height: 20%;
+                    height: 15%;
+                    letter-spacing: 2px;
                 }
-
-                .Reasons{
-                    width: 100%;
-                    height: 50%;
-                    gap: 0px;
-                    
-                    div{
-                        height: 100%;
+    
+                .WhyBox{
+                    flex-direction: column;
+                    height: 60%;
+                    width: 90%;
+    
+                    .Title{
+                        width: 100%;
+                        height: 20%;
+                    }
+    
+                    .Reasons{
+                        width: 100%;
+                        height: 50%;
+                        gap: 0px;
+                        
+                        div{
+                            height: 100%;
+                        }
                     }
                 }
             }
-        }
-
-        .Block2{
-
-            .TextAnimBox{
-                svg{    
-                    width: 120px;
-                    height: 120px;
+    
+            .Block2{
+    
+                .TextAnimBox{
+                    svg{    
+                        width: 120px;
+                        height: 120px;
+                    }
                 }
             }
-        }
-        
-
-        .Block3{
-            height: 120vh;
-        }
-
-        .Footer{
-            .Questioner{
-                .BoxyBox{
-                    width: 100%;
+            
+    
+            .Block3{
+                height: 120vh;
+            }
+    
+            .Footer{
+                .Questioner{
+                    .BoxyBox{
+                        width: 100%;
+                    }
+                }
+    
+                .Right{
+                    justify-content: center;
                 }
             }
 
-            .Right{
-                justify-content: center;
-            }
         }
     }
 
@@ -265,112 +269,116 @@ $BGColor: rgb(31, 28, 28);
 @media (max-width: 850px){
     .HomePage{
 
-        .HomeInit{
-
-            .LeftBoxHome{
-
-                .CreateButton{
-                    margin-bottom: 0px;
+        .HomeContainer{
+    
+            .HomeInit{
+    
+                .LeftBoxHome{
+    
+                    .CreateButton{
+                        margin-bottom: 0px;
+                    }
                 }
-            }
-
-            .RightBoxHome{
-                .SiteAnimationBox{
-                    transform: scale(.5);
-                    margin-left: 1.5em;
-
-                    .InitBox{
-                        .PhoneContainer{
-                            .SiteContainer{
-                                Canvas{
-                                    transform: scale(3);
-                                    position: absolute;
-                                    left: 90px;
-                                    top: 130px;
-                                    height: 100%;
+    
+                .RightBoxHome{
+                    .SiteAnimationBox{
+                        transform: scale(.5);
+                        margin-left: 1.5em;
+    
+                        .InitBox{
+                            .PhoneContainer{
+                                .SiteContainer{
+                                    Canvas{
+                                        transform: scale(3);
+                                        position: absolute;
+                                        left: 90px;
+                                        top: 130px;
+                                        height: 100%;
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-        }
-
-        .Block2{
-
-            .LeftBoxB2, .RightBoxB2{
-                width: 100%;
-            }
-            
-            .LeftBoxB2{
-                margin-right: 1%;
-                h1{
-                    padding: 0px 15px;
-                }
-
-                .AnimBoxB2{
-
-                    svg{
-                        width: 30px;
-                        height: 30px;
-                    }
-                }
-
-                .TextAnimBox{
-
-                    svg{
-                        width: 80px;
-                        height: 80px;
-                    }
-                }
-            }
-
-            .RightBoxB2{
-                margin-left: 1%;
-            }
-        }
-
-        .Block3{
-
-            height: 1100px;
-
-            margin-top: 0px;
-            .Instructions{
-                flex-direction: column;
-
-                .B3TextSection{
-                    width: 90%;
-                    height: 30%;
-
-                    justify-content: space-around;
-
-                    ol li{
-                        font-size: .7rem;
-                    }
-                }
-                .B3AnimSection{
+    
+            .Block2{
+    
+                .LeftBoxB2, .RightBoxB2{
                     width: 100%;
-                    height: 65%;
-
-                    .B3AnimationBox{
-                        transform: scale(.7);
+                }
+                
+                .LeftBoxB2{
+                    margin-right: 1%;
+                    h1{
+                        padding: 0px 15px;
+                    }
+    
+                    .AnimBoxB2{
+    
+                        svg{
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+    
+                    .TextAnimBox{
+    
+                        svg{
+                            width: 80px;
+                            height: 80px;
+                        }
+                    }
+                }
+    
+                .RightBoxB2{
+                    margin-left: 1%;
+                }
+            }
+    
+            .Block3{
+    
+                height: 1100px;
+    
+                margin-top: 0px;
+                .Instructions{
+                    flex-direction: column;
+    
+                    .B3TextSection{
+                        width: 90%;
+                        height: 30%;
+    
+                        justify-content: space-around;
+    
+                        ol li{
+                            font-size: .7rem;
+                        }
+                    }
+                    .B3AnimSection{
+                        width: 100%;
+                        height: 65%;
+    
+                        .B3AnimationBox{
+                            transform: scale(.7);
+                        }
                     }
                 }
             }
-        }
-
-        .Footer{
-
-            .MediaBar{
-                span{
-                    width: 55px;
-                    height: 55px;
+    
+            .Footer{
+    
+                .MediaBar{
+                    span{
+                        width: 55px;
+                        height: 55px;
+                    }
+                }
+    
+                .Right{
+                    margin-top: 50px;
                 }
             }
 
-            .Right{
-                margin-top: 50px;
-            }
         }
     }
 
@@ -564,37 +572,41 @@ $BGColor: rgb(31, 28, 28);
 @media (max-width: 400px){
     .HomePage{
 
-        .HomeInit{
+        .HomeContainer{
 
-            .RightBoxHome{
-                .SiteAnimationBox{
-                    transform: scale(.4);
-                    margin-left: 1.5em;
-
-                    .InitBox{
-                        .PhoneContainer{
-                            .SiteContainer{
-                                Canvas{
-                                    transform: scale(2.5);
-                                    position: absolute;
-                                    left: 90px;
-                                    top: 130px;
-                                    height: 100%;
+            .HomeInit{
+    
+                .RightBoxHome{
+                    .SiteAnimationBox{
+                        transform: scale(.4);
+                        margin-left: 1.5em;
+    
+                        .InitBox{
+                            .PhoneContainer{
+                                .SiteContainer{
+                                    Canvas{
+                                        transform: scale(2.5);
+                                        position: absolute;
+                                        left: 90px;
+                                        top: 130px;
+                                        height: 100%;
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-        }
-
-        .Block2{
-            .RightBoxB2{
-                .TextBox{
-                    margin-bottom: 5rem;
+    
+            .Block2{
+                .RightBoxB2{
+                    .TextBox{
+                        margin-bottom: 5rem;
+                    }
                 }
             }
         }
+
     }
 
     .BuilderFinalPage{
