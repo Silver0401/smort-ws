@@ -241,6 +241,7 @@ $BGColor: rgb(31, 28, 28);
     grid-template-areas: 
     "Nav"
     "Home";
+    overflow: hidden;
 
 
     .NavBar{
@@ -255,7 +256,7 @@ $BGColor: rgb(31, 28, 28);
         width: 100%;
         height: 100%;
         backdrop-filter: blur(20px);
-        overflow: visible;
+        overflow: hidden;
 
 
         .LogoBox{
