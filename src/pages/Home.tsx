@@ -69,16 +69,13 @@ const HomePage = () => {
   return (
     <motion.div
       className="HomePage"
-      style={{ overflowY: "scroll" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      onScroll={(e) => ScrollStuff(e)}
     >
+      <NavBar scrollTo={(loc: any) => ScrollTo(loc)} refs={HomeBlockRefs} />
 
-      <NavBar scrollTo = {(loc:any) => ScrollTo(loc)} refs={HomeBlockRefs} />
-
-      <div className="HomeContainer">
+      <div className="HomeContainer" onScroll={(e) => ScrollStuff(e)}>
         <section className="HomeInit" id="Home" ref={HomePageRef}>
           <LeftBox />
           <RightBox />
@@ -86,13 +83,17 @@ const HomePage = () => {
 
         <Block1 refData={Block1Ref} />
 
-        <Block2 refData={Block2Ref} animInit={onBlock2} animCounter={animCounter} setAnimCounter={(num:number) => setAnimCounter(num)}/>
+        <Block2
+          refData={Block2Ref}
+          animInit={onBlock2}
+          animCounter={animCounter}
+          setAnimCounter={(num: number) => setAnimCounter(num)}
+        />
 
         <Block3 refData={Block3Ref} animInit={onBlock3} />
 
         <Footer refData={FooterRef} />
       </div>
-
     </motion.div>
   );
 }

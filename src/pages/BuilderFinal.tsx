@@ -1059,26 +1059,23 @@ const BuilderFinal: React.FC = () => {
 
     useEffect(() => {
 
-      const SaveDataReceived = () => {
-        setData({
-          ...Data,
-          Name: NameRef.current?.value || "awaiting..",
-          Email: EmailRef.current?.value || "awaiting..",
-          Phone: PhoneRef.current?.value || 0,
-          Adress: AdressRef.current?.value || "awaiting..",
-          Details: DetailsRef.current?.value || "awaiting..",
-          DomainOptions: [
-            DomainOpt1.current?.value || "awaiting..",
-            DomainOpt2.current?.value || "awaiting..",
-            DomainOpt3.current?.value || "awaiting..",
-          ],
-          SiteChosenPrice: Price,
-          DomainExtension: DomainExtension.current?.value || "awaiting..",
-          SiteStructure: pageStructure,
-        });
-      };
+      setData({
+        ...Data,
+        Name: NameRef.current?.value || "awaiting..",
+        Email: EmailRef.current?.value || "awaiting..",
+        Phone: PhoneRef.current?.value || 0,
+        Adress: AdressRef.current?.value || "awaiting..",
+        Details: DetailsRef.current?.value || "awaiting..",
+        DomainOptions: [
+          DomainOpt1.current?.value || "awaiting..",
+          DomainOpt2.current?.value || "awaiting..",
+          DomainOpt3.current?.value || "awaiting..",
+        ],
+        SiteChosenPrice: Price,
+        DomainExtension: DomainExtension.current?.value || "awaiting..",
+        SiteStructure: pageStructure,
+      });
 
-      SaveDataReceived();
 
     }, [stepSelected])
 
@@ -1491,13 +1488,13 @@ const BuilderFinal: React.FC = () => {
                 </div>
 
                 <div className="TandCCheckBox">
-                  <a
+                  <p
                     onClick={() =>
                       window.open("/SupportCenter#TandC", "_newtab")
                     }
                   >
                     {t("BuilderFinal.Tab3.Price.TermsAndConditions")}
-                  </a>
+                  </p>
                   <input
                     checked={tcbChecked}
                     onChange={() => setTcbChecked(!tcbChecked)}

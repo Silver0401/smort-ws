@@ -190,7 +190,7 @@ $BGColor: rgb(31, 28, 28);
                         width: 100%;
                         @include alignCenter();
                         flex-direction: row;
-                        a{
+                        p{
                             font-size: clamp(15px, 1.5vw, 30px);
                             text-align: center;
                             padding: 1em;

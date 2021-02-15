@@ -299,7 +299,7 @@ ${Data.Details}
     }
 
 
-  }, [Data.MongoDBOrderId])
+  }, [Data.MongoDBOrderId, Data.Name, Data.Email, Data.Phone, ContractP1, ContractP2, ContractP3, ContractP4, ContractP5, ContractP6, ContractP7, ContractP8, ContractP9, ContractP10,])
   
   useEffect(() => {
       sendEmail()
