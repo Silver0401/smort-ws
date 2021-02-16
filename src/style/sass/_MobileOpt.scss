@@ -118,7 +118,7 @@ $BGColor: rgb(31, 28, 28);
                     width: 100%;
                     height: 10%;
 
-                    a, .LangText select{
+                    .LangText select{
                         font-size: 15px;
                     }
                 }
@@ -263,6 +263,14 @@ $BGColor: rgb(31, 28, 28);
 
 @media (max-width: 850px){
     .HomePage{
+
+        .NavBar{
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
 
         .HomeContainer{
     
