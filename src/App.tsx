@@ -102,17 +102,17 @@ function App() {
 		<div className="App">
 
 			<span className="Loader">
-			<span className="box">
-				<div className="AnimBox">
-				<div className="CenterBall Ball"></div>
-				<div className="MiddleBall Ball"></div>
-				<div className="OuterBall Ball"></div>
-				<div className="ExtraOuterBall Ball"></div>
-				</div>
-				<h1>Loading...</h1>
-			</span>
+			  <span className="box">
+				  <div className="AnimBox">
+            <div className="CenterBall Ball"></div>
+            <div className="MiddleBall Ball"></div>
+            <div className="OuterBall Ball"></div>
+            <div className="ExtraOuterBall Ball"></div>
+          </div>
+				  <h1>Loading...</h1>
+			  </span>
 
-			<div className="MovingBox"></div>
+			  <div className="MovingBox"></div>
 			</span>
 
 			<Switch>
