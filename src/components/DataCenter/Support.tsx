@@ -95,9 +95,10 @@ const Support = (props:any) => {
 
           <form>
             <div className="TopForm">
-
               <span>
-                <label className="NameLabel">{t("DC.Support.Label.Name")}</label>
+                <label className="NameLabel">
+                  {t("DC.Support.Label.Name")}
+                </label>
                 <input
                   ref={NameRef}
                   onChange={(e) => setCurrentNameData(e.target.value)}
@@ -120,18 +121,17 @@ const Support = (props:any) => {
                     rightIcon={<SendPlaneIcon />}
                     size="lg"
                     isLoading={buttonLoading}
-                    loadingText="Enviando"
+                    loadingText={t("Support.Send.button2")}
                     onClick={(e) => {
                       e.preventDefault();
                       setButtonLoading(true);
                       PostHelpRequest();
                     }}
                   >
-                    Enviar
+                    {t("Support.Send.button1")}
                   </Button>
                 </ChakraProvider>
               </span>
-
             </div>
             <div className="BottomForm">
               <label>{t("DC.Support.Label.Message")}</label>
