@@ -31,15 +31,19 @@ const About = (props:any) => {
           ref={props.Refs.DatesAndPaymentsRef}
         >
           <h2>{t("DC.About.D&P.title")}</h2>
-          <p>{t("DC.About.D&P.P1")}</p>
-          <hr />
-          <p>{t("DC.About.D&P.P2")}</p>
-          <hr />
+          
+          <div className="TextBox">
+            <p>{t("DC.About.D&P.P1")}</p>
+            <hr />
+            <p>{t("DC.About.D&P.P2")}</p>
+            <hr />
+          </div>
         </li>
         <li id="TandC" ref={props.Refs.TermsAndConditionsRef}>
             
+          <h2>{t("DC.About.T&C.title")}</h2>
+
           <div className="TextBox">
-            <h2>{t("DC.About.T&C.title")}</h2>
             <p>{t("DC.About.T&C.P1")}</p>
             <hr />
             <p>{t("DC.About.T&C.P2")}</p>

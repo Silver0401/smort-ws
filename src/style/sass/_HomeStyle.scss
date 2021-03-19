@@ -1496,7 +1496,6 @@ $BGColor: rgb(31, 28, 28);
                         align-items: flex-start;
                         height: 100%;
                         width: 30%;
-                        // background-color: lightcoral;
                         
                         p{
                             font-size: clamp(15px, 1.5vw, 50px);
@@ -1506,7 +1505,7 @@ $BGColor: rgb(31, 28, 28);
                             list-style: none;
                             
                             h4,a{
-                                font-size: clamp(12px, 1.2vw, 40px);
+                                font-size: clamp(10px, 1.2vw, 40px);
                                 text-decoration: none;
                                 color: white;
                                 transition: color 500ms;

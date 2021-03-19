@@ -91,7 +91,10 @@ const Support = (props:any) => {
       <ul>
         <li id="ClientSupport" ref={props.Refs.ClientSupportRef}>
           <h2>{t("DC.Support.CS.title")}</h2>
-          <p>{t("DC.Support.CS.P1")}</p>
+
+          <div className="TextBox">
+            <p>{t("DC.Support.CS.P1")}</p>
+          </div>
 
           <form>
             <div className="TopForm">
@@ -114,47 +117,53 @@ const Support = (props:any) => {
                   value={currentEmailData}
                 />
               </span>
-
-              <span>
-                <ChakraProvider>
-                  <Button
-                    rightIcon={<SendPlaneIcon />}
-                    size="lg"
-                    isLoading={buttonLoading}
-                    loadingText={t("Support.Send.button2")}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setButtonLoading(true);
-                      PostHelpRequest();
-                    }}
-                  >
-                    {t("Support.Send.button1")}
-                  </Button>
-                </ChakraProvider>
-              </span>
             </div>
             <div className="BottomForm">
-              <label>{t("DC.Support.Label.Message")}</label>
-              <textarea
-                ref={MessageRef}
-                placeholder="En que te podemos ayudar?"
-                onChange={(e) => setCurrentMessageData(e.target.value)}
-                value={currentMessageData}
-              />
+
+              <div className="textAreaThingy">
+                <label>{t("DC.Support.Label.Message")}</label>
+                <textarea
+                  ref={MessageRef}
+                  placeholder="En que te podemos ayudar?"
+                  onChange={(e) => setCurrentMessageData(e.target.value)}
+                  value={currentMessageData}
+                />
+              </div>
+
+
+              <ChakraProvider>
+                <Button
+                  rightIcon={<SendPlaneIcon />}
+                  size="lg"
+                  isLoading={buttonLoading}
+                  loadingText={t("Support.Send.button2")}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setButtonLoading(true);
+                    PostHelpRequest();
+                  }}
+                >
+                  {t("Support.Send.button1")}
+                </Button>
+              </ChakraProvider>
             </div>
           </form>
         </li>
         <li id="StyleChanges" ref={props.Refs.StyleChangesRef}>
           <h2>{t("DC.Support.StyleChanges.title")}</h2>
           <div className="SC Content">
-            <p>{t("DC.Support.StyleChanges.P1")}</p>
+            <div className="TextBox">
+              <p>{t("DC.Support.StyleChanges.P1")}</p>
+            </div>
             <img src={styleSvg} alt="Style Changes svg" />
           </div>
         </li>
         <li id="SiteUpdates" ref={props.Refs.SiteUpgradeRef}>
           <h2>{t("DC.Support.SiteUpdates.title")}</h2>
           <div className="SU Content">
-            <p>{t("DC.Support.SiteUpdates.P1")}</p>
+            <div className="TextBox">
+              <p>{t("DC.Support.SiteUpdates.P1")}</p>
+            </div>
             <img src={changesSvg} alt="SU svg"></img>
           </div>
         </li>

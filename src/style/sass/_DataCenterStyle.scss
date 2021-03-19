@@ -62,7 +62,7 @@ $BGColor: rgb(31, 28, 28);
                 font-size: clamp(12px, 1.3vw, 40px );
                 text-align: justify;
                 line-height: 2.5em;
-                overflow-y: scroll;
+                
             }
         }
     
@@ -72,6 +72,13 @@ $BGColor: rgb(31, 28, 28);
             height: 300vh;
             z-index: 0;
             margin-left: auto;
+
+            .TextBox{
+                position: relative;
+                width: 100%;
+                height: 70%;
+                overflow-y: scroll;
+            }
     
     
             .Content{
@@ -86,7 +93,6 @@ $BGColor: rgb(31, 28, 28);
                     position: relative;
                     width: 100%;
                     height: 70%;
-                    overflow-y: scroll;
                 }
     
                 .ImgBox{
@@ -146,9 +152,8 @@ $BGColor: rgb(31, 28, 28);
                 form{
                     height: 60%;
                     width: 100%;
-                    @include alignCenter();
-                    justify-content: space-around;
-                    align-items: flex-start;
+                    display: flex;
+                    flex-wrap: wrap;
     
                     input,textarea{
                         border-radius: 10px;
@@ -156,34 +161,77 @@ $BGColor: rgb(31, 28, 28);
     
                     .TopForm{
                         position: relative;
-                        height: 40%;
-                        width: 100%;
-                        display: flex;
-                        flex-wrap: wrap;
+                        flex: 1 1 500px;
+                        // height: 40%;
+                        // width: 100%;
+                        @include alignCenter();
+                        flex-direction: column;
 
                         span{
                             @include alignCenter();
-                            flex-direction: row;
+                            flex-direction: column;
                             justify-content: space-evenly;
+                            width: 90%;
+                            height: 40%;
 
                             position: relative;
-                            flex: 1 1 200px;
-                            min-height: 100px;
 
                             input,label{
                                 // margin: 0px .5em;
                                 font-family: 'MuseoModerno', cursive;
                                 font-size: clamp(13px, 2vw, 20px);
                             }
+
+                            label{
+                                color: $PageColor;
+                            }
         
                             input{
                                 color: black;
-                                width: 50%;
+                                width: 80%;
+                                padding: 2%;
                             }
         
         
                         }
+
     
+                    }
+    
+                    .BottomForm{
+                        position: relative;
+                        flex: 1 1 500px;
+                        // width: 100%;
+                        // height: 60%;
+                        @include alignCenter();
+    
+                        label, textarea{
+                            font-family: 'MuseoModerno', cursive;
+                            font-size: clamp(13px, 2vw, 20px);
+                        }
+
+                        .textAreaThingy{
+                            @include alignCenter();
+                            flex-direction: column;
+                            justify-content: space-around;
+                            // background-color: lightcoral;
+                            width: 80%;
+                            height: 50%;
+
+                            textarea{
+                                width: 80%;
+                                height: 70%;
+                                color: black;
+                                padding: 2%;
+                            }
+    
+                            label{
+                                color: $PageColor;
+                            }
+                        }
+    
+
+                            
                         button{
     
                             color: black;
@@ -194,6 +242,7 @@ $BGColor: rgb(31, 28, 28);
                             outline: none;
                             transition: background-color 500ms, color 500ms;
                             font-size: clamp(15px, 2vw, 20px);
+
     
                             &:hover{
                                 
@@ -213,25 +262,19 @@ $BGColor: rgb(31, 28, 28);
                                 transition: fill 500ms;
                             }
                         }
-    
                     }
-    
-                    .BottomForm{
-                        position: relative;
-                        width: 100%;
-                        height: 60%;
-                        @include alignCenter();
-    
-                        label, textarea{
-                            font-family: 'MuseoModerno', cursive;
-                            font-size: clamp(13px, 2vw, 20px);
-                        }
-    
-                        textarea{
-                            width: 95%;
-                            height: 70%;
-                            color: black;
-                        }
+                }
+
+                .TextBox{
+                    width: 50%;
+                    height: 70%;
+                    align-self: center;
+                    justify-self: center;
+                    overflow-y: auto;
+
+                    p{
+                        width: 90%;
+                        height: 90%;
                     }
                 }
     
@@ -244,12 +287,6 @@ $BGColor: rgb(31, 28, 28);
                     flex-direction: row;
                     justify-content: space-evenly;
     
-                    p{
-                        width: 50%;
-                        height: 70%;
-                        align-self: center;
-                        justify-self: center;
-                    }
     
                     img{
                         width: 50%;
@@ -260,6 +297,13 @@ $BGColor: rgb(31, 28, 28);
                 .SU{
     
                     flex-direction: row-reverse;
+                }
+            }
+
+            #ClientSupport{
+                .TextBox{
+                    width: 100%;
+                    height: 30%;
                 }
             }
         }
