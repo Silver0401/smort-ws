@@ -445,11 +445,34 @@ $BGColor: rgb(31, 28, 28);
         height: 100%;
         overflow-y: auto;
         scroll-behavior: smooth;
+        overflow-x: hidden;
 
         section{
             width: 100%;
             height: calc(100vh - 70px);
             scroll-snap-align: end;
+        }
+
+        .Arrow{
+            position: fixed;
+            bottom: 10%;
+            left: 45%;
+            right: auto;
+            width: 40px;
+            height: 40px;
+            // background-color: black;
+            border-radius: 50%;
+            @include alignCenter();
+            z-index: 5;
+            cursor: pointer;
+            visibility: hidden;
+
+            svg{
+                width: 50%;
+                height: 50%;
+                fill: white;
+                filter: drop-shadow(0px 0px 10px white);
+            }
         }
     
         .HomeInit{
@@ -508,26 +531,6 @@ $BGColor: rgb(31, 28, 28);
                     margin-bottom: 50px;
                 }
         
-                .Arrow{
-                    position: absolute;
-                    bottom: 5%;
-                    right: -70px;
-                    width: 25px;
-                    height: 25px;
-                    background-color: transparent;
-                    border-radius: 50%;
-        
-                    svg{
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-30%, -25%);
-                        width: 100%;
-                        height: 100%;
-                        fill: white;
-                        filter: drop-shadow(0px 0px 10px white);
-                    }
-                }
             }   
         
             .RightBoxHome{
@@ -863,13 +866,14 @@ $BGColor: rgb(31, 28, 28);
                                 left: 2em;
                                 width: 3em;
                                 height: 3em;
+                                visibility: hidden;
 
                                 svg{
                                     width: 100%;
                                     height: 100%;
                                     fill: white;
                                     filter: drop-shadow(5px 0px 0px black);
-                                    animation: moveLeftRight 1s linear infinite alternate;
+                                    // animation: moveLeftRight 1s linear infinite alternate;
                                 }
                             }
     
@@ -974,6 +978,7 @@ $BGColor: rgb(31, 28, 28);
             flex-direction: column;
     
             .Phrase{
+                position: relative;
                 margin-top: 2.5%;
                 height: 15%;
                 width: 100%;
@@ -985,7 +990,8 @@ $BGColor: rgb(31, 28, 28);
                 color: black;
                 text-shadow: 0px 1px 5px $PageColor;
                 font-family: 'Dancing Script', cursive;
-                
+
+                    
                 h1{
                     font-size: clamp(1.2rem, 3vw, 70px);
                     padding: 0px #{"min(1em, 10px)"};
@@ -1004,10 +1010,12 @@ $BGColor: rgb(31, 28, 28);
                     position: relative;
                     text-align: center;
                     @include alignCenter();
+
     
                     h1{
                         font-family: 'MuseoModerno', cursive;
                         font-size: clamp(20px, 3.5vw, 100px);
+                        color: white;
                     }
                 }
                 .Reasons{
@@ -1020,7 +1028,6 @@ $BGColor: rgb(31, 28, 28);
                     overflow-x: hidden;
                     border-radius: 1em;
                     @include NeumorphType2();
-                    transform: rotateZ(5deg);
                     gap: 1em;
                     border: 5px solid $BGColor;
                     
@@ -1539,7 +1546,7 @@ $BGColor: rgb(31, 28, 28);
             }
             .MediaBar{
                 background-color: $BGColor;
-                width: 100%;
+                width: 0%;
                 height: 20%;
                 @include alignCenter();
     

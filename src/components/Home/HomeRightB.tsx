@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, Suspense, useState } from "react";
 import anime from "animejs";
-import { Canvas } from "react-three-fiber";
-import { useGLTF } from "@react-three/drei/useGLTF";
+import { Canvas } from "@react-three/fiber";
+import { useGLTF, OrbitControls } from "@react-three/drei";
 import { useTranslation } from "react-i18next";
-import { OrbitControls } from "@react-three/drei";
 
 
 // Images
@@ -17,13 +16,9 @@ function Model(props:any) {
   const group = useRef();
   const { nodes, materials } = useGLTF("/3DModels/BotModel/scene.gltf");
 
-
   return (
-    <group ref={group} {...props} dispose={null} castShadow>
-      <group
-        rotation={[-Math.PI / 2, 0, 0]}
-        position={[0, -200, 0]}
-      >
+    <group ref={group} {...props}  dispose={null} castShadow>
+      <group rotation={[-Math.PI / 2, 0, 0]} position={[0, -200, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group
             position={[0, 0, 0]}
@@ -565,8 +560,7 @@ const RightBox = () => {
               </div>
               <div className="SiteContainer">
                 <Canvas
-                  colorManagement
-                  shadowMap
+                  shadows
                   camera={{ position: [0, 0, 400], fov: 100 }}
                 >
                   <ambientLight intensity={0.5} />
@@ -580,7 +574,7 @@ const RightBox = () => {
                     <Model />
                   </Suspense>
 
-                  {phoneContainerHovered ? <OrbitControls /> : null}
+                  {/* {phoneContainerHovered ? <OrbitControls camera={} /> : null} */}
                 </Canvas>
 
                 <div className="SiteComponents">

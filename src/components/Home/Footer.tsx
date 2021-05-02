@@ -41,7 +41,25 @@ const Footer = (props:any) => {
         <h1>{t("Footer.title")}</h1>
       </span>
 
-      <div className="MediaBar">
+      <div
+        className="MediaBar"
+        // style={
+        //   props.animInit
+        //     ? { transform: "translateX(0px)", transition: "transform 1s" }
+        //     : {
+        //         transform: "translateX(100%)",
+        //         transition: "transform 1s",
+        //       }
+        // }
+        style={
+          props.animInit
+            ? { width: "100%", transition: "width 1.5s" }
+            : {
+                width: "0%",
+                transition: "width 1.5s",
+              }
+        }
+      >
         <span>
           <svg
             onClick={() => window.open("https://wa.me/527714116235", "_newtab")}

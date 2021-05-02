@@ -19,8 +19,8 @@ const Block3 = (props:any) => {
 
       tl.add({
         targets: "#B3Arrow",
-        duration: 6000,
-        translateY: ["-6.25em", "0em", "6.25em", "-6.25em", "6.25em", "0em"],
+        duration: 4000,
+        translateY: ["-6.25em", "0em", "6.25em", "0em"],
         opacity: 1,
       });
 
@@ -209,45 +209,6 @@ const Block3 = (props:any) => {
         "+=100"
       );
 
-      tl.add(
-        {
-          targets: "#Sun",
-          duration: 800,
-          opacity: [0, 1],
-          translateX: ["-12.5em", "0em"],
-        },
-        "-=500"
-      );
-
-      tl.add(
-        {
-          targets: "#Sun",
-          duration: 800,
-          opacity: [1, 0],
-          translateX: ["0em", "12.5em"],
-        },
-        "+=100"
-      );
-
-      tl.add(
-        {
-          targets: "#Moon",
-          duration: 800,
-          opacity: [0, 1],
-          translateX: ["-12.5em", "0em"],
-        },
-        "-=500"
-      );
-
-      tl.add(
-        {
-          targets: "#Moon",
-          duration: 800,
-          opacity: [1, 0],
-          translateX: ["0em", "12.5em"],
-        },
-        "+=100"
-      );
 
       tl.add(
         {

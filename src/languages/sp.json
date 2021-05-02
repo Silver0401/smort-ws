@@ -14,7 +14,7 @@
   "Home.RightBox.Anim.Sales": "Catálogos de Ventas",
   "Home.RightBox.Anim.3d": "Modelos 3D",
 
-  "Begin.button": "Conseguir mi sitio",
+  "Begin.button": "Cotizar un sitio",
   "Choose.button": "Seleccionar",
   "Root.Start.button": "Empezar",
   "Support.Send.button1": "Enviar",
@@ -148,7 +148,7 @@
   "BuilderFinal.MainTitle": "Pasos Finales",
   "BuilderFinal.Tab1.Title": "Especificaciones",
   "BuilderFinal.Tab2.Title": "Estructura del Sitio",
-  "BuilderFinal.Tab3.Title": "Resumen & Pago",
+  "BuilderFinal.Tab3.Title": "Precio Estimado",
   
   "BuilderFinal.Tab1.InitialText": "LLena los siguientes espacios y recuerda que mientras más especifico y detallado seas en tus respuestas e información, mejor nos quedará tu sitio web.",
   "BuilderFinal.Tab1.Form.Adress.Label": "Dirección",

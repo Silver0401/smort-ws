@@ -446,16 +446,16 @@ const BuilderFinal: React.FC = () => {
     const PriceDecider = () => {
       switch (Data.SiteType) {
         case t("BuilderInit.Personal.Title"):
-          setPrice(1500);
+          setPrice(2500);
           break;
         case t("BuilderInit.Marketing.Title"):
-          setPrice(1500);
+          setPrice(2500);
           break;
         case t("BuilderInit.Sales.Title"):
-          setPrice(3000);
+          setPrice(6500);
           break;
         case t("BuilderInit.Blog.Title"):
-          setPrice(2500);
+          setPrice(5500);
           break;
         default:
           setPrice(0);
@@ -1100,15 +1100,15 @@ const BuilderFinal: React.FC = () => {
             <h2
               className={stepSelected === 2 ? "toggled" : "notToggled"}
               onClick={() => {
-                if (!masterTesting) {
-                  if (DataScan() === "All correct") {
-                    setStepSelected(2);
-                  } else {
-                    toast.error(t("Toaster.Error.Forms"));
-                  }
-                } else {
-                  setStepSelected(2);
-                }
+                // if (!masterTesting) {
+                //   if (DataScan() === "All correct") {
+                //     setStepSelected(2);
+                //   } else {
+                //     toast.error(t("Toaster.Error.Forms"));
+                //   }
+                // } else {
+                setStepSelected(2);
+                // }
                 PriceDecider();
               }}
             >
@@ -1117,15 +1117,15 @@ const BuilderFinal: React.FC = () => {
             <h2
               className={stepSelected === 3 ? "toggled" : "notToggled"}
               onClick={() => {
-                if (!masterTesting) {
-                  if (DataScan() === "All correct") {
-                    setStepSelected(3);
-                  } else {
-                    toast.error(t("Toaster.Error.Forms"));
-                  }
-                } else {
-                  setStepSelected(3);
-                }
+                // if (!masterTesting) {
+                //   if (DataScan() === "All correct") {
+                //     setStepSelected(3);
+                //   } else {
+                //     toast.error(t("Toaster.Error.Forms"));
+                //   }
+                // } else {
+                setStepSelected(3);
+                // }
                 PriceDecider();
               }}
             >
@@ -1155,8 +1155,8 @@ const BuilderFinal: React.FC = () => {
                     }
               }
             >
-              <p>{t("BuilderFinal.Tab1.InitialText")}</p>
-
+              {/* <p>{t("BuilderFinal.Tab1.InitialText")}</p> */}
+{/* 
               <span className="InputBox1">
                 <span>
                   <label>{t("BuilderFinal.Tab1.Form.Adress.Label")}</label>
@@ -1218,7 +1218,7 @@ const BuilderFinal: React.FC = () => {
                   required
                   ref={DetailsRef}
                 />
-              </span>
+              </span> */}
 
               <span className="InputBox3">
                 <label id="IB3title">
@@ -1359,9 +1359,9 @@ const BuilderFinal: React.FC = () => {
                   <button
                     className="NextButton"
                     onClick={() => {
-                      if (DataScan() === "All correct") {
-                        setStepSelected(3);
-                      }
+                      // if (DataScan() === "All correct") {
+                      setStepSelected(3);
+                      // }
                       PriceDecider();
                     }}
                   >
@@ -1444,10 +1444,10 @@ const BuilderFinal: React.FC = () => {
                   </h3>
                   <h4>dd/mm/{t("BuilderFinal.Tab3.Price.Year")}</h4>
 
-                  <p>{t("BuilderFinal.Tab3.Price.Question")}</p>
+                  {/* <p>{t("BuilderFinal.Tab3.Price.Question")}</p> */}
                 </div>
 
-                <div className="ButtonsBox">
+                {/* <div className="ButtonsBox">
                   <button
                     onClick={() => {
                       if (tcbChecked) {
@@ -1457,7 +1457,6 @@ const BuilderFinal: React.FC = () => {
                       }
                     }}
                   >
-                    {/* <p>{t("BuilderFinal.Tab3.Buttons.Card")}</p> */}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -1485,9 +1484,9 @@ const BuilderFinal: React.FC = () => {
                       />
                     </PayPalScriptProvider>
                   </div>
-                </div>
+                </div> */}
 
-                <div className="TandCCheckBox">
+                {/* <div className="TandCCheckBox">
                   <p
                     onClick={() =>
                       window.open("/SupportCenter#TandC", "_newtab")
@@ -1500,8 +1499,8 @@ const BuilderFinal: React.FC = () => {
                     onChange={() => setTcbChecked(!tcbChecked)}
                     type="checkbox"
                   />
-                </div>
-
+                </div> */}
+{/* 
                 <div
                   className="PaymentBox"
                   style={
@@ -1554,7 +1553,8 @@ const BuilderFinal: React.FC = () => {
                       </div>
                     </span>
                   </div>
-                </div>
+                </div> */}
+              
               </div>
             </div>
           </div>

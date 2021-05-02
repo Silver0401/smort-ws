@@ -1,10 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-// import span from "react-on-scroll-animation";
-// const span = require("react-on-scroll-animation")
 
-// animation="fade-down" duration={1000}
-// animation="fade-up" duration={1000}
 
 const Block1 = (props:any) => {
 
@@ -17,10 +13,27 @@ const Block1 = (props:any) => {
         </span>
 
         <span className="WhyBox">
-          <div className="Title">
+          <div
+            className="Title"
+          >
             <h1>{t("Block1.Question")}</h1>
           </div>
-          <span className="Reasons">
+          <span
+            className="Reasons"
+            style={
+              props.animInit
+                ? {
+                    transform: "translateX(0px) rotateZ(5deg)",
+                    transition: "transform 1s",
+                    // transitionDelay: "500ms",
+                  }
+                : {
+                    transform: "translateX(150%)",
+                    transition: "transform 1s",
+                    // transitionDelay: "500ms",
+                  }
+            }
+          >
             <div className="Box1">
               <span className="SvgBox">
                 <svg

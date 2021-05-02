@@ -131,10 +131,19 @@ const Block2 = (props:any) => {
     }, 4000)
 
 
-
     return (
       <section className="Block2" ref={props.refData}>
-        <span className="LeftBoxB2">
+        <span
+          className="LeftBoxB2"
+          style={
+            props.animInit
+              ? { transform: "translateX(0px)", transition: "transform 500ms" }
+              : {
+                  transform: "translateX(-100%)",
+                  transition: "transform 500ms",
+                }
+          }
+        >
           <h1>{t("Block2.LeftBox.title")}</h1>
 
           <span className="TextAnimBox">
@@ -155,7 +164,22 @@ const Block2 = (props:any) => {
           </span>
         </span>
 
-        <span className="RightBoxB2">
+        <span
+          className="RightBoxB2"
+          style={
+            props.animInit
+              ? {
+                  transform: "translateX(0px)",
+                  transition: "transform 500ms",
+                  transitionDelay: "500ms",
+                }
+              : {
+                  transform: "translateX(100%)",
+                  transition: "transform 500ms",
+                  transitionDelay: "500ms",
+                }
+          }
+        >
           <div className="TextBox">
             <h1>{t("Block2.RightBox.sentence1.1")}</h1>
             <h2>{t("Block2.RightBox.word")}</h2>

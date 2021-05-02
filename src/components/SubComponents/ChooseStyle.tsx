@@ -3,10 +3,10 @@
 import React, { useEffect, useState, Suspense, useContext, useRef } from "react";
 import anime from "animejs";
 import Particles from "react-tsparticles";
-import { Canvas } from "react-three-fiber";
+import { Canvas } from "@react-three/fiber";
 import { ChosenDataContext } from "./../ChosenData";
 import { useTranslation } from "react-i18next";
-import { useGLTF } from "@react-three/drei/useGLTF";
+import { useGLTF } from "@react-three/drei";
 import { OrbitControls } from "@react-three/drei";
 
 // Resources
@@ -100,6 +100,7 @@ const ChooseStyle = (props:any) => {
   const Model = () => {
     const group = useRef();
     const { nodes, materials } = useGLTF("/3DModels/ComputerModel/scene.gltf");
+
     return (
       <group ref={group} {...props} dispose={null}>
         <group rotation={[-Math.PI / 2, 0, 0]} position={[0,-0.1,0]}>
@@ -1425,8 +1426,8 @@ const ChooseStyle = (props:any) => {
 
             <div className="D3Box">
               <Canvas
-                colorManagement
-                shadowMap
+                // colorManagement
+                // shadowMap
                 camera={{ position: [-0.5, 0.5, 0.5], fov: 50 }}
               >
                 <ambientLight intensity={0.5} />
@@ -1436,7 +1437,7 @@ const ChooseStyle = (props:any) => {
                   position={[300, 500, 0]}
                   shadow-camera-far={50}
                 />
-                <OrbitControls />
+                {/* <OrbitControls /> */}
                 <Suspense fallback={null}>
                   <Model />
                 </Suspense>
