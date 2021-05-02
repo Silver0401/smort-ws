@@ -7,7 +7,7 @@ import { Canvas } from "@react-three/fiber";
 import { ChosenDataContext } from "./../ChosenData";
 import { useTranslation } from "react-i18next";
 import { useGLTF } from "@react-three/drei";
-import { OrbitControls } from "@react-three/drei";
+// import { OrbitControls } from "@react-three/drei";
 
 // Resources
 import DudFoto from "./../../resources/dud.jpg"; 

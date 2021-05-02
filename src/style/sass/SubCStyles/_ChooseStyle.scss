@@ -262,7 +262,7 @@ $BGColor: rgb(57, 55, 55);
             .PageStyle{
                 grid-area: PageStyle;
                 position: relative;
-                overflow: scroll;
+                overflow: auto;
 
                 display: grid;
                 grid-template-columns: 1fr 1fr;

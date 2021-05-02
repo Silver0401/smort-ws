@@ -1,8 +1,7 @@
 import React, { useRef, useState } from "react";
 import "react-on-scroll-animation/build/index.css";
-import "animate.css/animate.min.css";
 import { motion } from "framer-motion";
-import anime from "animejs";
+// import anime from "animejs";
 
 // Components
 import LeftBox from "./../components/Home/HomeLeftB";
@@ -38,34 +37,34 @@ const HomePage = () => {
   }
 
 
-  const AnimateArrow = (direction: string) => {
+  // const AnimateArrow = (direction: string) => {
 
-    if (direction === "out"){
+  //   if (direction === "out"){
 
-      anime({
-        targets: ".Arrow",
-        left: "5%",
-        bottom: "5%",
-        rotateZ: "180deg",
-        duration: 1000,
-        easing: "linear",
-        background: "rgb(51, 162, 203)",
-      });
+  //     anime({
+  //       targets: ".Arrow",
+  //       left: "5%",
+  //       bottom: "5%",
+  //       rotateZ: "180deg",
+  //       duration: 1000,
+  //       easing: "linear",
+  //       background: "rgb(51, 162, 203)",
+  //     });
 
-    } else {
+  //   } else {
 
-      anime({
-        targets: ".Arrow",
-        left: "45%",
-        bottom: "10%",
-        rotateZ: "0deg",
-        duration: 1000,
-        easing: "easeInOutQuad",
-        background: "rgb(31, 28, 28)",
-      });
+  //     anime({
+  //       targets: ".Arrow",
+  //       left: "45%",
+  //       bottom: "10%",
+  //       rotateZ: "0deg",
+  //       duration: 1000,
+  //       easing: "easeInOutQuad",
+  //       background: "rgb(31, 28, 28)",
+  //     });
 
-    }
-  };
+  //   }
+  // };
 
   const ScrollTo = (sectionRef:any) => {
   
@@ -82,7 +81,7 @@ const HomePage = () => {
     const block2Position = Block2Ref.current?.offsetTop;
     const block1Position = Block1Ref.current?.offsetTop;
     const footerPosition = FooterRef.current?.offsetTop;
-    const HomePosition = HomePageRef.current?.offsetTop;
+    // const HomePosition = HomePageRef.current?.offsetTop;
 
     // if (userPosition === 0){
     //   AnimateArrow("in");

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, Suspense, useState } from "react";
 import anime from "animejs";
 import { Canvas } from "@react-three/fiber";
-import { useGLTF, OrbitControls } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { useTranslation } from "react-i18next";
 
 
@@ -559,10 +559,7 @@ const RightBox = () => {
                 <div className="UrlBox"></div>
               </div>
               <div className="SiteContainer">
-                <Canvas
-                  shadows
-                  camera={{ position: [0, 0, 400], fov: 100 }}
-                >
+                <Canvas shadows camera={{ position: [0, 0, 400], fov: 100 }}>
                   <ambientLight intensity={0.5} />
                   <pointLight position={[300, 500, 0]} intensity={2} />
                   <directionalLight
@@ -581,7 +578,14 @@ const RightBox = () => {
                   <h1>{t("Home.RightBox.Anim.3d")}</h1>
                 </div>
 
-                <div className="cursor" style={phoneContainerHovered ? {opacity: 0, transition: "opacity 500ms"} : {opacity: 1, transition: "opacity 500ms"}}>
+                <div
+                  className="cursor"
+                  style={
+                    phoneContainerHovered
+                      ? { opacity: 0, transition: "opacity 500ms" }
+                      : { opacity: 1, transition: "opacity 500ms" }
+                  }
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

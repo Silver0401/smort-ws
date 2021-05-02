@@ -57,7 +57,7 @@ $BackgroundColor: rgb(31, 28, 28);
             flex-wrap: wrap;
             border-radius: 0px;
             border: 0px solid white;
-            overflow: scroll;
+            overflow-y: auto;
             background:transparent;
 
             .opt{

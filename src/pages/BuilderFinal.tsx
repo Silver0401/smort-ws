@@ -1,21 +1,21 @@
-import React, { useContext, useState, useEffect, useRef, useCallback } from "react"
+import React, { useContext, useState, useEffect, useRef } from "react"
 import { ChosenDataContext } from "./../components/ChosenData"
 import { motion } from "framer-motion";
-import { useHistory } from "react-router-dom"
-import axios from "axios";
-import SmortLogo from "./../resources/SmortImage.png"
-import {ToastContainer, toast} from "react-toastify";
-import anime from "animejs";
-import { ChakraProvider, Button } from "@chakra-ui/react";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { loadStripe } from "@stripe/stripe-js";
+// import { useHistory } from "react-router-dom"
+// import axios from "axios";
+// import SmortLogo from "./../resources/SmortImage.png"
+import {ToastContainer} from "react-toastify";
+// import anime from "animejs";
+// import { ChakraProvider, Button } from "@chakra-ui/react";
+// import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+// import { loadStripe } from "@stripe/stripe-js";
 import { useTranslation } from "react-i18next";
-import {
-  CardElement,
-  Elements,
-  useStripe,
-  useElements
-} from "@stripe/react-stripe-js";
+// import {
+//   CardElement,
+//   Elements,
+//   useStripe,
+//   useElements
+// } from "@stripe/react-stripe-js";
 
 
 import HomeSvg from "./../resources/HomeIcon.svg";
@@ -27,370 +27,370 @@ import SvgBracket from "./../resources/BracketIcon.svg"
 
 
 // Live Stripe Code
-const stripePromise = loadStripe(
-  "pk_live_51I4BzFIcDQemC5B8Uio6ufoEgunWRPaRpG0DMZ8n9wkI0Fga3Dkobv7KoS3AP4EnJf8UbDImgeI09diTHuWxBI9T00ZFbvEZL1"
-);
+// const stripePromise = loadStripe(
+//   "pk_live_51I4BzFIcDQemC5B8Uio6ufoEgunWRPaRpG0DMZ8n9wkI0Fga3Dkobv7KoS3AP4EnJf8UbDImgeI09diTHuWxBI9T00ZFbvEZL1"
+// );
 
 // Test Stripe Code
-const stripeTestPromise = loadStripe(
-  "pk_test_51I4BzFIcDQemC5B8qzbZqMHpExN0NLlapc8NleVrmAn5dU9QYGrycfTRk2qJ0vQxaZky4l1S9NEyQG7nfQJkaGet00RLky3jdi"
-);
+// const stripeTestPromise = loadStripe(
+//   "pk_test_51I4BzFIcDQemC5B8qzbZqMHpExN0NLlapc8NleVrmAn5dU9QYGrycfTRk2qJ0vQxaZky4l1S9NEyQG7nfQJkaGet00RLky3jdi"
+// );
 
 // PayPal Id
-const PayPalOptions = {
-  "client-id":
-    "Ae5wkLC1rJDKFRhA6orSFRlPHQ6FctDennrS2XBCyyCgliqkRIbhQ6SOwWDzMHSlQbREVFLI-ok4hU8h&currency=MXN",
-};
+// const PayPalOptions = {
+//   "client-id":
+//     "Ae5wkLC1rJDKFRhA6orSFRlPHQ6FctDennrS2XBCyyCgliqkRIbhQ6SOwWDzMHSlQbREVFLI-ok4hU8h&currency=MXN",
+// };
 
 // PayPal Test Id
-const PayPalTestOptions = {
-  "client-id":
-    "ASjqQBWMi6NS8stVQOeWtSzdhqCNV6Il6IMPIInc1t_z24D6bLCLhuGu6Lc2_gWju2vQkp04xH2dP1V0&currency=MXN",
-};
+// const PayPalTestOptions = {
+//   "client-id":
+//     "ASjqQBWMi6NS8stVQOeWtSzdhqCNV6Il6IMPIInc1t_z24D6bLCLhuGu6Lc2_gWju2vQkp04xH2dP1V0&currency=MXN",
+// };
 
 
 
 
-const StripeForm = (props:any) => {
+// const StripeForm = (props:any) => {
 
-  const [cardButtonLoading, setCardButtonLoading] = useState(false)
-  const [Data, setData] = useContext(ChosenDataContext)
-  const { t } = useTranslation();
+//   const [cardButtonLoading, setCardButtonLoading] = useState(false)
+//   const [Data, setData] = useContext(ChosenDataContext)
+//   const { t } = useTranslation();
 
-  const stripe = useStripe();
-  const elements = useElements();
-  const History = useHistory()
+//   const stripe = useStripe();
+//   const elements = useElements();
+//   const History = useHistory()
 
-  const MoneyIcon = () => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-      >
-        <path d="M22 7h-19v11h-1v-12h20v1zm-2-2h-19v11h-1v-12h20v1zm-6 6c-1.656 0-3 1.344-3 3s1.344 3 3 3 3-1.344 3-3-1.344-3-3-3zm.15 4.484v.315h-.3v-.299c-.311-.005-.632-.079-.898-.217l.135-.493c.287.11.669.229.968.162.345-.078.415-.433.034-.604-.279-.129-1.133-.242-1.133-.973 0-.409.312-.775.895-.855v-.319h.301v.305c.217.006.461.043.732.126l-.108.493c-.23-.08-.485-.154-.733-.139-.446.026-.486.413-.174.575.514.242 1.182.42 1.182 1.063 0 .516-.404.791-.901.86zm-10.15-7.484v12h20v-12h-20zm18 8.018c-.959.42-1.395 1.022-1.814 1.982h-12.372c-.419-.959-.855-1.562-1.814-1.982v-4.036c.959-.42 1.395-1.022 1.814-1.982h12.371c.42.959.855 1.562 1.814 1.982v4.036z" />
-      </svg>
-    );
-  };
+//   const MoneyIcon = () => {
+//     return (
+//       <svg
+//         xmlns="http://www.w3.org/2000/svg"
+//         width="24"
+//         height="24"
+//         viewBox="0 0 24 24"
+//       >
+//         <path d="M22 7h-19v11h-1v-12h20v1zm-2-2h-19v11h-1v-12h20v1zm-6 6c-1.656 0-3 1.344-3 3s1.344 3 3 3 3-1.344 3-3-1.344-3-3-3zm.15 4.484v.315h-.3v-.299c-.311-.005-.632-.079-.898-.217l.135-.493c.287.11.669.229.968.162.345-.078.415-.433.034-.604-.279-.129-1.133-.242-1.133-.973 0-.409.312-.775.895-.855v-.319h.301v.305c.217.006.461.043.732.126l-.108.493c-.23-.08-.485-.154-.733-.139-.446.026-.486.413-.174.575.514.242 1.182.42 1.182 1.063 0 .516-.404.791-.901.86zm-10.15-7.484v12h20v-12h-20zm18 8.018c-.959.42-1.395 1.022-1.814 1.982h-12.372c-.419-.959-.855-1.562-1.814-1.982v-4.036c.959-.42 1.395-1.022 1.814-1.982h12.371c.42.959.855 1.562 1.814 1.982v4.036z" />
+//       </svg>
+//     );
+//   };
 
-  const HandlePayRequest = async () => {
-    setCardButtonLoading(true)
+//   const HandlePayRequest = async () => {
+//     setCardButtonLoading(true)
 
-    if (stripe) {
-      const {
-        error,
-        paymentMethod,
-      } = await stripe.createPaymentMethod({
-        type: "card",
-        card: elements?.getElement(CardElement) || {
-          token: "awaiting...",
-        },
-      });
+//     if (stripe) {
+//       const {
+//         error,
+//         paymentMethod,
+//       } = await stripe.createPaymentMethod({
+//         type: "card",
+//         card: elements?.getElement(CardElement) || {
+//           token: "awaiting...",
+//         },
+//       });
 
-      if (!error) {
+//       if (!error) {
         
-        if (paymentMethod){
+//         if (paymentMethod){
 
-          const { id } = paymentMethod
+//           const { id } = paymentMethod
 
-          if (props.masterIsTesting){
+//           if (props.masterIsTesting){
 
-            axios.post(
-                `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PaymentProcedureTesting`,
-                {
-                  id: id,
-                  amount: parseInt(`${Data.SiteChosenPrice}00`),
-                  Name: Data.Name,
-                  Email: Data.Email,
-                }
-              )
-              .then((res) => {
-                if (res.data === "Payment Successfull") {
-                  console.log("placing in data base...");
+//             axios.post(
+//                 `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PaymentProcedureTesting`,
+//                 {
+//                   id: id,
+//                   amount: parseInt(`${Data.SiteChosenPrice}00`),
+//                   Name: Data.Name,
+//                   Email: Data.Email,
+//                 }
+//               )
+//               .then((res) => {
+//                 if (res.data === "Payment Successfull") {
+//                   console.log("placing in data base...");
   
-                  axios.post(`${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PlaceOrder`,
-                      {
-                        Name: Data.Name,
-                        Email: Data.Email,
-                        Phone: Data.Phone,
-                        Adress: Data.Adress,
+//                   axios.post(`${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PlaceOrder`,
+//                       {
+//                         Name: Data.Name,
+//                         Email: Data.Email,
+//                         Phone: Data.Phone,
+//                         Adress: Data.Adress,
   
-                        SiteEspecifications: {
-                          Details: Data.Details,
-                          DomainOptions: Data.DomainOptions,
-                          DomainExtension: Data.DomainExtension,
-                        },
-                        PageStyleDetails: {
-                          SiteType: Data.SiteType,
-                          PageStyle: Data.PageStyle,
-                          ButtonStyle: Data.ButtonStyle,
-                          NavBarStyle: Data.NavBarStyle,
-                          LoaderStyle: Data.LoaderStyle,
-                          Color1: Data.Color1,
-                          Color2: Data.Color2,
-                          SiteStructure: Data.SiteStructure,
-                        },
-                        PaymentInfo: {
-                          SiteChosenPrice: Data.SiteChosenPrice,
-                          PaymentMethod: "Card",
-                          TransactionId: id,
-                        },
-                      }
-                    )
-                    .then((res) => {
-                      toast.success(t("Toaster.Success.PayCorrectMessage"));
-                      setCardButtonLoading(false);
-                      setData({ ...Data, MongoDBOrderId: res.data._id });
+//                         SiteEspecifications: {
+//                           Details: Data.Details,
+//                           DomainOptions: Data.DomainOptions,
+//                           DomainExtension: Data.DomainExtension,
+//                         },
+//                         PageStyleDetails: {
+//                           SiteType: Data.SiteType,
+//                           PageStyle: Data.PageStyle,
+//                           ButtonStyle: Data.ButtonStyle,
+//                           NavBarStyle: Data.NavBarStyle,
+//                           LoaderStyle: Data.LoaderStyle,
+//                           Color1: Data.Color1,
+//                           Color2: Data.Color2,
+//                           SiteStructure: Data.SiteStructure,
+//                         },
+//                         PaymentInfo: {
+//                           SiteChosenPrice: Data.SiteChosenPrice,
+//                           PaymentMethod: "Card",
+//                           TransactionId: id,
+//                         },
+//                       }
+//                     )
+//                     .then((res) => {
+//                       toast.success(t("Toaster.Success.PayCorrectMessage"));
+//                       setCardButtonLoading(false);
+//                       setData({ ...Data, MongoDBOrderId: res.data._id });
   
-                      setTimeout(() => {
-                        History.push("/PageBuilder/Success");
-                      }, 3500);
-                    })
-                    .catch((err) => {
-                      console.error(`FrontEnd Order Error: ${err}`);
-                      toast.error(t("Toaster.Error.Generic"));
-                      setCardButtonLoading(false);
-                    });
-                } else {
-                  console.log("error placing in database");
-                }
-              })
-              .catch((err) => {
-                console.error(`FrontEnd Payment Error: ${err}`);
-                toast.error(t("Toaster.Error.Generic"));
-                setCardButtonLoading(false);
-              });          
+//                       setTimeout(() => {
+//                         History.push("/PageBuilder/Success");
+//                       }, 3500);
+//                     })
+//                     .catch((err) => {
+//                       console.error(`FrontEnd Order Error: ${err}`);
+//                       toast.error(t("Toaster.Error.Generic"));
+//                       setCardButtonLoading(false);
+//                     });
+//                 } else {
+//                   console.log("error placing in database");
+//                 }
+//               })
+//               .catch((err) => {
+//                 console.error(`FrontEnd Payment Error: ${err}`);
+//                 toast.error(t("Toaster.Error.Generic"));
+//                 setCardButtonLoading(false);
+//               });          
             
-          } else {
+//           } else {
             
-            axios.post(
-                `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PaymentProcedure`,
-                {
-                  id: id,
-                  amount: parseInt(`${Data.SiteChosenPrice}00`),
-                  Name: Data.Name,
-                  Email: Data.Email,
-                }
-              )
-              .then((res) => {
-                if (res.data === "Payment Successfull") {
-                  console.log("placing in data base...");
+//             axios.post(
+//                 `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PaymentProcedure`,
+//                 {
+//                   id: id,
+//                   amount: parseInt(`${Data.SiteChosenPrice}00`),
+//                   Name: Data.Name,
+//                   Email: Data.Email,
+//                 }
+//               )
+//               .then((res) => {
+//                 if (res.data === "Payment Successfull") {
+//                   console.log("placing in data base...");
   
-                  axios.post(`${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PlaceOrder`,
-                      {
-                        Name: Data.Name,
-                        Email: Data.Email,
-                        Phone: Data.Phone,
-                        Adress: Data.Adress,
+//                   axios.post(`${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PlaceOrder`,
+//                       {
+//                         Name: Data.Name,
+//                         Email: Data.Email,
+//                         Phone: Data.Phone,
+//                         Adress: Data.Adress,
   
-                        SiteEspecifications: {
-                          Details: Data.Details,
-                          DomainOptions: Data.DomainOptions,
-                          DomainExtension: Data.DomainExtension,
-                        },
-                        PageStyleDetails: {
-                          SiteType: Data.SiteType,
-                          PageStyle: Data.PageStyle,
-                          ButtonStyle: Data.ButtonStyle,
-                          NavBarStyle: Data.NavBarStyle,
-                          LoaderStyle: Data.LoaderStyle,
-                          Color1: Data.Color1,
-                          Color2: Data.Color2,
-                          SiteStructure: Data.SiteStructure,
-                        },
-                        PaymentInfo: {
-                          SiteChosenPrice: Data.SiteChosenPrice,
-                          PaymentMethod: "Card",
-                          TransactionId: id,
-                        },
-                      }
-                    )
-                    .then((res) => {
-                      toast.success(t("Toaster.Success.PayCorrectMessage"));
-                      setCardButtonLoading(false);
-                      setData({ ...Data, MongoDBOrderId: res.data._id });
+//                         SiteEspecifications: {
+//                           Details: Data.Details,
+//                           DomainOptions: Data.DomainOptions,
+//                           DomainExtension: Data.DomainExtension,
+//                         },
+//                         PageStyleDetails: {
+//                           SiteType: Data.SiteType,
+//                           PageStyle: Data.PageStyle,
+//                           ButtonStyle: Data.ButtonStyle,
+//                           NavBarStyle: Data.NavBarStyle,
+//                           LoaderStyle: Data.LoaderStyle,
+//                           Color1: Data.Color1,
+//                           Color2: Data.Color2,
+//                           SiteStructure: Data.SiteStructure,
+//                         },
+//                         PaymentInfo: {
+//                           SiteChosenPrice: Data.SiteChosenPrice,
+//                           PaymentMethod: "Card",
+//                           TransactionId: id,
+//                         },
+//                       }
+//                     )
+//                     .then((res) => {
+//                       toast.success(t("Toaster.Success.PayCorrectMessage"));
+//                       setCardButtonLoading(false);
+//                       setData({ ...Data, MongoDBOrderId: res.data._id });
   
-                      setTimeout(() => {
-                        History.push("/PageBuilder/Success");
-                      }, 3500);
-                    })
-                    .catch((err) => {
-                      console.error(`FrontEnd Order Error: ${err}`);
-                      toast.error(t("Toaster.Error.Generic"));
-                      setCardButtonLoading(false);
-                    });
-                } else {
-                  console.log("error placing in database");
-                }
-              })
-              .catch((err) => {
-                console.error(`FrontEnd Payment Error: ${err}`);
-                toast.error(t("Toaster.Error.Generic"));
-                setCardButtonLoading(false);
-              });
-          }          
-        }
+//                       setTimeout(() => {
+//                         History.push("/PageBuilder/Success");
+//                       }, 3500);
+//                     })
+//                     .catch((err) => {
+//                       console.error(`FrontEnd Order Error: ${err}`);
+//                       toast.error(t("Toaster.Error.Generic"));
+//                       setCardButtonLoading(false);
+//                     });
+//                 } else {
+//                   console.log("error placing in database");
+//                 }
+//               })
+//               .catch((err) => {
+//                 console.error(`FrontEnd Payment Error: ${err}`);
+//                 toast.error(t("Toaster.Error.Generic"));
+//                 setCardButtonLoading(false);
+//               });
+//           }          
+//         }
 
-      } else {
-        console.error(error)
-        toast.error("error")
-        setCardButtonLoading(false)
-      }
-    }
-  };
+//       } else {
+//         console.error(error)
+//         toast.error("error")
+//         setCardButtonLoading(false)
+//       }
+//     }
+//   };
 
-  return (
-    <form>
-      <div className="PayLine">
-        <CardElement
-          options={{
-            style: {
-              base: {
-                fontSize: "17px",
-                color: "#FFFFFF",
-                "::placeholder": {
-                  color: "#FFFFFF",
-                },
-              },
-              invalid: {
-                color: "#9e2146",
-              },
-            },
-          }}
-        />
-      </div>
-      <ChakraProvider>
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            HandlePayRequest();
-          }}
-          className="PayButton"
-          size="lg"
-          leftIcon={<MoneyIcon />}
-          isLoading={cardButtonLoading}
-        >
-          {t("BuilderFinal.Tab3.Buttons.Pay")}
-        </Button>
-      </ChakraProvider>
-    </form>
-  );
-};
+//   return (
+//     <form>
+//       <div className="PayLine">
+//         <CardElement
+//           options={{
+//             style: {
+//               base: {
+//                 fontSize: "17px",
+//                 color: "#FFFFFF",
+//                 "::placeholder": {
+//                   color: "#FFFFFF",
+//                 },
+//               },
+//               invalid: {
+//                 color: "#9e2146",
+//               },
+//             },
+//           }}
+//         />
+//       </div>
+//       <ChakraProvider>
+//         <Button
+//           onClick={(e) => {
+//             e.preventDefault();
+//             HandlePayRequest();
+//           }}
+//           className="PayButton"
+//           size="lg"
+//           leftIcon={<MoneyIcon />}
+//           isLoading={cardButtonLoading}
+//         >
+//           {t("BuilderFinal.Tab3.Buttons.Pay")}
+//         </Button>
+//       </ChakraProvider>
+//     </form>
+//   );
+// };
 
-const PayPalForm = (props:any) => {
+// const PayPalForm = (props:any) => {
 
-  const [Data, setData] = useContext(ChosenDataContext);
-  const [onProcessingPay, setOnProcessingPay] = useState(false)
-  const History = useHistory();
-  const { t } = useTranslation();
+//   const [Data, setData] = useContext(ChosenDataContext);
+//   const [onProcessingPay, setOnProcessingPay] = useState(false)
+//   const History = useHistory();
+//   const { t } = useTranslation();
 
-  const PlacePayPalOrder = () => {
-    axios
-      .post(
-        `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PlaceOrder`,
-        {
-          Name: Data.Name,
-          Email: Data.Email,
-          Phone: Data.Phone,
-          Adress: Data.Adress,
+//   const PlacePayPalOrder = () => {
+//     axios
+//       .post(
+//         `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/PlaceOrder`,
+//         {
+//           Name: Data.Name,
+//           Email: Data.Email,
+//           Phone: Data.Phone,
+//           Adress: Data.Adress,
 
-          SiteEspecifications: {
-            Details: Data.Details,
-            DomainOptions: Data.DomainOptions,
-            DomainExtension: Data.DomainExtension,
-          },
-          PageStyleDetails: {
-            SiteType: Data.SiteType,
-            PageStyle: Data.PageStyle,
-            ButtonStyle: Data.ButtonStyle,
-            NavBarStyle: Data.NavBarStyle,
-            LoaderStyle: Data.LoaderStyle,
-            Color1: Data.Color1,
-            Color2: Data.Color2,
-            SiteStructure: Data.SiteStructure,
-          },
-          PaymentInfo: {
-            SiteChosenPrice: Data.SiteChosenPrice,
-            PaymentMethod: Data.PaymentMethod,
-            TransactionId: Data.TransactionId,
-          },
-        }
-      )
-      .then((res) => {
-        toast.success(t("Toaster.Success.PayCorrectMessage"));
-        setData({ ...Data, MongoDBOrderId: res.data._id });
-        setOnProcessingPay(false)
+//           SiteEspecifications: {
+//             Details: Data.Details,
+//             DomainOptions: Data.DomainOptions,
+//             DomainExtension: Data.DomainExtension,
+//           },
+//           PageStyleDetails: {
+//             SiteType: Data.SiteType,
+//             PageStyle: Data.PageStyle,
+//             ButtonStyle: Data.ButtonStyle,
+//             NavBarStyle: Data.NavBarStyle,
+//             LoaderStyle: Data.LoaderStyle,
+//             Color1: Data.Color1,
+//             Color2: Data.Color2,
+//             SiteStructure: Data.SiteStructure,
+//           },
+//           PaymentInfo: {
+//             SiteChosenPrice: Data.SiteChosenPrice,
+//             PaymentMethod: Data.PaymentMethod,
+//             TransactionId: Data.TransactionId,
+//           },
+//         }
+//       )
+//       .then((res) => {
+//         toast.success(t("Toaster.Success.PayCorrectMessage"));
+//         setData({ ...Data, MongoDBOrderId: res.data._id });
+//         setOnProcessingPay(false)
 
-        setTimeout(() => {
-          History.push("/PageBuilder/Success");
-        }, 3500);
-      })
-      .catch((err) => {
-        console.error(`FrontEnd Order Error: ${err}`);
-        toast.error(t("Toaster.Error.Generic"));
-        setOnProcessingPay(false);
-      });
-  };
+//         setTimeout(() => {
+//           History.push("/PageBuilder/Success");
+//         }, 3500);
+//       })
+//       .catch((err) => {
+//         console.error(`FrontEnd Order Error: ${err}`);
+//         toast.error(t("Toaster.Error.Generic"));
+//         setOnProcessingPay(false);
+//       });
+//   };
 
-  const CreateOrder = (data: Record<string, unknown>, actions: any) => {
+//   const CreateOrder = (data: Record<string, unknown>, actions: any) => {
 
-    setOnProcessingPay(true);
+//     setOnProcessingPay(true);
 
-    return actions.order
-      .create({
-        intent: "CAPTURE",
-        purchase_units: [
-          {
-            description: "smort website",
-            amount: {
-              currency_code: "MXN",
-              value: Data.SiteChosenPrice,
-            },
-          },
-        ],
-      })
-  }
+//     return actions.order
+//       .create({
+//         intent: "CAPTURE",
+//         purchase_units: [
+//           {
+//             description: "smort website",
+//             amount: {
+//               currency_code: "MXN",
+//               value: Data.SiteChosenPrice,
+//             },
+//           },
+//         ],
+//       })
+//   }
 
-  return (
-    <div className="PayPalInnerBox">
-      {onProcessingPay ? (
-        <Button
-          className="PayPalLoader"
-          isLoading={true}
-          isFullWidth={true}
-          loadingText={t("BuilderFinal.Tab3.Buttons.PaypalLoader")}
-        ></Button>
-      ) : null}
+//   return (
+//     <div className="PayPalInnerBox">
+//       {onProcessingPay ? (
+//         <Button
+//           className="PayPalLoader"
+//           isLoading={true}
+//           isFullWidth={true}
+//           loadingText={t("BuilderFinal.Tab3.Buttons.PaypalLoader")}
+//         ></Button>
+//       ) : null}
 
-      <div className="PayPalButton">
-        <PayPalButtons
-          forceReRender={Data.SiteChosenPrice}
-          onClick={() => props.onButtonClicked(true)}
-          style={{
-            layout: "horizontal",
-            color: "gold",
-            height: 50,
-            tagline: false,
-          }}
-          createOrder={CreateOrder}
-          onCancel={() => setOnProcessingPay(false)}
-          onApprove={async (data: any, actions: any) => {
-            const order = await actions.order.capture();
-            Data.PaymentMethod = "PayPal";
-            Data.TransactionId = order.id;
-            PlacePayPalOrder();
-          }}
-          onError={() => {
-            console.error("error");
-            toast.error(t("Toaster.Error.Generic"));
-            setOnProcessingPay(true);
-          }}
-        />
-      </div>
-    </div>
-  );
-}
+//       <div className="PayPalButton">
+//         <PayPalButtons
+//           forceReRender={Data.SiteChosenPrice}
+//           onClick={() => props.onButtonClicked(true)}
+//           style={{
+//             layout: "horizontal",
+//             color: "gold",
+//             height: 50,
+//             tagline: false,
+//           }}
+//           createOrder={CreateOrder}
+//           onCancel={() => setOnProcessingPay(false)}
+//           onApprove={async (data: any, actions: any) => {
+//             const order = await actions.order.capture();
+//             Data.PaymentMethod = "PayPal";
+//             Data.TransactionId = order.id;
+//             PlacePayPalOrder();
+//           }}
+//           onError={() => {
+//             console.error("error");
+//             toast.error(t("Toaster.Error.Generic"));
+//             setOnProcessingPay(true);
+//           }}
+//         />
+//       </div>
+//     </div>
+//   );
+// }
 
 const BuilderFinal: React.FC = () => {
     
@@ -399,8 +399,8 @@ const BuilderFinal: React.FC = () => {
     const [stepSelected, setStepSelected] = useState(1)
     const [Price, setPrice] = useState <number>(0)
     const [pageStructure, setPageStructure] = useState <string>("vertical")
-    const [tcbChecked, setTcbChecked] = useState(false)
-    const [masterTesting, setMasterTesting] = useState(false)
+    // const [tcbChecked, setTcbChecked] = useState(false)
+    // const [masterTesting, setMasterTesting] = useState(false)
 
     const NameRef = useRef<HTMLInputElement>(null)
     const EmailRef = useRef<HTMLInputElement>(null)
@@ -436,12 +436,12 @@ const BuilderFinal: React.FC = () => {
 
 
 
-    const SearchForMasterKeyWord = (secretParameter:any) => {
-      if (secretParameter.target.value === "ShelasFriasTesting") {
-        toast("On testing mode master");
-        setMasterTesting(true);
-      }
-    };
+    // const SearchForMasterKeyWord = (secretParameter:any) => {
+    //   if (secretParameter.target.value === "ShelasFriasTesting") {
+    //     toast("On testing mode master");
+    //     setMasterTesting(true);
+    //   }
+    // };
 
     const PriceDecider = () => {
       switch (Data.SiteType) {
@@ -515,70 +515,70 @@ const BuilderFinal: React.FC = () => {
       return DeliveryDate
     }
 
-    const AnimateCardPayOptions = (direction:string) => {
+    // const AnimateCardPayOptions = (direction:string) => {
 
-      if (direction === "forward"){
+    //   if (direction === "forward"){
         
-        const Ftl = anime.timeline({
-          easing:"easeInOutSine",
-        })
+    //     const Ftl = anime.timeline({
+    //       easing:"easeInOutSine",
+    //     })
   
-        Ftl.add({
-          targets:".RightBoxS3Final",
-          duration: 1000,
-          rotateY: "180deg",
-        })
+    //     Ftl.add({
+    //       targets:".RightBoxS3Final",
+    //       duration: 1000,
+    //       rotateY: "180deg",
+    //     })
   
-        Ftl.add(
-          {
-            targets: [".Price", ".ButtonsBox", "#ImportantP", ".TandCCheckBox"],
-            duration: 500,
-            opacity: 0,
-          },
-          "-=1000"
-        );
+    //     Ftl.add(
+    //       {
+    //         targets: [".Price", ".ButtonsBox", "#ImportantP", ".TandCCheckBox"],
+    //         duration: 500,
+    //         opacity: 0,
+    //       },
+    //       "-=1000"
+    //     );
   
-        Ftl.add({
-          targets:".PaymentBox",
-          duration: 500,
-          opacity: 1,
-          height: "100%"
-        },"-=500")
+    //     Ftl.add({
+    //       targets:".PaymentBox",
+    //       duration: 500,
+    //       opacity: 1,
+    //       height: "100%"
+    //     },"-=500")
 
-      } else {
+    //   } else {
        
-        const Btl = anime.timeline({
-          easing: "easeInOutSine",
-        });
+    //     const Btl = anime.timeline({
+    //       easing: "easeInOutSine",
+    //     });
 
-        Btl.add({
-          targets: ".RightBoxS3Final",
-          duration: 1000,
-          rotateY: "0deg",
-        });
+    //     Btl.add({
+    //       targets: ".RightBoxS3Final",
+    //       duration: 1000,
+    //       rotateY: "0deg",
+    //     });
 
-        Btl.add(
-          {
-            targets: [".Price", ".ButtonsBox", "#ImportantP", ".TandCCheckBox"],
-            duration: 500,
-            opacity: 1,
-          },
-          "-=1000"
-        );
+    //     Btl.add(
+    //       {
+    //         targets: [".Price", ".ButtonsBox", "#ImportantP", ".TandCCheckBox"],
+    //         duration: 500,
+    //         opacity: 1,
+    //       },
+    //       "-=1000"
+    //     );
 
-        Btl.add(
-          {
-            targets: ".PaymentBox",
-            duration: 500,
-            opacity: 0,
-            height: "0%",
-          },
-          "-=1000"
-        );
+    //     Btl.add(
+    //       {
+    //         targets: ".PaymentBox",
+    //         duration: 500,
+    //         opacity: 0,
+    //         height: "0%",
+    //       },
+    //       "-=1000"
+    //     );
 
-      }
+    //   }
 
-    }
+    // }
 
     const Checker = (DataType: string) => {
       let translation = "none";
@@ -616,34 +616,34 @@ const BuilderFinal: React.FC = () => {
       return translation;
     };
 
-    const DataScan = () => {
+    // const DataScan = () => {
 
-      const PageRefs = [
-        NameRef.current,
-        EmailRef.current,
-        PhoneRef.current,
-        AdressRef.current,
-        DetailsRef.current,
-        DomainOpt1.current,
-        DomainOpt2.current,
-        DomainOpt3.current,
-      ]
+    //   const PageRefs = [
+    //     NameRef.current,
+    //     EmailRef.current,
+    //     PhoneRef.current,
+    //     AdressRef.current,
+    //     DetailsRef.current,
+    //     DomainOpt1.current,
+    //     DomainOpt2.current,
+    //     DomainOpt3.current,
+    //   ]
 
-      let ErrorsCatched: Array<string> | undefined = []
+    //   let ErrorsCatched: Array<string> | undefined = []
 
-      PageRefs.forEach((ref) => {
-        if (ref?.value){}
-        else {
-          ErrorsCatched?.push(`${ref?.name}`);
-        }
-      })
+    //   PageRefs.forEach((ref) => {
+    //     if (ref?.value){}
+    //     else {
+    //       ErrorsCatched?.push(`${ref?.name}`);
+    //     }
+    //   })
 
-      if (ErrorsCatched.length >= 1) {
-        return "error";
-      }
-      else return "All correct";
+    //   if (ErrorsCatched.length >= 1) {
+    //     return "error";
+    //   }
+    //   else return "All correct";
 
-    }
+    // }
 
     const NumberOfPagesDecider = (returner:string) => {
 
