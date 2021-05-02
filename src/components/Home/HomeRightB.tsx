@@ -113,9 +113,7 @@ const RightBox = () => {
         {
           targets: "#w3",
           opacity: 1,
-          duration: 10
-        },
-        "+=0"
+        }
       );
   
       ImageChanger.add({
@@ -158,10 +156,17 @@ const RightBox = () => {
 
 
 
-      ImageChanger.add({
-        targets: "#Image3",
-        opacity: 1
-      }, "+=1000")
+      // ImageChanger.add({
+      //   targets: "#Image3",
+      //   opacity: 1
+      // }, "+=1000")
+      ImageChanger.add(
+        {
+          targets: ["#Sales1", "#Person1"],
+          opacity: 0,
+        },
+        "+=1000"
+      );
       ImageChanger.add(
         {
           targets: "#w2",
@@ -181,11 +186,18 @@ const RightBox = () => {
       );
 
 
+      // ImageChanger.add(
+      //   {
+      //     targets: "#w3",
+      //     opacity: 1,
+      //   },
+      //   "+=100"
+      // );
 
       ImageChanger.add({
         targets: ["#Image3", "#Person1", "#Sales1","#w1", "#w2"],
         opacity: 0
-      }, "+=1000")
+      }, "-=100")
 
 
 
