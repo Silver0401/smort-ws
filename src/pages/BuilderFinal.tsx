@@ -1091,13 +1091,13 @@ const BuilderFinal: React.FC = () => {
 
         <section className="Steps">
           <div className="StepsHeader">
-            <h2
+            <span
               className={stepSelected === 1 ? "toggled" : "notToggled"}
               onClick={() => setStepSelected(1)}
             >
-              <p>1</p> {t("BuilderFinal.Tab1.Title")}
-            </h2>
-            <h2
+              <p>1</p> <h2> {t("BuilderFinal.Tab1.Title")} </h2>
+            </span>
+            <span
               className={stepSelected === 2 ? "toggled" : "notToggled"}
               onClick={() => {
                 // if (!masterTesting) {
@@ -1112,9 +1112,9 @@ const BuilderFinal: React.FC = () => {
                 PriceDecider();
               }}
             >
-              <p>2</p> {t("BuilderFinal.Tab2.Title")}
-            </h2>
-            <h2
+              <p>2</p> <h2> {t("BuilderFinal.Tab2.Title")} </h2>
+            </span>
+            <span
               className={stepSelected === 3 ? "toggled" : "notToggled"}
               onClick={() => {
                 // if (!masterTesting) {
@@ -1129,8 +1129,8 @@ const BuilderFinal: React.FC = () => {
                 PriceDecider();
               }}
             >
-              <p>3</p> {t("BuilderFinal.Tab3.Title")}
-            </h2>
+              <p>3</p> <h2> {t("BuilderFinal.Tab3.Title")} </h2>
+            </span>
           </div>
 
           <div className="StepsBody">

@@ -4,22 +4,21 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styleSvg from "./../../resources/style.svg";
 import changesSvg from "./../../resources/changes.svg";
-import emailjs from "emailjs-com"
+import emailjs from "emailjs-com";
 import { useTranslation } from "react-i18next";
-import { ChakraProvider,Button } from "@chakra-ui/react";
+import { ChakraProvider, Button } from "@chakra-ui/react";
 // require("dotenv").config()
 
-const Support = (props:any) => {
+const Support = (props: any) => {
+  const { t } = useTranslation();
+  const NameRef = useRef<HTMLInputElement>(null);
+  const EmailRef = useRef<HTMLInputElement>(null);
+  const MessageRef = useRef<HTMLTextAreaElement>(null);
 
-  const { t } = useTranslation()
-  const NameRef = useRef <HTMLInputElement> (null)
-  const EmailRef = useRef <HTMLInputElement> (null)
-  const MessageRef = useRef <HTMLTextAreaElement> (null)
-
-  const [currentNameData, setCurrentNameData] = useState <string> ("")
-  const [currentEmailData, setCurrentEmailData] = useState <string> ("")
-  const [currentMessageData, setCurrentMessageData] = useState <string> ("")
-  const [buttonLoading, setButtonLoading] = useState <boolean> (false)
+  const [currentNameData, setCurrentNameData] = useState<string>("");
+  const [currentEmailData, setCurrentEmailData] = useState<string>("");
+  const [currentMessageData, setCurrentMessageData] = useState<string>("");
+  const [buttonLoading, setButtonLoading] = useState<boolean>(false);
 
   const SendPlaneIcon = () => {
     return (
@@ -32,25 +31,30 @@ const Support = (props:any) => {
         <path d="M23 0l-4.5 16.5-6.097-5.43 5.852-6.175-7.844 5.421-5.411-1.316 18-9zm-11 12.501v5.499l2.193-3.323-2.193-2.176zm-8.698 6.825l-1.439-.507 5.701-5.215 1.436.396-5.698 5.326zm3.262 4.287l-1.323-.565 4.439-4.503 1.32.455-4.436 4.613zm-4.083.387l-1.481-.507 8-7.89 1.437.397-7.956 8z" />
       </svg>
     );
-  }
+  };
 
   const PostHelpRequest = () => {
-
     const HelpRequestData = {
       Name: NameRef.current?.value,
       Email: EmailRef.current?.value,
-      Message: MessageRef.current?.value
-    }
+      Message: MessageRef.current?.value,
+    };
 
-    const SendEmail = (Name:string | undefined, Email:string | undefined, Message:string | undefined) => {
+    const SendEmail = (
+      Name: string | undefined,
+      Email: string | undefined,
+      Message: string | undefined
+    ) => {
       emailjs
         .send(
           "service_h86ldsp",
-          "template_gzdrak2",
+          "template_e3dgd7j",
           {
-            Name: Name,
-            Email: Email,
-            Message: Message,
+            subject: "New Smort Support Request ",
+            name: Name,
+            from_email: Email,
+            to_email: "smortmc2@gmail.com",
+            message: Message,
           },
           "user_TpS9YP6Fwr4okNaN6XOOH"
         )
@@ -62,9 +66,13 @@ const Support = (props:any) => {
             console.log("FAILED...", err);
           }
         );
-    }
+    };
 
-    axios.post(`${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/HelpRequest`, HelpRequestData)
+    axios
+      .post(
+        `${process.env.REACT_APP_NOT_BACKEND_URL}/DataCenter/HelpRequest`,
+        HelpRequestData
+      )
       .then((res) => {
         console.log(res.data);
         SendEmail(
@@ -76,14 +84,14 @@ const Support = (props:any) => {
         setCurrentMessageData("");
         setCurrentNameData("");
         setCurrentEmailData("");
-        setButtonLoading(false)
+        setButtonLoading(false);
       })
       .catch((err) => {
         console.log(`FE error: ${err}`);
         toast.error(t("Toaster.Error.Forms"));
         setButtonLoading(false);
       });
-  }
+  };
 
   return (
     <section className="Support">
@@ -119,7 +127,6 @@ const Support = (props:any) => {
               </span>
             </div>
             <div className="BottomForm">
-
               <div className="textAreaThingy">
                 <label>{t("DC.Support.Label.Message")}</label>
                 <textarea
@@ -129,7 +136,6 @@ const Support = (props:any) => {
                   value={currentMessageData}
                 />
               </div>
-
 
               <ChakraProvider>
                 <Button

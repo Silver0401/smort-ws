@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from "react-router-dom"
-import { I18nextProvider } from "react-i18next"
-import i18n from "./languages/lang"
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter } from "react-router-dom";
+import { I18nextProvider } from "react-i18next";
+import i18n from "./languages/lang";
 
 import { ChosenDataProvider } from "./components/ChosenData";
 import { DataCenterPathProvider } from "./components/DataCenterPath";
